@@ -58,7 +58,7 @@
           <span class="feedback-icon">
             {{ isCorrect ? '✓ Correct !' : '✗ Incorrect' }}
           </span>
-          <p *ngIf="currentQuestion.explanation">{{ currentQuestion.explanation }}</p>
+          <p *ngIf="currentQuestion.explanation">{{ currentQuestion.explanation | mathNotation }}</p>
         </div>
       </div>
 
@@ -72,7 +72,7 @@
         </button>
         <div class="hints-list" *ngIf="getVisibleHints().length > 0">
           <div class="hint" *ngFor="let hint of getVisibleHints(); let i = index">
-            <span class="hint-number">Indice {{ i + 1 }}:</span> {{ hint }}
+            <span class="hint-number">Indice {{ i + 1 }}:</span> {{ hint | mathNotation }}
           </div>
         </div>
       </div>

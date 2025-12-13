@@ -12,6 +12,8 @@ import { QuizComponent } from './components/quiz/quiz.component';
 import { ChapterDetailComponent } from './components/chapter-detail/chapter-detail.component';
 import { ProgressBarComponent } from './components/progress-bar/progress-bar.component';
 import { HomeComponent } from './components/home/home.component';
+import { KatexDirective } from './directives/katex.directive';
+import { MathNotationPipe } from './pipes/math-notation.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { HomeComponent } from './components/home/home.component';
     QuizComponent,
     ChapterDetailComponent,
     ProgressBarComponent,
-    HomeComponent
+    HomeComponent,
+    KatexDirective,
+    MathNotationPipe
   ],
   imports: [
     BrowserModule,

@@ -14,7 +14,7 @@
       { "textFormula": "{a} * {a} + {a}", "isCorrectFormula": "0" },
       { "textFormula": "{a} * {a} - {a}", "isCorrectFormula": "0" }
     ],
-    "explanationTemplate": "📖 Explication détaillée:\n\n{a}² signifie \"{a} au carré\" ou \"{a} élevé à la puissance 2\".\n\nCela veut dire: {a} × {a}\n\nCalcul:\n{a} × {a} = {a} * {a}\n\n💡 Rappel: Pour calculer un carré, on multiplie le nombre par lui-même !",
+    "explanationTemplate": "📖 Explication détaillée:\n\n{a}² signifie \"{a} au carré\" ou \"{a} élevé à la puissance 2\".\n\nCela veut dire: {a} × {a}\n\nCalcul:\n{a} × {a} = {a}*{a}\n\n💡 Rappel: Pour calculer un carré, on multiplie le nombre par lui-même !",
     "hintsTemplates": [
       "Un carré (²) signifie multiplier le nombre par lui-même",
       "{a}² = {a} × {a}",
@@ -33,7 +33,7 @@
     ],
     "questionTemplate": "Calculez: {a}² + {b}² = ?",
     "correctAnswerFormula": "{a}*{a} + {b}*{b}",
-    "explanationTemplate": "📖 Explication détaillée:\n\nÉtape 1: Calculer {a}²\n{a}² = {a} × {a} = {a}*{a}\n\nÉtape 2: Calculer {b}²\n{b}² = {b} × {b} = {b}*{b}\n\nÉtape 3: Additionner les résultats\n{a}*{a} + {b}*{b} = {a}*{a} + {b}*{b}\n\n✅ Résultat final: {a}*{a} + {b}*{b}\n\n💡 Astuce: Calcule toujours les puissances avant de faire l'addition !",
+    "explanationTemplate": "📖 Explication détaillée:\n\n**Étape 1:** Calculer {a}²\n{a}² = {a} × {a} = {a}*{a}\n\n**Étape 2:** Calculer {b}²\n{b}² = {b} × {b} = {b}*{b}\n\n**Étape 3:** Additionner les résultats\n{a}*{a} + {b}*{b} = {a}*{a} + {b}*{b}\n\n✅ **Résultat final:** {a}*{a} + {b}*{b}\n\n💡 Astuce: Calcule toujours les puissances avant de faire l'addition !",
     "hintsTemplates": [
       "Commence par calculer {a}²",
       "{a}² = {a} × {a} = {a}*{a}",
@@ -58,7 +58,7 @@
       { "textFormula": "sqrt({a}) + 1", "isCorrectFormula": "0" },
       { "textFormula": "sqrt({a}) - 1", "isCorrectFormula": "0" }
     ],
-    "explanationTemplate": "📖 Explication détaillée:\n\nLa racine carrée (√) est l'opération inverse du carré (²).\n\nOn cherche: Quel nombre multiplié par lui-même donne {a} ?\n\nRésultat: √{a} = sqrt({a})\n\nVérification:\nsqrt({a}) × sqrt({a}) = sqrt({a})² = {a} ✓\n\n💡 Rappel: √(a²) = a",
+    "explanationTemplate": "📖 Explication détaillée:\n\nLa racine carrée (√) est l'opération inverse du carré (²).\n\n**Question:** Quel nombre multiplié par lui-même donne {a} ?\n\n**Réponse:** √{a}\n\nCalculons √{a}:\n√{a} × √{a} = (√{a})² = {a} ✓\n\n**Résultat:** √{a} ≈ {a}/√{a}\n\n💡 Rappel: √(a²) = a",
     "hintsTemplates": [
       "La racine carrée est l'inverse du carré",
       "Cherche quel nombre au carré donne {a}",
