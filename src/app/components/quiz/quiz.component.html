@@ -2,12 +2,8 @@
   <div class="quiz-header">
     <button class="exit-button" (click)="exitQuiz()">✕</button>
     <div class="progress-container">
-      <div class="progress-bar">
-        <div class="progress-fill" [style.width.%]="getProgressPercentage()"></div>
-      </div>
-      <span class="progress-text">{{ currentQuestionIndex + 1 }} / {{ questions.length }}</span>
+      <span class="progress-text">Question {{ currentQuestionIndex + 1 }} / {{ questions.length }}</span>
     </div>
-    <div class="score">⭐ {{ score }} XP</div>
   </div>
 
   <div class="quiz-content">

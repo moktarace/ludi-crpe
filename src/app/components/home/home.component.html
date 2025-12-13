@@ -4,23 +4,11 @@
     <p class="subtitle">Apprends les mathématiques niveau Seconde</p>
   </header>
 
-  <div class="stats-container">
+  <div class="stats-container" *ngIf="mistakesToReview > 0">
     <div class="stat-card">
-      <div class="stat-icon">⭐</div>
-      <div class="stat-value">{{ totalXP }}</div>
-      <div class="stat-label">XP Total</div>
-    </div>
-
-    <div class="stat-card">
-      <div class="stat-icon">🔥</div>
-      <div class="stat-value">{{ streak }}</div>
-      <div class="stat-label">Jours de suite</div>
-    </div>
-
-    <div class="stat-card" *ngIf="mistakesToReview > 0">
       <div class="stat-icon">📝</div>
       <div class="stat-value">{{ mistakesToReview }}</div>
-      <div class="stat-label">À réviser</div>
+      <div class="stat-label">Questions à réviser</div>
     </div>
   </div>
 

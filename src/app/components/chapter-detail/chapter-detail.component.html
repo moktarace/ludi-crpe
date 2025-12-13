@@ -45,31 +45,3 @@
     </div>
   </div>
 </div>
-
-<!-- Modal de score -->
-<div class="score-modal" *ngIf="showScore" (click)="closeScoreModal()">
-  <div class="score-content" (click)="$event.stopPropagation()">
-    <div class="score-header">
-      <h2>🎉 Quiz terminé !</h2>
-    </div>
-    <div class="score-body">
-      <div class="score-circle">
-        <div class="score-percentage">{{ quizPercentage }}%</div>
-        <div class="score-label">Score</div>
-      </div>
-      <div class="score-xp">
-        <span class="xp-icon">⭐</span>
-        <span class="xp-value">+{{ quizScore }} XP</span>
-      </div>
-      <div class="score-message">
-        <p *ngIf="quizPercentage === 100">Parfait ! Continue comme ça ! 🌟</p>
-        <p *ngIf="quizPercentage >= 80 && quizPercentage < 100">Excellent travail ! 👏</p>
-        <p *ngIf="quizPercentage >= 60 && quizPercentage < 80">Bon travail ! Tu progresses ! 👍</p>
-        <p *ngIf="quizPercentage < 60">Continue à t'entraîner ! 💪</p>
-      </div>
-    </div>
-    <div class="score-actions">
-      <button class="btn-close" (click)="closeScoreModal()">Continuer</button>
-    </div>
-  </div>
-</div>

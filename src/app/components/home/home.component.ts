@@ -9,8 +9,6 @@ import { ChapterService } from '../../services/chapter.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  totalXP: number = 0;
-  streak: number = 0;
   mistakesToReview: number = 0;
 
   constructor(
@@ -20,9 +18,7 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.progressService.progress$.subscribe(progress => {
-      this.totalXP = progress.totalXP;
-      this.streak = progress.streak;
+    this.progressService.progress$.subscribe(() => {
       this.mistakesToReview = this.progressService.getMistakesToReview().length;
     });
   }

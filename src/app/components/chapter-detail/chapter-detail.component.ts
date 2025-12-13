@@ -15,9 +15,6 @@ export class ChapterDetailComponent implements OnInit {
   completedQuestions: number = 0;
   totalQuestions: number = 0;
   completionPercentage: number = 0;
-  quizScore: number = 0;
-  quizPercentage: number = 0;
-  showScore: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -31,14 +28,6 @@ export class ChapterDetailComponent implements OnInit {
     this.route.params.subscribe(params => {
       const chapterId = params['id'];
       this.loadChapter(chapterId);
-    });
-
-    this.route.queryParams.subscribe(params => {
-      if (params['score']) {
-        this.quizScore = +params['score'];
-        this.quizPercentage = +params['percentage'];
-        this.showScore = true;
-      }
     });
   }
 
@@ -69,14 +58,5 @@ export class ChapterDetailComponent implements OnInit {
 
   goBack(): void {
     this.router.navigate(['/learning-path']);
-  }
-
-  closeScoreModal(): void {
-    this.showScore = false;
-    // Nettoyer les query params
-    this.router.navigate([], {
-      relativeTo: this.route,
-      queryParams: {}
-    });
   }
 }

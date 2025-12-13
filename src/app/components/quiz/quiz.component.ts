@@ -18,7 +18,6 @@ export class QuizComponent implements OnInit {
   selectedAnswer: string = '';
   showFeedback: boolean = false;
   isCorrect: boolean = false;
-  score: number = 0;
   chapterId: string = '';
   isReviewMode: boolean = false;
   showHints: boolean = false;
@@ -101,10 +100,6 @@ export class QuizComponent implements OnInit {
     this.isCorrect = this.questionService.checkAnswer(this.currentQuestion, answerToCheck);
     this.showFeedback = true;
 
-    if (this.isCorrect) {
-      this.score += 10;
-    }
-
     // Enregistrer la réponse
     const userAnswer: UserAnswer = {
       questionId: this.currentQuestion.id,
@@ -143,9 +138,6 @@ export class QuizComponent implements OnInit {
   }
 
   finishQuiz(): void {
-    const totalQuestions = this.questions.length;
-    const percentage = Math.round((this.score / (totalQuestions * 10)) * 100);
-    
     // Vérifier si le chapitre est complété
     const progress = this.progressService.getChapterProgress(this.chapterId);
     const chapter = this.chapterService.getChapterById(this.chapterId);
@@ -157,13 +149,7 @@ export class QuizComponent implements OnInit {
       }
     }
 
-    this.router.navigate(['/chapter', this.chapterId], {
-      queryParams: { 
-        score: this.score, 
-        total: totalQuestions * 10,
-        percentage: percentage
-      }
-    });
+    this.router.navigate(['/chapter', this.chapterId]);
   }
 
   toggleHints(): void {
