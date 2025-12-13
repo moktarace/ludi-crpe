@@ -62,14 +62,17 @@
         </div>
       </div>
 
-      <!-- Indices -->
+      <!-- Indices progressifs -->
       <div class="hints-section" *ngIf="currentQuestion.hints && currentQuestion.hints.length > 0 && !showFeedback">
-        <button class="hint-toggle" (click)="toggleHints()">
-          💡 {{ showHints ? 'Masquer' : 'Afficher' }} les indices
+        <button 
+          class="hint-button" 
+          (click)="showNextHint()"
+          [disabled]="!hasMoreHints()">
+          💡 Aide ({{ currentHintIndex }}/{{ currentQuestion.hints.length }})
         </button>
-        <div class="hints-list" *ngIf="showHints">
-          <div class="hint" *ngFor="let hint of currentQuestion.hints">
-            {{ hint }}
+        <div class="hints-list" *ngIf="getVisibleHints().length > 0">
+          <div class="hint" *ngFor="let hint of getVisibleHints(); let i = index">
+            <span class="hint-number">Indice {{ i + 1 }}:</span> {{ hint }}
           </div>
         </div>
       </div>

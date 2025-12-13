@@ -22,6 +22,8 @@ export class QuizComponent implements OnInit {
   chapterId: string = '';
   isReviewMode: boolean = false;
   showHints: boolean = false;
+  currentHintIndex: number = 0;
+  hintsUsed: number = 0;
   QuestionType = QuestionType; // Exposer l'enum au template
 
   constructor(
@@ -125,6 +127,7 @@ export class QuizComponent implements OnInit {
     
     if (this.currentQuestionIndex < this.questions.length) {
       this.currentQuestion = this.questions[this.currentQuestionIndex];
+      this.currentHintIndex = 0; // Reset hints for next question
       this.resetQuestion();
     } else {
       this.finishQuiz();
@@ -165,6 +168,39 @@ export class QuizComponent implements OnInit {
 
   toggleHints(): void {
     this.showHints = !this.showHints;
+  }
+
+  /**
+   * Affiche le prochain indice disponible
+   */
+  showNextHint(): void {
+    if (this.currentQuestion && this.currentQuestion.hints) {
+      if (this.currentHintIndex < this.currentQuestion.hints.length) {
+        this.currentHintIndex++;
+        this.hintsUsed++;
+        this.showHints = true;
+      }
+    }
+  }
+
+  /**
+   * Retourne les indices à afficher jusqu'à l'index actuel
+   */
+  getVisibleHints(): string[] {
+    if (!this.currentQuestion || !this.currentQuestion.hints) {
+      return [];
+    }
+    return this.currentQuestion.hints.slice(0, this.currentHintIndex);
+  }
+
+  /**
+   * Vérifie s'il reste des indices à afficher
+   */
+  hasMoreHints(): boolean {
+    if (!this.currentQuestion || !this.currentQuestion.hints) {
+      return false;
+    }
+    return this.currentHintIndex < this.currentQuestion.hints.length;
   }
 
   getProgressPercentage(): number {
