@@ -1,21 +1,52 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Question, QuestionType, DifficultyLevel } from '../models/question.model';
 import { ProgressService } from './progress.service';
+import { firstValueFrom } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class QuestionService {
   private questions: Question[] = [];
+  private questionsLoaded = false;
 
-  constructor(private progressService: ProgressService) {
-    this.initializeQuestions();
+  constructor(
+    private progressService: ProgressService,
+    private http: HttpClient
+  ) {
+    this.loadAllQuestions();
   }
 
-  private initializeQuestions(): void {
-    // Questions niveau seconde - mathématiques
+  private async loadAllQuestions(): Promise<void> {
+    try {
+      // Charger toutes les questions des chapitres
+      const chapters = ['chapter-1', 'chapter-2', 'chapter-3', 'chapter-4', 'chapter-5'];
+      const allQuestions: Question[] = [];
+
+      for (const chapter of chapters) {
+        try {
+          const questions = await firstValueFrom(
+            this.http.get<Question[]>(`assets/data/${chapter}-questions.json`)
+          );
+          allQuestions.push(...questions);
+        } catch (error) {
+          console.warn(`Could not load ${chapter}-questions.json`, error);
+        }
+      }
+
+      this.questions = allQuestions;
+      this.questionsLoaded = true;
+    } catch (error) {
+      console.error('Error loading questions:', error);
+      // Fallback: charger quelques questions par défaut
+      this.initializeFallbackQuestions();
+    }
+  }
+
+  private initializeFallbackQuestions(): void {
+    // Questions de secours minimalistes au cas où les fichiers JSON ne se chargent pas
     this.questions = [
-      // Chapitre 1: Nombres et calculs
       {
         id: 'q1_1',
         chapterId: 'chapter_1',
@@ -24,200 +55,19 @@ export class QuestionService {
         question: 'Calculez: 3² + 4² = ?',
         answers: [
           { text: '25', isCorrect: true },
-          { text: '49', isCorrect: false },
-          { text: '14', isCorrect: false },
-          { text: '21', isCorrect: false }
+          { text: '49', isCorrect: false }
         ],
         explanation: '3² = 9 et 4² = 16, donc 9 + 16 = 25',
         tags: ['calcul', 'puissances']
-      },
-      {
-        id: 'q1_2',
-        chapterId: 'chapter_1',
-        type: QuestionType.MULTIPLE_CHOICE,
-        difficulty: DifficultyLevel.EASY,
-        question: 'Quelle est la valeur de √144 ?',
-        answers: [
-          { text: '12', isCorrect: true },
-          { text: '72', isCorrect: false },
-          { text: '14', isCorrect: false },
-          { text: '10', isCorrect: false }
-        ],
-        explanation: '12 × 12 = 144',
-        tags: ['racines', 'calcul']
-      },
-      {
-        id: 'q1_3',
-        chapterId: 'chapter_1',
-        type: QuestionType.FREE_INPUT,
-        difficulty: DifficultyLevel.MEDIUM,
-        question: 'Calculez: 5³ = ?',
-        correctAnswer: '125',
-        explanation: '5³ = 5 × 5 × 5 = 125',
-        hints: ['5 × 5 = 25', 'Puis 25 × 5 = ?'],
-        tags: ['puissances', 'calcul']
-      },
-      {
-        id: 'q1_4',
-        chapterId: 'chapter_1',
-        type: QuestionType.MULTIPLE_CHOICE,
-        difficulty: DifficultyLevel.MEDIUM,
-        question: 'Simplifiez: 2⁴ × 2³ = ?',
-        answers: [
-          { text: '2⁷', isCorrect: true },
-          { text: '2¹²', isCorrect: false },
-          { text: '4⁷', isCorrect: false },
-          { text: '2⁶', isCorrect: false }
-        ],
-        explanation: 'Quand on multiplie des puissances de même base, on additionne les exposants: 4 + 3 = 7',
-        tags: ['puissances', 'propriétés']
-      },
-      {
-        id: 'q1_5',
-        chapterId: 'chapter_1',
-        type: QuestionType.FREE_INPUT,
-        difficulty: DifficultyLevel.HARD,
-        question: 'Calculez: (2³)² = ?',
-        correctAnswer: '64',
-        explanation: '(2³)² = 2⁶ = 64',
-        hints: ['Utilisez la règle (aⁿ)ᵐ = aⁿˣᵐ', '3 × 2 = 6, donc 2⁶'],
-        tags: ['puissances', 'propriétés']
-      },
-
-      // Chapitre 2: Fonctions
-      {
-        id: 'q2_1',
-        chapterId: 'chapter_2',
-        type: QuestionType.MULTIPLE_CHOICE,
-        difficulty: DifficultyLevel.EASY,
-        question: 'Si f(x) = 2x + 3, que vaut f(5) ?',
-        answers: [
-          { text: '13', isCorrect: true },
-          { text: '11', isCorrect: false },
-          { text: '10', isCorrect: false },
-          { text: '8', isCorrect: false }
-        ],
-        explanation: 'f(5) = 2×5 + 3 = 10 + 3 = 13',
-        tags: ['fonctions', 'substitution']
-      },
-      {
-        id: 'q2_2',
-        chapterId: 'chapter_2',
-        type: QuestionType.MULTIPLE_CHOICE,
-        difficulty: DifficultyLevel.EASY,
-        question: 'Quelle est l\'image de 3 par la fonction f(x) = x² ?',
-        answers: [
-          { text: '9', isCorrect: true },
-          { text: '6', isCorrect: false },
-          { text: '3', isCorrect: false },
-          { text: '12', isCorrect: false }
-        ],
-        explanation: 'f(3) = 3² = 9',
-        tags: ['fonctions', 'image']
-      },
-      {
-        id: 'q2_3',
-        chapterId: 'chapter_2',
-        type: QuestionType.FREE_INPUT,
-        difficulty: DifficultyLevel.MEDIUM,
-        question: 'Si f(x) = 3x - 7, quelle valeur de x donne f(x) = 8 ?',
-        correctAnswer: '5',
-        explanation: '3x - 7 = 8, donc 3x = 15, donc x = 5',
-        hints: ['Résolvez l\'équation 3x - 7 = 8', 'Ajoutez 7 de chaque côté'],
-        tags: ['fonctions', 'équations']
-      },
-      {
-        id: 'q2_4',
-        chapterId: 'chapter_2',
-        type: QuestionType.MULTIPLE_CHOICE,
-        difficulty: DifficultyLevel.MEDIUM,
-        question: 'Une fonction linéaire a pour coefficient 4. Quelle est son expression ?',
-        answers: [
-          { text: 'f(x) = 4x', isCorrect: true },
-          { text: 'f(x) = x + 4', isCorrect: false },
-          { text: 'f(x) = 4', isCorrect: false },
-          { text: 'f(x) = x/4', isCorrect: false }
-        ],
-        explanation: 'Une fonction linéaire s\'écrit f(x) = ax où a est le coefficient',
-        tags: ['fonctions', 'linéaire']
-      },
-      {
-        id: 'q2_5',
-        chapterId: 'chapter_2',
-        type: QuestionType.FREE_INPUT,
-        difficulty: DifficultyLevel.HARD,
-        question: 'Si f(x) = x² - 4x + 3, que vaut f(-2) ?',
-        correctAnswer: '15',
-        explanation: 'f(-2) = (-2)² - 4×(-2) + 3 = 4 + 8 + 3 = 15',
-        hints: ['Attention aux signes avec -2', '(-2)² = 4', '-4×(-2) = +8'],
-        tags: ['fonctions', 'polynômes']
-      },
-
-      // Chapitre 3: Géométrie
-      {
-        id: 'q3_1',
-        chapterId: 'chapter_3',
-        type: QuestionType.MULTIPLE_CHOICE,
-        difficulty: DifficultyLevel.EASY,
-        question: 'Quelle est l\'aire d\'un rectangle de longueur 6 cm et largeur 4 cm ?',
-        answers: [
-          { text: '24 cm²', isCorrect: true },
-          { text: '20 cm²', isCorrect: false },
-          { text: '10 cm²', isCorrect: false },
-          { text: '12 cm²', isCorrect: false }
-        ],
-        explanation: 'Aire = longueur × largeur = 6 × 4 = 24 cm²',
-        tags: ['géométrie', 'aire']
-      },
-      {
-        id: 'q3_2',
-        chapterId: 'chapter_3',
-        type: QuestionType.MULTIPLE_CHOICE,
-        difficulty: DifficultyLevel.EASY,
-        question: 'Un triangle rectangle a des côtés de 3 cm et 4 cm. Quelle est la longueur de l\'hypoténuse ?',
-        answers: [
-          { text: '5 cm', isCorrect: true },
-          { text: '7 cm', isCorrect: false },
-          { text: '6 cm', isCorrect: false },
-          { text: '4,5 cm', isCorrect: false }
-        ],
-        explanation: 'Théorème de Pythagore: 3² + 4² = 9 + 16 = 25 = 5²',
-        tags: ['géométrie', 'pythagore']
-      },
-      {
-        id: 'q3_3',
-        chapterId: 'chapter_3',
-        type: QuestionType.FREE_INPUT,
-        difficulty: DifficultyLevel.MEDIUM,
-        question: 'Quel est le périmètre d\'un cercle de rayon 5 cm ? (Arrondi à l\'unité, π ≈ 3,14)',
-        correctAnswer: '31',
-        explanation: 'Périmètre = 2πr = 2 × 3,14 × 5 = 31,4 ≈ 31 cm',
-        hints: ['Formule: P = 2πr', 'π ≈ 3,14'],
-        tags: ['géométrie', 'cercle', 'périmètre']
-      },
-      {
-        id: 'q3_4',
-        chapterId: 'chapter_3',
-        type: QuestionType.FREE_INPUT,
-        difficulty: DifficultyLevel.MEDIUM,
-        question: 'Quelle est l\'aire d\'un disque de diamètre 10 cm ? (Arrondi à l\'unité, π ≈ 3,14)',
-        correctAnswer: '79',
-        explanation: 'Rayon = 5 cm, Aire = πr² = 3,14 × 5² = 3,14 × 25 = 78,5 ≈ 79 cm²',
-        hints: ['Le rayon est la moitié du diamètre', 'Aire = πr²'],
-        tags: ['géométrie', 'cercle', 'aire']
-      },
-      {
-        id: 'q3_5',
-        chapterId: 'chapter_3',
-        type: QuestionType.FREE_INPUT,
-        difficulty: DifficultyLevel.HARD,
-        question: 'Un triangle a une base de 8 cm et une hauteur de 5 cm. Quelle est son aire en cm² ?',
-        correctAnswer: '20',
-        explanation: 'Aire = (base × hauteur) / 2 = (8 × 5) / 2 = 40 / 2 = 20 cm²',
-        hints: ['Formule: A = (b × h) / 2', 'Calculez d\'abord 8 × 5'],
-        tags: ['géométrie', 'triangle', 'aire']
       }
     ];
+    this.questionsLoaded = true;
+  }
+
+  async waitForQuestionsLoaded(): Promise<void> {
+    while (!this.questionsLoaded) {
+      await new Promise(resolve => setTimeout(resolve, 100));
+    }
   }
 
   getQuestionsByChapter(chapterId: string): Question[] {

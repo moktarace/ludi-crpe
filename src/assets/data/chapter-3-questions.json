@@ -1,0 +1,65 @@
+[
+  {
+    "id": "q3_1",
+    "chapterId": "chapter_3",
+    "type": "multiple_choice",
+    "difficulty": "easy",
+    "question": "Quelle est l'aire d'un rectangle de longueur 6 cm et largeur 4 cm ?",
+    "answers": [
+      { "text": "24 cm²", "isCorrect": true },
+      { "text": "20 cm²", "isCorrect": false },
+      { "text": "10 cm²", "isCorrect": false },
+      { "text": "12 cm²", "isCorrect": false }
+    ],
+    "explanation": "Aire = longueur × largeur = 6 × 4 = 24 cm²",
+    "tags": ["géométrie", "aire"]
+  },
+  {
+    "id": "q3_2",
+    "chapterId": "chapter_3",
+    "type": "multiple_choice",
+    "difficulty": "easy",
+    "question": "Un triangle rectangle a des côtés de 3 cm et 4 cm. Quelle est la longueur de l'hypoténuse ?",
+    "answers": [
+      { "text": "5 cm", "isCorrect": true },
+      { "text": "7 cm", "isCorrect": false },
+      { "text": "6 cm", "isCorrect": false },
+      { "text": "4,5 cm", "isCorrect": false }
+    ],
+    "explanation": "Théorème de Pythagore: 3² + 4² = 9 + 16 = 25 = 5²",
+    "tags": ["géométrie", "pythagore"]
+  },
+  {
+    "id": "q3_3",
+    "chapterId": "chapter_3",
+    "type": "free_input",
+    "difficulty": "medium",
+    "question": "Quel est le périmètre d'un cercle de rayon 5 cm ? (Arrondi à l'unité, π ≈ 3,14)",
+    "correctAnswer": "31",
+    "explanation": "Périmètre = 2πr = 2 × 3,14 × 5 = 31,4 ≈ 31 cm",
+    "hints": ["Formule: P = 2πr", "π ≈ 3,14"],
+    "tags": ["géométrie", "cercle", "périmètre"]
+  },
+  {
+    "id": "q3_4",
+    "chapterId": "chapter_3",
+    "type": "free_input",
+    "difficulty": "medium",
+    "question": "Quelle est l'aire d'un disque de diamètre 10 cm ? (Arrondi à l'unité, π ≈ 3,14)",
+    "correctAnswer": "79",
+    "explanation": "Rayon = 5 cm, Aire = πr² = 3,14 × 5² = 3,14 × 25 = 78,5 ≈ 79 cm²",
+    "hints": ["Le rayon est la moitié du diamètre", "Aire = πr²"],
+    "tags": ["géométrie", "cercle", "aire"]
+  },
+  {
+    "id": "q3_5",
+    "chapterId": "chapter_3",
+    "type": "free_input",
+    "difficulty": "hard",
+    "question": "Un triangle a une base de 8 cm et une hauteur de 5 cm. Quelle est son aire en cm² ?",
+    "correctAnswer": "20",
+    "explanation": "Aire = (base × hauteur) / 2 = (8 × 5) / 2 = 40 / 2 = 20 cm²",
+    "hints": ["Formule: A = (b × h) / 2", "Calculez d'abord 8 × 5"],
+    "tags": ["géométrie", "triangle", "aire"]
+  }
+]

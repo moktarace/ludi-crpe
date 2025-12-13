@@ -1,0 +1,17 @@
+[
+  {
+    "id": "q5_1",
+    "chapterId": "chapter_5",
+    "type": "multiple_choice",
+    "difficulty": "easy",
+    "question": "Exemple: Quel vecteur représente le déplacement de A(1,2) vers B(4,6) ?",
+    "answers": [
+      { "text": "AB(3,4)", "isCorrect": true },
+      { "text": "AB(5,8)", "isCorrect": false },
+      { "text": "AB(4,6)", "isCorrect": false },
+      { "text": "AB(3,2)", "isCorrect": false }
+    ],
+    "explanation": "Vecteur AB = (xB - xA, yB - yA) = (4-1, 6-2) = (3, 4)",
+    "tags": ["vecteurs", "coordonnées"]
+  }
+]

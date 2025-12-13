@@ -1,0 +1,69 @@
+[
+  {
+    "id": "q1_1",
+    "chapterId": "chapter_1",
+    "type": "multiple_choice",
+    "difficulty": "easy",
+    "question": "Calculez: 3² + 4² = ?",
+    "answers": [
+      { "text": "25", "isCorrect": true },
+      { "text": "49", "isCorrect": false },
+      { "text": "14", "isCorrect": false },
+      { "text": "21", "isCorrect": false }
+    ],
+    "explanation": "3² = 9 et 4² = 16, donc 9 + 16 = 25",
+    "tags": ["calcul", "puissances"]
+  },
+  {
+    "id": "q1_2",
+    "chapterId": "chapter_1",
+    "type": "multiple_choice",
+    "difficulty": "easy",
+    "question": "Quelle est la valeur de √144 ?",
+    "answers": [
+      { "text": "12", "isCorrect": true },
+      { "text": "72", "isCorrect": false },
+      { "text": "14", "isCorrect": false },
+      { "text": "10", "isCorrect": false }
+    ],
+    "explanation": "12 × 12 = 144",
+    "tags": ["racines", "calcul"]
+  },
+  {
+    "id": "q1_3",
+    "chapterId": "chapter_1",
+    "type": "free_input",
+    "difficulty": "medium",
+    "question": "Calculez: 5³ = ?",
+    "correctAnswer": "125",
+    "explanation": "5³ = 5 × 5 × 5 = 125",
+    "hints": ["5 × 5 = 25", "Puis 25 × 5 = ?"],
+    "tags": ["puissances", "calcul"]
+  },
+  {
+    "id": "q1_4",
+    "chapterId": "chapter_1",
+    "type": "multiple_choice",
+    "difficulty": "medium",
+    "question": "Simplifiez: 2⁴ × 2³ = ?",
+    "answers": [
+      { "text": "2⁷", "isCorrect": true },
+      { "text": "2¹²", "isCorrect": false },
+      { "text": "4⁷", "isCorrect": false },
+      { "text": "2⁶", "isCorrect": false }
+    ],
+    "explanation": "Quand on multiplie des puissances de même base, on additionne les exposants: 4 + 3 = 7",
+    "tags": ["puissances", "propriétés"]
+  },
+  {
+    "id": "q1_5",
+    "chapterId": "chapter_1",
+    "type": "free_input",
+    "difficulty": "hard",
+    "question": "Calculez: (2³)² = ?",
+    "correctAnswer": "64",
+    "explanation": "(2³)² = 2⁶ = 64",
+    "hints": ["Utilisez la règle (aⁿ)ᵐ = aⁿˣᵐ", "3 × 2 = 6, donc 2⁶"],
+    "tags": ["puissances", "propriétés"]
+  }
+]

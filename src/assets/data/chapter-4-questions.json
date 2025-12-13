@@ -1,0 +1,17 @@
+[
+  {
+    "id": "q4_1",
+    "chapterId": "chapter_4",
+    "type": "multiple_choice",
+    "difficulty": "easy",
+    "question": "Exemple: Une pièce est lancée. Quelle est la probabilité d'obtenir pile ?",
+    "answers": [
+      { "text": "1/2", "isCorrect": true },
+      { "text": "1/3", "isCorrect": false },
+      { "text": "1/4", "isCorrect": false },
+      { "text": "1", "isCorrect": false }
+    ],
+    "explanation": "Il y a 2 résultats possibles (pile ou face) et 1 résultat favorable (pile), donc P = 1/2",
+    "tags": ["probabilités", "événements"]
+  }
+]

@@ -1,0 +1,69 @@
+[
+  {
+    "id": "q2_1",
+    "chapterId": "chapter_2",
+    "type": "multiple_choice",
+    "difficulty": "easy",
+    "question": "Si f(x) = 2x + 3, que vaut f(5) ?",
+    "answers": [
+      { "text": "13", "isCorrect": true },
+      { "text": "11", "isCorrect": false },
+      { "text": "10", "isCorrect": false },
+      { "text": "8", "isCorrect": false }
+    ],
+    "explanation": "f(5) = 2×5 + 3 = 10 + 3 = 13",
+    "tags": ["fonctions", "substitution"]
+  },
+  {
+    "id": "q2_2",
+    "chapterId": "chapter_2",
+    "type": "multiple_choice",
+    "difficulty": "easy",
+    "question": "Quelle est l'image de 3 par la fonction f(x) = x² ?",
+    "answers": [
+      { "text": "9", "isCorrect": true },
+      { "text": "6", "isCorrect": false },
+      { "text": "3", "isCorrect": false },
+      { "text": "12", "isCorrect": false }
+    ],
+    "explanation": "f(3) = 3² = 9",
+    "tags": ["fonctions", "image"]
+  },
+  {
+    "id": "q2_3",
+    "chapterId": "chapter_2",
+    "type": "free_input",
+    "difficulty": "medium",
+    "question": "Si f(x) = 3x - 7, quelle valeur de x donne f(x) = 8 ?",
+    "correctAnswer": "5",
+    "explanation": "3x - 7 = 8, donc 3x = 15, donc x = 5",
+    "hints": ["Résolvez l'équation 3x - 7 = 8", "Ajoutez 7 de chaque côté"],
+    "tags": ["fonctions", "équations"]
+  },
+  {
+    "id": "q2_4",
+    "chapterId": "chapter_2",
+    "type": "multiple_choice",
+    "difficulty": "medium",
+    "question": "Une fonction linéaire a pour coefficient 4. Quelle est son expression ?",
+    "answers": [
+      { "text": "f(x) = 4x", "isCorrect": true },
+      { "text": "f(x) = x + 4", "isCorrect": false },
+      { "text": "f(x) = 4", "isCorrect": false },
+      { "text": "f(x) = x/4", "isCorrect": false }
+    ],
+    "explanation": "Une fonction linéaire s'écrit f(x) = ax où a est le coefficient",
+    "tags": ["fonctions", "linéaire"]
+  },
+  {
+    "id": "q2_5",
+    "chapterId": "chapter_2",
+    "type": "free_input",
+    "difficulty": "hard",
+    "question": "Si f(x) = x² - 4x + 3, que vaut f(-2) ?",
+    "correctAnswer": "15",
+    "explanation": "f(-2) = (-2)² - 4×(-2) + 3 = 4 + 8 + 3 = 15",
+    "hints": ["Attention aux signes avec -2", "(-2)² = 4", "-4×(-2) = +8"],
+    "tags": ["fonctions", "polynômes"]
+  }
+]
