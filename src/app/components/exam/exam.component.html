@@ -48,15 +48,15 @@
     <!-- Question -->
     <div class="question-card" *ngIf="currentQuestion">
       <div class="question-header">
-        <span class="difficulty-badge" [class]="currentQuestion.difficulty">
-          {{ currentQuestion.difficulty }}
+        <span class="difficulty-badge" [class]="currentQuestion!.difficulty">
+          {{ currentQuestion!.difficulty }}
         </span>
         <span class="chapter-badge">
-          Chapitre {{ currentQuestion.chapterId.replace('chapter_', '') }}
+          Chapitre {{ currentQuestion!.chapterId.replace('chapter_', '') }}
         </span>
       </div>
 
-      <div class="question-text" [innerHTML]="currentQuestion.question | mathNotation"></div>
+      <div class="question-text" [innerHTML]="currentQuestion!.question | mathNotation"></div>
 
       <!-- QCM -->
       <div *ngIf="currentQuestion.type === 'multiple_choice'" class="answers-grid">

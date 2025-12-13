@@ -4,11 +4,11 @@
     <div class="score-card">
       <div class="score-emoji">{{ scoreEmoji }}</div>
       <div class="score-main" [style.color]="scoreColor">
-        {{ result.score }}%
+        {{ result!.score }}%
       </div>
       <div class="score-details">
-        <p>{{ result.correctAnswers }} / {{ result.totalQuestions }} bonnes réponses</p>
-        <p>⏱️ Temps écoulé : {{ formattedTime }} / {{ result.duration }}:00</p>
+        <p>{{ result!.correctAnswers }} / {{ result!.totalQuestions }} bonnes réponses</p>
+        <p>⏱️ Temps écoulé : {{ formattedTime }} / {{ result!.duration }}:00</p>
       </div>
       
       <div class="score-message">
@@ -72,7 +72,7 @@
 
         <!-- Explication détaillée -->
         <div class="explanation-section" *ngIf="showExplanations">
-          <div class="explanation-box">
+          <div class="explanation-box" *ngIf="answer.question.explanation">
             <h4>📖 Explication :</h4>
             <div [innerHTML]="answer.question.explanation | mathNotation"></div>
           </div>
