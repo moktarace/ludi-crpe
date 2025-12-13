@@ -50,28 +50,53 @@ export class QuestionGenerator {
   
   /**
    * Génère une question à partir d'un template
+   * @param questionIndex L'index de la question dans la séquence (optionnel, pour déterminer le type automatiquement)
    */
-  static generateQuestion(template: QuestionTemplate): any {
+  static generateQuestion(template: QuestionTemplate, questionIndex?: number): any {
     // Génère les valeurs aléatoires
     const variables = this.generateVariables(template.variables || []);
     
     // Remplace les placeholders dans la question
     const question = this.replacePlaceholders(template.questionTemplate, variables);
     
+    // Détermine le type automatiquement basé sur l'index si fourni
+    let questionType = template.type;
+    if (questionIndex !== undefined) {
+      questionType = this.determineQuestionType(questionIndex);
+    }
+    
     // Génère la réponse selon le type
     let result: any = {
       id: template.id,
       chapterId: template.chapterId,
-      type: template.type,
+      type: questionType,
       difficulty: template.difficulty,
       question: question,
       tags: template.tags || []
     };
     
-    if (template.type === 'multiple_choice' && template.answersTemplate) {
-      result.answers = this.generateAnswers(template.answersTemplate, variables);
-    } else if (template.type === 'free_input' && template.correctAnswerFormula) {
-      result.correctAnswer = this.evaluateFormula(template.correctAnswerFormula, variables).toString();
+    // Génère les réponses pour QCM ou la réponse correcte pour saisie libre
+    if (questionType === 'multiple_choice') {
+      // Pour QCM, on a besoin du template d'answers
+      if (template.answersTemplate) {
+        result.answers = this.generateAnswers(template.answersTemplate, variables);
+      } else if (template.correctAnswerFormula) {
+        // Si pas de template QCM mais une formule, on génère des mauvaises réponses
+        result.answers = this.generateAnswersFromFormula(template.correctAnswerFormula, variables);
+      }
+    } else if (questionType === 'free_input') {
+      // Pour saisie libre, on calcule la bonne réponse
+      if (template.correctAnswerFormula) {
+        result.correctAnswer = this.evaluateFormula(template.correctAnswerFormula, variables).toString();
+      } else if (template.answersTemplate) {
+        // Si on a un template QCM, on prend la bonne réponse
+        const correctAnswerTemplate = template.answersTemplate.find(a => 
+          this.evaluateFormula(a.isCorrectFormula, variables) === 1
+        );
+        if (correctAnswerTemplate) {
+          result.correctAnswer = this.evaluateFormula(correctAnswerTemplate.textFormula, variables).toString();
+        }
+      }
     }
     
     if (template.explanationTemplate) {
@@ -166,6 +191,63 @@ export class QuestionGenerator {
     }
     
     return uniqueAnswers;
+  }
+  
+  /**
+   * Détermine le type de question basé sur l'index
+   * Progression : 3 premières en QCM, puis alternance, puis principalement saisie libre
+   */
+  private static determineQuestionType(questionIndex: number): 'multiple_choice' | 'free_input' {
+    // Questions 0-2 (1-3 pour l'utilisateur) : QCM pour s'habituer
+    if (questionIndex < 3) {
+      return 'multiple_choice';
+    }
+    
+    // Questions 3-5 (4-6 pour l'utilisateur) : Alternance
+    if (questionIndex < 6) {
+      return questionIndex % 2 === 0 ? 'multiple_choice' : 'free_input';
+    }
+    
+    // Questions 6+ (7+ pour l'utilisateur) : Principalement saisie libre (80%)
+    return Math.random() < 0.8 ? 'free_input' : 'multiple_choice';
+  }
+  
+  /**
+   * Génère des réponses QCM à partir d'une formule de réponse correcte
+   * Crée automatiquement des distracteurs (mauvaises réponses)
+   */
+  private static generateAnswersFromFormula(correctFormula: string, variables: Record<string, number>): any[] {
+    const correctValue = this.evaluateFormula(correctFormula, variables);
+    
+    const answers: any[] = [
+      { text: correctValue.toString(), isCorrect: true }
+    ];
+    
+    // Génère 3 mauvaises réponses (distracteurs)
+    const wrongAnswers = new Set<number>();
+    
+    // Distracteur 1 : +/- quelques unités
+    wrongAnswers.add(correctValue + Math.floor(Math.random() * 5) + 1);
+    wrongAnswers.add(correctValue - Math.floor(Math.random() * 5) - 1);
+    
+    // Distracteur 2 : erreur de calcul courante (double, moitié, etc.)
+    wrongAnswers.add(Math.floor(correctValue * 2));
+    wrongAnswers.add(Math.floor(correctValue / 2));
+    
+    // Distracteur 3 : erreur d'opération
+    wrongAnswers.add(Math.floor(correctValue * 1.5));
+    wrongAnswers.add(Math.floor(correctValue + 10));
+    
+    // Garde seulement les 3 premiers distracteurs différents de la bonne réponse
+    const distractors = Array.from(wrongAnswers)
+      .filter(v => v !== correctValue && v > 0)
+      .slice(0, 3);
+    
+    distractors.forEach(value => {
+      answers.push({ text: value.toString(), isCorrect: false });
+    });
+    
+    return answers;
   }
   
   /**

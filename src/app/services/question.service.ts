@@ -88,8 +88,8 @@ export class QuestionService {
   /**
    * Génère une nouvelle question à partir d'un template
    */
-  private generateQuestionFromTemplate(template: QuestionTemplate): Question {
-    return QuestionGenerator.generateQuestion(template);
+  private generateQuestionFromTemplate(template: QuestionTemplate, questionIndex?: number): Question {
+    return QuestionGenerator.generateQuestion(template, questionIndex);
   }
 
   /**
@@ -99,10 +99,11 @@ export class QuestionService {
     // Questions statiques
     const staticQuestions = this.questions.filter(q => q.chapterId === chapterId);
     
-    // Questions dynamiques générées à partir de templates
-    const dynamicQuestions = this.questionTemplates
-      .filter(t => t.chapterId === chapterId)
-      .map(t => this.generateQuestionFromTemplate(t));
+    // Questions dynamiques générées à partir de templates avec index
+    const templates = this.questionTemplates.filter(t => t.chapterId === chapterId);
+    const dynamicQuestions = templates.map((t, index) => 
+      this.generateQuestionFromTemplate(t, staticQuestions.length + index)
+    );
     
     return [...staticQuestions, ...dynamicQuestions];
   }
