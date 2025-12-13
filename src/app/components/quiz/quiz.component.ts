@@ -44,22 +44,37 @@ export class QuizComponent implements OnInit {
     });
   }
 
-  loadQuestions(): void {
+  async loadQuestions(): Promise<void> {
+    // Attendre que les templates soient chargés
+    await this.questionService.waitForQuestionsLoaded();
+    console.log('✅ Templates chargés, début du chargement des questions');
+    
     if (this.isReviewMode) {
       const mistakes = this.progressService.getMistakesToReview();
-      const mistakeIds = mistakes
-        .filter(m => m.chapterId === this.chapterId)
-        .map(m => m.questionId);
+      console.log('🔍 Mode révision - Total erreurs:', mistakes.length);
+      console.log('📋 Liste des erreurs:', mistakes.map(m => ({ id: m.questionId, chapter: m.chapterId, count: m.errorCount })));
+      
+      // Si chapterId est "all", on prend toutes les erreurs
+      // Sinon on filtre par chapitre
+      const mistakeIds = this.chapterId === 'all' 
+        ? mistakes.map(m => m.questionId)
+        : mistakes.filter(m => m.chapterId === this.chapterId).map(m => m.questionId);
+      
+      console.log('📋 Questions à réviser pour ce contexte:', mistakeIds.length);
+      console.log('🔑 IDs à charger:', mistakeIds);
       
       this.questions = mistakeIds
         .map(id => this.questionService.getQuestionById(id))
         .filter(q => q !== undefined) as Question[];
         
       if (this.questions.length === 0) {
-        alert('Aucune erreur à réviser pour ce chapitre. Bravo ! 🎉');
+        console.error('❌ Aucune question trouvée après filtrage');
+        alert('Aucune erreur à réviser. Bravo ! 🎉');
         this.router.navigate(['/learning-path']);
         return;
       }
+      
+      console.log('✅ Questions chargées pour révision:', this.questions.length);
     } else {
       // Récupère 5 questions adaptatives (avec nouvelles valeurs aléatoires)
       this.questions = this.questionService.getAdaptiveQuestions(this.chapterId, 5);
@@ -109,7 +124,9 @@ export class QuizComponent implements OnInit {
       attemptsCount: 1
     };
 
-    this.progressService.recordAnswer(this.chapterId, this.currentQuestion.id, userAnswer);
+    // Utiliser le vrai chapterId de la question si on est en mode "all"
+    const actualChapterId = this.chapterId === 'all' ? this.currentQuestion.chapterId : this.chapterId;
+    this.progressService.recordAnswer(actualChapterId, this.currentQuestion.id, userAnswer);
 
     // Marquer comme révisé si en mode révision
     if (this.isReviewMode && this.isCorrect) {
@@ -138,6 +155,13 @@ export class QuizComponent implements OnInit {
   }
 
   finishQuiz(): void {
+    // Si on est en mode révision global (all), retourner à l'accueil
+    if (this.chapterId === 'all') {
+      console.log('✅ Révision terminée - Retour à l\'accueil');
+      this.router.navigate(['/']);
+      return;
+    }
+    
     // Vérifier si le chapitre est complété
     const progress = this.progressService.getChapterProgress(this.chapterId);
     const chapter = this.chapterService.getChapterById(this.chapterId);

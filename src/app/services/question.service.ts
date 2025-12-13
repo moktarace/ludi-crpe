@@ -112,18 +112,26 @@ export class QuestionService {
    * Génère une nouvelle instance d'une question (avec nouvelles valeurs)
    */
   getQuestionById(questionId: string): Question | undefined {
+    console.log('🔍 Recherche question ID:', questionId);
+    console.log('📚 Templates disponibles:', this.questionTemplates.length);
+    console.log('📝 Questions statiques disponibles:', this.questions.length);
+    
     // Chercher dans les questions statiques
     const staticQuestion = this.questions.find(q => q.id === questionId);
     if (staticQuestion) {
+      console.log('✅ Question statique trouvée:', questionId);
       return staticQuestion;
     }
     
     // Chercher dans les templates et générer une nouvelle instance
     const template = this.questionTemplates.find(t => t.id === questionId);
     if (template) {
+      console.log('✅ Template trouvé, génération nouvelle instance:', questionId);
       return this.generateQuestionFromTemplate(template);
     }
     
+    console.warn('❌ Question non trouvée:', questionId);
+    console.log('IDs de templates disponibles:', this.questionTemplates.map(t => t.id));
     return undefined;
   }
 

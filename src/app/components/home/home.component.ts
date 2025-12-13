@@ -33,9 +33,9 @@ export class HomeComponent implements OnInit {
     console.log('📝 Mode révision - Erreurs à revoir:', mistakes);
     
     if (mistakes.length > 0) {
-      const firstMistake = mistakes[0];
-      console.log('➡️ Redirection vers chapitre:', firstMistake.chapterId);
-      this.router.navigate(['/quiz', firstMistake.chapterId], {
+      console.log('➡️ Redirection vers mode révision global (toutes les erreurs)');
+      // Utiliser 'all' comme chapterId pour réviser toutes les erreurs
+      this.router.navigate(['/quiz', 'all'], {
         queryParams: { review: true }
       });
     } else {
