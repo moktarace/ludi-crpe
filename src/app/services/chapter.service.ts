@@ -1,17 +1,41 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Chapter, LearningPath } from '../models/chapter.model';
+import { firstValueFrom } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ChapterService {
   private learningPath: LearningPath;
+  private chaptersLoaded = false;
 
-  constructor() {
-    this.learningPath = this.initializeLearningPath();
+  constructor(private http: HttpClient) {
+    this.learningPath = this.initializeFallbackPath();
+    this.loadChaptersFromJson();
   }
 
-  private initializeLearningPath(): LearningPath {
+  /**
+   * Charge les chapitres depuis le fichier JSON
+   */
+  private async loadChaptersFromJson(): Promise<void> {
+    try {
+      const data = await firstValueFrom(
+        this.http.get<LearningPath>('assets/data/chapters.json')
+      );
+      this.learningPath = data;
+      this.chaptersLoaded = true;
+      console.log('✅ Chapitres chargés depuis chapters.json');
+    } catch (error) {
+      console.warn('⚠️ Erreur lors du chargement des chapitres, utilisation du fallback', error);
+      this.chaptersLoaded = true;
+    }
+  }
+
+  /**
+   * Fallback: chapitres par défaut si le JSON ne charge pas
+   */
+  private initializeFallbackPath(): LearningPath {
     const chapters: Chapter[] = [
       {
         id: 'chapter_1',
@@ -31,7 +55,7 @@ export class ChapterService {
         description: 'Fonctions linéaires, affines et polynômes',
         icon: '📈',
         order: 2,
-        isLocked: true,
+        isLocked: false,
         completionPercentage: 0,
         totalQuestions: 5,
         completedQuestions: 0,
@@ -43,7 +67,7 @@ export class ChapterService {
         description: 'Aires, périmètres et théorème de Pythagore',
         icon: '📐',
         order: 3,
-        isLocked: true,
+        isLocked: false,
         completionPercentage: 0,
         totalQuestions: 5,
         completedQuestions: 0,
@@ -55,9 +79,9 @@ export class ChapterService {
         description: 'Événements, probabilités et statistiques',
         icon: '🎲',
         order: 4,
-        isLocked: true,
+        isLocked: false,
         completionPercentage: 0,
-        totalQuestions: 0,
+        totalQuestions: 1,
         completedQuestions: 0,
         skillIds: ['skill_4_1']
       },
@@ -67,9 +91,9 @@ export class ChapterService {
         description: 'Introduction aux vecteurs et calculs vectoriels',
         icon: '➡️',
         order: 5,
-        isLocked: true,
+        isLocked: false,
         completionPercentage: 0,
-        totalQuestions: 0,
+        totalQuestions: 1,
         completedQuestions: 0,
         skillIds: ['skill_5_1']
       }
@@ -81,6 +105,12 @@ export class ChapterService {
       description: 'Programme complet de mathématiques niveau seconde',
       chapters
     };
+  }
+
+  async waitForChaptersLoaded(): Promise<void> {
+    while (!this.chaptersLoaded) {
+      await new Promise(resolve => setTimeout(resolve, 100));
+    }
   }
 
   getLearningPath(): LearningPath {
@@ -95,11 +125,12 @@ export class ChapterService {
     return this.learningPath.chapters;
   }
 
+  /**
+   * @deprecated Tous les chapitres sont maintenant débloqués par défaut
+   */
   unlockNextChapter(currentChapterId: string): void {
-    const currentIndex = this.learningPath.chapters.findIndex(c => c.id === currentChapterId);
-    if (currentIndex >= 0 && currentIndex < this.learningPath.chapters.length - 1) {
-      this.learningPath.chapters[currentIndex + 1].isLocked = false;
-    }
+    // Tous les chapitres sont débloqués, cette méthode n'est plus utilisée
+    console.log('All chapters are unlocked by default');
   }
 
   updateChapterProgress(chapterId: string, completed: number, total: number): void {

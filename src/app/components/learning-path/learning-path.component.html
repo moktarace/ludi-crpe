@@ -18,7 +18,7 @@
         <h3>{{ chapter.title }}</h3>
         <p>{{ chapter.description }}</p>
         
-        <div class="chapter-progress" *ngIf="!chapter.isLocked">
+        <div class="chapter-progress">
           <div class="progress-bar">
             <div 
               class="progress-fill" 
@@ -29,11 +29,6 @@
             {{ chapter.completedQuestions }} / {{ chapter.totalQuestions }} questions
           </span>
         </div>
-
-        <div class="chapter-locked" *ngIf="chapter.isLocked">
-          <span class="lock-icon">🔒</span>
-          <span>Complète le chapitre précédent</span>
-        </div>
       </div>
 
       <div class="chapter-status">
@@ -43,7 +38,7 @@
         <span *ngIf="chapter.completionPercentage > 0 && chapter.completionPercentage < 100" class="status-badge in-progress">
           En cours
         </span>
-        <span *ngIf="!chapter.isLocked && chapter.completionPercentage === 0" class="status-badge available">
+        <span *ngIf="chapter.completionPercentage === 0" class="status-badge available">
           Commencer
         </span>
       </div>

@@ -38,24 +38,16 @@ export class LearningPathComponent implements OnInit {
         chapter.completedQuestions = progress.completedQuestions.length;
         const totalQuestions = chapter.totalQuestions || 5;
         chapter.completionPercentage = Math.round((chapter.completedQuestions / totalQuestions) * 100);
-        
-        // Débloquer le chapitre suivant si celui-ci est complété à 100%
-        if (chapter.completionPercentage === 100 && progress.isCompleted) {
-          this.chapterService.unlockNextChapter(chapter.id);
-          this.loadChapters(); // Recharger pour voir les changements
-        }
       }
     });
   }
 
   selectChapter(chapter: Chapter): void {
-    if (!chapter.isLocked) {
-      this.router.navigate(['/chapter', chapter.id]);
-    }
+    // Tous les chapitres sont accessibles
+    this.router.navigate(['/chapter', chapter.id]);
   }
 
   getChapterStatusClass(chapter: Chapter): string {
-    if (chapter.isLocked) return 'locked';
     if (chapter.completionPercentage === 100) return 'completed';
     if (chapter.completionPercentage > 0) return 'in-progress';
     return 'available';
