@@ -28,6 +28,10 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['/learning-path']);
   }
 
+  startExam(): void {
+    this.router.navigate(['/exam']);
+  }
+
   reviewMistakes(): void {
     const mistakes = this.progressService.getMistakesToReview();
     console.log('📝 Mode révision - Erreurs à revoir:', mistakes);

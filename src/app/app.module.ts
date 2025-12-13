@@ -14,6 +14,8 @@ import { ProgressBarComponent } from './components/progress-bar/progress-bar.com
 import { HomeComponent } from './components/home/home.component';
 import { KatexDirective } from './directives/katex.directive';
 import { MathNotationPipe } from './pipes/math-notation.pipe';
+import { ExamComponent } from './components/exam/exam.component';
+import { ExamResultsComponent } from './components/exam-results/exam-results.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { MathNotationPipe } from './pipes/math-notation.pipe';
     ProgressBarComponent,
     HomeComponent,
     KatexDirective,
-    MathNotationPipe
+    MathNotationPipe,
+    ExamComponent,
+    ExamResultsComponent
   ],
   imports: [
     BrowserModule,

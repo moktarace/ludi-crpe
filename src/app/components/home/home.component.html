@@ -9,6 +9,10 @@
       🚀 Commencer l'apprentissage
     </button>
 
+    <button class="btn-exam" (click)="startExam()">
+      🎓 Mode Examen
+    </button>
+
     <button 
       class="btn-secondary" 
       [class.has-mistakes]="mistakesToReview > 0"

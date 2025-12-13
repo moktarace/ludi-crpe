@@ -1,0 +1,107 @@
+<div class="results-container" *ngIf="result">
+  <!-- En-tête avec score -->
+  <div class="results-header">
+    <div class="score-card">
+      <div class="score-emoji">{{ scoreEmoji }}</div>
+      <div class="score-main" [style.color]="scoreColor">
+        {{ result.score }}%
+      </div>
+      <div class="score-details">
+        <p>{{ result.correctAnswers }} / {{ result.totalQuestions }} bonnes réponses</p>
+        <p>⏱️ Temps écoulé : {{ formattedTime }} / {{ result.duration }}:00</p>
+      </div>
+      
+      <div class="score-message">
+        <p *ngIf="result.score >= 90">Excellent ! Tu maîtrises parfaitement !</p>
+        <p *ngIf="result.score >= 80 && result.score < 90">Très bien ! Continue comme ça !</p>
+        <p *ngIf="result.score >= 60 && result.score < 80">Bon travail ! Encore un peu d'entraînement.</p>
+        <p *ngIf="result.score >= 40 && result.score < 60">Pas mal, mais tu peux faire mieux !</p>
+        <p *ngIf="result.score < 40">Continue à t'entraîner, tu vas progresser !</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Boutons d'action -->
+  <div class="action-buttons">
+    <button class="btn-show-corrections" (click)="toggleExplanations()">
+      {{ showExplanations ? '📝 Masquer les corrections' : '📖 Voir les corrections détaillées' }}
+    </button>
+  </div>
+
+  <!-- Liste des réponses -->
+  <div class="answers-list">
+    <h2>📋 Détail de tes réponses</h2>
+    
+    <div class="answer-item" *ngFor="let answer of result.answers; let i = index">
+      <div class="answer-header">
+        <span class="answer-number">Question {{ i + 1 }}</span>
+        <span class="answer-status" [class.correct]="answer.isCorrect" [class.incorrect]="!answer.isCorrect">
+          {{ answer.isCorrect ? '✅ Correct' : '❌ Incorrect' }}
+        </span>
+        <span class="answer-time">⏱️ {{ answer.timeTaken }}s</span>
+      </div>
+
+      <div class="answer-content">
+        <div class="question-text" [innerHTML]="answer.question.question | mathNotation"></div>
+
+        <!-- Réponse de l'utilisateur -->
+        <div class="user-answer">
+          <strong>Ta réponse :</strong>
+          <span *ngIf="answer.question.type === 'multiple_choice'">
+            {{ getAnswerLabel(answer.userAnswer) }}
+            <span *ngIf="answer.userAnswer !== null">
+              - {{ getUserAnswerText(answer.userAnswer, answer.question.answers) }}
+            </span>
+          </span>
+          <span *ngIf="answer.question.type === 'free_input'">
+            {{ answer.userAnswer }}
+          </span>
+        </div>
+
+        <!-- Bonne réponse si incorrect -->
+        <div class="correct-answer" *ngIf="!answer.isCorrect">
+          <strong>Bonne réponse :</strong>
+          <span *ngIf="answer.question.type === 'multiple_choice'">
+            {{ getAnswerLabel(getCorrectAnswerIndex(answer.question.answers)) }}
+            - {{ getCorrectAnswerText(answer.question.answers) }}
+          </span>
+          <span *ngIf="answer.question.type === 'free_input'">
+            {{ answer.question.correctAnswer }}
+          </span>
+        </div>
+
+        <!-- Explication détaillée -->
+        <div class="explanation-section" *ngIf="showExplanations">
+          <div class="explanation-box">
+            <h4>📖 Explication :</h4>
+            <div [innerHTML]="answer.question.explanation | mathNotation"></div>
+          </div>
+
+          <!-- Explication "vie réelle" si disponible -->
+          <div class="real-life-explanation-box" *ngIf="answer.question.realLifeExplanation">
+            <h4>🌍 Dans la vraie vie :</h4>
+            <div [innerHTML]="answer.question.realLifeExplanation | mathNotation"></div>
+          </div>
+
+          <!-- Indices -->
+          <div class="hints-box" *ngIf="answer.question.hints && answer.question.hints.length > 0">
+            <h4>💡 Indices :</h4>
+            <ul>
+              <li *ngFor="let hint of answer.question.hints" [innerHTML]="hint | mathNotation"></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Boutons de navigation -->
+  <div class="navigation-buttons">
+    <button class="btn-retry" (click)="retryExam()">
+      🔄 Refaire un examen
+    </button>
+    <button class="btn-home" (click)="goHome()">
+      🏠 Retour à l'accueil
+    </button>
+  </div>
+</div>

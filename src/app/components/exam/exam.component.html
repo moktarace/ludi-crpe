@@ -1,0 +1,94 @@
+<div class="exam-container">
+  <!-- Configuration de l'examen -->
+  <div *ngIf="!examStarted" class="exam-config">
+    <div class="config-card">
+      <h1>🎓 Mode Examen</h1>
+      
+      <div class="description">
+        <p>⏱️ Chronométré - Enchaînement rapide</p>
+        <p>📚 Questions de tous les chapitres mélangées</p>
+        <p>🚫 Pas d'aide ni de feedback pendant l'examen</p>
+        <p>✅ Correction détaillée à la fin</p>
+      </div>
+
+      <div class="duration-selector">
+        <h2>Choisir la durée :</h2>
+        <div class="duration-options">
+          <button 
+            *ngFor="let duration of durations"
+            [class.selected]="selectedDuration === duration"
+            (click)="selectedDuration = duration"
+            class="duration-btn">
+            {{ duration }} min
+          </button>
+        </div>
+      </div>
+
+      <button class="start-btn" (click)="startExam()">
+        🚀 Commencer l'examen
+      </button>
+    </div>
+  </div>
+
+  <!-- Examen en cours -->
+  <div *ngIf="examStarted && !examFinished" class="exam-active">
+    <!-- Chronomètre -->
+    <div class="timer-bar">
+      <div class="timer-content">
+        <span class="timer-icon">⏱️</span>
+        <span class="timer-text" [class.warning]="timeRemaining < 60">
+          {{ formattedTime }}
+        </span>
+        <span class="question-counter">
+          Question {{ currentQuestionIndex + 1 }} / {{ questions.length }}
+        </span>
+      </div>
+    </div>
+
+    <!-- Question -->
+    <div class="question-card" *ngIf="currentQuestion">
+      <div class="question-header">
+        <span class="difficulty-badge" [class]="currentQuestion.difficulty">
+          {{ currentQuestion.difficulty }}
+        </span>
+        <span class="chapter-badge">
+          Chapitre {{ currentQuestion.chapterId.replace('chapter_', '') }}
+        </span>
+      </div>
+
+      <div class="question-text" [innerHTML]="currentQuestion.question | mathNotation"></div>
+
+      <!-- QCM -->
+      <div *ngIf="currentQuestion.type === 'multiple_choice'" class="answers-grid">
+        <button
+          *ngFor="let answer of currentQuestion.answers; let i = index"
+          class="answer-option"
+          [class.selected]="currentAnswer === i"
+          (click)="selectAnswer(i)">
+          <span class="answer-letter">{{ String.fromCharCode(65 + i) }}</span>
+          <span class="answer-text" [innerHTML]="answer.text | mathNotation"></span>
+        </button>
+      </div>
+
+      <!-- Saisie libre -->
+      <div *ngIf="currentQuestion.type === 'free_input'" class="free-input-container">
+        <input
+          type="text"
+          class="answer-input"
+          [(ngModel)]="currentAnswer"
+          (ngModelChange)="onFreeInputChange($any($event))"
+          placeholder="Entrez votre réponse..."
+          autocomplete="off">
+      </div>
+
+      <div class="action-buttons">
+        <button 
+          class="next-btn"
+          [disabled]="!canGoNext"
+          (click)="nextQuestion()">
+          {{ currentQuestionIndex === questions.length - 1 ? '🏁 Terminer' : 'Suivant ➡️' }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
