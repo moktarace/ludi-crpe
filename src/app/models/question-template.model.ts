@@ -195,20 +195,20 @@ export class QuestionGenerator {
   
   /**
    * Détermine le type de question basé sur l'index
-   * Progression : 3 premières en QCM, puis alternance, puis principalement saisie libre
+   * Progression : 2 premières en QCM, puis alternance, puis principalement saisie libre
    */
   private static determineQuestionType(questionIndex: number): 'multiple_choice' | 'free_input' {
-    // Questions 0-2 (1-3 pour l'utilisateur) : QCM pour s'habituer
-    if (questionIndex < 3) {
+    // Questions 0-1 (1-2 pour l'utilisateur) : QCM pour s'habituer
+    if (questionIndex < 2) {
       return 'multiple_choice';
     }
     
-    // Questions 3-5 (4-6 pour l'utilisateur) : Alternance
-    if (questionIndex < 6) {
-      return questionIndex % 2 === 0 ? 'multiple_choice' : 'free_input';
+    // Questions 2-4 (3-5 pour l'utilisateur) : Alternance QCM/Saisie libre
+    if (questionIndex < 5) {
+      return questionIndex % 2 === 0 ? 'free_input' : 'multiple_choice';
     }
     
-    // Questions 6+ (7+ pour l'utilisateur) : Principalement saisie libre (80%)
+    // Questions 5+ (6+ pour l'utilisateur) : Principalement saisie libre (80%)
     return Math.random() < 0.8 ? 'free_input' : 'multiple_choice';
   }
   

@@ -6,19 +6,20 @@ Au lieu d'avoir le type de question (QCM vs Saisie libre) hardcodé dans chaque 
 
 ## Logique de Progression
 
-### Questions 1-3 (index 0-2)
+### Questions 1-2 (index 0-1)
 **Type: QCM uniquement**
 - Permet à l'élève de s'habituer aux concepts
 - Moins intimidant pour débuter
 - Feedback immédiat sur les erreurs courantes
 
-### Questions 4-6 (index 3-5)
-**Type: Alternance QCM/Saisie libre**
-- Index pair (4, 6, ...) → QCM
-- Index impair (5, 7, ...) → Saisie libre
+### Questions 3-5 (index 2-4)
+**Type: Alternance Saisie libre/QCM**
+- Question 3 (index 2) → Saisie libre
+- Question 4 (index 3) → QCM
+- Question 5 (index 4) → Saisie libre
 - Transition progressive vers la saisie libre
 
-### Questions 7+ (index 6+)
+### Questions 6+ (index 5+)
 **Type: Principalement Saisie libre (80%)**
 - 80% de chances d'avoir une question à saisie libre
 - 20% de chances d'avoir un QCM (pour varier)
