@@ -10,7 +10,7 @@
     ],
     "questionTemplate": "Calculez l'aire d'un rectangle de longueur {L} cm et largeur {l} cm (en cm²)",
     "correctAnswerFormula": "{L} * {l}",
-    "explanationTemplate": "Aire = Longueur × Largeur = {L} × {l} = {L} * {l} cm²",
+    "explanationTemplate": "📖 Aire d'un rectangle:\n\nFormule: Aire = Longueur × Largeur\n\nCalcul: {L} × {l} = {L} × {l} cm²\n\n💡 Rappel: On multiplie les deux dimensions !",
     "tags": ["géométrie", "aire", "rectangle"]
   },
   {
@@ -29,10 +29,11 @@
       { "textFormula": "sqrt({a} + {b})", "isCorrectFormula": "0" },
       { "textFormula": "{a} * {b}", "isCorrectFormula": "0" }
     ],
-    "explanationTemplate": "Pythagore: c² = a² + b² = {a}² + {b}² = {a}*{a} + {b}*{b}, donc c = sqrt({a}*{a} + {b}*{b})",
+    "explanationTemplate": "📖 Théorème de Pythagore:\n\n**Formule:** c² = a² + b²\n\n**Étape 1:** Calculer a² et b²\n{a}² + {b}² = pow({a}, 2) + pow({b}, 2)\n\n**Étape 2:** Trouver c\nc = sqrt(pow({a}, 2) + pow({b}, 2))\n\n**Résultat:** c ≈ sqrt(pow({a}, 2) + pow({b}, 2)) cm\n\n💡 L'hypoténuse est le côté le plus long du triangle rectangle !",
     "hintsTemplates": [
-      "Utilisez le théorème de Pythagore",
-      "c² = {a}² + {b}²"
+      "Utilisez le théorème de Pythagore: c² = a² + b²",
+      "Calcule d'abord pow({a}, 2) + pow({b}, 2)",
+      "Puis prends la racine carrée: sqrt(pow({a}, 2) + pow({b}, 2))"
     ],
     "tags": ["géométrie", "pythagore", "triangle"]
   },
@@ -51,7 +52,7 @@
       { "textFormula": "{r} * {r}", "isCorrectFormula": "0" },
       { "textFormula": "3.14 * {r}", "isCorrectFormula": "0" }
     ],
-    "explanationTemplate": "Aire = π × r² = 3.14 × {r}² = 3.14 × {r}*{r} ≈ round(3.14 * {r} * {r} * 10) / 10 cm²",
+    "explanationTemplate": "📖 Aire d'un cercle:\n\n**Formule:** Aire = π × r²\n\n**Étape 1:** Calculer r²\nr² = pow({r}, 2)\n\n**Étape 2:** Multiplier par π\n3.14 × pow({r}, 2) ≈ round(3.14 × pow({r}, 2) × 10) / 10 cm²\n\n💡 Rappel: π ≈ 3.14",
     "tags": ["géométrie", "cercle", "aire"]
   },
   {
@@ -65,10 +66,11 @@
     ],
     "questionTemplate": "Calculez l'aire d'un triangle de base {b} cm et hauteur {h} cm (en cm²)",
     "correctAnswerFormula": "({b} * {h}) / 2",
-    "explanationTemplate": "Aire = (Base × Hauteur) / 2 = ({b} × {h}) / 2 = ({b} * {h}) / 2 cm²",
+    "explanationTemplate": "📖 Aire d'un triangle:\n\n**Formule:** Aire = (Base × Hauteur) / 2\n\n**Calcul:**\n({b} × {h}) / 2 = ({b} × {h}) / 2 cm²\n\n💡 L'aire d'un triangle est la moitié de celle du rectangle !",
     "hintsTemplates": [
-      "Formule: Aire = (b × h) / 2",
-      "Calculez d'abord {b} × {h}"
+      "Formule: Aire = (base × hauteur) / 2",
+      "Calculez d'abord {b} × {h}",
+      "Puis divise le résultat par 2"
     ],
     "tags": ["géométrie", "aire", "triangle"]
   },
