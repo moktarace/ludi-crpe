@@ -1,0 +1,94 @@
+<div class="quiz-container" *ngIf="currentQuestion">
+  <div class="quiz-header">
+    <button class="exit-button" (click)="exitQuiz()">✕</button>
+    <div class="progress-container">
+      <div class="progress-bar">
+        <div class="progress-fill" [style.width.%]="getProgressPercentage()"></div>
+      </div>
+      <span class="progress-text">{{ currentQuestionIndex + 1 }} / {{ questions.length }}</span>
+    </div>
+    <div class="score">⭐ {{ score }} XP</div>
+  </div>
+
+  <div class="quiz-content">
+    <div class="question-card">
+      <div class="question-header">
+        <span class="question-type" [ngClass]="currentQuestion.type">
+          <span *ngIf="currentQuestion.type === QuestionType.MULTIPLE_CHOICE">📝 QCM</span>
+          <span *ngIf="currentQuestion.type === QuestionType.FREE_INPUT">✍️ Réponse libre</span>
+          <span *ngIf="currentQuestion.type === QuestionType.TRUE_FALSE">✓/✗ Vrai/Faux</span>
+        </span>
+        <span class="difficulty" [ngClass]="currentQuestion.difficulty">
+          {{ currentQuestion.difficulty }}
+        </span>
+      </div>
+
+      <h2 class="question-text">{{ currentQuestion.question }}</h2>
+
+      <!-- QCM -->
+      <div class="answers-grid" *ngIf="currentQuestion.type === QuestionType.MULTIPLE_CHOICE">
+        <button 
+          *ngFor="let answer of currentQuestion.answers"
+          class="answer-button"
+          [ngClass]="{
+            'selected': selectedAnswer === answer.text && !showFeedback,
+            'correct': showFeedback && answer.isCorrect,
+            'incorrect': showFeedback && selectedAnswer === answer.text && !answer.isCorrect
+          }"
+          [disabled]="showFeedback"
+          (click)="selectAnswer(answer.text)">
+          {{ answer.text }}
+        </button>
+      </div>
+
+      <!-- Réponse libre -->
+      <div class="free-input" *ngIf="currentQuestion.type === QuestionType.FREE_INPUT">
+        <input 
+          type="text" 
+          class="answer-input"
+          [(ngModel)]="userAnswer"
+          [disabled]="showFeedback"
+          placeholder="Entrez votre réponse..."
+          (keyup.enter)="submitAnswer()">
+      </div>
+
+      <!-- Feedback -->
+      <div class="feedback" *ngIf="showFeedback">
+        <div class="feedback-message" [ngClass]="{ 'correct': isCorrect, 'incorrect': !isCorrect }">
+          <span class="feedback-icon">
+            {{ isCorrect ? '✓ Correct !' : '✗ Incorrect' }}
+          </span>
+          <p *ngIf="currentQuestion.explanation">{{ currentQuestion.explanation }}</p>
+        </div>
+      </div>
+
+      <!-- Indices -->
+      <div class="hints-section" *ngIf="currentQuestion.hints && currentQuestion.hints.length > 0 && !showFeedback">
+        <button class="hint-toggle" (click)="toggleHints()">
+          💡 {{ showHints ? 'Masquer' : 'Afficher' }} les indices
+        </button>
+        <div class="hints-list" *ngIf="showHints">
+          <div class="hint" *ngFor="let hint of currentQuestion.hints">
+            {{ hint }}
+          </div>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="actions">
+        <button 
+          *ngIf="!showFeedback"
+          class="btn-submit"
+          (click)="submitAnswer()">
+          Valider
+        </button>
+        <button 
+          *ngIf="showFeedback"
+          class="btn-next"
+          (click)="nextQuestion()">
+          {{ currentQuestionIndex < questions.length - 1 ? 'Question suivante' : 'Terminer' }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

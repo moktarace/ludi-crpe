@@ -1,0 +1,75 @@
+<div class="chapter-detail-container" *ngIf="chapter">
+  <button class="back-button" (click)="goBack()">← Retour au parcours</button>
+
+  <div class="chapter-header">
+    <div class="chapter-icon-large">{{ chapter.icon }}</div>
+    <h1>{{ chapter.title }}</h1>
+    <p class="description">{{ chapter.description }}</p>
+  </div>
+
+  <div class="stats-grid">
+    <div class="stat-box">
+      <div class="stat-value">{{ completedQuestions }} / {{ totalQuestions }}</div>
+      <div class="stat-label">Questions complétées</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-value">{{ completionPercentage }}%</div>
+      <div class="stat-label">Progression</div>
+    </div>
+  </div>
+
+  <div class="progress-section">
+    <div class="progress-bar-large">
+      <div class="progress-fill-large" [style.width.%]="completionPercentage"></div>
+    </div>
+  </div>
+
+  <div class="action-buttons">
+    <button class="btn-start-quiz" (click)="startQuiz()">
+      🎯 {{ completionPercentage === 0 ? 'Commencer' : 'Continuer' }} l'entraînement
+    </button>
+  </div>
+
+  <div class="chapter-info">
+    <h3>📖 Ce que tu vas apprendre</h3>
+    <p>{{ chapter.description }}</p>
+    
+    <div class="tips">
+      <h4>💡 Conseils</h4>
+      <ul>
+        <li>Prends ton temps pour comprendre chaque question</li>
+        <li>Utilise les indices si tu es bloqué</li>
+        <li>Les erreurs sont normales et utiles pour progresser</li>
+        <li>Révise régulièrement tes erreurs passées</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Modal de score -->
+<div class="score-modal" *ngIf="showScore" (click)="closeScoreModal()">
+  <div class="score-content" (click)="$event.stopPropagation()">
+    <div class="score-header">
+      <h2>🎉 Quiz terminé !</h2>
+    </div>
+    <div class="score-body">
+      <div class="score-circle">
+        <div class="score-percentage">{{ quizPercentage }}%</div>
+        <div class="score-label">Score</div>
+      </div>
+      <div class="score-xp">
+        <span class="xp-icon">⭐</span>
+        <span class="xp-value">+{{ quizScore }} XP</span>
+      </div>
+      <div class="score-message">
+        <p *ngIf="quizPercentage === 100">Parfait ! Continue comme ça ! 🌟</p>
+        <p *ngIf="quizPercentage >= 80 && quizPercentage < 100">Excellent travail ! 👏</p>
+        <p *ngIf="quizPercentage >= 60 && quizPercentage < 80">Bon travail ! Tu progresses ! 👍</p>
+        <p *ngIf="quizPercentage < 60">Continue à t'entraîner ! 💪</p>
+      </div>
+    </div>
+    <div class="score-actions">
+      <button class="btn-close" (click)="closeScoreModal()">Continuer</button>
+    </div>
+  </div>
+</div>

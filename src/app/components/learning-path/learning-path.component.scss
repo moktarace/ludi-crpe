@@ -1,0 +1,181 @@
+.learning-path-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.path-header {
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+
+  .back-button {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: white;
+    border: 2px solid #1976d2;
+    color: #1976d2;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s;
+
+    &:hover {
+      background: #1976d2;
+      color: white;
+    }
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+
+  p {
+    color: #666;
+    font-size: 1.1rem;
+  }
+}
+
+.chapters-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.chapter-card {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  transition: all 0.3s;
+  cursor: pointer;
+
+  &.available:hover,
+  &.in-progress:hover,
+  &.completed:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  }
+
+  &.locked {
+    opacity: 0.6;
+    cursor: not-allowed;
+    
+    &:hover {
+      transform: none;
+    }
+  }
+
+  &.completed {
+    border: 2px solid #4caf50;
+  }
+
+  &.in-progress {
+    border: 2px solid #ff9800;
+  }
+}
+
+.chapter-icon {
+  font-size: 4rem;
+  flex-shrink: 0;
+}
+
+.chapter-content {
+  flex: 1;
+
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+    color: #333;
+  }
+
+  p {
+    color: #666;
+    margin-bottom: 16px;
+  }
+}
+
+.chapter-progress {
+  .progress-bar {
+    width: 100%;
+    height: 8px;
+    background: #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 8px;
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+      transition: width 0.5s ease;
+    }
+  }
+
+  .progress-text {
+    font-size: 0.9rem;
+    color: #666;
+  }
+}
+
+.chapter-locked {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #999;
+  font-style: italic;
+
+  .lock-icon {
+    font-size: 1.2rem;
+  }
+}
+
+.chapter-status {
+  flex-shrink: 0;
+}
+
+.status-badge {
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.9rem;
+
+  &.completed {
+    background: #e8f5e9;
+    color: #4caf50;
+  }
+
+  &.in-progress {
+    background: #fff3e0;
+    color: #ff9800;
+  }
+
+  &.available {
+    background: #e3f2fd;
+    color: #1976d2;
+  }
+}
+
+@media (max-width: 768px) {
+  .chapter-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .path-header {
+    .back-button {
+      position: relative;
+      margin-bottom: 20px;
+    }
+  }
+
+  .chapter-icon {
+    font-size: 3rem;
+  }
+}

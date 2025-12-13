@@ -1,0 +1,52 @@
+<div class="learning-path-container">
+  <header class="path-header">
+    <button class="back-button" routerLink="/">← Retour</button>
+    <h1>📚 Parcours d'apprentissage</h1>
+    <p>Mathématiques niveau Seconde</p>
+  </header>
+
+  <div class="chapters-list">
+    <div 
+      *ngFor="let chapter of chapters" 
+      class="chapter-card"
+      [ngClass]="getChapterStatusClass(chapter)"
+      (click)="selectChapter(chapter)">
+      
+      <div class="chapter-icon">{{ chapter.icon }}</div>
+      
+      <div class="chapter-content">
+        <h3>{{ chapter.title }}</h3>
+        <p>{{ chapter.description }}</p>
+        
+        <div class="chapter-progress" *ngIf="!chapter.isLocked">
+          <div class="progress-bar">
+            <div 
+              class="progress-fill" 
+              [style.width.%]="chapter.completionPercentage">
+            </div>
+          </div>
+          <span class="progress-text">
+            {{ chapter.completedQuestions }} / {{ chapter.totalQuestions }} questions
+          </span>
+        </div>
+
+        <div class="chapter-locked" *ngIf="chapter.isLocked">
+          <span class="lock-icon">🔒</span>
+          <span>Complète le chapitre précédent</span>
+        </div>
+      </div>
+
+      <div class="chapter-status">
+        <span *ngIf="chapter.completionPercentage === 100" class="status-badge completed">
+          ✓ Terminé
+        </span>
+        <span *ngIf="chapter.completionPercentage > 0 && chapter.completionPercentage < 100" class="status-badge in-progress">
+          En cours
+        </span>
+        <span *ngIf="!chapter.isLocked && chapter.completionPercentage === 0" class="status-badge available">
+          Commencer
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
