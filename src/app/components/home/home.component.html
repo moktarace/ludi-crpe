@@ -4,14 +4,6 @@
     <p class="subtitle">Apprends les mathématiques niveau Seconde</p>
   </header>
 
-  <div class="stats-container" *ngIf="mistakesToReview > 0">
-    <div class="stat-card">
-      <div class="stat-icon">📝</div>
-      <div class="stat-value">{{ mistakesToReview }}</div>
-      <div class="stat-label">Questions à réviser</div>
-    </div>
-  </div>
-
   <div class="actions-container">
     <button class="btn-primary" (click)="startLearning()">
       🚀 Commencer l'apprentissage
@@ -19,10 +11,20 @@
 
     <button 
       class="btn-secondary" 
-      *ngIf="mistakesToReview > 0"
+      [class.has-mistakes]="mistakesToReview > 0"
+      [disabled]="mistakesToReview === 0"
       (click)="reviewMistakes()">
       📚 Réviser mes erreurs
+      <span class="badge" *ngIf="mistakesToReview > 0">{{ mistakesToReview }}</span>
     </button>
+    
+    <p class="review-info" *ngIf="mistakesToReview === 0">
+      💡 Fais des exercices et tes erreurs seront automatiquement tracées pour révision optimale
+    </p>
+    
+    <p class="review-info success" *ngIf="mistakesToReview > 0">
+      🎯 {{ mistakesToReview }} question{{ mistakesToReview > 1 ? 's' : '' }} disponible{{ mistakesToReview > 1 ? 's' : '' }} pour révision espacée
+    </p>
   </div>
 
   <div class="info-section">
@@ -35,18 +37,56 @@
       </div>
       <div class="info-card">
         <div class="info-icon">🎯</div>
-        <h3>QCM adaptatifs</h3>
-        <p>Les questions s'adaptent à ton niveau</p>
+        <h3>Questions variées</h3>
+        <p>D'abord QCM, puis saisie libre</p>
       </div>
       <div class="info-card">
-        <div class="info-icon">✍️</div>
-        <h3>Saisie libre</h3>
-        <p>Plus tu progresses, plus tu écris</p>
+        <div class="info-icon">💡</div>
+        <h3>Indices progressifs</h3>
+        <p>Des aides quand tu bloques</p>
       </div>
       <div class="info-card">
         <div class="info-icon">🔄</div>
-        <h3>Révision ciblée</h3>
-        <p>Tes erreurs reviennent pour t'entraîner</p>
+        <h3>Révision intelligente</h3>
+        <p>Tes erreurs sont tracées pour révision</p>
+      </div>
+    </div>
+    
+    <div class="spaced-repetition-info">
+      <h3>🧠 Système de révision espacée</h3>
+      <p class="subtitle-info">Un apprentissage basé sur la science cognitive</p>
+      <div class="repetition-explanation">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <strong>Tu fais une erreur</strong>
+            <p>L'app enregistre automatiquement les questions difficiles</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <strong>Révision immédiate disponible</strong>
+            <p>Tu peux revoir tes erreurs tout de suite</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <strong>Répétition optimale</strong>
+            <p>Plus tu fais d'erreurs, plus la révision est espacée (1-7 jours) pour mieux mémoriser</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <strong>Maîtrise complète</strong>
+            <p>Une fois réussie en révision, la question est marquée comme maîtrisée ✓</p>
+          </div>
+        </div>
+      </div>
+      <div class="science-note">
+        💡 <strong>Pourquoi ça marche ?</strong> La répétition espacée force ton cerveau à récupérer l'information de ta mémoire à long terme, ce qui renforce l'apprentissage.
       </div>
     </div>
   </div>

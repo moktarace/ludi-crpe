@@ -90,6 +90,67 @@
     background: #fff;
     color: #1976d2;
     border: 2px solid #1976d2;
+    position: relative;
+    
+    &.has-mistakes {
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      color: white;
+      border: none;
+      animation: pulse 2s infinite;
+    }
+    
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      
+      &:hover {
+        transform: none;
+        box-shadow: none;
+      }
+    }
+    
+    .badge {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: #ff4444;
+      color: white;
+      border-radius: 50%;
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      font-weight: bold;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+  }
+  
+  .review-info {
+    font-size: 0.95rem;
+    color: #666;
+    text-align: center;
+    margin-top: 8px;
+    padding: 12px 20px;
+    background: #f5f5f5;
+    border-radius: 8px;
+    max-width: 400px;
+    
+    &.success {
+      background: #e8f5e9;
+      color: #2e7d32;
+      font-weight: 500;
+    }
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
   }
 }
 
@@ -133,6 +194,92 @@
   }
 }
 
+.spaced-repetition-info {
+  margin-top: 60px;
+  background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+  border-radius: 20px;
+  padding: 40px;
+  border: 2px solid #667eea30;
+  
+  h3 {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+    color: #333;
+  }
+  
+  .subtitle-info {
+    text-align: center;
+    color: #666;
+    font-size: 1rem;
+    margin-bottom: 32px;
+    font-style: italic;
+  }
+  
+  .repetition-explanation {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+  
+  .step {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    position: relative;
+    
+    .step-number {
+      position: absolute;
+      top: -12px;
+      left: 20px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.1rem;
+      box-shadow: 0 2px 8px rgba(102, 126, 234, 0.4);
+    }
+    
+    .step-content {
+      margin-top: 12px;
+      
+      strong {
+        display: block;
+        color: #333;
+        font-size: 1.1rem;
+        margin-bottom: 8px;
+      }
+      
+      p {
+        color: #666;
+        font-size: 0.95rem;
+        line-height: 1.5;
+        margin: 0;
+      }
+    }
+  }
+  
+  .science-note {
+    background: #fff3cd;
+    border-left: 4px solid #ffc107;
+    padding: 16px 20px;
+    border-radius: 8px;
+    color: #856404;
+    line-height: 1.6;
+    
+    strong {
+      color: #533f03;
+    }
+  }
+}
+
 @media (max-width: 768px) {
   .home-header h1 {
     font-size: 2rem;
@@ -140,5 +287,17 @@
 
   .actions-container button {
     min-width: 100%;
+  }
+  
+  .spaced-repetition-info {
+    padding: 24px;
+    
+    h3 {
+      font-size: 1.4rem;
+    }
+    
+    .repetition-explanation {
+      grid-template-columns: 1fr;
+    }
   }
 }

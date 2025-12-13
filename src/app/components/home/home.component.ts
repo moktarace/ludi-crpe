@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.progressService.progress$.subscribe(() => {
       this.mistakesToReview = this.progressService.getMistakesToReview().length;
+      console.log('📊 Questions à réviser:', this.mistakesToReview);
     });
   }
 
@@ -28,13 +29,17 @@ export class HomeComponent implements OnInit {
   }
 
   reviewMistakes(): void {
-    const progress = this.progressService.getProgress();
     const mistakes = this.progressService.getMistakesToReview();
+    console.log('📝 Mode révision - Erreurs à revoir:', mistakes);
+    
     if (mistakes.length > 0) {
       const firstMistake = mistakes[0];
+      console.log('➡️ Redirection vers chapitre:', firstMistake.chapterId);
       this.router.navigate(['/quiz', firstMistake.chapterId], {
         queryParams: { review: true }
       });
+    } else {
+      alert('Aucune erreur à réviser pour le moment. Continue à t\'entraîner !');
     }
   }
 }

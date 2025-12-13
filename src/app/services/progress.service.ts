@@ -102,6 +102,7 @@ export class ProgressService {
         answers: []
       };
       progress.mistakes.push(mistake);
+      console.log('❌ Nouvelle erreur enregistrée:', questionId, 'Chapitre:', chapterId);
     }
 
     mistake.errorCount++;
@@ -112,15 +113,16 @@ export class ProgressService {
     // Planifier la révision selon la fréquence des erreurs
     const daysToReview = Math.min(mistake.errorCount, 7);
     mistake.reviewScheduled = new Date(Date.now() + daysToReview * 24 * 60 * 60 * 1000);
+    
+    console.log('📝 Erreur #' + mistake.errorCount + ' pour', questionId, '- Total erreurs:', progress.mistakes.length);
   }
 
   getMistakesToReview(): MistakeRecord[] {
     const progress = this.progressSubject.value;
-    const now = new Date();
     
-    return progress.mistakes.filter(m => 
-      !m.isReviewed && new Date(m.reviewScheduled) <= now
-    ).sort((a, b) => b.errorCount - a.errorCount); // Prioriser les erreurs fréquentes
+    // Retourner toutes les erreurs non révisées (sans filtre de date)
+    return progress.mistakes.filter(m => !m.isReviewed)
+      .sort((a, b) => b.errorCount - a.errorCount); // Prioriser les erreurs fréquentes
   }
 
   markMistakeAsReviewed(questionId: string): void {
