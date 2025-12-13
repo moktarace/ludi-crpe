@@ -23,7 +23,7 @@
         </span>
       </div>
 
-      <h2 class="question-text">{{ currentQuestion.question }}</h2>
+      <h2 class="question-text">{{ currentQuestion.question | mathNotation }}</h2>
 
       <!-- QCM -->
       <div class="answers-grid" *ngIf="currentQuestion.type === QuestionType.MULTIPLE_CHOICE">
