@@ -1,0 +1,98 @@
+[
+  {
+    "id": "q1_1",
+    "chapterId": "chapter_1",
+    "type": "multiple_choice",
+    "difficulty": "easy",
+    "variables": [
+      { "name": "a", "min": 2, "max": 12, "exclude": [0, 1] }
+    ],
+    "questionTemplate": "Calculez: {a}² = ?",
+    "answersTemplate": [
+      { "textFormula": "{a} * {a}", "isCorrectFormula": "1" },
+      { "textFormula": "{a} * 2", "isCorrectFormula": "0" },
+      { "textFormula": "{a} * {a} + {a}", "isCorrectFormula": "0" },
+      { "textFormula": "{a} * {a} - {a}", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "{a}² = {a} × {a} = {a} * {a}",
+    "tags": ["puissances", "calcul"]
+  },
+  {
+    "id": "q1_2",
+    "chapterId": "chapter_1",
+    "type": "free_input",
+    "difficulty": "medium",
+    "variables": [
+      { "name": "a", "min": 2, "max": 9 },
+      { "name": "b", "min": 2, "max": 9 }
+    ],
+    "questionTemplate": "Calculez: {a}² + {b}² = ?",
+    "correctAnswerFormula": "{a}*{a} + {b}*{b}",
+    "explanationTemplate": "{a}² = {a}×{a} et {b}² = {b}×{b}, donc {a}*{a} + {b}*{b}",
+    "hintsTemplates": [
+      "{a}² = {a} × {a} = {a}*{a}",
+      "{b}² = {b} × {b} = {b}*{b}",
+      "Addition: {a}*{a} + {b}*{b} = ?"
+    ],
+    "tags": ["puissances", "calcul", "addition"]
+  },
+  {
+    "id": "q1_3",
+    "chapterId": "chapter_1",
+    "type": "multiple_choice",
+    "difficulty": "easy",
+    "variables": [
+      { "name": "a", "min": 4, "max": 144, "step": 4 }
+    ],
+    "questionTemplate": "Quelle est la racine carrée de {a} ?",
+    "answersTemplate": [
+      { "textFormula": "sqrt({a})", "isCorrectFormula": "1" },
+      { "textFormula": "{a} / 2", "isCorrectFormula": "0" },
+      { "textFormula": "sqrt({a}) + 1", "isCorrectFormula": "0" },
+      { "textFormula": "sqrt({a}) - 1", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "√{a} = sqrt({a}) car sqrt({a})² = {a}",
+    "tags": ["racines", "calcul"]
+  },
+  {
+    "id": "q1_4",
+    "chapterId": "chapter_1",
+    "type": "free_input",
+    "difficulty": "hard",
+    "variables": [
+      { "name": "base", "min": 2, "max": 5 },
+      { "name": "exp", "min": 3, "max": 4 }
+    ],
+    "questionTemplate": "Calculez: {base}^{exp} = ?",
+    "correctAnswerFormula": "pow({base}, {exp})",
+    "explanationTemplate": "{base}^{exp} = {base} multiplié par lui-même {exp} fois = pow({base}, {exp})",
+    "hintsTemplates": [
+      "{base}^{exp} signifie {base} × {base} × ... ({exp} fois)",
+      "Multipliez progressivement"
+    ],
+    "tags": ["puissances", "exposants"]
+  },
+  {
+    "id": "q1_5",
+    "chapterId": "chapter_1",
+    "type": "multiple_choice",
+    "difficulty": "medium",
+    "variables": [
+      { "name": "a", "min": 2, "max": 10 },
+      { "name": "b", "min": 2, "max": 10 }
+    ],
+    "questionTemplate": "Simplifiez: {a}^2 × {a}^{b} = {a}^? (exposant)",
+    "answersTemplate": [
+      { "textFormula": "{b} + 2", "isCorrectFormula": "1" },
+      { "textFormula": "{b} * 2", "isCorrectFormula": "0" },
+      { "textFormula": "{b}", "isCorrectFormula": "0" },
+      { "textFormula": "{b} - 2", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "Règle: a^m × a^n = a^(m+n), donc {a}^2 × {a}^{b} = {a}^({b}+2)",
+    "hintsTemplates": [
+      "Quand on multiplie des puissances de même base, on additionne les exposants",
+      "2 + {b} = ?"
+    ],
+    "tags": ["puissances", "règles"]
+  }
+]

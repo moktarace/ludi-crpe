@@ -53,17 +53,25 @@ export class QuizComponent implements OnInit {
       this.questions = mistakeIds
         .map(id => this.questionService.getQuestionById(id))
         .filter(q => q !== undefined) as Question[];
+        
+      if (this.questions.length === 0) {
+        alert('Aucune erreur à réviser pour ce chapitre. Bravo ! 🎉');
+        this.router.navigate(['/learning-path']);
+        return;
+      }
     } else {
+      // Récupère 5 questions adaptatives (avec nouvelles valeurs aléatoires)
       this.questions = this.questionService.getAdaptiveQuestions(this.chapterId, 5);
+      
+      // Si pas assez de questions, on affiche quand même celles disponibles
+      if (this.questions.length === 0) {
+        alert('Aucune question disponible pour ce chapitre');
+        this.router.navigate(['/learning-path']);
+        return;
+      }
     }
 
-    if (this.questions.length > 0) {
-      this.currentQuestion = this.questions[0];
-    } else {
-      // Pas de questions disponibles
-      alert('Aucune question disponible pour ce chapitre');
-      this.router.navigate(['/learning-path']);
-    }
+    this.currentQuestion = this.questions[0];
   }
 
   selectAnswer(answer: string): void {

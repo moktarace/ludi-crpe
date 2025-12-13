@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Question, QuestionType, DifficultyLevel } from '../models/question.model';
+import { QuestionTemplate, QuestionGenerator } from '../models/question-template.model';
 import { ProgressService } from './progress.service';
 import { firstValueFrom } from 'rxjs';
 
@@ -9,37 +10,51 @@ import { firstValueFrom } from 'rxjs';
 })
 export class QuestionService {
   private questions: Question[] = [];
+  private questionTemplates: QuestionTemplate[] = [];
   private questionsLoaded = false;
 
   constructor(
     private progressService: ProgressService,
     private http: HttpClient
   ) {
-    this.loadAllQuestions();
+    this.loadAllTemplates();
   }
 
-  private async loadAllQuestions(): Promise<void> {
+  /**
+   * Charge tous les templates de questions depuis les fichiers JSON
+   */
+  private async loadAllTemplates(): Promise<void> {
     try {
-      // Charger toutes les questions des chapitres
       const chapters = ['chapter-1', 'chapter-2', 'chapter-3', 'chapter-4', 'chapter-5'];
-      const allQuestions: Question[] = [];
+      const allTemplates: QuestionTemplate[] = [];
 
       for (const chapter of chapters) {
         try {
-          const questions = await firstValueFrom(
-            this.http.get<Question[]>(`assets/data/${chapter}-questions.json`)
+          // Essayer de charger les templates dynamiques
+          const templates = await firstValueFrom(
+            this.http.get<QuestionTemplate[]>(`assets/data/${chapter}-templates.json`)
           );
-          allQuestions.push(...questions);
+          allTemplates.push(...templates);
         } catch (error) {
-          console.warn(`Could not load ${chapter}-questions.json`, error);
+          console.warn(`Could not load ${chapter}-templates.json, trying static questions`, error);
+          // Fallback: charger les questions statiques si les templates n'existent pas
+          try {
+            const staticQuestions = await firstValueFrom(
+              this.http.get<Question[]>(`assets/data/${chapter}-questions.json`)
+            );
+            this.questions.push(...staticQuestions);
+          } catch (staticError) {
+            console.warn(`Could not load ${chapter}-questions.json either`, staticError);
+          }
         }
       }
 
-      this.questions = allQuestions;
+      this.questionTemplates = allTemplates;
       this.questionsLoaded = true;
+      
+      console.log(`Loaded ${this.questionTemplates.length} question templates and ${this.questions.length} static questions`);
     } catch (error) {
       console.error('Error loading questions:', error);
-      // Fallback: charger quelques questions par défaut
       this.initializeFallbackQuestions();
     }
   }
@@ -70,38 +85,89 @@ export class QuestionService {
     }
   }
 
-  getQuestionsByChapter(chapterId: string): Question[] {
-    return this.questions.filter(q => q.chapterId === chapterId);
+  /**
+   * Génère une nouvelle question à partir d'un template
+   */
+  private generateQuestionFromTemplate(template: QuestionTemplate): Question {
+    return QuestionGenerator.generateQuestion(template);
   }
 
+  /**
+   * Récupère toutes les questions d'un chapitre (génère les dynamiques)
+   */
+  getQuestionsByChapter(chapterId: string): Question[] {
+    // Questions statiques
+    const staticQuestions = this.questions.filter(q => q.chapterId === chapterId);
+    
+    // Questions dynamiques générées à partir de templates
+    const dynamicQuestions = this.questionTemplates
+      .filter(t => t.chapterId === chapterId)
+      .map(t => this.generateQuestionFromTemplate(t));
+    
+    return [...staticQuestions, ...dynamicQuestions];
+  }
+
+  /**
+   * Génère une nouvelle instance d'une question (avec nouvelles valeurs)
+   */
   getQuestionById(questionId: string): Question | undefined {
-    return this.questions.find(q => q.id === questionId);
+    // Chercher dans les questions statiques
+    const staticQuestion = this.questions.find(q => q.id === questionId);
+    if (staticQuestion) {
+      return staticQuestion;
+    }
+    
+    // Chercher dans les templates et générer une nouvelle instance
+    const template = this.questionTemplates.find(t => t.id === questionId);
+    if (template) {
+      return this.generateQuestionFromTemplate(template);
+    }
+    
+    return undefined;
   }
 
   getAdaptiveQuestions(chapterId: string, count: number = 5): Question[] {
     const mistakes = this.progressService.getMistakesToReview();
     const mistakeQuestionIds = mistakes.map(m => m.questionId);
     
-    // Prioriser les questions avec erreurs
-    const mistakeQuestions = this.questions.filter(q => 
-      mistakeQuestionIds.includes(q.id) && q.chapterId === chapterId
-    );
+    // Régénérer les questions avec erreurs (nouvelles valeurs aléatoires)
+    const mistakeQuestions: Question[] = [];
+    for (const mistakeId of mistakeQuestionIds) {
+      const template = this.questionTemplates.find(t => t.id === mistakeId);
+      if (template && template.chapterId === chapterId) {
+        mistakeQuestions.push(this.generateQuestionFromTemplate(template));
+      }
+    }
 
-    // Ajouter des questions du chapitre
-    const chapterQuestions = this.getQuestionsByChapter(chapterId);
+    // Récupérer TOUTES les questions du chapitre (avec nouvelles valeurs aléatoires)
+    const allChapterQuestions = this.getQuestionsByChapter(chapterId);
+    
+    console.log(`📊 Chapter ${chapterId} - Total questions available: ${allChapterQuestions.length}`);
+    console.log(`📊 Templates loaded: ${this.questionTemplates.length}`);
+    console.log(`📊 Static questions loaded: ${this.questions.length}`);
+    
     const progress = this.progressService.getChapterProgress(chapterId);
     const completedIds = progress?.completedQuestions || [];
 
-    // Questions non complétées
-    const newQuestions = chapterQuestions.filter(q => 
+    // Prioriser les questions avec erreurs, puis les non complétées, puis toutes les autres
+    const questionsWithMistakes = mistakeQuestions;
+    const newQuestions = allChapterQuestions.filter(q => 
       !completedIds.includes(q.id) && !mistakeQuestionIds.includes(q.id)
     );
+    const reviewQuestions = allChapterQuestions.filter(q => 
+      completedIds.includes(q.id) && !mistakeQuestionIds.includes(q.id)
+    );
 
-    // Mélanger et limiter
+    console.log(`📊 Questions breakdown - Mistakes: ${questionsWithMistakes.length}, New: ${newQuestions.length}, Review: ${reviewQuestions.length}`);
+
+    // Construire la sélection: erreurs d'abord, puis nouvelles, puis révision
     const selected = [
-      ...mistakeQuestions,
-      ...this.shuffleArray(newQuestions)
+      ...questionsWithMistakes,
+      ...this.shuffleArray(newQuestions),
+      ...this.shuffleArray(reviewQuestions)  // ← Permet de refaire les questions avec nouvelles valeurs
     ].slice(0, count);
+
+    console.log(`✅ Selected ${selected.length} questions for quiz`);
 
     return this.adaptQuestionDifficulty(selected, progress?.score || 0);
   }

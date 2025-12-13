@@ -1,0 +1,93 @@
+[
+  {
+    "id": "q3_1",
+    "chapterId": "chapter_3",
+    "type": "free_input",
+    "difficulty": "easy",
+    "variables": [
+      { "name": "L", "min": 3, "max": 12 },
+      { "name": "l", "min": 2, "max": 10 }
+    ],
+    "questionTemplate": "Calculez l'aire d'un rectangle de longueur {L} cm et largeur {l} cm (en cm²)",
+    "correctAnswerFormula": "{L} * {l}",
+    "explanationTemplate": "Aire = Longueur × Largeur = {L} × {l} = {L} * {l} cm²",
+    "tags": ["géométrie", "aire", "rectangle"]
+  },
+  {
+    "id": "q3_2",
+    "chapterId": "chapter_3",
+    "type": "multiple_choice",
+    "difficulty": "medium",
+    "variables": [
+      { "name": "a", "min": 3, "max": 12 },
+      { "name": "b", "min": 4, "max": 12 }
+    ],
+    "questionTemplate": "Triangle rectangle: si a = {a} cm et b = {b} cm, quelle est l'hypoténuse c ?",
+    "answersTemplate": [
+      { "textFormula": "round(sqrt({a}*{a} + {b}*{b}) * 10) / 10", "isCorrectFormula": "1" },
+      { "textFormula": "{a} + {b}", "isCorrectFormula": "0" },
+      { "textFormula": "sqrt({a} + {b})", "isCorrectFormula": "0" },
+      { "textFormula": "{a} * {b}", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "Pythagore: c² = a² + b² = {a}² + {b}² = {a}*{a} + {b}*{b}, donc c = sqrt({a}*{a} + {b}*{b})",
+    "hintsTemplates": [
+      "Utilisez le théorème de Pythagore",
+      "c² = {a}² + {b}²"
+    ],
+    "tags": ["géométrie", "pythagore", "triangle"]
+  },
+  {
+    "id": "q3_3",
+    "chapterId": "chapter_3",
+    "type": "multiple_choice",
+    "difficulty": "easy",
+    "variables": [
+      { "name": "r", "min": 2, "max": 10 }
+    ],
+    "questionTemplate": "Quelle est l'aire d'un cercle de rayon {r} cm ? (π ≈ 3.14)",
+    "answersTemplate": [
+      { "textFormula": "round(3.14 * {r} * {r} * 10) / 10", "isCorrectFormula": "1" },
+      { "textFormula": "round(2 * 3.14 * {r} * 10) / 10", "isCorrectFormula": "0" },
+      { "textFormula": "{r} * {r}", "isCorrectFormula": "0" },
+      { "textFormula": "3.14 * {r}", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "Aire = π × r² = 3.14 × {r}² = 3.14 × {r}*{r} ≈ round(3.14 * {r} * {r} * 10) / 10 cm²",
+    "tags": ["géométrie", "cercle", "aire"]
+  },
+  {
+    "id": "q3_4",
+    "chapterId": "chapter_3",
+    "type": "free_input",
+    "difficulty": "easy",
+    "variables": [
+      { "name": "b", "min": 4, "max": 15 },
+      { "name": "h", "min": 3, "max": 12 }
+    ],
+    "questionTemplate": "Calculez l'aire d'un triangle de base {b} cm et hauteur {h} cm (en cm²)",
+    "correctAnswerFormula": "({b} * {h}) / 2",
+    "explanationTemplate": "Aire = (Base × Hauteur) / 2 = ({b} × {h}) / 2 = ({b} * {h}) / 2 cm²",
+    "hintsTemplates": [
+      "Formule: Aire = (b × h) / 2",
+      "Calculez d'abord {b} × {h}"
+    ],
+    "tags": ["géométrie", "aire", "triangle"]
+  },
+  {
+    "id": "q3_5",
+    "chapterId": "chapter_3",
+    "type": "multiple_choice",
+    "difficulty": "medium",
+    "variables": [
+      { "name": "r", "min": 3, "max": 8 }
+    ],
+    "questionTemplate": "Quel est le périmètre d'un cercle de rayon {r} cm ? (π ≈ 3.14)",
+    "answersTemplate": [
+      { "textFormula": "round(2 * 3.14 * {r} * 10) / 10", "isCorrectFormula": "1" },
+      { "textFormula": "round(3.14 * {r} * {r} * 10) / 10", "isCorrectFormula": "0" },
+      { "textFormula": "3.14 * {r}", "isCorrectFormula": "0" },
+      { "textFormula": "2 * {r}", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "Périmètre = 2 × π × r = 2 × 3.14 × {r} ≈ round(2 * 3.14 * {r} * 10) / 10 cm",
+    "tags": ["géométrie", "cercle", "périmètre"]
+  }
+]

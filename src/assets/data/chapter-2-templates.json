@@ -1,0 +1,97 @@
+[
+  {
+    "id": "q2_1",
+    "chapterId": "chapter_2",
+    "type": "multiple_choice",
+    "difficulty": "easy",
+    "variables": [
+      { "name": "a", "min": -10, "max": 10, "exclude": [0] },
+      { "name": "x", "min": 1, "max": 10 }
+    ],
+    "questionTemplate": "Soit f(x) = {a}x. Calculez f({x})",
+    "answersTemplate": [
+      { "textFormula": "{a} * {x}", "isCorrectFormula": "1" },
+      { "textFormula": "{a} + {x}", "isCorrectFormula": "0" },
+      { "textFormula": "{x} - {a}", "isCorrectFormula": "0" },
+      { "textFormula": "{a} * {x} * 2", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "f({x}) = {a} × {x} = {a} * {x}",
+    "tags": ["fonctions", "fonction linéaire"]
+  },
+  {
+    "id": "q2_2",
+    "chapterId": "chapter_2",
+    "type": "free_input",
+    "difficulty": "medium",
+    "variables": [
+      { "name": "a", "min": -5, "max": 5, "exclude": [0] },
+      { "name": "b", "min": -10, "max": 10 },
+      { "name": "x", "min": 1, "max": 10 }
+    ],
+    "questionTemplate": "Soit f(x) = {a}x + {b}. Calculez f({x})",
+    "correctAnswerFormula": "{a} * {x} + {b}",
+    "explanationTemplate": "f({x}) = {a} × {x} + {b} = {a} * {x} + {b}",
+    "hintsTemplates": [
+      "Commencez par calculer {a} × {x}",
+      "Puis ajoutez {b}"
+    ],
+    "tags": ["fonctions", "fonction affine"]
+  },
+  {
+    "id": "q2_3",
+    "chapterId": "chapter_2",
+    "type": "multiple_choice",
+    "difficulty": "easy",
+    "variables": [
+      { "name": "a", "min": 2, "max": 8 },
+      { "name": "b", "min": -10, "max": 10 }
+    ],
+    "questionTemplate": "Quelle est la pente de la droite d'équation y = {a}x + {b} ?",
+    "answersTemplate": [
+      { "textFormula": "{a}", "isCorrectFormula": "1" },
+      { "textFormula": "{b}", "isCorrectFormula": "0" },
+      { "textFormula": "{a} + {b}", "isCorrectFormula": "0" },
+      { "textFormula": "-{a}", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "Pour y = ax + b, la pente est a = {a}",
+    "tags": ["fonctions", "droite", "pente"]
+  },
+  {
+    "id": "q2_4",
+    "chapterId": "chapter_2",
+    "type": "free_input",
+    "difficulty": "medium",
+    "variables": [
+      { "name": "a", "min": 2, "max": 6 },
+      { "name": "b", "min": -5, "max": 5 },
+      { "name": "result", "min": 10, "max": 30 }
+    ],
+    "questionTemplate": "Résolvez l'équation: {a}x + {b} = {result}",
+    "correctAnswerFormula": "({result} - {b}) / {a}",
+    "explanationTemplate": "{a}x = {result} - {b} = {result} - {b}, donc x = ({result} - {b}) / {a}",
+    "hintsTemplates": [
+      "Isolez {a}x en soustrayant {b}",
+      "Divisez par {a}"
+    ],
+    "tags": ["équations", "résolution"]
+  },
+  {
+    "id": "q2_5",
+    "chapterId": "chapter_2",
+    "type": "multiple_choice",
+    "difficulty": "hard",
+    "variables": [
+      { "name": "a", "min": 2, "max": 5 },
+      { "name": "b", "min": 1, "max": 5 }
+    ],
+    "questionTemplate": "Si f(x) = {a}x² + {b}, quelle est f(2) ?",
+    "answersTemplate": [
+      { "textFormula": "{a} * 4 + {b}", "isCorrectFormula": "1" },
+      { "textFormula": "{a} * 2 + {b}", "isCorrectFormula": "0" },
+      { "textFormula": "2 * {a} + {b}", "isCorrectFormula": "0" },
+      { "textFormula": "{a} + {b} + 2", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "f(2) = {a} × 2² + {b} = {a} × 4 + {b} = {a} * 4 + {b}",
+    "tags": ["fonctions", "fonction carrée"]
+  }
+]
