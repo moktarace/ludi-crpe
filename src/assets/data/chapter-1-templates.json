@@ -15,6 +15,7 @@
       { "textFormula": "{a} * {a} - {a}", "isCorrectFormula": "0" }
     ],
     "explanationTemplate": "📖 Explication détaillée:\n\n{a}² signifie \"{a} au carré\" ou \"{a} élevé à la puissance 2\".\n\nCela veut dire: {a} × {a}\n\nCalcul: {a} × {a} = pow({a}, 2)\n\n💡 Rappel: Pour calculer un carré, on multiplie le nombre par lui-même !",
+    "realLifeExplanationTemplate": "🌍 Dans la vraie vie:\n\nImagine que tu as un carré de chocolat de {a} cm de côté.\n\n🍫 Pour calculer combien de chocolat tu as au total, tu dois calculer {a} × {a}.\n\nPourquoi ? Parce qu'un carré a tous ses côtés égaux !\n\n✨ Exemple concret:\n• Un carré de {a} cm de côté = {a} rangées de {a} carrés\n• Total = pow({a}, 2) petits carrés de chocolat !\n\n💡 Dans la vraie vie, on utilise ça pour:\n• Calculer l'aire d'une pièce carrée (combien de carreaux ?)\n• Savoir combien de photos de {a}×{a} cm on peut mettre sur un mur\n• Calculer la surface d'un terrain de jeu",
     "hintsTemplates": [
       "Un carré (²) signifie multiplier le nombre par lui-même",
       "{a}² = {a} × {a}",
@@ -34,6 +35,7 @@
     "questionTemplate": "Calculez: {a}² + {b}² = ?",
     "correctAnswerFormula": "{a}*{a} + {b}*{b}",
     "explanationTemplate": "📖 Explication détaillée:\n\n**Étape 1:** Calculer {a}²\n{a}² = {a} × {a} = pow({a}, 2)\n\n**Étape 2:** Calculer {b}²\n{b}² = {b} × {b} = pow({b}, 2)\n\n**Étape 3:** Additionner les résultats\npow({a}, 2) + pow({b}, 2) = pow({a}, 2) + pow({b}, 2)\n\n✅ **Résultat final:** pow({a}, 2) + pow({b}, 2)\n\n💡 Astuce: Calcule toujours les puissances avant de faire l'addition !",
+    "realLifeExplanationTemplate": "🌍 Imagine une fête d'anniversaire:\n\n🎂 Tu as {a} tables de {a} personnes (= pow({a}, 2) personnes)\n🍕 Et {b} tables de {b} personnes (= pow({b}, 2) personnes)\n\n📊 Pour savoir combien de parts de pizza commander:\n• Tables de {a}: {a} × {a} = pow({a}, 2) personnes\n• Tables de {b}: {b} × {b} = pow({b}, 2) personnes\n• Total: pow({a}, 2) + pow({b}, 2) personnes !\n\n💡 On utilise ça aussi pour:\n• Compter les sièges dans une salle (rangées × colonnes)\n• Calculer le nombre de carreaux dans deux pièces carrées\n• Additionner les places dans différentes zones d'un concert",
     "hintsTemplates": [
       "Commence par calculer {a}²",
       "{a}² = {a} × {a} = pow({a}, 2)",
@@ -59,6 +61,7 @@
       { "textFormula": "sqrt({a}) - 1", "isCorrectFormula": "0" }
     ],
     "explanationTemplate": "📖 Explication détaillée:\n\nLa racine carrée (√) est l'opération inverse du carré (²).\n\n**Question:** Quel nombre multiplié par lui-même donne {a} ?\n\n**Réponse:** sqrt({a})\n\nVérifions: sqrt({a}) × sqrt({a}) = (sqrt({a}))² = {a} ✓\n\n**Résultat:** sqrt({a})\n\n💡 Rappel: sqrt(pow(a, 2)) = a",
+    "realLifeExplanationTemplate": "🌍 Imagine que tu veux installer un tapis carré:\n\n🏠 La pièce fait {a} m² (surface totale)\n📐 Le tapis doit être carré (même longueur et largeur)\n\n🤔 Quelle longueur de côté pour le tapis?\n\nRéponse: √{a} = sqrt({a}) mètres par côté\n\n💡 Pourquoi? Parce que:\n• Surface = côté × côté\n• {a} = sqrt({a}) × sqrt({a})\n• Donc chaque côté mesure sqrt({a}) m\n\n🎯 Exemples concrets:\n• Jardin carré de 36 m² → côté de √36 = 6m\n• Nappe carrée pour table de 64 m² → côté de √64 = 8m\n• Tapis de 100 m² → côté de √100 = 10m",
     "hintsTemplates": [
       "La racine carrée (√) est l'inverse du carré",
       "Cherche quel nombre au carré donne {a}",
@@ -78,6 +81,7 @@
     "questionTemplate": "Calculez: {base}^{exp} = ?",
     "correctAnswerFormula": "pow({base}, {exp})",
     "explanationTemplate": "{base}^{exp} = {base} multiplié par lui-même {exp} fois = pow({base}, {exp})",
+    "realLifeExplanationTemplate": "🌍 Imagine que tu empiles des boîtes:\n\n📦 Tu as un cube de {base} boîtes de côté\n🔢 Le cube a donc {exp} dimensions (longueur × largeur × hauteur)\n\n🤔 Combien de boîtes au total?\n\nRéponse: {base}^{exp} = pow({base}, {exp}) boîtes\n\n💡 Calcul:\n• Si {exp} = 3: {base} × {base} × {base} = pow({base}, {exp})\n• C'est comme remplir un cube!\n\n🎯 Exemples concrets:\n• 2³ = 8 boîtes dans un cube 2×2×2\n• 3³ = 27 dés dans un Rubik's Cube 3×3×3\n• 4² = 16 places dans un parking 4×4\n• 5³ = 125 cubes dans une structure 5×5×5",
     "hintsTemplates": [
       "{base}^{exp} signifie {base} × {base} × ... ({exp} fois)",
       "Multipliez progressivement"
@@ -101,6 +105,7 @@
       { "textFormula": "{b} - 2", "isCorrectFormula": "0" }
     ],
     "explanationTemplate": "📖 Règle des puissances:\n\nQuand on multiplie des puissances de même base, on additionne les exposants.\n\nFormule: a^m × a^n = a^(m+n)\n\nDans notre cas:\n{a}^2 × {a}^{b} = {a}^(2+{b}) = {a}^pow(2+{b}, 1)\n\n💡 Astuce: On garde la base, on additionne les exposants !",
+    "realLifeExplanationTemplate": "🌍 Imagine que tu comptes des paquets:\n\n📦 Premier lot: {a} boîtes de {a} objets = {a}² objets\n📦 Deuxième lot: {a} × {a} × ... ({b} fois) = {a}^{b} objets\n\n🤔 Si tu combines les deux lots:\n\n{a}² × {a}^{b} = ?\n\n💡 Raccourci malin:\nAu lieu de tout multiplier, compte juste les fois où tu utilises {a}!\n• {a}² = {a} utilisé 2 fois\n• {a}^{b} = {a} utilisé {b} fois\n• Total = {a} utilisé (2 + {b}) fois = {a}^pow(2+{b}, 1)\n\n🎯 Exemples concrets:\n• 2² × 2³ = 2^5 (pas besoin de calculer 4 × 8 !)\n• 3² × 3⁴ = 3^6 (plus rapide que 9 × 81 !)\n• 5¹ × 5² = 5³ (1 + 2 = 3, facile !)",
     "hintsTemplates": [
       "Règle: Quand on multiplie des puissances de même base, on additionne les exposants",
       "On a {a}^2 × {a}^{b}, donc on additionne 2 + {b}",

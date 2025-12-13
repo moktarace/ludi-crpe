@@ -24,6 +24,7 @@ export interface Question {
   answers?: Answer[]; // Pour les QCM
   correctAnswer?: string | number; // Pour les réponses libres
   explanation?: string;
+  realLifeExplanation?: string; // Explication avec exemples du quotidien
   hints?: string[];
   tags?: string[];
 }

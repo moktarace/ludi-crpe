@@ -24,6 +24,9 @@ export interface QuestionTemplate {
   // Template de l'explication
   explanationTemplate?: string;
   
+  // Template de l'explication "vie de tous les jours"
+  realLifeExplanationTemplate?: string;
+  
   // Templates des indices
   hintsTemplates?: string[];
   
@@ -101,6 +104,10 @@ export class QuestionGenerator {
     
     if (template.explanationTemplate) {
       result.explanation = this.replacePlaceholders(template.explanationTemplate, variables);
+    }
+    
+    if (template.realLifeExplanationTemplate) {
+      result.realLifeExplanation = this.replacePlaceholders(template.realLifeExplanationTemplate, variables);
     }
     
     if (template.hintsTemplates) {

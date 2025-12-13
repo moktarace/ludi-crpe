@@ -16,6 +16,7 @@
       { "textFormula": "{a} * {x} * 2", "isCorrectFormula": "0" }
     ],
     "explanationTemplate": "f({x}) = {a} × {x} = {a} * {x}",
+    "realLifeExplanationTemplate": "🌍 Imagine un service de livraison:\n\n🚚 Prix par km: {a}€\n📍 Distance parcourue: {x} km\n\n💰 Combien ça coûte?\n\nf({x}) = {a} × {x} = {a} * {x}€\n\n💡 C'est une fonction linéaire:\n• Plus tu parcours de km, plus ça coûte\n• Le prix est proportionnel à la distance\n• Coefficient {a} = prix unitaire par km\n\n🎯 Exemples concrets:\n• Taxi: 2€/km → 5 km = 2 × 5 = 10€\n• Essence: 1.8€/L → 40L = 1.8 × 40 = 72€\n• Électricité: 0.15€/kWh → 100 kWh = 15€",
     "tags": ["fonctions", "fonction linéaire"]
   },
   {
@@ -31,6 +32,7 @@
     "questionTemplate": "Soit f(x) = {a}x + {b}. Calculez f({x})",
     "correctAnswerFormula": "{a} * {x} + {b}",
     "explanationTemplate": "f({x}) = {a} × {x} + {b} = {a} * {x} + {b}",
+    "realLifeExplanationTemplate": "🌍 Imagine un abonnement téléphonique:\n\n📱 Coût fixe mensuel: {b}€\n📞 Prix par heure d'appel: {a}€/h\n⏱️ Tu as appelé {x} heures ce mois\n\n💰 Facture totale?\n\nf({x}) = {a} × {x} + {b} = {a} * {x} + {b}€\n\n💡 C'est une fonction affine:\n• {b}€ = coût fixe (même si tu n'appelles pas)\n• {a}€/h = coût variable par heure\n• Total = coût variable + coût fixe\n\n🎯 Exemples concrets:\n• Gym: 30€/mois + 5€/cours\n• Internet: 25€/mois + 2€/GB supplémentaire\n• Parking: 10€/jour + 3€/heure",
     "hintsTemplates": [
       "Commencez par calculer {a} × {x}",
       "Puis ajoutez {b}"
@@ -54,6 +56,7 @@
       { "textFormula": "-{a}", "isCorrectFormula": "0" }
     ],
     "explanationTemplate": "Pour y = ax + b, la pente est a = {a}",
+    "realLifeExplanationTemplate": "🌍 Imagine une route en montagne:\n\n⛰️ Équation de la route: y = {a}x + {b}\n📐 Pente = {a}\n\n🚗 Qu'est-ce que ça veut dire?\n\n💡 La pente {a} signifie:\n• Pour chaque mètre horizontal ({a}m →)\n• Tu montes de {a} mètres (↑ {a}m)\n• Plus la pente est grande, plus c'est raide!\n\n🎯 Exemples concrets:\n• Pente = 2: route assez raide (montée rapide)\n• Pente = 0.5: route douce (montée lente)\n• Pente = 10: très raide (escalade!)\n• Pente = 0: route plate (pas de montée)\n\n🚴 Cyclistes:\n• Pente < 5% = facile\n• Pente 5-10% = moyen\n• Pente > 10% = difficile!",
     "tags": ["fonctions", "droite", "pente"]
   },
   {
@@ -69,6 +72,7 @@
     "questionTemplate": "Résolvez l'équation: {a}x + {b} = {result}",
     "correctAnswerFormula": "({result} - {b}) / {a}",
     "explanationTemplate": "{a}x = {result} - {b} = {result} - {b}, donc x = ({result} - {b}) / {a}",
+    "realLifeExplanationTemplate": "🌍 Imagine que tu économises pour un vélo:\n\n🎯 Prix du vélo: {result}€\n💰 Tu as déjà: {b}€\n📅 Tu économises {a}€ par semaine\n\n🤔 Combien de semaines avant d'acheter le vélo?\n\nÉquation: {a}x + {b} = {result}\n\n📊 Résolution:\n1️⃣ Il te manque: {result} - {b} = {result} - {b}€\n2️⃣ Nombre de semaines: ({result} - {b}) ÷ {a} = ({result} - {b}) / {a} semaines\n\n💡 x = ({result} - {b}) / {a}\n\n🎯 Exemples concrets:\n• Économiser pour un smartphone\n• Calculer combien de mois pour rembourser un prêt\n• Savoir combien de trajets pour rentabiliser un pass transport",
     "hintsTemplates": [
       "Isolez {a}x en soustrayant {b}",
       "Divisez par {a}"
@@ -92,6 +96,7 @@
       { "textFormula": "{a} + {b} + 2", "isCorrectFormula": "0" }
     ],
     "explanationTemplate": "f(2) = {a} × 2² + {b} = {a} × 4 + {b} = {a} * 4 + {b}",
+    "realLifeExplanationTemplate": "🌍 Imagine que tu lances une balle en l'air:\n\n🎾 Hauteur de la balle: f(x) = {a}x² + {b}\n⏱️ x = temps en secondes\n📏 Hauteur en mètres\n\n🤔 Quelle hauteur après 2 secondes?\n\nf(2) = {a} × 2² + {b}\n     = {a} × 4 + {b}\n     = {a} * 4 + {b} mètres\n\n💡 Pourquoi x² ?\n• La vitesse change avec le temps (accélération)\n• Plus le temps passe, plus la courbe change vite\n• C'est une parabole!\n\n🎯 Exemples concrets:\n• Trajectoire d'un ballon de foot\n• Chute libre d'un objet\n• Courbe de freinage d'une voiture\n• Lancer au basket\n\n📈 Caractéristique: ça accélère (x²) pas linéaire (x)!",
     "tags": ["fonctions", "fonction carrée"]
   }
 ]

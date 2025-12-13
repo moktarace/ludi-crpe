@@ -197,6 +197,58 @@
     display: block;
     margin-bottom: 16px;
   }
+  
+  .real-life-explanation {
+    background: linear-gradient(135deg, #fff9c4 0%, #fff59d 100%);
+    border: 2px solid #fbc02d;
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 16px;
+    
+    .real-life-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+      
+      .icon {
+        font-size: 1.5rem;
+      }
+      
+      h4 {
+        margin: 0;
+        color: #f57f17;
+        font-size: 1.1rem;
+      }
+    }
+    
+    p {
+      color: #333;
+      line-height: 1.8;
+      margin: 0;
+    }
+  }
+  
+  .toggle-explanation-btn {
+    margin-top: 16px;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+    }
+    
+    &:active {
+      transform: translateY(0);
+    }
+  }
 
   p {
     margin: 0;

@@ -54,7 +54,28 @@
           <span class="feedback-icon">
             {{ isCorrect ? '✓ Correct !' : '✗ Incorrect' }}
           </span>
-          <p *ngIf="currentQuestion.explanation">{{ currentQuestion.explanation | mathNotation }}</p>
+          
+          <!-- Explication mathématique standard -->
+          <div class="explanation-block" *ngIf="!showRealLifeMode">
+            <p *ngIf="currentQuestion.explanation">{{ currentQuestion.explanation | mathNotation }}</p>
+          </div>
+          
+          <!-- Explication "vie de tous les jours" -->
+          <div class="real-life-explanation" *ngIf="showRealLifeMode && currentQuestion.realLifeExplanation">
+            <div class="real-life-header">
+              <span class="icon">🌍</span>
+              <h4>Dans la vie de tous les jours</h4>
+            </div>
+            <p>{{ currentQuestion.realLifeExplanation | mathNotation }}</p>
+          </div>
+          
+          <!-- Bouton pour alterner les modes -->
+          <button 
+            class="toggle-explanation-btn" 
+            (click)="toggleExplanationMode()"
+            *ngIf="currentQuestion.realLifeExplanation">
+            {{ showRealLifeMode ? '📐 Voir l\'explication mathématique' : '🌍 Explique-moi comme dans la vie' }}
+          </button>
         </div>
       </div>
 

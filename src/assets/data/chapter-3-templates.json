@@ -11,6 +11,7 @@
     "questionTemplate": "Calculez l'aire d'un rectangle de longueur {L} cm et largeur {l} cm (en cm²)",
     "correctAnswerFormula": "{L} * {l}",
     "explanationTemplate": "📖 Aire d'un rectangle:\n\nFormule: Aire = Longueur × Largeur\n\nCalcul: {L} × {l} = {L} × {l} cm²\n\n💡 Rappel: On multiplie les deux dimensions !",
+    "realLifeExplanationTemplate": "🌍 Imagine que tu peins un mur:\n\n🎨 Longueur du mur: {L} mètres\n📏 Hauteur du mur: {l} mètres\n\n🤔 Combien de pots de peinture acheter?\n\nAire = {L} × {l} = {L} * {l} m²\n\n💡 Pourquoi multiplier?\n• {L} bandes verticales de {l} mètres chacune\n• Ou {l} bandes horizontales de {L} mètres chacune\n• Total = {L} * {l} m²\n\n🎯 Exemples concrets:\n• Calculer combien de carrelage pour une cuisine\n• Savoir combien de gazon pour un jardin rectangulaire\n• Compter les m² d'un appartement pour le loyer\n• Acheter la bonne taille de tapis pour un salon",
     "tags": ["géométrie", "aire", "rectangle"]
   },
   {
@@ -30,6 +31,7 @@
       { "textFormula": "{a} * {b}", "isCorrectFormula": "0" }
     ],
     "explanationTemplate": "📖 Théorème de Pythagore:\n\n**Formule:** c² = a² + b²\n\n**Étape 1:** Calculer a² et b²\n{a}² + {b}² = pow({a}, 2) + pow({b}, 2)\n\n**Étape 2:** Trouver c\nc = sqrt(pow({a}, 2) + pow({b}, 2))\n\n**Résultat:** c ≈ sqrt(pow({a}, 2) + pow({b}, 2)) cm\n\n💡 L'hypoténuse est le côté le plus long du triangle rectangle !",
+    "realLifeExplanationTemplate": "🌍 Imagine que tu installes une échelle:\n\n🏠 Mur de la maison: {a} mètres de haut\n📐 Distance du pied au mur: {b} mètres\n🪜 Quelle longueur d'échelle acheter?\n\n💡 Théorème de Pythagore:\n• L'échelle forme l'hypoténuse c\n• c² = {a}² + {b}²\n• c² = pow({a}, 2) + pow({b}, 2)\n• c = √(pow({a}, 2) + pow({b}, 2)) ≈ sqrt(pow({a}, 2) + pow({b}, 2)) m\n\n🎯 Exemples concrets:\n• Calculer la longueur d'un câble en diagonale\n• Distance en ligne droite entre 2 rues perpendiculaires\n• Taille d'écran TV (diagonale de l'écran)\n• Longueur d'une rampe d'accès pour handicapés\n\n⚠️ Toujours acheter une échelle un peu plus longue!",
     "hintsTemplates": [
       "Utilisez le théorème de Pythagore: c² = a² + b²",
       "Calcule d'abord pow({a}, 2) + pow({b}, 2)",
@@ -53,6 +55,7 @@
       { "textFormula": "3.14 * {r}", "isCorrectFormula": "0" }
     ],
     "explanationTemplate": "📖 Aire d'un cercle:\n\n**Formule:** Aire = π × r²\n\n**Étape 1:** Calculer r²\nr² = pow({r}, 2)\n\n**Étape 2:** Multiplier par π\n3.14 × pow({r}, 2) ≈ round(3.14 × pow({r}, 2) × 10) / 10 cm²\n\n💡 Rappel: π ≈ 3.14",
+    "realLifeExplanationTemplate": "🌍 Imagine que tu commandes une pizza:\n\n🍕 Rayon de la pizza: {r} cm\n📏 Combien de surface à manger?\n\n🤔 Aire de la pizza:\nAire = π × r²\n     = 3.14 × pow({r}, 2)\n     ≈ round(3.14 × pow({r}, 2) × 10) / 10 cm²\n\n💡 Pourquoi π (pi)?\n• π = rapport entre circonférence et diamètre\n• π ≈ 3.14 (nombre magique des cercles!)\n• Toujours présent dans les formules de cercles\n\n🎯 Exemples concrets:\n• Surface d'une pizza (rayon 15 cm ≈ 706 cm²)\n• Aire d'arrosage d'un arroseur de jardin\n• Zone couverte par un parapluie\n• Surface d'une piscine ronde\n\n💰 Astuce: Plus le rayon augmente, plus l'aire augmente VITE (×4 si rayon ×2)!",
     "tags": ["géométrie", "cercle", "aire"]
   },
   {
@@ -67,6 +70,7 @@
     "questionTemplate": "Calculez l'aire d'un triangle de base {b} cm et hauteur {h} cm (en cm²)",
     "correctAnswerFormula": "({b} * {h}) / 2",
     "explanationTemplate": "📖 Aire d'un triangle:\n\n**Formule:** Aire = (Base × Hauteur) / 2\n\n**Calcul:**\n({b} × {h}) / 2 = ({b} × {h}) / 2 cm²\n\n💡 L'aire d'un triangle est la moitié de celle du rectangle !",
+    "realLifeExplanationTemplate": "🌍 Imagine un terrain en forme de triangle:\n\n🏕️ Base du terrain: {b} mètres\n📏 Hauteur perpendiculaire: {h} mètres\n\n🤔 Quelle surface pour planter ta tente?\n\nAire = (Base × Hauteur) ÷ 2\n     = ({b} × {h}) ÷ 2\n     = ({b} * {h}) / 2 m²\n\n💡 Pourquoi diviser par 2?\n• Un triangle = moitié d'un rectangle!\n• Rectangle de {b}×{h} = {b} * {h} m²\n• Triangle = la moitié = ({b} * {h}) / 2 m²\n\n🎯 Exemples concrets:\n• Surface d'un toit triangulaire pour les tuiles\n• Aire d'une voile de bateau\n• Zone d'ombre sous un parasol triangulaire\n• Surface d'un panneau de signalisation\n\n✂️ Astuce: Imagine couper un rectangle en diagonale!",
     "hintsTemplates": [
       "Formule: Aire = (base × hauteur) / 2",
       "Calculez d'abord {b} × {h}",
@@ -90,6 +94,7 @@
       { "textFormula": "2 * {r}", "isCorrectFormula": "0" }
     ],
     "explanationTemplate": "Périmètre = 2 × π × r = 2 × 3.14 × {r} ≈ round(2 * 3.14 * {r} * 10) / 10 cm",
+    "realLifeExplanationTemplate": "🌍 Imagine une piste de course circulaire:\n\n🏃 Rayon de la piste: {r} mètres\n🔄 Tu cours sur le bord extérieur (le périmètre)\n\n🤔 Quelle distance tu parcours en 1 tour?\n\nPérimètre = 2 × π × r\n          = 2 × 3.14 × {r}\n          ≈ round(2 * 3.14 * {r} * 10) / 10 mètres\n\n💡 Pourquoi cette formule?\n• Le périmètre = tour complet du cercle\n• Diamètre = 2 × rayon\n• Périmètre = π × diamètre = 2 × π × r\n\n🎯 Exemples concrets:\n• Longueur d'une clôture autour d'une piscine ronde\n• Distance parcourue par une roue de vélo en 1 tour\n• Fil nécessaire pour entourer un gâteau rond\n• Longueur d'un bracelet ou collier circulaire\n\n🚴 Info: Une roue de vélo (rayon 35 cm) fait ~220 cm par tour!",
     "tags": ["géométrie", "cercle", "périmètre"]
   }
 ]

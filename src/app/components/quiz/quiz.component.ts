@@ -23,6 +23,7 @@ export class QuizComponent implements OnInit {
   showHints: boolean = false;
   currentHintIndex: number = 0;
   hintsUsed: number = 0;
+  showRealLifeMode: boolean = false;
   QuestionType = QuestionType; // Exposer l'enum au template
 
   constructor(
@@ -201,6 +202,13 @@ export class QuizComponent implements OnInit {
       return [];
     }
     return this.currentQuestion.hints.slice(0, this.currentHintIndex);
+  }
+
+  /**
+   * Bascule entre mode explication mathématique et vie quotidienne
+   */
+  toggleExplanationMode(): void {
+    this.showRealLifeMode = !this.showRealLifeMode;
   }
 
   /**
