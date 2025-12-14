@@ -3,6 +3,9 @@
     <button class="exit-button" (click)="exitQuiz()">✕</button>
     <div class="progress-container">
       <span class="progress-text">Question {{ currentQuestionIndex + 1 }} / {{ questions.length }}</span>
+      <span class="session-badge" *ngIf="!isReviewMode">
+        🎯 Session de 5
+      </span>
     </div>
   </div>
 

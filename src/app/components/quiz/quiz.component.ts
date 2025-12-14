@@ -51,25 +51,19 @@ export class QuizComponent implements OnInit {
     console.log('✅ Templates chargés, début du chargement des questions');
     
     if (this.isReviewMode) {
+      // Mode révision pure (toutes les erreurs)
       const mistakes = this.progressService.getMistakesToReview();
       console.log('🔍 Mode révision - Total erreurs:', mistakes.length);
-      console.log('📋 Liste des erreurs:', mistakes.map(m => ({ id: m.questionId, chapter: m.chapterId, count: m.errorCount })));
       
-      // Si chapterId est "all", on prend toutes les erreurs
-      // Sinon on filtre par chapitre
       const mistakeIds = this.chapterId === 'all' 
         ? mistakes.map(m => m.questionId)
         : mistakes.filter(m => m.chapterId === this.chapterId).map(m => m.questionId);
-      
-      console.log('📋 Questions à réviser pour ce contexte:', mistakeIds.length);
-      console.log('🔑 IDs à charger:', mistakeIds);
       
       this.questions = mistakeIds
         .map(id => this.questionService.getQuestionById(id))
         .filter(q => q !== undefined) as Question[];
         
       if (this.questions.length === 0) {
-        console.error('❌ Aucune question trouvée après filtrage');
         alert('Aucune erreur à réviser. Bravo ! 🎉');
         this.router.navigate(['/learning-path']);
         return;
@@ -77,18 +71,85 @@ export class QuizComponent implements OnInit {
       
       console.log('✅ Questions chargées pour révision:', this.questions.length);
     } else {
-      // Récupère 5 questions adaptatives (avec nouvelles valeurs aléatoires)
-      this.questions = this.questionService.getAdaptiveQuestions(this.chapterId, 5);
+      // Mode normal : 5 questions max avec mélange intelligent (style Duolingo)
+      this.questions = await this.selectSmartQuestions(this.chapterId, 5);
       
-      // Si pas assez de questions, on affiche quand même celles disponibles
       if (this.questions.length === 0) {
         alert('Aucune question disponible pour ce chapitre');
         this.router.navigate(['/learning-path']);
         return;
       }
+      
+      console.log('✅ Questions sélectionnées:', this.questions.length);
     }
 
     this.currentQuestion = this.questions[0];
+  }
+
+  async selectSmartQuestions(chapterId: string, totalQuestions: number): Promise<Question[]> {
+    // Récupérer toutes les questions disponibles du chapitre
+    const allQuestions = await this.questionService.getQuestionsByChapter(chapterId);
+    
+    if (allQuestions.length === 0) {
+      return [];
+    }
+    
+    // Récupérer les erreurs de l'utilisateur pour ce chapitre
+    const mistakes = this.progressService.getMistakesToReview()
+      .filter(m => m.chapterId === chapterId);
+    
+    console.log(`📊 Chapitre ${chapterId}: ${allQuestions.length} questions disponibles, ${mistakes.length} erreurs`);
+    
+    // Stratégie Duolingo : 
+    // - 40% questions avec erreurs (pour réviser)
+    // - 60% nouvelles questions (pour progresser)
+    const mistakeCount = Math.min(
+      Math.ceil(totalQuestions * 0.4),
+      mistakes.length
+    );
+    const newCount = totalQuestions - mistakeCount;
+    
+    console.log(`🎯 Sélection: ${mistakeCount} révisions + ${newCount} nouvelles`);
+    
+    const selectedQuestions: Question[] = [];
+    
+    // 1. Ajouter les questions avec erreurs (priorité aux plus récentes)
+    if (mistakeCount > 0) {
+      const mistakeQuestions = mistakes
+        .sort((a, b) => b.lastErrorDate.getTime() - a.lastErrorDate.getTime()) // Plus récentes d'abord
+        .slice(0, mistakeCount)
+        .map(m => this.questionService.getQuestionById(m.questionId))
+        .filter(q => q !== undefined) as Question[];
+      
+      selectedQuestions.push(...mistakeQuestions);
+      console.log(`✅ ${mistakeQuestions.length} questions d'erreurs ajoutées`);
+    }
+    
+    // 2. Ajouter des nouvelles questions (aléatoires)
+    if (newCount > 0) {
+      // Exclure les questions déjà sélectionnées
+      const selectedIds = new Set(selectedQuestions.map(q => q.id));
+      const availableNew = allQuestions.filter(q => !selectedIds.has(q.id));
+      
+      // Mélanger et prendre les premières
+      const shuffled = this.shuffleArray(availableNew);
+      const newQuestions = shuffled.slice(0, newCount);
+      
+      selectedQuestions.push(...newQuestions);
+      console.log(`✅ ${newQuestions.length} nouvelles questions ajoutées`);
+    }
+    
+    // 3. Mélanger l'ordre final (mix erreurs + nouvelles)
+    return this.shuffleArray(selectedQuestions);
+  }
+
+  shuffleArray<T>(array: T[]): T[] {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
   }
 
   selectAnswer(answer: string): void {
