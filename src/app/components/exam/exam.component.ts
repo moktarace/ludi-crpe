@@ -225,13 +225,20 @@ export class ExamComponent implements OnInit, OnDestroy {
     // Calculer le temps écoulé
     const timeElapsed = (this.selectedDuration * 60) - this.timeRemaining;
     
+    // Calculer le score sur les questions effectivement affichées
+    const questionsAnswered = this.examAnswers.length;
+    const correctAnswers = this.examAnswers.filter(a => a.isCorrect).length;
+    const score = questionsAnswered > 0 
+      ? Math.round((correctAnswers / questionsAnswered) * 100) 
+      : 0;
+    
     // Créer le résultat
     const result: ExamResult = {
       duration: this.selectedDuration,
       answers: this.examAnswers,
-      totalQuestions: this.questions.length,
-      correctAnswers: this.examAnswers.filter(a => a.isCorrect).length,
-      score: Math.round((this.examAnswers.filter(a => a.isCorrect).length / this.questions.length) * 100),
+      totalQuestions: questionsAnswered, // Questions affichées, pas toutes les dispo
+      correctAnswers: correctAnswers,
+      score: score,
       timeElapsed: timeElapsed,
       completedAt: new Date()
     };
