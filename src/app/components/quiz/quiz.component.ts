@@ -211,6 +211,8 @@ export class QuizComponent implements OnInit {
       this.currentQuestion = this.questions[this.currentQuestionIndex];
       this.currentHintIndex = 0; // Reset hints for next question
       this.resetQuestion();
+      // Scroll vers le haut pour la nouvelle question
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
       this.finishQuiz();
     }

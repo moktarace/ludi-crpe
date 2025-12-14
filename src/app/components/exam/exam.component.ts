@@ -187,6 +187,9 @@ export class ExamComponent implements OnInit, OnDestroy {
     this.currentAnswer = null;
     this.questionStartTime = Date.now();
     
+    // Scroll vers le haut pour la nouvelle question
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    
     // Vérifier si c'était la dernière question
     if (this.currentQuestionIndex >= this.questions.length) {
       this.finishExam();
