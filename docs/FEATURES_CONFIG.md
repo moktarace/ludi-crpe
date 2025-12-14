@@ -15,6 +15,12 @@ Ce fichier permet d'activer/désactiver certaines fonctionnalités de l'applicat
 - **Description**: Affiche le type de question dans l'interface (QCM, Saisie libre, etc.)
 - Lorsque désactivé, l'indicateur de type n'est pas affiché
 
+### `showDifficulty` (boolean)
+- **Par défaut**: `false`
+- **Description**: Affiche le niveau de difficulté des questions (easy, medium, hard)
+- Lorsque désactivé, le badge de difficulté n'apparaît pas
+- L'adaptation automatique de difficulté est également simplifiée
+
 ## Comment modifier
 
 Modifier le fichier `src/app/config/features.config.ts`:
@@ -23,6 +29,7 @@ Modifier le fichier `src/app/config/features.config.ts`:
 export const FeaturesConfig = {
   enableFreeInputMode: false,  // true pour activer
   showQuestionType: false,     // true pour afficher
+  showDifficulty: false,       // true pour afficher
 };
 ```
 
@@ -38,3 +45,8 @@ export const FeaturesConfig = {
   - `quiz.component.html`
   - `question-display.component.html`
 - L'information reste visible dans `exam-results.component.html` pour l'analyse des résultats
+
+### Difficulté masquée (`showDifficulty: false`)
+- Les badges "easy", "medium", "hard" ne sont plus affichés
+- L'algorithme d'adaptation de difficulté selon le score est simplifié (mélange aléatoire uniquement)
+- Le champ `difficulty` reste dans les modèles/templates mais n'est pas utilisé dans l'UI

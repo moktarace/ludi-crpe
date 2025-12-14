@@ -186,27 +186,8 @@ export class QuestionService {
   }
 
   private adaptQuestionDifficulty(questions: Question[], currentScore: number): Question[] {
-    // Adapter la difficulté selon le score
-    if (currentScore < 50) {
-      // Score faible: plus de QCM faciles
-      return questions.sort((a, b) => {
-        if (a.type === QuestionType.MULTIPLE_CHOICE && b.type !== QuestionType.MULTIPLE_CHOICE) return -1;
-        if (a.type !== QuestionType.MULTIPLE_CHOICE && b.type === QuestionType.MULTIPLE_CHOICE) return 1;
-        return 0;
-      });
-    } else if (currentScore < 80) {
-      // Score moyen: mélange équilibré
-      return this.shuffleArray(questions);
-    } else {
-      // Score élevé: plus de questions à saisie libre et difficiles
-      return questions.sort((a, b) => {
-        if (a.type === QuestionType.FREE_INPUT && b.type !== QuestionType.FREE_INPUT) return -1;
-        if (a.type !== QuestionType.FREE_INPUT && b.type === QuestionType.FREE_INPUT) return 1;
-        if (a.difficulty === DifficultyLevel.HARD && b.difficulty !== DifficultyLevel.HARD) return -1;
-        if (a.difficulty !== DifficultyLevel.HARD && b.difficulty === DifficultyLevel.HARD) return 1;
-        return 0;
-      });
-    }
+    // Simplement mélanger les questions (adaptation de difficulté désactivée)
+    return this.shuffleArray(questions);
   }
 
   private shuffleArray<T>(array: T[]): T[] {

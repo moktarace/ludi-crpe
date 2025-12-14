@@ -14,4 +14,10 @@ export const FeaturesConfig = {
    * Si false, masque l'information "QCM" ou "Saisie libre"
    */
   showQuestionType: false,
+
+  /**
+   * Affiche le niveau de difficulté des questions
+   * Si false, masque l'information "easy", "medium", "hard"
+   */
+  showDifficulty: false,
 };
