@@ -33,7 +33,31 @@ export class ProgressService {
     const stored = localStorage.getItem(this.STORAGE_KEY);
     if (stored) {
       const progress = JSON.parse(stored);
+      
+      // Convertir les dates string en objets Date
       progress.lastActivityDate = new Date(progress.lastActivityDate);
+      
+      // Convertir les dates dans chapterProgress
+      if (progress.chapterProgress) {
+        progress.chapterProgress.forEach((cp: ChapterProgress) => {
+          if (cp.lastAttemptDate) {
+            cp.lastAttemptDate = new Date(cp.lastAttemptDate);
+          }
+        });
+      }
+      
+      // Convertir les dates dans mistakes
+      if (progress.mistakes) {
+        progress.mistakes.forEach((m: MistakeRecord) => {
+          if (m.lastErrorDate) {
+            m.lastErrorDate = new Date(m.lastErrorDate);
+          }
+          if (m.reviewScheduled) {
+            m.reviewScheduled = new Date(m.reviewScheduled);
+          }
+        });
+      }
+      
       this.progressSubject.next(progress);
     }
   }

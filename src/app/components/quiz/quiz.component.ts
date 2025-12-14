@@ -118,7 +118,12 @@ export class QuizComponent implements OnInit {
     // 1. Ajouter les questions avec erreurs (priorité aux plus récentes)
     if (mistakeCount > 0) {
       const mistakeQuestions = mistakes
-        .sort((a, b) => b.lastErrorDate.getTime() - a.lastErrorDate.getTime()) // Plus récentes d'abord
+        .sort((a, b) => {
+          // Convertir en Date si nécessaire (peut être string depuis localStorage)
+          const dateA = a.lastErrorDate instanceof Date ? a.lastErrorDate : new Date(a.lastErrorDate);
+          const dateB = b.lastErrorDate instanceof Date ? b.lastErrorDate : new Date(b.lastErrorDate);
+          return dateB.getTime() - dateA.getTime(); // Plus récentes d'abord
+        })
         .slice(0, mistakeCount)
         .map(m => this.questionService.getQuestionById(m.questionId))
         .filter(q => q !== undefined) as Question[];
