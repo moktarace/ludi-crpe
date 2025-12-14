@@ -16,6 +16,7 @@ import { KatexDirective } from './directives/katex.directive';
 import { MathNotationPipe } from './pipes/math-notation.pipe';
 import { ExamComponent } from './components/exam/exam.component';
 import { ExamResultsComponent } from './components/exam-results/exam-results.component';
+import { QuestionDisplayComponent } from './components/question-display/question-display.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ExamResultsComponent } from './components/exam-results/exam-results.com
     KatexDirective,
     MathNotationPipe,
     ExamComponent,
-    ExamResultsComponent
+    ExamResultsComponent,
+    QuestionDisplayComponent
   ],
   imports: [
     BrowserModule,

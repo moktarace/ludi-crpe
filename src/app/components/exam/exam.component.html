@@ -11,6 +11,23 @@
         <p>✅ Correction détaillée à la fin</p>
       </div>
 
+      <div class="chapter-selector">
+        <h2>Sélectionner les chapitres :</h2>
+        <div class="chapters-grid">
+          <button 
+            *ngFor="let chapterSel of chapters; let i = index"
+            [class.selected]="chapterSel.selected"
+            (click)="toggleChapter(i)"
+            class="chapter-btn">
+            <span class="chapter-icon">{{ chapterSel.chapter.icon }}</span>
+            <span class="chapter-name">{{ chapterSel.chapter.title }}</span>
+            <span class="mistakes-badge" *ngIf="chapterSel.mistakesCount > 0">
+              {{ chapterSel.mistakesCount }}
+            </span>
+          </button>
+        </div>
+      </div>
+
       <div class="duration-selector">
         <h2>Choisir la durée :</h2>
         <div class="duration-options">
@@ -24,9 +41,16 @@
         </div>
       </div>
 
-      <button class="start-btn" (click)="startExam()">
+      <button 
+        class="start-btn" 
+        [disabled]="!hasSelectedChapters"
+        (click)="startExam()">
         🚀 Commencer l'examen
       </button>
+      
+      <p class="warning-text" *ngIf="!hasSelectedChapters">
+        ⚠️ Sélectionnez au moins un chapitre
+      </p>
     </div>
   </div>
 
@@ -45,41 +69,23 @@
       </div>
     </div>
 
-    <!-- Question -->
-    <div class="question-card" *ngIf="currentQuestion">
-      <div class="question-header">
-        <span class="difficulty-badge" [class]="currentQuestion!.difficulty">
-          {{ currentQuestion!.difficulty }}
-        </span>
+    <!-- Question avec composant réutilisable -->
+    <div *ngIf="currentQuestion">
+      <div class="chapter-info">
         <span class="chapter-badge">
-          Chapitre {{ currentQuestion!.chapterId.replace('chapter_', '') }}
+          📚 Chapitre {{ currentQuestion!.chapterId.replace('chapter_', '') }}
         </span>
       </div>
 
-      <div class="question-text" [innerHTML]="currentQuestion!.question | mathNotation"></div>
-
-      <!-- QCM -->
-      <div *ngIf="currentQuestion.type === 'multiple_choice'" class="answers-grid">
-        <button
-          *ngFor="let answer of currentQuestion.answers; let i = index"
-          class="answer-option"
-          [class.selected]="currentAnswer === i"
-          (click)="selectAnswer(i)">
-          <span class="answer-letter">{{ String.fromCharCode(65 + i) }}</span>
-          <span class="answer-text" [innerHTML]="answer.text | mathNotation"></span>
-        </button>
-      </div>
-
-      <!-- Saisie libre -->
-      <div *ngIf="currentQuestion.type === 'free_input'" class="free-input-container">
-        <input
-          type="text"
-          class="answer-input"
-          [(ngModel)]="currentAnswer"
-          (ngModelChange)="onFreeInputChange($any($event))"
-          placeholder="Entrez votre réponse..."
-          autocomplete="off">
-      </div>
+      <app-question-display
+        [question]="currentQuestion"
+        [currentAnswer]="currentAnswer"
+        [examMode]="true"
+        [showFeedback]="false"
+        [showHints]="false"
+        (answerSelected)="selectAnswer($event)"
+        (answerChanged)="onFreeInputChange($event)">
+      </app-question-display>
 
       <div class="action-buttons">
         <button 

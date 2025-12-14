@@ -1,0 +1,72 @@
+<div class="question-card" *ngIf="question">
+  <div class="question-header">
+    <span class="question-type" [ngClass]="question!.type">
+      <span *ngIf="question!.type === 'multiple_choice'">📝 QCM</span>
+      <span *ngIf="question!.type === 'free_input'">✍️ Réponse libre</span>
+      <span *ngIf="question!.type === 'true_false'">✓/✗ Vrai/Faux</span>
+    </span>
+    <span class="difficulty" [ngClass]="question!.difficulty">
+      {{ question!.difficulty }}
+    </span>
+  </div>
+
+  <h2 class="question-text">{{ question!.question | mathNotation }}</h2>
+
+  <!-- QCM -->
+  <div class="answers-grid" *ngIf="question.type === 'multiple_choice'">
+    <button 
+      *ngFor="let answer of question.answers; let i = index"
+      class="answer-button"
+      [ngClass]="{
+        'selected': currentAnswer === i && !showFeedback,
+        'correct': showFeedback && answer.isCorrect,
+        'incorrect': showFeedback && currentAnswer === i && !answer.isCorrect
+      }"
+      [disabled]="showFeedback"
+      (click)="selectAnswer(i)">
+      <span class="answer-letter">{{ String.fromCharCode(65 + i) }}</span>
+      <span class="answer-text">{{ answer.text | mathNotation }}</span>
+    </button>
+  </div>
+
+  <!-- Réponse libre -->
+  <div class="free-input" *ngIf="question.type === 'free_input'">
+    <input 
+      type="text" 
+      class="answer-input"
+      [value]="currentAnswer || ''"
+      [disabled]="showFeedback"
+      placeholder="Entrez votre réponse..."
+      (input)="onInputChange($any($event.target).value)">
+  </div>
+
+  <!-- Feedback (seulement si pas en mode examen) -->
+  <div class="feedback" *ngIf="showFeedback && !examMode">
+    <div class="feedback-message" [ngClass]="{ 'correct': isCorrect, 'incorrect': !isCorrect }">
+      <span class="feedback-icon">
+        {{ isCorrect ? '✓ Correct !' : '✗ Incorrect' }}
+      </span>
+      
+      <!-- Explication -->
+      <div class="explanation-block" *ngIf="showExplanation && question.explanation">
+        <p>{{ question.explanation | mathNotation }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Aide (seulement si showHints et pas en mode examen) -->
+  <div class="help-section" *ngIf="showHints && !examMode && !showFeedback">
+    <button 
+      class="help-button" 
+      (click)="requestHint()"
+      [disabled]="!question.hints || currentHintIndex >= question.hints.length">
+      💡 Aide
+    </button>
+    
+    <div class="hints" *ngIf="question.hints && currentHintIndex > 0">
+      <div class="hint" *ngFor="let hint of question.hints.slice(0, currentHintIndex)">
+        <p>{{ hint | mathNotation }}</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,8 +1,17 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { QuestionService } from '../../services/question.service';
+import { ProgressService } from '../../services/progress.service';
+import { ChapterService } from '../../services/chapter.service';
 import { Question } from '../../models/question.model';
 import { ExamAnswer, ExamResult } from '../../models/exam-result.model';
+import { Chapter } from '../../models/chapter.model';
+
+interface ChapterSelection {
+  chapter: Chapter;
+  selected: boolean;
+  mistakesCount: number;
+}
 
 @Component({
   selector: 'app-exam',
@@ -13,6 +22,7 @@ export class ExamComponent implements OnInit, OnDestroy {
   // Configuration
   selectedDuration: number = 5; // minutes par défaut
   durations = [2, 5, 10];
+  chapters: ChapterSelection[] = [];
   
   // État de l'examen
   examStarted = false;
@@ -36,14 +46,39 @@ export class ExamComponent implements OnInit, OnDestroy {
   
   constructor(
     private questionService: QuestionService,
+    private progressService: ProgressService,
+    private chapterService: ChapterService,
     private router: Router
   ) {}
 
-  ngOnInit() {
+  async ngOnInit() {
     // Attendre que les questions soient chargées
-    this.questionService.waitForQuestionsLoaded().then(() => {
-      // Questions déjà chargées, prêt à démarrer
+    await this.questionService.waitForQuestionsLoaded();
+    
+    // Charger les chapitres avec le nombre d'erreurs
+    await this.loadChapters();
+  }
+
+  async loadChapters() {
+    const allChapters = await this.chapterService.getAllChapters();
+    const mistakes = this.progressService.getMistakesToReview();
+    
+    this.chapters = allChapters.map((chapter: Chapter) => {
+      const mistakesCount = mistakes.filter(m => m.chapterId === chapter.id).length;
+      return {
+        chapter,
+        selected: true, // Tout sélectionné par défaut
+        mistakesCount
+      };
     });
+  }
+
+  toggleChapter(index: number) {
+    this.chapters[index].selected = !this.chapters[index].selected;
+  }
+
+  get hasSelectedChapters(): boolean {
+    return this.chapters.some(c => c.selected);
   }
 
   ngOnDestroy() {
@@ -74,9 +109,13 @@ export class ExamComponent implements OnInit, OnDestroy {
   async loadAllQuestions() {
     const allQuestions: Question[] = [];
     
-    // Récupérer les questions de tous les chapitres
-    for (let i = 1; i <= 3; i++) {
-      const chapterQuestions = await this.questionService.getQuestionsByChapter(`chapter_${i}`);
+    // Récupérer les questions uniquement des chapitres sélectionnés
+    const selectedChapterIds = this.chapters
+      .filter(c => c.selected)
+      .map(c => c.chapter.id);
+    
+    for (const chapterId of selectedChapterIds) {
+      const chapterQuestions = await this.questionService.getQuestionsByChapter(chapterId);
       allQuestions.push(...chapterQuestions);
     }
     
@@ -113,14 +152,20 @@ export class ExamComponent implements OnInit, OnDestroy {
     return `${minutes}:${seconds.toString().padStart(2, '0')}`;
   }
 
-  selectAnswer(answerIndex: number) {
-    if (this.currentQuestion?.type === 'multiple_choice') {
-      this.currentAnswer = answerIndex;
+  selectAnswer(answerIndex: number | Event) {
+    // Gérer à la fois number direct et Event
+    const index = typeof answerIndex === 'number' ? answerIndex : null;
+    if (index !== null && this.currentQuestion?.type === 'multiple_choice') {
+      this.currentAnswer = index;
     }
   }
 
-  onFreeInputChange(value: string) {
-    this.currentAnswer = value;
+  onFreeInputChange(value: string | Event) {
+    // Gérer à la fois string direct et Event
+    const val = typeof value === 'string' ? value : null;
+    if (val !== null) {
+      this.currentAnswer = val;
+    }
   }
 
   nextQuestion() {
