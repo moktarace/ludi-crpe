@@ -21,7 +21,7 @@
         <span class="toggle-label">{{ showContextualVersion ? 'Version math' : 'Version énoncé' }}</span>
       </button>
 
-      <h2 class="question-text">{{ getDisplayedQuestion() | mathNotation | markdownFormat }}</h2>
+      <h2 class="question-text" [innerHTML]="getDisplayedQuestion() | mathNotation | markdownFormat"></h2>
 
       <!-- QCM -->
       <div class="answers-grid" *ngIf="currentQuestion.type === QuestionType.MULTIPLE_CHOICE">
