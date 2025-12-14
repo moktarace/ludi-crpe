@@ -4,6 +4,7 @@ import { Question, QuestionType, DifficultyLevel } from '../models/question.mode
 import { QuestionTemplate, QuestionGenerator } from '../models/question-template.model';
 import { ProgressService } from './progress.service';
 import { firstValueFrom } from 'rxjs';
+import { ChapterService } from './chapter.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,8 @@ export class QuestionService {
 
   constructor(
     private progressService: ProgressService,
-    private http: HttpClient
+    private http: HttpClient,
+    private chapterService: ChapterService
   ) {
     this.loadAllTemplates();
   }
@@ -25,26 +27,28 @@ export class QuestionService {
    */
   private async loadAllTemplates(): Promise<void> {
     try {
-      const chapters = ['chapter-1', 'chapter-2', 'chapter-3', 'chapter-4', 'chapter-5'];
+      // Charger dynamiquement la liste des chapitres depuis ChapterService
+      await this.chapterService.waitForChaptersLoaded();
+      const chapters = this.chapterService.getAllChapters();
       const allTemplates: QuestionTemplate[] = [];
 
       for (const chapter of chapters) {
         try {
           // Essayer de charger les templates dynamiques
           const templates = await firstValueFrom(
-            this.http.get<QuestionTemplate[]>(`assets/data/${chapter}-templates.json`)
+            this.http.get<QuestionTemplate[]>(`assets/data/${chapter.id}-templates.json`)
           );
           allTemplates.push(...templates);
         } catch (error) {
-          console.warn(`Could not load ${chapter}-templates.json, trying static questions`, error);
+          console.warn(`Could not load ${chapter.id}-templates.json, trying static questions`, error);
           // Fallback: charger les questions statiques si les templates n'existent pas
           try {
             const staticQuestions = await firstValueFrom(
-              this.http.get<Question[]>(`assets/data/${chapter}-questions.json`)
+              this.http.get<Question[]>(`assets/data/${chapter.id}-questions.json`)
             );
             this.questions.push(...staticQuestions);
           } catch (staticError) {
-            console.warn(`Could not load ${chapter}-questions.json either`, staticError);
+            console.warn(`Could not load ${chapter.id}-questions.json either`, staticError);
           }
         }
       }

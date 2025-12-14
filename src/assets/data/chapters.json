@@ -3,65 +3,17 @@
   "title": "Mathématiques Seconde",
   "description": "Programme complet de mathématiques niveau seconde",
   "chapters": [
-    {
-      "id": "chapter_1",
-      "title": "Nombres et calculs",
-      "description": "Puissances, racines carrées et calculs numériques",
-      "icon": "🔢",
-      "order": 1,
-      "isLocked": false,
-      "completionPercentage": 0,
-      "totalQuestions": 5,
-      "completedQuestions": 0,
-      "skillIds": ["skill_1_1", "skill_1_2"]
-    },
-    {
-      "id": "chapter_2",
-      "title": "Fonctions",
-      "description": "Fonctions linéaires, affines et polynômes",
-      "icon": "📈",
-      "order": 2,
-      "isLocked": false,
-      "completionPercentage": 0,
-      "totalQuestions": 5,
-      "completedQuestions": 0,
-      "skillIds": ["skill_2_1", "skill_2_2"]
-    },
-    {
-      "id": "chapter_3",
-      "title": "Géométrie",
-      "description": "Aires, périmètres et théorème de Pythagore",
-      "icon": "📐",
-      "order": 3,
-      "isLocked": false,
-      "completionPercentage": 0,
-      "totalQuestions": 5,
-      "completedQuestions": 0,
-      "skillIds": ["skill_3_1", "skill_3_2"]
-    },
-    {
-      "id": "chapter_4",
-      "title": "Probabilités",
-      "description": "Événements, probabilités et statistiques",
-      "icon": "🎲",
-      "order": 4,
-      "isLocked": false,
-      "completionPercentage": 0,
-      "totalQuestions": 1,
-      "completedQuestions": 0,
-      "skillIds": ["skill_4_1"]
-    },
-    {
-      "id": "chapter_5",
-      "title": "Vecteurs",
-      "description": "Introduction aux vecteurs et calculs vectoriels",
-      "icon": "➡️",
-      "order": 5,
-      "isLocked": false,
-      "completionPercentage": 0,
-      "totalQuestions": 1,
-      "completedQuestions": 0,
-      "skillIds": ["skill_5_1"]
-    }
+    { "id": "chap_ensembles_nombres", "title": "Ensembles de nombres", "description": "Naturels, entiers, rationnels, réels. Intervalles et comparaisons.", "icon": "🔢", "order": 1, "isLocked": false, "completionPercentage": 0, "totalQuestions": 0, "completedQuestions": 0, "skillIds": [] },
+    { "id": "chap_autour_triangle", "title": "Autour du triangle", "description": "Triangles, propriétés, hauteurs, médianes, théorèmes.", "icon": "🔺", "order": 2, "isLocked": false, "completionPercentage": 0, "totalQuestions": 0, "completedQuestions": 0, "skillIds": [] },
+    { "id": "chap_scratch", "title": "Scratch", "description": "Algorithmes visuels, variables, boucles et conditions.", "icon": "🐱", "order": 3, "isLocked": false, "completionPercentage": 0, "totalQuestions": 0, "completedQuestions": 0, "skillIds": [] },
+    { "id": "chap_probabilites", "title": "Probabilités", "description": "Événements, modèles simples, fréquence et probabilité.", "icon": "🎲", "order": 4, "isLocked": false, "completionPercentage": 0, "totalQuestions": 0, "completedQuestions": 0, "skillIds": [] },
+    { "id": "chap_proportionnalite", "title": "Proportionnalité et grandeurs composées", "description": "Tableaux de proportionnalité, pourcentages, vitesses, densités.", "icon": "📊", "order": 5, "isLocked": false, "completionPercentage": 0, "totalQuestions": 0, "completedQuestions": 0, "skillIds": [] },
+    { "id": "chap_quadrilateres", "title": "Autour des quadrilatères", "description": "Carré, rectangle, losange, parallélogramme: propriétés et constructions.", "icon": "🟥", "order": 6, "isLocked": false, "completionPercentage": 0, "totalQuestions": 0, "completedQuestions": 0, "skillIds": [] },
+    { "id": "chap_calcul_litteral", "title": "Calcul littéral et algébrique", "description": "Développement, factorisation, identités remarquables, équations.", "icon": "✏️", "order": 7, "isLocked": false, "completionPercentage": 0, "totalQuestions": 0, "completedQuestions": 0, "skillIds": [] },
+    { "id": "chap_geometrie_espace", "title": "Géométrie dans l'espace", "description": "Polyèdres, sections, patrons, volumes.", "icon": "🧊", "order": 8, "isLocked": false, "completionPercentage": 0, "totalQuestions": 0, "completedQuestions": 0, "skillIds": [] },
+    { "id": "chap_arithmetique", "title": "Arithmétique", "description": "Divisibilité, PGCD, PPCM, nombres premiers.", "icon": "🧮", "order": 9, "isLocked": false, "completionPercentage": 0, "totalQuestions": 0, "completedQuestions": 0, "skillIds": [] },
+    { "id": "chap_statistiques", "title": "Statistiques", "description": "Séries statistiques, moyennes, médianes, représentations.", "icon": "📈", "order": 10, "isLocked": false, "completionPercentage": 0, "totalQuestions": 0, "completedQuestions": 0, "skillIds": [] },
+    { "id": "chap_fonctions", "title": "Fonctions", "description": "Notion de fonction, tableaux de valeurs, courbes.", "icon": "📉", "order": 11, "isLocked": false, "completionPercentage": 0, "totalQuestions": 0, "completedQuestions": 0, "skillIds": [] },
+    { "id": "chap_transformations_plan", "title": "Transformations du plan", "description": "Symétries, translations, rotations, homothéties.", "icon": "🔁", "order": 12, "isLocked": false, "completionPercentage": 0, "totalQuestions": 0, "completedQuestions": 0, "skillIds": [] }
   ]
 }

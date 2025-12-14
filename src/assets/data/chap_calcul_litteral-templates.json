@@ -1,0 +1,88 @@
+[
+  {
+    "id": "lit1",
+    "chapterId": "chap_calcul_litteral",
+    "type": "free_input",
+    "difficulty": "easy",
+    "variables": [
+      { "name": "a", "min": 2, "max": 10 },
+      { "name": "x", "min": 3, "max": 8 }
+    ],
+    "questionTemplate": "Calcule {a}x pour x = {x}",
+    "correctAnswerFormula": "{a} * {x}",
+    "explanationTemplate": "📖 Substitution de variable :\n\n✅ Remplace x par {x} dans l'expression {a}x\n\n**Calcul :**\n{a}x = {a} × {x} = {a} * {x}",
+    "realLifeExplanationTemplate": "🌍 Les variables dans la vie :\n\n🍕 Pizza à {a}€ la part\n• Si tu en prends x parts → prix = {a}x €\n• Pour x = {x} parts → prix = {a} × {x} = {a} * {x} €\n\n💡 Applications :\n• Facture téléphone : coût fixe + prix/min × x minutes\n• Taxi : prise en charge + prix/km × x km\n• Abonnement : prix mensuel × x mois",
+    "hintsTemplates": [
+      "{a}x signifie {a} × x",
+      "Remplace x par {x}",
+      "Calcule {a} × {x}"
+    ],
+    "tags": ["calcul littéral", "substitution", "variable"]
+  },
+  {
+    "id": "lit2",
+    "chapterId": "chap_calcul_litteral",
+    "type": "free_input",
+    "difficulty": "easy",
+    "variables": [
+      { "name": "a", "min": 2, "max": 8 },
+      { "name": "b", "min": 3, "max": 9 },
+      { "name": "x", "min": 2, "max": 5 }
+    ],
+    "questionTemplate": "Calcule {a}x + {b} pour x = {x}",
+    "correctAnswerFormula": "{a} * {x} + {b}",
+    "explanationTemplate": "📖 Substitution avec addition :\n\n✅ Étape 1 : Remplace x par {x}\n{a}x + {b} = {a} × {x} + {b}\n\n✅ Étape 2 : Calcule {a} × {x}\n= {a} * {x} + {b}\n\n✅ Étape 3 : Additionne\n= {a} * {x} + {b}",
+    "realLifeExplanationTemplate": "🌍 Abonnement téléphone :\n\n📱 Formule : {a}€ par Go + {b}€ fixes\n• Prix = {a}x + {b} (x = nombre de Go)\n\n💰 Pour x = {x} Go :\n• Prix = {a} × {x} + {b}\n• Prix = {a} * {x} + {b} €\n\n💡 Applications :\n• Électricité : abonnement + conso × prix/kWh\n• Location voiture : jour × prix + assurance\n• Salle de sport : mois × tarif + frais d'inscription",
+    "hintsTemplates": [
+      "Commence par {a}x = {a} × {x}",
+      "Ensuite ajoute {b}",
+      "Réponse = {a} * {x} + {b}"
+    ],
+    "tags": ["calcul littéral", "substitution", "expression"]
+  },
+  {
+    "id": "lit3",
+    "chapterId": "chap_calcul_litteral",
+    "type": "free_input",
+    "difficulty": "medium",
+    "variables": [
+      { "name": "a", "min": 2, "max": 6 },
+      { "name": "b", "min": 2, "max": 5 }
+    ],
+    "questionTemplate": "Résous l'équation : {a}x = {a} * {b}. Trouve x.",
+    "correctAnswerFormula": "{b}",
+    "explanationTemplate": "📖 Résolution d'équation :\n\n✅ {a}x = {a} * {b}\n\n**Méthode : Diviser les 2 côtés par {a}**\nx = ({a} * {b}) ÷ {a}\nx = {b}",
+    "realLifeExplanationTemplate": "🌍 Problème de partage :\n\n🍰 {a} personnes se partagent {a} * {b} bonbons équitablement\n• Total = {a}x bonbons (x bonbons par personne)\n• {a}x = {a} * {b}\n\n💡 Combien chacun ?\n• x = {a} * {b} ÷ {a}\n• x = {b} bonbons par personne\n\n🎯 Applications :\n• Répartition de budget entre services\n• Calcul de prix unitaire\n• Partage de bénéfices",
+    "hintsTemplates": [
+      "Isole x en divisant par {a}",
+      "x = ({a} * {b}) ÷ {a}",
+      "Simplifie : {a} ÷ {a} = 1"
+    ],
+    "tags": ["équation", "calcul littéral", "résolution"]
+  },
+  {
+    "id": "lit4",
+    "chapterId": "chap_calcul_litteral",
+    "type": "multiple_choice",
+    "difficulty": "medium",
+    "variables": [
+      { "name": "a", "min": 2, "max": 5 },
+      { "name": "b", "min": 3, "max": 6 }
+    ],
+    "questionTemplate": "Développe : {a}(x + {b}) = ?",
+    "answersTemplate": [
+      { "textFormula": "'{a}x + ' + ({a} * {b})", "isCorrectFormula": "1" },
+      { "textFormula": "'{a}x + {b}'", "isCorrectFormula": "0" },
+      { "textFormula": "'{a} + {b}x'", "isCorrectFormula": "0" },
+      { "textFormula": "'{a}x'", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Développer = distributivité :\n\n✅ {a}(x + {b}) = {a} × x + {a} × {b}\n= {a}x + {a} * {b}\n\n💡 On multiplie {a} par CHAQUE terme dans la parenthèse",
+    "realLifeExplanationTemplate": "🌍 Magasin de vêtements :\n\n👕 {a} t-shirts à (x + {b})€ chacun\n• x = prix de base\n• +{b}€ = supplément qualité\n\n💰 Prix total :\n• {a} × (x + {b})\n• = {a} × x + {a} × {b}\n• = {a}x + {a} * {b} €\n\n💡 Tu paies {a} fois le prix de base + {a} fois le supplément",
+    "hintsTemplates": [
+      "Distributivité : a(b+c) = ab + ac",
+      "Multiplie {a} par x, puis {a} par {b}",
+      "Réponse : {a}x + {a} * {b}"
+    ],
+    "tags": ["développement", "distributivité", "calcul littéral"]
+  }
+]

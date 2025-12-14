@@ -1,0 +1,87 @@
+[
+  {
+    "id": "prop1",
+    "chapterId": "chap_proportionnalite",
+    "type": "free_input",
+    "difficulty": "easy",
+    "variables": [
+      { "name": "prix1", "min": 2, "max": 5 },
+      { "name": "quantite1", "min": 2, "max": 4 },
+      { "name": "quantite2", "min": 5, "max": 10 }
+    ],
+    "questionTemplate": "{quantite1} croissants coûtent {prix1}€. Combien coûtent {quantite2} croissants ? (en euros)",
+    "correctAnswerFormula": "{prix1} * {quantite2} / {quantite1}",
+    "explanationTemplate": "📖 Proportionnalité : tableau ou produit en croix\n\n✅ Méthode 1 : Prix unitaire\n• 1 croissant = {prix1} ÷ {quantite1} = {prix1} / {quantite1} €\n• {quantite2} croissants = {quantite2} × ({prix1} / {quantite1}) €\n\n✅ Méthode 2 : Produit en croix\n• {quantite1} → {prix1}€\n• {quantite2} → ? €\n• ? = {prix1} × {quantite2} ÷ {quantite1}",
+    "realLifeExplanationTemplate": "🌍 À la boulangerie :\n\n🥐 {quantite1} croissants = {prix1}€\n🥐 {quantite2} croissants = ?\n\n💰 Calcul :\n• Prix d'1 croissant = {prix1}€ ÷ {quantite1} = {prix1} / {quantite1} €\n• Prix de {quantite2} = {quantite2} × {prix1} / {quantite1} €\n\n💡 Applications :\n• Courses : prix au kilo\n• Essence : prix au litre\n• Recettes de cuisine : proportions d'ingrédients",
+    "hintsTemplates": [
+      "Trouve d'abord le prix d'1 croissant",
+      "Prix d'1 = {prix1} ÷ {quantite1}",
+      "Multiplie par {quantite2}"
+    ],
+    "tags": ["proportionnalité", "prix", "produit en croix"]
+  },
+  {
+    "id": "prop2",
+    "chapterId": "chap_proportionnalite",
+    "type": "free_input",
+    "difficulty": "easy",
+    "variables": [
+      { "name": "pourcent", "min": 10, "max": 50, "step": 5 },
+      { "name": "prix", "min": 20, "max": 100, "step": 10 }
+    ],
+    "questionTemplate": "Un article coûte {prix}€. Il a une réduction de {pourcent}%. Quel est le montant de la réduction (en euros) ?",
+    "correctAnswerFormula": "{prix} * {pourcent} / 100",
+    "explanationTemplate": "📖 Calculer un pourcentage :\n\n✅ {pourcent}% de {prix}€ = ?\n\n**Formule :**\nMontant = {prix} × {pourcent} ÷ 100\nMontant = {prix} * {pourcent} / 100 €\n\n💡 {pourcent}% = {pourcent}/100",
+    "realLifeExplanationTemplate": "🌍 Soldes en magasin :\n\n🛍️ Prix initial : {prix}€\n🎯 Réduction : -{pourcent}%\n\n💰 Montant de la réduction :\n• {pourcent}% de {prix}€ = {prix} × {pourcent}/100\n• Réduction = {prix} * {pourcent} / 100 €\n\n🎁 Prix final = {prix}€ - {prix} * {pourcent} / 100\n\n💡 Applications :\n• Soldes\n• TVA (20%)\n• Pourboires (10-15%)\n• Intérêts bancaires",
+    "hintsTemplates": [
+      "{pourcent}% = diviser par 100",
+      "Montant = prix × pourcentage ÷ 100",
+      "Réponse = {prix} × {pourcent} ÷ 100"
+    ],
+    "tags": ["pourcentage", "réduction", "proportionnalité"]
+  },
+  {
+    "id": "prop3",
+    "chapterId": "chap_proportionnalite",
+    "type": "free_input",
+    "difficulty": "medium",
+    "variables": [
+      { "name": "distance", "min": 120, "max": 300, "step": 30 },
+      { "name": "temps", "min": 2, "max": 4 }
+    ],
+    "questionTemplate": "Une voiture parcourt {distance} km en {temps} heures. Quelle est sa vitesse moyenne (en km/h) ?",
+    "correctAnswerFormula": "{distance} / {temps}",
+    "explanationTemplate": "📖 Vitesse moyenne = distance ÷ temps\n\n✅ Formule : v = d / t\n\n**Calcul :**\nv = {distance} km ÷ {temps} h\nv = {distance} / {temps} km/h",
+    "realLifeExplanationTemplate": "🌍 Sur la route :\n\n🚗 Distance parcourue : {distance} km\n⏱️ Temps écoulé : {temps} heures\n\n📊 Vitesse moyenne :\n• v = distance ÷ temps\n• v = {distance} ÷ {temps} = {distance} / {temps} km/h\n\n💡 Applications :\n• GPS : temps d'arrivée estimé\n• Sport : vitesse de course\n• Trains, avions : horaires\n\n🎯 Formules liées :\n• Distance = vitesse × temps (d = v × t)\n• Temps = distance ÷ vitesse (t = d ÷ v)",
+    "hintsTemplates": [
+      "Vitesse = distance ÷ temps",
+      "Formule : v = d / t",
+      "Réponse = {distance} ÷ {temps}"
+    ],
+    "tags": ["vitesse", "proportionnalité", "formule"]
+  },
+  {
+    "id": "prop4",
+    "chapterId": "chap_proportionnalite",
+    "type": "multiple_choice",
+    "difficulty": "medium",
+    "variables": [
+      { "name": "ratio", "min": 2, "max": 5 }
+    ],
+    "questionTemplate": "Une recette pour {ratio} personnes nécessite 200g de farine. Combien faut-il de farine pour {ratio} * 3 personnes ?",
+    "answersTemplate": [
+      { "textFormula": "200 * 3 + 'g'", "isCorrectFormula": "1" },
+      { "textFormula": "200 * {ratio} + 'g'", "isCorrectFormula": "0" },
+      { "textFormula": "200 / 3 + 'g'", "isCorrectFormula": "0" },
+      { "textFormula": "200 + 3 + 'g'", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Proportionnalité dans les recettes :\n\n✅ Pour {ratio} personnes → 200g\n✅ Pour {ratio} * 3 personnes → ?\n\n**Calcul :**\nOn multiplie par 3 (car {ratio} * 3 = 3 × {ratio})\nFarine = 200g × 3 = 600g",
+    "realLifeExplanationTemplate": "🌍 En cuisine :\n\n👨‍🍳 Recette pour {ratio} personnes : 200g de farine\n👨‍👩‍👧‍👦 Tu invites {ratio} * 3 personnes\n\n📊 Adaptation de la recette :\n• {ratio} personnes → 200g\n• {ratio} * 3 personnes = 3 × {ratio} personnes → 3 × 200g = 600g\n\n💡 Règle : si tu multiplies le nombre de personnes par un nombre, tu multiplies TOUS les ingrédients par ce nombre !\n\n🎯 Exemples :\n• Doubler une recette (× 2)\n• Diviser par 2 pour moins de personnes (÷ 2)",
+    "hintsTemplates": [
+      "{ratio} * 3 = 3 fois plus de personnes",
+      "Multiplie la farine par 3 aussi",
+      "200g × 3 = 600g"
+    ],
+    "tags": ["proportionnalité", "recette", "multiplication"]
+  }
+]

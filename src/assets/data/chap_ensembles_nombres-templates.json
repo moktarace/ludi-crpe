@@ -1,0 +1,71 @@
+[
+  {
+    "id": "ens1",
+    "chapterId": "chap_ensembles_nombres",
+    "type": "multiple_choice",
+    "difficulty": "easy",
+    "variables": [
+      { "name": "n", "min": -10, "max": 10 }
+    ],
+    "questionTemplate": "Le nombre {n} est-il un entier relatif (ℤ) ?",
+    "answersTemplate": [
+      { "textFormula": "'Oui, c\\'est un entier'", "isCorrectFormula": "1" },
+      { "textFormula": "'Non, il faut une virgule'", "isCorrectFormula": "0" },
+      { "textFormula": "'Seulement si positif'", "isCorrectFormula": "0" },
+      { "textFormula": "'Je ne sais pas'", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Oui ! {n} est un entier relatif (ℤ)\n\nLes entiers = {..., -3, -2, -1, 0, 1, 2, 3, ...}\n\nPas de virgule, pas de fraction !\n\n💡 Les négatifs sont aussi des entiers.",
+    "realLifeExplanationTemplate": "🌍 Les entiers dans la vraie vie :\n\n🌡️ Températures : {n}°C (pas de demi-degré)\n💶 Billets : {n}€ (pas de centimes)\n📍 Étages : étage {n}\n🏃 Score : {n} points\n\nSi c'était {n},5 → ce serait un décimal, PAS un entier !",
+    "hintsTemplates": [
+      "Un entier n'a jamais de virgule",
+      "ℤ inclut les négatifs ET les positifs",
+      "{n} s'écrit sans virgule → c'est un entier !"
+    ],
+    "tags": ["ensembles", "entiers", "relatifs"]
+  },
+  {
+    "id": "ens2",
+    "chapterId": "chap_ensembles_nombres",
+    "type": "free_input",
+    "difficulty": "medium",
+    "variables": [
+      { "name": "a", "min": 1, "max": 8 },
+      { "name": "b", "min": 10, "max": 20 }
+    ],
+    "questionTemplate": "Écris l'intervalle des réels entre {a} et {b} INCLUS.\nFormat attendu: [a;b]",
+    "correctAnswerFormula": "'[' + {a} + ';' + {b} + ']'",
+    "explanationTemplate": "📖 Réponse : [{a};{b}]\n\n✅ Crochets [ ] = bornes INCLUSES\n\n{a} est autorisé ✓\nEntre {a} et {b} OK ✓\n{b} est autorisé ✓",
+    "realLifeExplanationTemplate": "🌍 Imagine un ticket de spectacle entre {a}€ et {b}€ :\n\n🎟️ L'intervalle [{a};{b}] signifie :\n• Tu peux payer {a}€ (minimum OK)\n• Tu peux payer n'importe quel prix entre les deux\n• Tu peux payer {b}€ (maximum OK)\n\n💡 Notation :\n• [ ou ] = INCLUS (crochet fermé)\n• ( ou ) = EXCLU (parenthèse ouverte)\n\n🎯 Exemples concrets :\n• Âge pour un film : [12;18] = de 12 à 18 ans inclus\n• Température confort : [19;22] = entre 19°C et 22°C",
+    "hintsTemplates": [
+      "Crochet [ = la valeur est incluse",
+      "Point-virgule ; sépare les deux bornes",
+      "Format exact : [nombre_min;nombre_max]"
+    ],
+    "tags": ["intervalles", "notation"]
+  },
+  {
+    "id": "ens3",
+    "chapterId": "chap_ensembles_nombres",
+    "type": "multiple_choice",
+    "difficulty": "medium",
+    "variables": [
+      { "name": "num", "min": 1, "max": 7 },
+      { "name": "den", "min": 2, "max": 8 }
+    ],
+    "questionTemplate": "À quel ensemble appartient {num}/{den} ?",
+    "answersTemplate": [
+      { "textFormula": "'ℚ (rationnels)'", "isCorrectFormula": "1" },
+      { "textFormula": "'ℕ (naturels)'", "isCorrectFormula": "0" },
+      { "textFormula": "'ℤ (entiers)'", "isCorrectFormula": "0" },
+      { "textFormula": "'Irrationnels'", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 {num}/{den} ∈ ℚ (rationnels)\n\nRationnel = fraction a/b avec a,b entiers\n\n{num}/{den} est bien une fraction → RATIONNEL !\n\n💡 Tous les entiers sont aussi rationnels (ex: 5 = 5/1)",
+    "realLifeExplanationTemplate": "🌍 {num}/{den} dans la vraie vie :\n\n🍕 Pizza : tu prends {num} part(s) sur {den} → fraction !\n\n📊 Les rationnels (ℚ) :\n• Toutes les fractions : 1/2, 3/4, {num}/{den}...\n• Tous les décimaux finis : 0,5 = 1/2\n• Même les entiers : 3 = 3/1\n\n❌ PAS rationnels :\n• √2 = 1,41421... (infini non périodique)\n• π = 3,14159... (impossible en fraction exacte)\n\n💡 Si tu peux l'écrire en fraction → c'est rationnel !",
+    "hintsTemplates": [
+      "Fraction = rationnel",
+      "Format a/b avec entiers → ℚ",
+      "Même 0,5 est rationnel (= 1/2)"
+    ],
+    "tags": ["ensembles", "rationnels", "fractions"]
+  }
+]

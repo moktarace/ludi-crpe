@@ -1,0 +1,87 @@
+[
+  {
+    "id": "arith1",
+    "chapterId": "chap_arithmetique",
+    "type": "multiple_choice",
+    "difficulty": "easy",
+    "variables": [
+      { "name": "n", "min": 10, "max": 30 }
+    ],
+    "questionTemplate": "Le nombre {n} est-il divisible par 2 ?",
+    "answersTemplate": [
+      { "textFormula": "({n} % 2 === 0) ? 'Oui' : 'Non'", "isCorrectFormula": "1" },
+      { "textFormula": "({n} % 2 !== 0) ? 'Oui' : 'Non'", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Divisibilité par 2 :\n\n✅ Un nombre est divisible par 2 si son dernier chiffre est PAIR (0, 2, 4, 6, 8)\n\n💡 Regarde le dernier chiffre de {n}",
+    "realLifeExplanationTemplate": "🌍 Divisibilité dans la vie :\n\n👥 Partage en 2 équipes égales de {n} personnes\n• Si {n} est divisible par 2 → équipes parfaites\n• Sinon → il reste 1 personne\n\n🍕 Partager {n} pizzas entre 2 personnes\n• Divisible par 2 → chacun a un nombre entier\n• Sinon → il faut couper une pizza\n\n💡 Règle : dernier chiffre pair → divisible par 2",
+    "hintsTemplates": [
+      "Regarde le dernier chiffre de {n}",
+      "Pair (0,2,4,6,8) → divisible par 2",
+      "Impair (1,3,5,7,9) → PAS divisible par 2"
+    ],
+    "tags": ["arithmétique", "divisibilité", "critères"]
+  },
+  {
+    "id": "arith2",
+    "chapterId": "chap_arithmetique",
+    "type": "multiple_choice",
+    "difficulty": "easy",
+    "variables": [
+      { "name": "n", "min": 20, "max": 50 }
+    ],
+    "questionTemplate": "Le nombre {n} est-il divisible par 5 ?",
+    "answersTemplate": [
+      { "textFormula": "({n} % 5 === 0) ? 'Oui' : 'Non'", "isCorrectFormula": "1" },
+      { "textFormula": "({n} % 5 !== 0) ? 'Oui' : 'Non'", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Divisibilité par 5 :\n\n✅ Un nombre est divisible par 5 si son dernier chiffre est 0 ou 5\n\n💡 Regarde le dernier chiffre de {n}",
+    "realLifeExplanationTemplate": "🌍 Divisibilité par 5 :\n\n💰 Billets de 5€ : peux-tu payer {n}€ avec SEULEMENT des billets de 5€ ?\n• Si {n} termine par 0 ou 5 → OUI\n• Sinon → NON, il faut de la monnaie\n\n🕐 Créneaux de 5 minutes : {n} minutes = combien de créneaux de 5 min ?\n• Divisible par 5 → nombre entier\n• Sinon → il reste des minutes\n\n💡 Règle ultra simple : 0 ou 5 à la fin → divisible par 5",
+    "hintsTemplates": [
+      "Regarde le dernier chiffre",
+      "0 ou 5 → divisible par 5",
+      "Autre chiffre → PAS divisible"
+    ],
+    "tags": ["arithmétique", "divisibilité", "critères"]
+  },
+  {
+    "id": "arith3",
+    "chapterId": "chap_arithmetique",
+    "type": "multiple_choice",
+    "difficulty": "medium",
+    "questionTemplate": "Parmi ces nombres, lequel est un nombre PREMIER ?",
+    "answersTemplate": [
+      { "textFormula": "'7'", "isCorrectFormula": "1" },
+      { "textFormula": "'9'", "isCorrectFormula": "0" },
+      { "textFormula": "'12'", "isCorrectFormula": "0" },
+      { "textFormula": "'15'", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Nombre premier :\n\n✅ Divisible uniquement par 1 et lui-même\n\n🔍 Analyse :\n• 7 : diviseurs = 1, 7 → PREMIER ✓\n• 9 : diviseurs = 1, 3, 9 → pas premier\n• 12 : diviseurs = 1, 2, 3, 4, 6, 12 → pas premier\n• 15 : diviseurs = 1, 3, 5, 15 → pas premier",
+    "realLifeExplanationTemplate": "🌍 Les nombres premiers :\n\n🔐 Cryptographie : les nombres premiers protègent tes mots de passe !\n🎯 Pourquoi 7 est premier ?\n• Tu ne peux pas faire 7 en multipliant 2 nombres > 1\n• 7 = 1 × 7 uniquement\n\n❌ Pourquoi 9 n'est PAS premier ?\n• 9 = 3 × 3\n• Il a un diviseur entre 1 et 9 : le 3\n\n💡 Premiers < 20 : 2, 3, 5, 7, 11, 13, 17, 19",
+    "hintsTemplates": [
+      "Premier = seulement 2 diviseurs (1 et lui-même)",
+      "Teste si les autres nombres ont d'autres diviseurs",
+      "7 ne se divise que par 1 et 7"
+    ],
+    "tags": ["arithmétique", "nombres premiers"]
+  },
+  {
+    "id": "arith4",
+    "chapterId": "chap_arithmetique",
+    "type": "free_input",
+    "difficulty": "medium",
+    "variables": [
+      { "name": "a", "min": 6, "max": 12, "step": 2 },
+      { "name": "b", "min": 8, "max": 16, "step": 2 }
+    ],
+    "questionTemplate": "Quel est le PGCD (Plus Grand Commun Diviseur) de {a} et {b} ?",
+    "correctAnswerFormula": "gcd({a}, {b})",
+    "explanationTemplate": "📖 PGCD = Plus Grand Commun Diviseur\n\n✅ C'est le plus grand nombre qui divise à la fois {a} ET {b}\n\n**Méthode : Liste les diviseurs**\n• Diviseurs de {a} : ...\n• Diviseurs de {b} : ...\n• Communs : ...\n• Le plus grand : gcd({a}, {b})",
+    "realLifeExplanationTemplate": "🌍 PGCD dans la vie :\n\n🎁 Tu as {a} chocolats et {b} bonbons\n• Tu veux faire des sachets IDENTIQUES\n• Chaque sachet a le MÊME nombre de chocolats ET de bonbons\n• Combien de sachets MAX ?\n\n💡 Réponse = PGCD({a}, {b}) = gcd({a}, {b}) sachets\n\n🎯 Applications :\n• Découper des planches en morceaux égaux\n• Organiser des équipes de taille identique\n• Simplifier des fractions (PGCD du numérateur et dénominateur)",
+    "hintsTemplates": [
+      "Liste les diviseurs de {a}",
+      "Liste les diviseurs de {b}",
+      "Trouve le plus grand commun"
+    ],
+    "tags": ["arithmétique", "PGCD", "diviseurs"]
+  }
+]

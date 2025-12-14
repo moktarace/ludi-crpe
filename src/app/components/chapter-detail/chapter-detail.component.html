@@ -7,26 +7,9 @@
     <p class="description">{{ chapter.description }}</p>
   </div>
 
-  <div class="stats-grid">
-    <div class="stat-box">
-      <div class="stat-value">{{ completedQuestions }} / {{ totalQuestions }}</div>
-      <div class="stat-label">Questions complétées</div>
-    </div>
-    <div class="stat-box">
-      <div class="stat-value">{{ completionPercentage }}%</div>
-      <div class="stat-label">Progression</div>
-    </div>
-  </div>
-
-  <div class="progress-section">
-    <div class="progress-bar-large">
-      <div class="progress-fill-large" [style.width.%]="completionPercentage"></div>
-    </div>
-  </div>
-
   <div class="action-buttons">
     <button class="btn-start-quiz" (click)="startQuiz()">
-      🎯 {{ completionPercentage === 0 ? 'Commencer' : 'Continuer' }} l'entraînement
+      🎯 Commencer l'entraînement
     </button>
   </div>
 

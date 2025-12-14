@@ -1,0 +1,86 @@
+[
+  {
+    "id": "prob1",
+    "chapterId": "chap_probabilites",
+    "type": "free_input",
+    "difficulty": "easy",
+    "variables": [
+      { "name": "nombre", "min": 1, "max": 6 }
+    ],
+    "questionTemplate": "Un dé normal à 6 faces. Quelle est la probabilité d'obtenir {nombre} ? (Réponds sous forme de fraction, ex: 1/6)",
+    "correctAnswerFormula": "'1/6'",
+    "explanationTemplate": "📖 Probabilité = cas favorables / cas possibles\n\n✅ Cas favorables : obtenir {nombre} → 1 cas\n✅ Cas possibles : 6 faces (1, 2, 3, 4, 5, 6) → 6 cas\n\n**Résultat :** 1/6\n\n💡 Chaque face a la même probabilité : 1/6 ≈ 16,7%",
+    "realLifeExplanationTemplate": "🌍 Le dé dans la vie :\n\n🎲 Imagine que tu lances un dé 60 fois\n• Tu obtiendras {nombre} environ 10 fois (60 ÷ 6 = 10)\n• Chaque face apparaît environ 1 fois sur 6\n\n🎯 Applications concrètes :\n• Jeux de société : chance d'avancer de {nombre} cases = 1/6\n• Loterie : plus il y a de numéros, plus c'est rare\n• Météo : probabilité de pluie = pareil (nombre de jours pluvieux / total)",
+    "hintsTemplates": [
+      "Probabilité = favorables / possibles",
+      "1 seul cas favorable (le {nombre})",
+      "6 cas possibles (6 faces)"
+    ],
+    "tags": ["probabilité", "dé", "fraction"]
+  },
+  {
+    "id": "prob2",
+    "chapterId": "chap_probabilites",
+    "type": "multiple_choice",
+    "difficulty": "easy",
+    "variables": [
+      { "name": "rouges", "min": 2, "max": 5 },
+      { "name": "bleues", "min": 3, "max": 6 }
+    ],
+    "questionTemplate": "Un sac contient {rouges} billes rouges et {bleues} billes bleues. Tu tires une bille au hasard. Quelle est la probabilité de tirer une bille rouge ?",
+    "answersTemplate": [
+      { "textFormula": "{rouges} + '/' + ({rouges} + {bleues})", "isCorrectFormula": "1" },
+      { "textFormula": "{rouges} + '/' + {bleues}", "isCorrectFormula": "0" },
+      { "textFormula": "{bleues} + '/' + ({rouges} + {bleues})", "isCorrectFormula": "0" },
+      { "textFormula": "'1/' + {rouges}", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Probabilité = cas favorables / cas possibles\n\n✅ Cas favorables : {rouges} billes rouges\n✅ Cas possibles : {rouges} + {bleues} = {rouges} + {bleues} billes au total\n\n**Résultat :** {rouges} / ({rouges} + {bleues})",
+    "realLifeExplanationTemplate": "🌍 Les billes dans un sac :\n\n🔴 {rouges} billes rouges\n🔵 {bleues} billes bleues\n⚪ Total = {rouges} + {bleues} billes\n\n🎯 Si tu fais ce tirage 100 fois :\n• Tu tireras rouge environ {rouges} * 100 / ({rouges} + {bleues}) fois\n• Tu tireras bleu environ {bleues} * 100 / ({rouges} + {bleues}) fois\n\n💡 Applications :\n• Sondages : % d'opinions\n• Urnes électorales\n• Tirages au sort",
+    "hintsTemplates": [
+      "Total des billes = rouges + bleues",
+      "Probabilité rouge = nombre de rouges / total",
+      "Réponse = {rouges} / ({rouges} + {bleues})"
+    ],
+    "tags": ["probabilité", "tirage", "fraction"]
+  },
+  {
+    "id": "prob3",
+    "chapterId": "chap_probabilites",
+    "type": "free_input",
+    "difficulty": "medium",
+    "variables": [
+      { "name": "n", "min": 10, "max": 20 }
+    ],
+    "questionTemplate": "Dans une classe de {n} élèves, 2 sont absents. Si on tire un élève au hasard, quelle est la probabilité qu'il soit ABSENT ? (Fraction simplifiée, ex: 1/5)",
+    "correctAnswerFormula": "'2/' + {n}",
+    "explanationTemplate": "📖 Probabilité = cas favorables / cas possibles\n\n✅ Cas favorables : 2 élèves absents\n✅ Cas possibles : {n} élèves au total\n\n**Résultat :** 2/{n}",
+    "realLifeExplanationTemplate": "🌍 En classe :\n\n👨‍🎓 {n} élèves inscrits\n❌ 2 absents\n✅ {n} - 2 présents\n\n🎲 Si le prof tire un nom au hasard :\n• Probabilité d'absent = 2/{n}\n• Probabilité de présent = ({n} - 2)/{n}\n\n💡 C'est comme ça qu'on calcule :\n• Risque de panne d'un appareil\n• Chance de gagner à la loterie\n• Fiabilité d'un test médical",
+    "hintsTemplates": [
+      "Cas favorables = 2 absents",
+      "Cas possibles = {n} élèves",
+      "Probabilité = 2/{n}"
+    ],
+    "tags": ["probabilité", "classe", "fraction"]
+  },
+  {
+    "id": "prob4",
+    "chapterId": "chap_probabilites",
+    "type": "multiple_choice",
+    "difficulty": "medium",
+    "questionTemplate": "Tu lances 2 pièces de monnaie. Quelle est la probabilité d'obtenir PILE sur les 2 pièces ?",
+    "answersTemplate": [
+      { "textFormula": "'1/4'", "isCorrectFormula": "1" },
+      { "textFormula": "'1/2'", "isCorrectFormula": "0" },
+      { "textFormula": "'1/3'", "isCorrectFormula": "0" },
+      { "textFormula": "'2/4'", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Probabilités des 2 pièces :\n\n✅ Issue possible :\n• Pièce 1 : Pile ou Face (2 choix)\n• Pièce 2 : Pile ou Face (2 choix)\n• Total : 2 × 2 = 4 combinaisons\n\n🎯 Combinaisons possibles :\n1. Pile - Pile ✓ (ce qu'on cherche)\n2. Pile - Face\n3. Face - Pile\n4. Face - Face\n\n**Résultat :** 1 cas favorable / 4 cas possibles = 1/4",
+    "realLifeExplanationTemplate": "🌍 2 pièces de monnaie :\n\n🪙 1ère pièce : 50% Pile, 50% Face\n🪙 2ème pièce : 50% Pile, 50% Face\n\n🎲 Probabilité des 2 en même temps :\n• P(Pile ET Pile) = 1/2 × 1/2 = 1/4 = 25%\n\n💡 Applications :\n• Génétique : probabilité d'avoir 2 garçons\n• Paris sportifs : gagner 2 matchs d'affilée\n• Jeux : tirer 2 cartes spécifiques",
+    "hintsTemplates": [
+      "Liste toutes les combinaisons possibles",
+      "Pièce 1 × Pièce 2 = 2 × 2 = 4 cas",
+      "1 seul cas favorable : Pile-Pile"
+    ],
+    "tags": ["probabilité", "pièce", "combinaisons"]
+  }
+]

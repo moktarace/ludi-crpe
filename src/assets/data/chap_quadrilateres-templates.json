@@ -1,0 +1,88 @@
+[
+  {
+    "id": "quad1",
+    "chapterId": "chap_quadrilateres",
+    "type": "multiple_choice",
+    "difficulty": "easy",
+    "questionTemplate": "Un quadrilatère avec 4 côtés égaux et 4 angles droits est :",
+    "answersTemplate": [
+      { "textFormula": "'Un carré'", "isCorrectFormula": "1" },
+      { "textFormula": "'Un rectangle'", "isCorrectFormula": "0" },
+      { "textFormula": "'Un losange'", "isCorrectFormula": "0" },
+      { "textFormula": "'Un trapèze'", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Propriétés du carré :\n\n✅ 4 côtés ÉGAUX\n✅ 4 angles DROITS (90°)\n\n💡 Le carré = rectangle + losange !\n\n🔷 Rectangle : 4 angles droits\n🔶 Losange : 4 côtés égaux\n⬛ Carré : les 2 en même temps !",
+    "realLifeExplanationTemplate": "🌍 Les carrés dans la vie :\n\n⬛ Plateau d'échecs : cases carrées\n🪟 Fenêtre carrée : 4 côtés égaux + angles droits\n📦 Carton de déménagement vu du dessus\n🧊 Face d'un dé à jouer\n\n💡 Le carré est LE quadrilatère le plus régulier : tout est identique (côtés ET angles) !",
+    "hintsTemplates": [
+      "4 côtés égaux = losange ou carré",
+      "4 angles droits = rectangle ou carré",
+      "Les 2 propriétés ensemble = carré"
+    ],
+    "tags": ["quadrilatère", "carré", "propriétés"]
+  },
+  {
+    "id": "quad2",
+    "chapterId": "chap_quadrilateres",
+    "type": "multiple_choice",
+    "difficulty": "easy",
+    "variables": [
+      { "name": "cote", "min": 5, "max": 12 }
+    ],
+    "questionTemplate": "Un losange a tous ses côtés égaux à {cote} cm. Quel est son périmètre ?",
+    "answersTemplate": [
+      { "textFormula": "{cote} * 4 + ' cm'", "isCorrectFormula": "1" },
+      { "textFormula": "{cote} * 2 + ' cm'", "isCorrectFormula": "0" },
+      { "textFormula": "{cote} * {cote} + ' cm'", "isCorrectFormula": "0" },
+      { "textFormula": "{cote} + ' cm'", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Losange : 4 côtés ÉGAUX\n\n✅ Périmètre = côté + côté + côté + côté\nPérimètre = {cote} + {cote} + {cote} + {cote}\nPérimètre = {cote} × 4 = {cote} * 4 cm",
+    "realLifeExplanationTemplate": "🌍 Le losange dans la vie :\n\n🔶 Panneau de signalisation losange : {cote}cm de côté\n💎 Diamant : forme losange\n🪁 Cerf-volant : souvent en losange\n\n📏 Pour faire le tour :\n• 4 côtés de {cote}cm chacun\n• Total = {cote} × 4 = {cote} * 4 cm\n\n💡 Losange ≠ carré : les angles ne sont PAS forcément droits !",
+    "hintsTemplates": [
+      "Losange = 4 côtés égaux",
+      "Périmètre = 4 × côté",
+      "Réponse = {cote} × 4"
+    ],
+    "tags": ["quadrilatère", "losange", "périmètre"]
+  },
+  {
+    "id": "quad3",
+    "chapterId": "chap_quadrilateres",
+    "type": "free_input",
+    "difficulty": "medium",
+    "variables": [
+      { "name": "longueur", "min": 8, "max": 15 },
+      { "name": "largeur", "min": 4, "max": 7 }
+    ],
+    "questionTemplate": "Un rectangle a une longueur de {longueur} cm et une largeur de {largeur} cm. Quelle est son aire (en cm²) ?",
+    "correctAnswerFormula": "{longueur} * {largeur}",
+    "explanationTemplate": "📖 Aire d'un rectangle :\n\n✅ Aire = Longueur × Largeur\n\n**Calcul :**\nAire = {longueur} × {largeur}\nAire = {longueur} * {largeur} cm²",
+    "realLifeExplanationTemplate": "🌍 L'aire d'un rectangle :\n\n📐 Longueur : {longueur} cm\n📐 Largeur : {largeur} cm\n\n🏠 Applications concrètes :\n• Carrelage : combien de carreaux pour couvrir le sol ?\n• Peinture : surface à peindre d'un mur\n• Terrain de foot : {longueur}m × {largeur}m = {longueur} * {largeur} m²\n\n💡 L'aire = combien de petits carrés de 1cm² tiennent dedans ?\n• {longueur} rangées de {largeur} carrés = {longueur} * {largeur} carrés",
+    "hintsTemplates": [
+      "Aire rectangle = L × l",
+      "Multiplie longueur × largeur",
+      "Réponse = {longueur} × {largeur}"
+    ],
+    "tags": ["quadrilatère", "rectangle", "aire"]
+  },
+  {
+    "id": "quad4",
+    "chapterId": "chap_quadrilateres",
+    "type": "multiple_choice",
+    "difficulty": "medium",
+    "questionTemplate": "Un quadrilatère avec 2 côtés parallèles (mais pas les 4) est :",
+    "answersTemplate": [
+      { "textFormula": "'Un trapèze'", "isCorrectFormula": "1" },
+      { "textFormula": "'Un parallélogramme'", "isCorrectFormula": "0" },
+      { "textFormula": "'Un rectangle'", "isCorrectFormula": "0" },
+      { "textFormula": "'Un losange'", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Définition du trapèze :\n\n✅ AU MOINS 2 côtés parallèles\n❌ Pas forcément les 4\n\n💡 Hiérarchie :\n• Trapèze : 2 côtés // minimum\n• Parallélogramme : 4 côtés // (2 paires)\n• Rectangle, losange, carré : cas particuliers de parallélogramme",
+    "realLifeExplanationTemplate": "🌍 Les trapèzes dans la vie :\n\n🎪 Chapiteau de cirque vu de côté\n🏛️ Pyramide vue de face\n📏 Règle trapézoïdale\n🚪 Certains toits de maisons\n\n💡 Le trapèze est comme une échelle :\n• 2 montants parallèles (côtés parallèles)\n• 2 barreaux qui relient (côtés non parallèles)\n\n🔍 Différences :\n• Trapèze : 2 côtés //\n• Parallélogramme : 4 côtés // (2 paires)",
+    "hintsTemplates": [
+      "Trapèze = 2 côtés parallèles",
+      "Parallélogramme = 4 côtés parallèles (2 paires)",
+      "Ici on dit 'pas les 4' → trapèze"
+    ],
+    "tags": ["quadrilatère", "trapèze", "parallèles"]
+  }
+]

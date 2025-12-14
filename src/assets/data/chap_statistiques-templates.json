@@ -1,0 +1,89 @@
+[
+  {
+    "id": "stat1",
+    "chapterId": "chap_statistiques",
+    "type": "free_input",
+    "difficulty": "easy",
+    "variables": [
+      { "name": "n1", "min": 10, "max": 15 },
+      { "name": "n2", "min": 12, "max": 18 },
+      { "name": "n3", "min": 14, "max": 20 }
+    ],
+    "questionTemplate": "Calcule la moyenne de ces 3 notes : {n1}, {n2}, {n3}. Arrondi à 1 décimale.",
+    "correctAnswerFormula": "(({n1} + {n2} + {n3}) / 3).toFixed(1)",
+    "explanationTemplate": "📖 Moyenne = somme ÷ nombre de valeurs\n\n✅ Somme = {n1} + {n2} + {n3} = {n1} + {n2} + {n3}\n✅ Nombre de valeurs = 3\n✅ Moyenne = ({n1} + {n2} + {n3}) ÷ 3 ≈ (({n1} + {n2} + {n3}) / 3).toFixed(1)",
+    "realLifeExplanationTemplate": "🌍 La moyenne à l'école :\n\n📚 Tes 3 notes :\n• Contrôle 1 : {n1}/20\n• Contrôle 2 : {n2}/20\n• Contrôle 3 : {n3}/20\n\n📊 Ta moyenne :\n• Total = {n1} + {n2} + {n3} = {n1} + {n2} + {n3}\n• Moyenne = ({n1} + {n2} + {n3}) ÷ 3 ≈ (({n1} + {n2} + {n3}) / 3).toFixed(1)/20\n\n💡 La moyenne représente la note \"typique\" si tu avais la même note partout",
+    "hintsTemplates": [
+      "Additionne les 3 notes",
+      "Divise par 3 (nombre de notes)",
+      "Moyenne = ({n1} + {n2} + {n3}) ÷ 3"
+    ],
+    "tags": ["statistiques", "moyenne", "calcul"]
+  },
+  {
+    "id": "stat2",
+    "chapterId": "chap_statistiques",
+    "type": "multiple_choice",
+    "difficulty": "medium",
+    "questionTemplate": "Voici une série ordonnée : 5, 7, 9, 12, 15. Quelle est la médiane ?",
+    "answersTemplate": [
+      { "textFormula": "'9'", "isCorrectFormula": "1" },
+      { "textFormula": "'7'", "isCorrectFormula": "0" },
+      { "textFormula": "'12'", "isCorrectFormula": "0" },
+      { "textFormula": "'9.6'", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Médiane = valeur du MILIEU (série ordonnée)\n\n✅ Série : 5, 7, 9, 12, 15 (5 valeurs)\n✅ Position du milieu : (5+1)÷2 = 3ème valeur\n✅ Médiane = 9\n\n💡 La médiane partage la série en 2 moitiés égales",
+    "realLifeExplanationTemplate": "🌍 La médiane dans la vie :\n\n💰 Salaires dans une entreprise : 5, 7, 9, 12, 15 (en milliers d'€)\n• Médiane = 9 k€\n• Signification : 50% gagnent ≤ 9k€, 50% gagnent ≥ 9k€\n\n📊 Différence avec la moyenne :\n• Moyenne = (5+7+9+12+15) ÷ 5 = 9.6 k€\n• Médiane = 9 k€ (moins sensible aux extrêmes)\n\n💡 La médiane est utilisée pour les salaires car elle n'est pas faussée par les très hauts revenus",
+    "hintsTemplates": [
+      "Médiane = valeur centrale",
+      "Série à 5 valeurs → 3ème valeur",
+      "Compte : 5, 7, [9], 12, 15"
+    ],
+    "tags": ["statistiques", "médiane"]
+  },
+  {
+    "id": "stat3",
+    "chapterId": "chap_statistiques",
+    "type": "free_input",
+    "difficulty": "medium",
+    "variables": [
+      { "name": "freq", "min": 15, "max": 40, "step": 5 },
+      { "name": "total", "min": 100, "max": 200, "step": 20 }
+    ],
+    "questionTemplate": "Dans une classe de {total} élèves, {freq} portent des lunettes. Quel est le pourcentage d'élèves portant des lunettes ? (arrondi à l'entier)",
+    "correctAnswerFormula": "Math.round({freq} * 100 / {total})",
+    "explanationTemplate": "📖 Pourcentage = (partie / total) × 100\n\n✅ Partie = {freq} élèves\n✅ Total = {total} élèves\n✅ % = ({freq} ÷ {total}) × 100\n✅ % = ({freq} / {total}) × 100 ≈ Math.round({freq} * 100 / {total})%",
+    "realLifeExplanationTemplate": "🌍 Les statistiques en classe :\n\n👓 {freq} élèves portent des lunettes sur {total}\n\n📊 Pourcentage :\n• Fraction = {freq}/{total}\n• Pourcentage = ({freq}/{total}) × 100\n• ≈ Math.round({freq} * 100 / {total})%\n\n💡 Applications :\n• Taux de réussite à un examen\n• Pourcentage de filles/garçons\n• Proportion d'élèves ayant la moyenne\n• Sondages d'opinion",
+    "hintsTemplates": [
+      "Pourcentage = (partie ÷ total) × 100",
+      "Calcule {freq} ÷ {total}",
+      "Multiplie par 100"
+    ],
+    "tags": ["statistiques", "pourcentage", "fréquence"]
+  },
+  {
+    "id": "stat4",
+    "chapterId": "chap_statistiques",
+    "type": "multiple_choice",
+    "difficulty": "easy",
+    "variables": [
+      { "name": "max", "min": 15, "max": 20 },
+      { "name": "min", "min": 5, "max": 10 }
+    ],
+    "questionTemplate": "L'étendue d'une série de notes est la différence entre la note MAX et MIN. Si MAX = {max} et MIN = {min}, quelle est l'étendue ?",
+    "answersTemplate": [
+      { "textFormula": "{max} - {min}", "isCorrectFormula": "1" },
+      { "textFormula": "{max} + {min}", "isCorrectFormula": "0" },
+      { "textFormula": "({max} + {min}) / 2", "isCorrectFormula": "0" },
+      { "textFormula": "{max} * {min}", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Étendue = MAX - MIN\n\n✅ Note maximale : {max}\n✅ Note minimale : {min}\n✅ Étendue = {max} - {min}",
+    "realLifeExplanationTemplate": "🌍 L'étendue dans la vie :\n\n📚 Notes d'un contrôle :\n• Meilleure note : {max}/20\n• Pire note : {min}/20\n• Étendue = {max} - {min} points\n\n💡 L'étendue mesure la DISPERSION :\n• Étendue petite → notes proches (classe homogène)\n• Étendue grande → notes très variées\n\n🎯 Applications :\n• Écart de températures (max - min)\n• Différence de prix (le plus cher - le moins cher)\n• Variation de salaires dans une entreprise",
+    "hintsTemplates": [
+      "Étendue = différence",
+      "MAX - MIN",
+      "Réponse = {max} - {min}"
+    ],
+    "tags": ["statistiques", "étendue", "dispersion"]
+  }
+]

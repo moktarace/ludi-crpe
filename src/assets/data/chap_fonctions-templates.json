@@ -1,0 +1,87 @@
+[
+  {
+    "id": "fonc1",
+    "chapterId": "chap_fonctions",
+    "type": "free_input",
+    "difficulty": "easy",
+    "variables": [
+      { "name": "a", "min": 2, "max": 5 },
+      { "name": "x", "min": 3, "max": 8 }
+    ],
+    "questionTemplate": "Soit la fonction f(x) = {a}x. Calcule f({x}).",
+    "correctAnswerFormula": "{a} * {x}",
+    "explanationTemplate": "📖 Calculer l'image de {x} par f :\n\n✅ f(x) = {a}x\n✅ f({x}) = {a} × {x} = {a} * {x}",
+    "realLifeExplanationTemplate": "🌍 Les fonctions dans la vie :\n\n💰 Location de vélos : {a}€ par heure\n• Fonction : f(x) = {a}x (x = nombre d'heures)\n• Pour {x} heures : f({x}) = {a} × {x} = {a} * {x} €\n\n💡 Une fonction transforme une entrée (x) en sortie (f(x))\n\n🎯 Applications :\n• Prix en fonction de la quantité\n• Distance en fonction du temps (vitesse constante)\n• Coût en fonction de la consommation",
+    "hintsTemplates": [
+      "Remplace x par {x} dans f(x) = {a}x",
+      "f({x}) = {a} × {x}",
+      "Calcule {a} × {x}"
+    ],
+    "tags": ["fonctions", "image", "calcul"]
+  },
+  {
+    "id": "fonc2",
+    "chapterId": "chap_fonctions",
+    "type": "free_input",
+    "difficulty": "medium",
+    "variables": [
+      { "name": "a", "min": 2, "max": 5 },
+      { "name": "b", "min": 3, "max": 8 },
+      { "name": "x", "min": 2, "max": 6 }
+    ],
+    "questionTemplate": "Soit f(x) = {a}x + {b}. Calcule f({x}).",
+    "correctAnswerFormula": "{a} * {x} + {b}",
+    "explanationTemplate": "📖 Fonction affine :\n\n✅ f(x) = {a}x + {b}\n✅ f({x}) = {a} × {x} + {b}\n✅ f({x}) = {a} * {x} + {b}",
+    "realLifeExplanationTemplate": "🌍 Fonction affine = frais fixes + coût variable :\n\n📱 Forfait téléphone :\n• {b}€ d'abonnement mensuel (fixe)\n• +{a}€ par Go consommé (variable)\n• Fonction : f(x) = {a}x + {b}\n\n💰 Pour x = {x} Go :\n• f({x}) = {a} × {x} + {b}\n• f({x}) = {a} * {x} + {b} €\n\n🎯 Schéma :\n• {b}€ → frais fixes (même si x=0)\n• {a}€ × {x} → coût variable",
+    "hintsTemplates": [
+      "Commence par {a} × {x}",
+      "Ensuite ajoute {b}",
+      "f({x}) = {a} * {x} + {b}"
+    ],
+    "tags": ["fonctions", "fonction affine", "calcul"]
+  },
+  {
+    "id": "fonc3",
+    "chapterId": "chap_fonctions",
+    "type": "multiple_choice",
+    "difficulty": "medium",
+    "variables": [
+      { "name": "a", "min": 2, "max": 5 }
+    ],
+    "questionTemplate": "La fonction f(x) = {a}x est une fonction :",
+    "answersTemplate": [
+      { "textFormula": "'Linéaire'", "isCorrectFormula": "1" },
+      { "textFormula": "'Affine'", "isCorrectFormula": "0" },
+      { "textFormula": "'Constante'", "isCorrectFormula": "0" },
+      { "textFormula": "'Carrée'", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Types de fonctions :\n\n✅ Linéaire : f(x) = ax (passe par l'origine)\n✅ Affine : f(x) = ax + b (droite quelconque)\n✅ Constante : f(x) = b (horizontale)\n✅ Carrée : f(x) = x² (parabole)\n\n💡 f(x) = {a}x → LINÉAIRE (pas de +b)",
+    "realLifeExplanationTemplate": "🌍 Différence linéaire vs affine :\n\n📊 Fonction LINÉAIRE : f(x) = {a}x\n• Graphique passe par (0, 0)\n• Exemple : prix proportionnel (pas de frais fixes)\n• {a}€ par article, 0€ si tu n'achètes rien\n\n📊 Fonction AFFINE : g(x) = {a}x + b\n• Graphique NE passe PAS forcément par (0, 0)\n• Exemple : location avec caution\n• {a}€ par jour + b€ de caution\n\n💡 Linéaire = cas particulier d'affine (quand b=0)",
+    "hintsTemplates": [
+      "Linéaire = ax (pas de constante)",
+      "Affine = ax + b (avec constante)",
+      "Ici pas de +b → linéaire"
+    ],
+    "tags": ["fonctions", "fonction linéaire", "types"]
+  },
+  {
+    "id": "fonc4",
+    "chapterId": "chap_fonctions",
+    "type": "free_input",
+    "difficulty": "medium",
+    "variables": [
+      { "name": "y", "min": 6, "max": 20, "step": 2 },
+      { "name": "a", "min": 2, "max": 4 }
+    ],
+    "questionTemplate": "Soit f(x) = {a}x. Trouve x tel que f(x) = {y}. (Antécédent de {y})",
+    "correctAnswerFormula": "{y} / {a}",
+    "explanationTemplate": "📖 Trouver l'antécédent :\n\n✅ On cherche x tel que f(x) = {y}\n✅ {a}x = {y}\n✅ x = {y} ÷ {a} = {y} / {a}",
+    "realLifeExplanationTemplate": "🌍 Trouver l'antécédent = question inverse :\n\n🚗 Location de voiture : {a}€ par jour\n• Fonction : f(x) = {a}x (x = nombre de jours)\n\n❓ Question : \"J'ai payé {y}€, combien de jours ai-je loué ?\"\n• {a}x = {y}\n• x = {y} ÷ {a} = {y} / {a} jours\n\n💡 Vocabulaire :\n• Image de x = f(x) (de x vers f(x))\n• Antécédent de y = x tel que f(x) = y (de f(x) vers x)\n\n🎯 C'est l'opération INVERSE !",
+    "hintsTemplates": [
+      "Résous {a}x = {y}",
+      "Divise par {a}",
+      "x = {y} ÷ {a}"
+    ],
+    "tags": ["fonctions", "antécédent", "résolution"]
+  }
+]

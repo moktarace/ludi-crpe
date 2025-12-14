@@ -1,0 +1,90 @@
+[
+  {
+    "id": "trans1",
+    "chapterId": "chap_transformations_plan",
+    "type": "multiple_choice",
+    "difficulty": "easy",
+    "questionTemplate": "Une symétrie axiale conserve :",
+    "answersTemplate": [
+      { "textFormula": "'Les distances et les angles'", "isCorrectFormula": "1" },
+      { "textFormula": "'Seulement les distances'", "isCorrectFormula": "0" },
+      { "textFormula": "'Seulement les angles'", "isCorrectFormula": "0" },
+      { "textFormula": "'Rien du tout'", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Symétrie axiale (miroir) :\n\n✅ CONSERVE :\n• Les distances (longueurs)\n• Les angles\n• Les aires\n\n❌ INVERSE :\n• L'orientation (gauche ↔ droite)\n\n💡 C'est une ISOMÉTRIE (même forme, même taille)",
+    "realLifeExplanationTemplate": "🌍 La symétrie dans la vie :\n\n🪞 Miroir :\n• Ton reflet a la même taille que toi\n• Les angles de ton corps sont identiques\n• Mais gauche et droite sont inversés !\n\n🦋 Papillon :\n• Les 2 ailes sont symétriques\n• Même taille, même forme\n• Axe de symétrie au milieu du corps\n\n💡 Applications :\n• Architecture (façades symétriques)\n• Logos (Nike, Apple)\n• Nature (visages, fleurs)",
+    "hintsTemplates": [
+      "Isométrie = conserve distances et angles",
+      "Symétrie = miroir parfait",
+      "Forme et taille identiques"
+    ],
+    "tags": ["transformations", "symétrie", "isométrie"]
+  },
+  {
+    "id": "trans2",
+    "chapterId": "chap_transformations_plan",
+    "type": "multiple_choice",
+    "difficulty": "easy",
+    "variables": [
+      { "name": "angle", "min": 60, "max": 180, "step": 30 }
+    ],
+    "questionTemplate": "Une rotation de {angle}° autour d'un point O conserve-t-elle les longueurs ?",
+    "answersTemplate": [
+      { "textFormula": "'Oui'", "isCorrectFormula": "1" },
+      { "textFormula": "'Non'", "isCorrectFormula": "0" },
+      { "textFormula": "'Seulement pour 90°'", "isCorrectFormula": "0" },
+      { "textFormula": "'Ça dépend du point O'", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Rotation :\n\n✅ CONSERVE TOUJOURS :\n• Les distances (longueurs)\n• Les angles\n• Les aires\n• L'orientation\n\n💡 C'est une ISOMÉTRIE (comme la symétrie)\n\n🔄 Angle de rotation = {angle}° (n'importe quel angle fonctionne !)",
+    "realLifeExplanationTemplate": "🌍 La rotation dans la vie :\n\n🎡 Grande roue :\n• Les nacelles tournent autour du centre\n• Leur taille ne change PAS\n• Leur forme reste identique\n\n⏰ Aiguilles d'horloge :\n• Elles tournent autour du centre\n• Leur longueur reste constante\n\n🎮 Jeux vidéo :\n• Rotation d'un sprite → même taille\n\n💡 Rotation de {angle}° = tourner sans déformer",
+    "hintsTemplates": [
+      "Rotation = isométrie",
+      "Isométrie → conserve tout",
+      "Peu importe l'angle ({angle}° ici)"
+    ],
+    "tags": ["transformations", "rotation", "isométrie"]
+  },
+  {
+    "id": "trans3",
+    "chapterId": "chap_transformations_plan",
+    "type": "free_input",
+    "difficulty": "medium",
+    "variables": [
+      { "name": "x", "min": 2, "max": 5 },
+      { "name": "y", "min": 3, "max": 6 },
+      { "name": "dx", "min": 3, "max": 8 },
+      { "name": "dy", "min": 2, "max": 7 }
+    ],
+    "questionTemplate": "Un point A({x}; {y}) subit une translation de vecteur ({dx}; {dy}). Quelles sont les coordonnées de son image A' ? (Format: x;y)",
+    "correctAnswerFormula": "({x} + {dx}) + ';' + ({y} + {dy})",
+    "explanationTemplate": "📖 Translation par vecteur ({dx}; {dy}) :\n\n✅ A({x}; {y})\n✅ A' = A + vecteur\n✅ A'(x + dx ; y + dy)\n✅ A'({x} + {dx} ; {y} + {dy})\n✅ A'({x} + {dx}; {y} + {dy})",
+    "realLifeExplanationTemplate": "🌍 Translation = déplacement :\n\n📍 Position de départ : A({x}; {y})\n➡️ Déplacement :\n• {dx} vers la droite (ou gauche si négatif)\n• {dy} vers le haut (ou bas si négatif)\n\n📍 Position d'arrivée :\n• x' = {x} + {dx}\n• y' = {y} + {dy}\n• A'({x} + {dx}; {y} + {dy})\n\n💡 Applications :\n• GPS : coordonnées après déplacement\n• Jeux vidéo : mouvement d'un personnage\n• Architecture : translation d'un motif répété",
+    "hintsTemplates": [
+      "Translation : ajoute les composantes du vecteur",
+      "x' = x + dx = {x} + {dx}",
+      "y' = y + dy = {y} + {dy}"
+    ],
+    "tags": ["transformations", "translation", "vecteur"]
+  },
+  {
+    "id": "trans4",
+    "chapterId": "chap_transformations_plan",
+    "type": "multiple_choice",
+    "difficulty": "medium",
+    "questionTemplate": "Quelle transformation change la taille d'une figure ?",
+    "answersTemplate": [
+      { "textFormula": "'L\\'homothétie'", "isCorrectFormula": "1" },
+      { "textFormula": "'La rotation'", "isCorrectFormula": "0" },
+      { "textFormula": "'La symétrie'", "isCorrectFormula": "0" },
+      { "textFormula": "'La translation'", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Types de transformations :\n\n✅ ISOMÉTRIES (conservent tailles) :\n• Symétrie\n• Rotation\n• Translation\n\n✅ HOMOTHÉTIE (change la taille) :\n• Agrandissement ou réduction\n• Conserve les ANGLES\n• Change les LONGUEURS (× rapport k)\n\n💡 Homothétie = zoom",
+    "realLifeExplanationTemplate": "🌍 L'homothétie dans la vie :\n\n🔍 Zoom sur une photo :\n• La forme reste la même\n• Les angles restent identiques\n• Mais c'est PLUS GRAND\n• → Homothétie de rapport k > 1\n\n📐 Plan d'architecte :\n• Échelle 1:100\n• Même forme, mais 100× plus petit\n• → Homothétie de rapport k = 1/100\n\n💡 Différence :\n• Isométrie : même taille ✓\n• Homothétie : taille × rapport k",
+    "hintsTemplates": [
+      "Isométries → taille constante",
+      "Homothétie → agrandissement/réduction",
+      "Homothétie = seule transformation qui change la taille"
+    ],
+    "tags": ["transformations", "homothétie", "agrandissement"]
+  }
+]

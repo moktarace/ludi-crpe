@@ -1,0 +1,83 @@
+[
+  {
+    "id": "geo3d1",
+    "chapterId": "chap_geometrie_espace",
+    "type": "free_input",
+    "difficulty": "easy",
+    "variables": [
+      { "name": "cote", "min": 3, "max": 8 }
+    ],
+    "questionTemplate": "Un cube a une arête de {cote} cm. Quel est son volume (en cm³) ?",
+    "correctAnswerFormula": "pow({cote}, 3)",
+    "explanationTemplate": "📖 Volume d'un cube :\n\n✅ Volume = arête³\nVolume = {cote}³\nVolume = {cote} × {cote} × {cote}\nVolume = pow({cote}, 3) cm³",
+    "realLifeExplanationTemplate": "🌍 Le cube dans la vie :\n\n📦 Carton cubique de {cote}cm de côté\n🎲 Dé géant de {cote}cm\n🧊 Gros glaçon cubique\n\n💡 Volume = combien de petits cubes de 1cm³ rentrent dedans ?\n• {cote} rangées\n• {cote} colonnes\n• {cote} étages\n• Total = {cote} × {cote} × {cote} = pow({cote}, 3) cm³\n\n🎯 Applications :\n• Calcul de capacité de stockage\n• Volume d'eau dans un aquarium cubique",
+    "hintsTemplates": [
+      "Cube → arête³",
+      "Volume = {cote}³",
+      "Calcule {cote} × {cote} × {cote}"
+    ],
+    "tags": ["géométrie espace", "volume", "cube"]
+  },
+  {
+    "id": "geo3d2",
+    "chapterId": "chap_geometrie_espace",
+    "type": "free_input",
+    "difficulty": "medium",
+    "variables": [
+      { "name": "L", "min": 5, "max": 10 },
+      { "name": "l", "min": 3, "max": 6 },
+      { "name": "h", "min": 4, "max": 8 }
+    ],
+    "questionTemplate": "Un pavé droit a pour dimensions : Longueur = {L} cm, Largeur = {l} cm, Hauteur = {h} cm. Quel est son volume (en cm³) ?",
+    "correctAnswerFormula": "{L} * {l} * {h}",
+    "explanationTemplate": "📖 Volume d'un pavé droit :\n\n✅ Volume = Longueur × Largeur × Hauteur\nVolume = {L} × {l} × {h}\nVolume = {L} * {l} * {h} cm³",
+    "realLifeExplanationTemplate": "🌍 Le pavé droit dans la vie :\n\n📦 Carton de déménagement : {L}cm × {l}cm × {h}cm\n🏠 Pièce rectangulaire\n📚 Livre fermé\n\n💡 Volume = combien de cubes de 1cm³ ?\n• Base : {L} × {l} = {L} * {l} cm² (aire du sol)\n• Hauteur : {h} étages de cubes\n• Total = {L} * {l} * {h} cm³\n\n🎯 Applications :\n• Capacité d'une piscine rectangulaire\n• Volume d'un frigo\n• Quantité de béton pour dalle",
+    "hintsTemplates": [
+      "Pavé droit : L × l × h",
+      "Multiplie les 3 dimensions",
+      "Volume = {L} × {l} × {h}"
+    ],
+    "tags": ["géométrie espace", "volume", "pavé"]
+  },
+  {
+    "id": "geo3d3",
+    "chapterId": "chap_geometrie_espace",
+    "type": "multiple_choice",
+    "difficulty": "easy",
+    "questionTemplate": "Combien de faces a un cube ?",
+    "answersTemplate": [
+      { "textFormula": "'6'", "isCorrectFormula": "1" },
+      { "textFormula": "'8'", "isCorrectFormula": "0" },
+      { "textFormula": "'12'", "isCorrectFormula": "0" },
+      { "textFormula": "'4'", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Structure d'un cube :\n\n✅ 6 faces (carrées)\n✅ 8 sommets (coins)\n✅ 12 arêtes (côtés)\n\n💡 Pense à un dé : 1, 2, 3, 4, 5, 6 → 6 faces !",
+    "realLifeExplanationTemplate": "🌍 Compter les faces d'un cube :\n\n🎲 Dé à jouer : 1, 2, 3, 4, 5, 6 → 6 faces\n📦 Carton : dessus, dessous, devant, derrière, gauche, droite → 6 faces\n\n💡 Astuce mnémotechnique :\n• 6 faces (comme les 6 côtés d'un dé)\n• 8 sommets (coins)\n• 12 arêtes (lignes)\n\n🎯 Pour t'en souvenir : F + S = A + 2\n• 6 + 8 = 12 + 2 ✓ (formule d'Euler)",
+    "hintsTemplates": [
+      "Pense à un dé à 6 faces",
+      "Compte : dessus, dessous, 4 côtés",
+      "Réponse : 6 faces"
+    ],
+    "tags": ["géométrie espace", "cube", "faces"]
+  },
+  {
+    "id": "geo3d4",
+    "chapterId": "chap_geometrie_espace",
+    "type": "free_input",
+    "difficulty": "medium",
+    "variables": [
+      { "name": "rayon", "min": 2, "max": 5 },
+      { "name": "hauteur", "min": 5, "max": 10 }
+    ],
+    "questionTemplate": "Un cylindre a un rayon de base de {rayon} cm et une hauteur de {hauteur} cm. Quelle est l'aire de sa base (en cm²) ? Utilise π ≈ 3.14",
+    "correctAnswerFormula": "3.14 * {rayon} * {rayon}",
+    "explanationTemplate": "📖 Aire d'un disque (base du cylindre) :\n\n✅ Aire = π × rayon²\nAire = π × {rayon}²\nAire = 3.14 × {rayon} × {rayon}\nAire ≈ 3.14 * {rayon} * {rayon} cm²",
+    "realLifeExplanationTemplate": "🌍 Le cylindre dans la vie :\n\n🥫 Boîte de conserve : rayon {rayon}cm, hauteur {hauteur}cm\n🎂 Gâteau rond : base = disque de rayon {rayon}cm\n🛢️ Tonneau, bidon\n\n💡 Aire de la base (disque) :\n• Formule : π × r²\n• Avec r = {rayon}cm : π × {rayon}²\n• Calcul : 3.14 × {rayon} × {rayon} ≈ 3.14 * {rayon} * {rayon} cm²\n\n🎯 Applications :\n• Surface d'une pizza\n• Aire d'un jardin circulaire\n• Taille d'un couvercle",
+    "hintsTemplates": [
+      "Base du cylindre = disque",
+      "Aire disque = π × r²",
+      "Avec π ≈ 3.14 et r = {rayon}"
+    ],
+    "tags": ["géométrie espace", "cylindre", "aire", "disque"]
+  }
+]

@@ -1,0 +1,91 @@
+[
+  {
+    "id": "scr1",
+    "chapterId": "chap_scratch",
+    "type": "multiple_choice",
+    "difficulty": "easy",
+    "variables": [
+      { "name": "n", "min": 3, "max": 10 }
+    ],
+    "questionTemplate": "Dans Scratch, quel bloc sert à répéter une action {n} fois ?",
+    "answersTemplate": [
+      { "textFormula": "'Répéter ' + {n} + ' fois'", "isCorrectFormula": "1" },
+      { "textFormula": "'Si ... alors'", "isCorrectFormula": "0" },
+      { "textFormula": "'Attendre ' + {n} + ' secondes'", "isCorrectFormula": "0" },
+      { "textFormula": "'Aller à x: ' + {n}", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Le bloc \"Répéter {n} fois\" est une BOUCLE\n\n✅ Il répète les actions à l'intérieur exactement {n} fois\n\n🔄 Boucle = répéter sans réécrire le code !\n\n💡 C'est comme dire : \"Fais ça {n} fois d'affilée\"",
+    "realLifeExplanationTemplate": "🌍 Les boucles dans la vraie vie :\n\n🏃 Faire {n} tours de stade → tu répètes {n} fois le même tour\n\n🥣 Tourner la soupe {n} fois → boucle de {n} rotations\n\n🎵 Écouter une chanson en répétition {n} fois → lecteur = boucle !\n\n💡 En programmation, c'est pareil : au lieu d'écrire {n} fois le même code, tu utilises une boucle.",
+    "hintsTemplates": [
+      "Boucle = répétition",
+      "Le bloc orange 'Répéter' dans Scratch",
+      "Répéter = faire plusieurs fois la même chose"
+    ],
+    "tags": ["boucle", "scratch", "algorithme"]
+  },
+  {
+    "id": "scr2",
+    "chapterId": "chap_scratch",
+    "type": "multiple_choice",
+    "difficulty": "easy",
+    "questionTemplate": "Pour tester une condition dans Scratch, quel bloc utilises-tu ?",
+    "answersTemplate": [
+      { "textFormula": "'Si ... alors'", "isCorrectFormula": "1" },
+      { "textFormula": "'Répéter indéfiniment'", "isCorrectFormula": "0" },
+      { "textFormula": "'Avancer de 10 pas'", "isCorrectFormula": "0" },
+      { "textFormula": "'Mettre x à 0'", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Le bloc \"Si ... alors\" teste une CONDITION\n\n✅ Si la condition est vraie → exécute les instructions\n❌ Si la condition est fausse → passe à la suite\n\n💡 C'est un choix : \"SI ça, ALORS fais ça\"",
+    "realLifeExplanationTemplate": "🌍 Les conditions dans la vraie vie :\n\n☔ SI il pleut ALORS prends un parapluie\n\n🌡️ SI température < 10°C ALORS mets un manteau\n\n🚦 SI feu rouge ALORS stop\n\n💡 En Scratch, c'est pareil : tu fais quelque chose SEULEMENT si une condition est remplie !",
+    "hintsTemplates": [
+      "Condition = test de vrai/faux",
+      "Le bloc jaune en forme de triangle dans Scratch",
+      "Si ... alors ... permet de faire un choix"
+    ],
+    "tags": ["condition", "scratch", "algorithme"]
+  },
+  {
+    "id": "scr3",
+    "chapterId": "chap_scratch",
+    "type": "free_input",
+    "difficulty": "medium",
+    "variables": [
+      { "name": "start", "min": 1, "max": 5 },
+      { "name": "tours", "min": 3, "max": 8 }
+    ],
+    "questionTemplate": "Un sprite Scratch démarre à x = {start} et avance de 10 pas à chaque répétition d'une boucle \"Répéter {tours} fois\". Quelle sera sa position finale x ?",
+    "correctAnswerFormula": "{start} + 10 * {tours}",
+    "explanationTemplate": "📖 Calcul de la position finale :\n\n✅ Position de départ : x = {start}\n✅ Déplacement par tour : +10 pas\n✅ Nombre de tours : {tours}\n\n**Calcul :**\nDéplacement total = 10 × {tours} = 10 * {tours}\nPosition finale = {start} + 10 * {tours}",
+    "realLifeExplanationTemplate": "🌍 Imagine que tu marches :\n\n🚶 Position de départ : {start} mètres\n👟 Tu fais {tours} pas de 10 mètres chacun\n\n📊 Calcul :\n• {tours} pas × 10m = 10 * {tours} mètres parcourus\n• Position finale = {start}m + 10 * {tours}m\n\n💡 C'est comme un compteur kilométrique : départ + distance parcourue = arrivée !",
+    "hintsTemplates": [
+      "Déplacement total = 10 × nombre de tours",
+      "Position finale = position départ + déplacement",
+      "Calcule {start} + (10 × {tours})"
+    ],
+    "tags": ["boucle", "scratch", "calcul", "déplacement"]
+  },
+  {
+    "id": "scr4",
+    "chapterId": "chap_scratch",
+    "type": "multiple_choice",
+    "difficulty": "medium",
+    "variables": [
+      { "name": "n", "min": 5, "max": 12 }
+    ],
+    "questionTemplate": "Combien de fois le message \"Bonjour\" s'affichera avec ce code ?\n\nRépéter {n} fois :\n  Si x > 0 alors :\n    Dire \"Bonjour\"",
+    "answersTemplate": [
+      { "textFormula": "'Ça dépend de la valeur de x'", "isCorrectFormula": "1" },
+      { "textFormula": "'{n} fois'", "isCorrectFormula": "0" },
+      { "textFormula": "'0 fois'", "isCorrectFormula": "0" },
+      { "textFormula": "'1 fois'", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Analyse du code :\n\n✅ La boucle répète {n} fois\n✅ MAIS le \"Dire Bonjour\" n'apparaît que SI x > 0\n\n💡 Si x > 0 : {n} fois\n💡 Si x ≤ 0 : 0 fois\n\n**Conclusion :** Ça dépend de x !",
+    "realLifeExplanationTemplate": "🌍 C'est comme dans la vie :\n\n🎟️ Tu as {n} tickets de cinéma (boucle {n} fois)\n🎬 Mais tu n'entres QUE SI tu as de l'argent (condition x > 0)\n\n• Si tu as de l'argent → tu utilises les {n} tickets\n• Si tu n'as pas d'argent → 0 entrées\n\n💡 La réponse dépend de la condition !",
+    "hintsTemplates": [
+      "Il y a une condition DANS la boucle",
+      "Le 'Si' peut bloquer l'exécution",
+      "Ça dépend si x > 0 ou pas"
+    ],
+    "tags": ["boucle", "condition", "scratch", "imbrication"]
+  }
+]

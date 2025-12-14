@@ -1,0 +1,81 @@
+[
+  {
+    "id": "tri1",
+    "chapterId": "chap_autour_triangle",
+    "type": "free_input",
+    "difficulty": "easy",
+    "variables": [
+      { "name": "angle1", "min": 40, "max": 80 },
+      { "name": "angle2", "min": 30, "max": 70 }
+    ],
+    "questionTemplate": "Dans un triangle, deux angles mesurent {angle1}° et {angle2}°. Calcule le troisième angle (en degrés).",
+    "correctAnswerFormula": "180 - {angle1} - {angle2}",
+    "explanationTemplate": "📖 La somme des angles d'un triangle = 180°\n\n✅ Calcul :\n{angle1}° + {angle2}° + ? = 180°\n? = 180° - {angle1}° - {angle2}°\n? = 180 - {angle1} - {angle2}",
+    "realLifeExplanationTemplate": "🌍 Imagine un panneau triangulaire de signalisation :\n\n🔺 Les 3 coins forment TOUJOURS 180° au total\n• Premier coin : {angle1}°\n• Deuxième coin : {angle2}°\n• Troisième coin : 180 - {angle1} - {angle2}\n\n💡 C'est comme partager un gâteau rond (360°) en deux : chaque moitié fait 180° !\n\n📐 Dans la construction, les charpentiers utilisent cette règle pour vérifier que leurs triangles sont bien droits.",
+    "hintsTemplates": [
+      "La somme des 3 angles = 180° TOUJOURS",
+      "Fais 180° - (angle1) - (angle2)",
+      "Réponse = 180 - {angle1} - {angle2}"
+    ],
+    "tags": ["angles", "somme", "triangle"]
+  },
+  {
+    "id": "tri2",
+    "chapterId": "chap_autour_triangle",
+    "type": "free_input",
+    "difficulty": "medium",
+    "variables": [
+      { "name": "a", "min": 3, "max": 5 },
+      { "name": "b", "min": 4, "max": 5 }
+    ],
+    "questionTemplate": "Triangle rectangle ABC avec l'angle droit en C. Si AC = {a} cm et BC = {b} cm, calcule AB (en cm). Arrondi à 1 décimale.",
+    "correctAnswerFormula": "sqrt({a}*{a} + {b}*{b})",
+    "explanationTemplate": "📖 Théorème de Pythagore :\nAB² = AC² + BC²\n\n✅ Calcul :\nAB² = {a}² + {b}²\nAB² = pow({a}, 2) + pow({b}, 2)\nAB = sqrt(pow({a}, 2) + pow({b}, 2))",
+    "realLifeExplanationTemplate": "🌍 Le théorème de Pythagore dans la vie :\n\n📺 Taille d'écran TV : un écran de {a}0cm × {b}0cm fait sqrt(pow({a}0, 2) + pow({b}0, 2)) cm en diagonale\n\n🪜 Échelle contre un mur :\n• Mur haut de {a}m\n• Base éloignée de {b}m\n• Échelle = sqrt(pow({a}, 2) + pow({b}, 2)) m\n\n💡 Les architectes utilisent ça TOUT LE TEMPS pour calculer des distances !",
+    "hintsTemplates": [
+      "Triangle rectangle → Pythagore",
+      "Hypoténuse² = côté1² + côté2²",
+      "AB = sqrt(AC² + BC²) = sqrt(pow({a}, 2) + pow({b}, 2))"
+    ],
+    "tags": ["pythagore", "triangle rectangle", "hypoténuse"]
+  },
+  {
+    "id": "tri3",
+    "chapterId": "chap_autour_triangle",
+    "type": "multiple_choice",
+    "difficulty": "easy",
+    "questionTemplate": "Une médiane d'un triangle relie :",
+    "answersTemplate": [
+      { "textFormula": "'Un sommet au milieu du côté opposé'", "isCorrectFormula": "1" },
+      { "textFormula": "'Deux sommets quelconques'", "isCorrectFormula": "0" },
+      { "textFormula": "'Un sommet perpendiculaire au côté opposé'", "isCorrectFormula": "0" },
+      { "textFormula": "'Le centre du cercle au sommet'", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Médiane = ligne du sommet au MILIEU du côté d'en face\n\n✅ Médiane ↔ Milieu\n❌ Hauteur ↔ Perpendiculaire\n\n💡 Imagine une balance : la médiane coupe le triangle en 2 parties équilibrées !",
+    "realLifeExplanationTemplate": "🌍 La médiane dans la vie :\n\n⚖️ Balance : pour équilibrer un triangle en carton, accroche-le par sa médiane !\n\n🎪 Chapiteau de cirque : les câbles forment des médianes pour répartir le poids\n\n🏗️ Architecture : les médianes permettent de trouver le centre de gravité d'une structure triangulaire",
+    "hintsTemplates": [
+      "Médiane → Milieu du côté opposé",
+      "Ne pas confondre avec hauteur (perpendiculaire)"
+    ],
+    "tags": ["médiane", "vocabulaire", "géométrie"]
+  },
+  {
+    "id": "tri4",
+    "chapterId": "chap_autour_triangle",
+    "type": "free_input",
+    "difficulty": "easy",
+    "variables": [
+      { "name": "cote", "min": 5, "max": 15 }
+    ],
+    "questionTemplate": "Un triangle équilatéral a un côté de {cote} cm. Quel est son périmètre (en cm) ?",
+    "correctAnswerFormula": "{cote} * 3",
+    "explanationTemplate": "📖 Triangle équilatéral = 3 côtés ÉGAUX\n\n✅ Périmètre = {cote} + {cote} + {cote}\nPérimètre = {cote} × 3 = {cote} * 3",
+    "realLifeExplanationTemplate": "🌍 Périmètre dans la vie :\n\n🏕️ Terrain triangulaire : tu veux mettre une clôture autour d'un terrain équilatéral de {cote}m de côté → il te faut {cote} * 3 mètres de grillage\n\n🎨 Cadre photo : pour encadrer un triangle de {cote}cm de côté → il faut {cote} * 3 cm de baguette\n\n🚶 Tour du pâté de maisons : 3 rues de {cote}0m chacune = {cote} * 30 mètres de marche",
+    "hintsTemplates": [
+      "Équilatéral = 3 côtés identiques",
+      "Périmètre = côté × 3",
+      "Réponse = {cote} × 3"
+    ],
+    "tags": ["périmètre", "équilatéral", "triangle"]
+  }
+]

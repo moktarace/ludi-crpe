@@ -17,18 +17,6 @@
       <div class="chapter-content">
         <h3>{{ chapter.title }}</h3>
         <p>{{ chapter.description }}</p>
-        
-        <div class="chapter-progress">
-          <div class="progress-bar">
-            <div 
-              class="progress-fill" 
-              [style.width.%]="chapter.completionPercentage">
-            </div>
-          </div>
-          <span class="progress-text">
-            {{ chapter.completedQuestions }} / {{ chapter.totalQuestions }} questions
-          </span>
-        </div>
       </div>
 
       <div class="chapter-status">
