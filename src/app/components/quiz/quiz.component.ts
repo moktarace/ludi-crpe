@@ -25,6 +25,7 @@ export class QuizComponent implements OnInit {
   currentHintIndex: number = 0;
   hintsUsed: number = 0;
   showRealLifeMode: boolean = false;
+  showContextualVersion: boolean = true; // Par défaut, afficher la version contextuelle
   QuestionType = QuestionType; // Exposer l'enum au template
   FeaturesConfig = FeaturesConfig; // Exposer la config au template
 
@@ -277,6 +278,35 @@ export class QuizComponent implements OnInit {
    */
   toggleExplanationMode(): void {
     this.showRealLifeMode = !this.showRealLifeMode;
+  }
+
+  /**
+   * Bascule entre version contextuelle (énoncé) et version mathématique de la question
+   */
+  toggleQuestionVersion(): void {
+    this.showContextualVersion = !this.showContextualVersion;
+  }
+
+  /**
+   * Vérifie si la question actuelle a une version contextuelle
+   */
+  hasContextualVersion(): boolean {
+    return this.currentQuestion?.realLifeQuestion != null && this.currentQuestion.realLifeQuestion !== '';
+  }
+
+  /**
+   * Récupère le texte de la question à afficher selon la version sélectionnée
+   */
+  getDisplayedQuestion(): string {
+    if (!this.currentQuestion) return '';
+    
+    // Si mode contextuel activé ET qu'il existe une version contextuelle
+    if (this.showContextualVersion && this.hasContextualVersion()) {
+      return this.currentQuestion.realLifeQuestion!;
+    }
+    
+    // Sinon, afficher la version mathématique
+    return this.currentQuestion.question;
   }
 
   /**

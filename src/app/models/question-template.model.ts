@@ -14,8 +14,11 @@ export interface QuestionTemplate {
   // Variables aléatoires à générer
   variables?: QuestionVariable[];
   
-  // Template de la question avec placeholders {var1}, {var2}, etc.
+  // Template de la question mathématique avec placeholders {var1}, {var2}, etc.
   questionTemplate: string;
+  
+  // Template de la question en énoncé contextualisé (vie réelle)
+  realLifeQuestionTemplate?: string;
   
   // Pour QCM : template des réponses avec formules
   answersTemplate?: AnswerTemplate[];
@@ -61,8 +64,13 @@ export class QuestionGenerator {
     // Génère les valeurs aléatoires
     const variables = this.generateVariables(template.variables || []);
     
-    // Remplace les placeholders dans la question
+    // Remplace les placeholders dans la question mathématique
     const question = this.replacePlaceholders(template.questionTemplate, variables);
+    
+    // Remplace les placeholders dans la question contextuelle (énoncé vie réelle) si disponible
+    const realLifeQuestion = template.realLifeQuestionTemplate 
+      ? this.replacePlaceholders(template.realLifeQuestionTemplate, variables)
+      : undefined;
     
     // Détermine le type automatiquement
     // Si enableFreeInputMode est false, toujours utiliser QCM
@@ -81,6 +89,7 @@ export class QuestionGenerator {
       type: questionType,
       difficulty: template.difficulty,
       question: question,
+      realLifeQuestion: realLifeQuestion,
       tags: template.tags || []
     };
     

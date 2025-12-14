@@ -8,6 +8,7 @@
       { "name": "nombre", "min": 1, "max": 6 }
     ],
     "questionTemplate": "Un dé normal à 6 faces. Quelle est la probabilité d'obtenir {nombre} ? (Réponds sous forme de fraction, ex: 1/6)",
+    "realLifeQuestionTemplate": "🎲 Tu joues à un jeu de société et tu as besoin de faire un **{nombre}** pour gagner. Tu lances un dé à 6 faces. Quelle est ta chance de gagner ? (Réponds sous forme de fraction, ex: 1/6)",
     "correctAnswerFormula": "'1/6'",
     "answersTemplate": [
       { "textFormula": "'1/6'", "isCorrectFormula": "1" },
@@ -34,6 +35,7 @@
       { "name": "bleues", "min": 3, "max": 6 }
     ],
     "questionTemplate": "Un sac contient {rouges} billes rouges et {bleues} billes bleues. Tu tires une bille au hasard. Quelle est la probabilité de tirer une bille rouge ?",
+    "realLifeQuestionTemplate": "🎁 C'est ton anniversaire ! Il y a un sac opaque avec {rouges} bonbons rouges (fraise 🍓) et {bleues} bonbons bleus (menthe 🍬). Tu plonges la main sans regarder. Quelle est la probabilité de prendre un bonbon fraise ?",
     "answersTemplate": [
       { "textFormula": "{rouges} + '/' + ({rouges} + {bleues})", "isCorrectFormula": "1" },
       { "textFormula": "{rouges} + '/' + {bleues}", "isCorrectFormula": "0" },
@@ -58,6 +60,7 @@
       { "name": "n", "min": 10, "max": 20 }
     ],
     "questionTemplate": "Dans une classe de {n} élèves, 2 sont absents. Si on tire un élève au hasard, quelle est la probabilité qu'il soit ABSENT ? (Fraction simplifiée, ex: 1/5)",
+    "realLifeQuestionTemplate": "🏫 Le prof de sport fait l'appel : sur {n} élèves inscrits, 2 sont malades aujourd'hui. Il tire un nom au hasard pour être capitaine d'équipe. Quelle est la probabilité qu'il tire un élève absent ? (Fraction simplifiée)",
     "correctAnswerFormula": "'2/' + {n}",
     "answersTemplate": [
       { "textFormula": "'2/' + {n}", "isCorrectFormula": "1" },

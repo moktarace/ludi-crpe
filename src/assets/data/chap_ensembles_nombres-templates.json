@@ -8,6 +8,7 @@
       { "name": "n", "min": -10, "max": 10 }
     ],
     "questionTemplate": "Le nombre {n} est-il un entier relatif (ℤ) ?",
+    "realLifeQuestionTemplate": "🌡️ Le thermomètre affiche **{n}°C** ce matin. Cette température est-elle un nombre entier relatif (ℤ) ? (les entiers n'ont pas de virgule)",
     "answersTemplate": [
       { "textFormula": "'Oui, c\\'est un entier'", "isCorrectFormula": "1" },
       { "textFormula": "'Non, il faut une virgule'", "isCorrectFormula": "0" },
@@ -33,6 +34,7 @@
       { "name": "b", "min": 10, "max": 20 }
     ],
     "questionTemplate": "Écris l'intervalle des réels entre {a} et {b} INCLUS.\nFormat attendu: [a;b]",
+    "realLifeQuestionTemplate": "🎟️ Les places pour un concert coûtent entre {a}€ (places les moins chères) et {b}€ (places VIP), **bornes incluses**. Écris cet intervalle de prix en notation mathématique. Format: [a;b]",
     "correctAnswerFormula": "'[' + {a} + ';' + {b} + ']'",
     "answersTemplate": [
       { "textFormula": "'[' + {a} + ';' + {b} + ']'", "isCorrectFormula": "1" },
@@ -59,6 +61,7 @@
       { "name": "den", "min": 2, "max": 8 }
     ],
     "questionTemplate": "À quel ensemble appartient {num}/{den} ?",
+    "realLifeQuestionTemplate": "🍕 Tu manges {num} part(s) d'une pizza découpée en {den} parts égales. Le nombre {num}/{den} appartient à quel ensemble de nombres ?",
     "answersTemplate": [
       { "textFormula": "'ℚ (rationnels)'", "isCorrectFormula": "1" },
       { "textFormula": "'ℕ (naturels)'", "isCorrectFormula": "0" },

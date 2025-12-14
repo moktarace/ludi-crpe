@@ -10,6 +10,7 @@
       { "name": "quantite2", "min": 5, "max": 10 }
     ],
     "questionTemplate": "{quantite1} croissants coûtent {prix1}€. Combien coûtent {quantite2} croissants ? (en euros)",
+    "realLifeQuestionTemplate": "🥐 Tu es à la boulangerie et tu remarques que {quantite1} croissants coûtent {prix1}€. Ta famille veut {quantite2} croissants pour le petit-déjeuner. Combien vas-tu payer ? (en euros)",
     "correctAnswerFormula": "{prix1} * {quantite2} / {quantite1}",
     "answersTemplate": [
       { "textFormula": "{prix1} * {quantite2} / {quantite1}", "isCorrectFormula": "1" },
@@ -36,6 +37,7 @@
       { "name": "prix", "min": 20, "max": 100, "step": 10 }
     ],
     "questionTemplate": "Un article coûte {prix}€. Il a une réduction de {pourcent}%. Quel est le montant de la réduction (en euros) ?",
+    "realLifeQuestionTemplate": "🛍️ C'est les soldes ! Tu as trouvé un super article à {prix}€ avec une étiquette **-{pourcent}%**. Tu veux savoir combien tu vas économiser. Calcule le montant de la réduction (en euros).",
     "correctAnswerFormula": "{prix} * {pourcent} / 100",
     "answersTemplate": [
       { "textFormula": "{prix} * {pourcent} / 100", "isCorrectFormula": "1" },
@@ -62,6 +64,7 @@
       { "name": "temps", "min": 2, "max": 4 }
     ],
     "questionTemplate": "Une voiture parcourt {distance} km en {temps} heures. Quelle est sa vitesse moyenne (en km/h) ?",
+    "realLifeQuestionTemplate": "🚗 Tu pars en vacances avec tes parents. Après {temps} heures de route, vous avez parcouru {distance} km. Le GPS te demande d'estimer votre vitesse moyenne. Calcule-la (en km/h).",
     "correctAnswerFormula": "{distance} / {temps}",
     "answersTemplate": [
       { "textFormula": "{distance} / {temps}", "isCorrectFormula": "1" },

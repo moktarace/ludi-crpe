@@ -8,6 +8,7 @@
       { "name": "cote", "min": 3, "max": 8 }
     ],
     "questionTemplate": "Un cube a une arête de {cote} cm. Quel est son volume (en cm³) ?",
+    "realLifeQuestionTemplate": "🧊 Tu as un moule à glaçons qui fait des glaçons cubiques de {cote}cm de côté. Quel est le volume d'eau que peut contenir UN glaçon ? (en cm³)",
     "correctAnswerFormula": "pow({cote}, 3)",
     "answersTemplate": [
       { "textFormula": "pow({cote}, 3)", "isCorrectFormula": "1" },
@@ -35,6 +36,7 @@
       { "name": "h", "min": 4, "max": 8 }
     ],
     "questionTemplate": "Un pavé droit a pour dimensions : Longueur = {L} cm, Largeur = {l} cm, Hauteur = {h} cm. Quel est son volume (en cm³) ?",
+    "realLifeQuestionTemplate": "📦 Tu dois emballer un cadeau dans une boîte rectangulaire de {L}cm de long, {l}cm de large et {h}cm de haut. Quel volume occupe cette boîte ? (en cm³)",
     "correctAnswerFormula": "{L} * {l} * {h}",
     "answersTemplate": [
       { "textFormula": "{L} * {l} * {h}", "isCorrectFormula": "1" },
@@ -57,6 +59,7 @@
     "type": "multiple_choice",
     "difficulty": "easy",
     "questionTemplate": "Combien de faces a un cube ?",
+    "realLifeQuestionTemplate": "🎲 Tu dois peindre un dé à jouer géant pour une fête. Combien de faces différentes dois-tu peindre ?",
     "answersTemplate": [
       { "textFormula": "'6'", "isCorrectFormula": "1" },
       { "textFormula": "'8'", "isCorrectFormula": "0" },

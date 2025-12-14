@@ -9,6 +9,7 @@
       { "name": "angle2", "min": 30, "max": 70 }
     ],
     "questionTemplate": "Dans un triangle, deux angles mesurent {angle1}° et {angle2}°. Calcule le troisième angle (en degrés).",
+    "realLifeQuestionTemplate": "🚧 Tu construis un panneau de signalisation triangulaire. Deux coins mesurent {angle1}° et {angle2}°. Pour que le panneau soit bien triangulaire, le troisième angle doit mesurer combien de degrés ?",
     "correctAnswerFormula": "180 - {angle1} - {angle2}",
     "answersTemplate": [
       { "textFormula": "180 - {angle1} - {angle2}", "isCorrectFormula": "1" },
@@ -35,6 +36,7 @@
       { "name": "b", "min": 4, "max": 5 }
     ],
     "questionTemplate": "Triangle rectangle ABC avec l'angle droit en C. Si AC = {a} cm et BC = {b} cm, calcule AB (en cm). Arrondi à 1 décimale.",
+    "realLifeQuestionTemplate": "🪜 Tu veux poser une échelle contre un mur. Le mur fait {a}m de haut et tu places le pied de l'échelle à {b}m du mur. Quelle longueur d'échelle te faut-il ? (en mètres, arrondi à 1 décimale)",
     "correctAnswerFormula": "sqrt({a}*{a} + {b}*{b})",
     "answersTemplate": [
       { "textFormula": "sqrt({a}*{a} + {b}*{b})", "isCorrectFormula": "1" },
@@ -57,6 +59,7 @@
     "type": "multiple_choice",
     "difficulty": "easy",
     "questionTemplate": "Une médiane d'un triangle relie :",
+    "realLifeQuestionTemplate": "⚖️ Tu veux équilibrer parfaitement un triangle en carton en le suspendant par un fil. Le fil doit partir d'un coin et aller jusqu'à :",
     "answersTemplate": [
       { "textFormula": "'Un sommet au milieu du côté opposé'", "isCorrectFormula": "1" },
       { "textFormula": "'Deux sommets quelconques'", "isCorrectFormula": "0" },

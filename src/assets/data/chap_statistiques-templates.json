@@ -10,6 +10,7 @@
       { "name": "n3", "min": 14, "max": 20 }
     ],
     "questionTemplate": "Calcule la moyenne de ces 3 notes : {n1}, {n2}, {n3}. Arrondi à 1 décimale.",
+    "realLifeQuestionTemplate": "📚 Tu viens de recevoir ton bulletin ! Tes notes en maths ce trimestre sont : {n1}/20, {n2}/20 et {n3}/20. Calcule ta moyenne en maths pour savoir si tu as la moyenne (≥10). Arrondi à 1 décimale.",
     "correctAnswerFormula": "(({n1} + {n2} + {n3}) / 3).toFixed(1)",
     "answersTemplate": [
       { "textFormula": "(({n1} + {n2} + {n3}) / 3).toFixed(1)", "isCorrectFormula": "1" },
@@ -32,6 +33,7 @@
     "type": "multiple_choice",
     "difficulty": "medium",
     "questionTemplate": "Voici une série ordonnée : 5, 7, 9, 12, 15. Quelle est la médiane ?",
+    "realLifeQuestionTemplate": "📊 Une enquête a été menée sur le temps passé sur les écrans (en heures par jour) par 5 ados : **5h, 7h, 9h, 12h, 15h**. Quelle est la valeur médiane ? (la valeur qui coupe le groupe en 2 moitiés)",
     "answersTemplate": [
       { "textFormula": "'9'", "isCorrectFormula": "1" },
       { "textFormula": "'7'", "isCorrectFormula": "0" },
@@ -57,6 +59,7 @@
       { "name": "total", "min": 100, "max": 200, "step": 20 }
     ],
     "questionTemplate": "Dans une classe de {total} élèves, {freq} portent des lunettes. Quel est le pourcentage d'élèves portant des lunettes ? (arrondi à l'entier)",
+    "realLifeQuestionTemplate": "👓 L'infirmière scolaire fait un bilan de vue. Sur les {total} élèves du collège, {freq} portent des lunettes ou des lentilles. Elle veut faire un graphique pour le principal. Calcule le pourcentage d'élèves ayant une correction visuelle (arrondi à l'entier).",
     "correctAnswerFormula": "Math.round({freq} * 100 / {total})",
     "answersTemplate": [
       { "textFormula": "Math.round({freq} * 100 / {total})", "isCorrectFormula": "1" },

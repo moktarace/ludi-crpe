@@ -11,7 +11,17 @@
 
   <div class="quiz-content">
     <div class="question-card">
-      <h2 class="question-text">{{ currentQuestion.question | mathNotation }}</h2>
+      <!-- Bouton de bascule entre version contextuelle et mathématique -->
+      <button 
+        *ngIf="hasContextualVersion()" 
+        class="toggle-version-button"
+        (click)="toggleQuestionVersion()"
+        [attr.aria-label]="showContextualVersion ? 'Afficher version mathématique' : 'Afficher version contextuelle'">
+        <span class="toggle-icon">{{ showContextualVersion ? '🔢' : '📖' }}</span>
+        <span class="toggle-label">{{ showContextualVersion ? 'Version math' : 'Version énoncé' }}</span>
+      </button>
+
+      <h2 class="question-text">{{ getDisplayedQuestion() | mathNotation | markdownFormat }}</h2>
 
       <!-- QCM -->
       <div class="answers-grid" *ngIf="currentQuestion.type === QuestionType.MULTIPLE_CHOICE">

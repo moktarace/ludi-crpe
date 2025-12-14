@@ -20,7 +20,8 @@ export interface Question {
   chapterId: string;
   type: QuestionType;
   difficulty: DifficultyLevel;
-  question: string;
+  question: string; // Version mathématique abstraite
+  realLifeQuestion?: string; // Version énoncé contextuel (vie réelle)
   answers?: Answer[]; // Pour les QCM
   correctAnswer?: string | number; // Pour les réponses libres
   explanation?: string;

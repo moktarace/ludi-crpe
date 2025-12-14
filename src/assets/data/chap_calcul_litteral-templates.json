@@ -9,6 +9,7 @@
       { "name": "x", "min": 3, "max": 8 }
     ],
     "questionTemplate": "Calcule {a}x pour x = {x}",
+    "realLifeQuestionTemplate": "🍕 Les parts de pizza coûtent {a}€ chacune. Tu en commandes {x}. Quel est le prix total ? (On peut noter le prix comme {a}x où x est le nombre de parts)",
     "correctAnswerFormula": "{a} * {x}",
     "answersTemplate": [
       { "textFormula": "{a} * {x}", "isCorrectFormula": "1" },
@@ -36,6 +37,7 @@
       { "name": "x", "min": 2, "max": 5 }
     ],
     "questionTemplate": "Calcule {a}x + {b} pour x = {x}",
+    "realLifeQuestionTemplate": "🎮 Un jeu vidéo coûte {b}€ à télécharger, puis {a}€ par extension. Tu achètes {x} extensions. Quel est le prix total ? (Prix = {a}x + {b})",
     "correctAnswerFormula": "{a} * {x} + {b}",
     "answersTemplate": [
       { "textFormula": "{a} * {x} + {b}", "isCorrectFormula": "1" },
@@ -62,6 +64,7 @@
       { "name": "b", "min": 2, "max": 5 }
     ],
     "questionTemplate": "Résous l'équation : {a}x = {a} * {b}. Trouve x.",
+    "realLifeQuestionTemplate": "🍬 Tu partages {a} * {b} bonbons équitablement entre {a} amis. Chaque ami reçoit x bonbons. Résous : {a}x = {a} * {b}. Combien de bonbons par personne ?",
     "correctAnswerFormula": "{b}",
     "answersTemplate": [
       { "textFormula": "{b}", "isCorrectFormula": "1" },

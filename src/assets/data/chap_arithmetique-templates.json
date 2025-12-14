@@ -8,6 +8,7 @@
       { "name": "n", "min": 10, "max": 30 }
     ],
     "questionTemplate": "Le nombre {n} est-il divisible par 2 ?",
+    "realLifeQuestionTemplate": "⚽ Tu es capitaine et tu dois former 2 équipes parfaitement égales avec {n} joueurs. Est-ce possible de faire 2 équipes avec le **même nombre** de joueurs ?",
     "answersTemplate": [
       { "textFormula": "({n} % 2 === 0) ? 'Oui' : 'Non'", "isCorrectFormula": "1" },
       { "textFormula": "({n} % 2 !== 0) ? 'Oui' : 'Non'", "isCorrectFormula": "0" }
@@ -30,6 +31,7 @@
       { "name": "n", "min": 20, "max": 50 }
     ],
     "questionTemplate": "Le nombre {n} est-il divisible par 5 ?",
+    "realLifeQuestionTemplate": "💶 Tu as exactement {n}€ en poche et tu veux les échanger contre des billets de 5€ uniquement. Est-ce que c'est possible d'avoir SEULEMENT des billets de 5€, sans monnaie ?",
     "answersTemplate": [
       { "textFormula": "({n} % 5 === 0) ? 'Oui' : 'Non'", "isCorrectFormula": "1" },
       { "textFormula": "({n} % 5 !== 0) ? 'Oui' : 'Non'", "isCorrectFormula": "0" }
@@ -49,6 +51,7 @@
     "type": "multiple_choice",
     "difficulty": "medium",
     "questionTemplate": "Parmi ces nombres, lequel est un nombre PREMIER ?",
+    "realLifeQuestionTemplate": "🔐 En cryptographie (codes secrets), on utilise des nombres **premiers** car ils sont impossibles à décomposer (sauf par 1 et eux-mêmes). Parmi 7, 9, 12 et 15, quel nombre ne peut PAS être obtenu en multipliant deux nombres plus grands que 1 ?",
     "answersTemplate": [
       { "textFormula": "'7'", "isCorrectFormula": "1" },
       { "textFormula": "'9'", "isCorrectFormula": "0" },

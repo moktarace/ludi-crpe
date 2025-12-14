@@ -9,6 +9,7 @@
       { "name": "x", "min": 3, "max": 8 }
     ],
     "questionTemplate": "Soit la fonction f(x) = {a}x. Calcule f({x}).",
+    "realLifeQuestionTemplate": "🚴 Tu loues un vélo à {a}€ par heure. Combien vas-tu payer pour {x} heures de location ? (On peut noter f(x) = {a}x où x est le nombre d'heures)",
     "correctAnswerFormula": "{a} * {x}",
     "answersTemplate": [
       { "textFormula": "{a} * {x}", "isCorrectFormula": "1" },
@@ -36,6 +37,7 @@
       { "name": "x", "min": 2, "max": 6 }
     ],
     "questionTemplate": "Soit f(x) = {a}x + {b}. Calcule f({x}).",
+    "realLifeQuestionTemplate": "📱 Ton forfait mobile coûte {b}€ par mois + {a}€ par Go de données. Ce mois-ci tu as utilisé {x} Go. Combien vas-tu payer ? (Formule : f(x) = {a}x + {b})",
     "correctAnswerFormula": "{a} * {x} + {b}",
     "answersTemplate": [
       { "textFormula": "{a} * {x} + {b}", "isCorrectFormula": "1" },
@@ -61,6 +63,7 @@
       { "name": "a", "min": 2, "max": 5 }
     ],
     "questionTemplate": "La fonction f(x) = {a}x est une fonction :",
+    "realLifeQuestionTemplate": "🏪 Un magasin vend des cahiers à {a}€ pièce, **sans frais de livraison**. Le prix total suit la formule f(x) = {a}x. Quel type de fonction est-ce ? (indice : elle passe par l'origine car 0 cahier = 0€)",
     "answersTemplate": [
       { "textFormula": "'Linéaire'", "isCorrectFormula": "1" },
       { "textFormula": "'Affine'", "isCorrectFormula": "0" },
