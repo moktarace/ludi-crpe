@@ -1,8 +1,9 @@
 {
-  "name": "mathlingo",
-  "short_name": "mathlingo",
-  "theme_color": "#1976d2",
-  "background_color": "#fafafa",
+  "name": "MathLingo",
+  "short_name": "MathLingo",
+  "description": "Apprends les mathématiques niveau Seconde de façon progressive et ludique",
+  "theme_color": "#667eea",
+  "background_color": "#ffffff",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",

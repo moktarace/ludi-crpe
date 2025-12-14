@@ -1,0 +1,63 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="faceGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffd93d;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffb627;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="256" cy="256" r="240" fill="url(#bgGradient)"/>
+  
+  <!-- Cute math mascot face -->
+  <circle cx="256" cy="240" r="140" fill="url(#faceGradient)"/>
+  
+  <!-- Eyes -->
+  <ellipse cx="220" cy="220" rx="18" ry="24" fill="#2d3436"/>
+  <ellipse cx="292" cy="220" rx="18" ry="24" fill="#2d3436"/>
+  
+  <!-- Eye sparkles -->
+  <circle cx="227" cy="214" r="6" fill="#ffffff"/>
+  <circle cx="299" cy="214" r="6" fill="#ffffff"/>
+  
+  <!-- Happy smile -->
+  <path d="M 200 260 Q 256 300 312 260" stroke="#2d3436" stroke-width="8" fill="none" stroke-linecap="round"/>
+  
+  <!-- Blush -->
+  <ellipse cx="180" cy="250" rx="20" ry="12" fill="#ff9999" opacity="0.5"/>
+  <ellipse cx="332" cy="250" rx="20" ry="12" fill="#ff9999" opacity="0.5"/>
+  
+  <!-- Math symbol crown (π) -->
+  <g transform="translate(256, 120)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="60" font-weight="bold" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">π</text>
+  </g>
+  
+  <!-- Math symbols floating around -->
+  <!-- Plus sign -->
+  <g transform="translate(140, 180)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#ffffff" text-anchor="middle" opacity="0.8">+</text>
+  </g>
+  
+  <!-- Equal sign -->
+  <g transform="translate(372, 180)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#ffffff" text-anchor="middle" opacity="0.8">=</text>
+  </g>
+  
+  <!-- Square root -->
+  <g transform="translate(140, 320)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#ffffff" text-anchor="middle" opacity="0.8">√</text>
+  </g>
+  
+  <!-- Division sign -->
+  <g transform="translate(372, 320)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#ffffff" text-anchor="middle" opacity="0.8">÷</text>
+  </g>
+  
+  <!-- Bottom decorative wave -->
+  <path d="M 80 400 Q 140 380 200 400 T 320 400 T 432 400" stroke="#ffffff" stroke-width="6" fill="none" opacity="0.3" stroke-linecap="round"/>
+</svg>
