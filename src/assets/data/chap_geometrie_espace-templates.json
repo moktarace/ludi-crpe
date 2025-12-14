@@ -9,6 +9,12 @@
     ],
     "questionTemplate": "Un cube a une arête de {cote} cm. Quel est son volume (en cm³) ?",
     "correctAnswerFormula": "pow({cote}, 3)",
+    "answersTemplate": [
+      { "textFormula": "pow({cote}, 3)", "isCorrectFormula": "1" },
+      { "textFormula": "{cote} * 3", "isCorrectFormula": "0" },
+      { "textFormula": "{cote} * {cote}", "isCorrectFormula": "0" },
+      { "textFormula": "6 * {cote}", "isCorrectFormula": "0" }
+    ],
     "explanationTemplate": "📖 Volume d'un cube :\n\n✅ Volume = arête³\nVolume = {cote}³\nVolume = {cote} × {cote} × {cote}\nVolume = pow({cote}, 3) cm³",
     "realLifeExplanationTemplate": "🌍 Le cube dans la vie :\n\n📦 Carton cubique de {cote}cm de côté\n🎲 Dé géant de {cote}cm\n🧊 Gros glaçon cubique\n\n💡 Volume = combien de petits cubes de 1cm³ rentrent dedans ?\n• {cote} rangées\n• {cote} colonnes\n• {cote} étages\n• Total = {cote} × {cote} × {cote} = pow({cote}, 3) cm³\n\n🎯 Applications :\n• Calcul de capacité de stockage\n• Volume d'eau dans un aquarium cubique",
     "hintsTemplates": [
@@ -30,6 +36,12 @@
     ],
     "questionTemplate": "Un pavé droit a pour dimensions : Longueur = {L} cm, Largeur = {l} cm, Hauteur = {h} cm. Quel est son volume (en cm³) ?",
     "correctAnswerFormula": "{L} * {l} * {h}",
+    "answersTemplate": [
+      { "textFormula": "{L} * {l} * {h}", "isCorrectFormula": "1" },
+      { "textFormula": "{L} + {l} + {h}", "isCorrectFormula": "0" },
+      { "textFormula": "{L} * {l}", "isCorrectFormula": "0" },
+      { "textFormula": "2 * ({L} + {l} + {h})", "isCorrectFormula": "0" }
+    ],
     "explanationTemplate": "📖 Volume d'un pavé droit :\n\n✅ Volume = Longueur × Largeur × Hauteur\nVolume = {L} × {l} × {h}\nVolume = {L} * {l} * {h} cm³",
     "realLifeExplanationTemplate": "🌍 Le pavé droit dans la vie :\n\n📦 Carton de déménagement : {L}cm × {l}cm × {h}cm\n🏠 Pièce rectangulaire\n📚 Livre fermé\n\n💡 Volume = combien de cubes de 1cm³ ?\n• Base : {L} × {l} = {L} * {l} cm² (aire du sol)\n• Hauteur : {h} étages de cubes\n• Total = {L} * {l} * {h} cm³\n\n🎯 Applications :\n• Capacité d'une piscine rectangulaire\n• Volume d'un frigo\n• Quantité de béton pour dalle",
     "hintsTemplates": [
@@ -71,6 +83,12 @@
     ],
     "questionTemplate": "Un cylindre a un rayon de base de {rayon} cm et une hauteur de {hauteur} cm. Quelle est l'aire de sa base (en cm²) ? Utilise π ≈ 3.14",
     "correctAnswerFormula": "3.14 * {rayon} * {rayon}",
+    "answersTemplate": [
+      { "textFormula": "3.14 * {rayon} * {rayon}", "isCorrectFormula": "1" },
+      { "textFormula": "2 * 3.14 * {rayon}", "isCorrectFormula": "0" },
+      { "textFormula": "3.14 * {rayon} * {hauteur}", "isCorrectFormula": "0" },
+      { "textFormula": "3.14 * {rayon}", "isCorrectFormula": "0" }
+    ],
     "explanationTemplate": "📖 Aire d'un disque (base du cylindre) :\n\n✅ Aire = π × rayon²\nAire = π × {rayon}²\nAire = 3.14 × {rayon} × {rayon}\nAire ≈ 3.14 * {rayon} * {rayon} cm²",
     "realLifeExplanationTemplate": "🌍 Le cylindre dans la vie :\n\n🥫 Boîte de conserve : rayon {rayon}cm, hauteur {hauteur}cm\n🎂 Gâteau rond : base = disque de rayon {rayon}cm\n🛢️ Tonneau, bidon\n\n💡 Aire de la base (disque) :\n• Formule : π × r²\n• Avec r = {rayon}cm : π × {rayon}²\n• Calcul : 3.14 × {rayon} × {rayon} ≈ 3.14 * {rayon} * {rayon} cm²\n\n🎯 Applications :\n• Surface d'une pizza\n• Aire d'un jardin circulaire\n• Taille d'un couvercle",
     "hintsTemplates": [

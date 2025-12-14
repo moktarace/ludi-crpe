@@ -57,6 +57,12 @@
     ],
     "questionTemplate": "Un point A({x}; {y}) subit une translation de vecteur ({dx}; {dy}). Quelles sont les coordonnées de son image A' ? (Format: x;y)",
     "correctAnswerFormula": "({x} + {dx}) + ';' + ({y} + {dy})",
+    "answersTemplate": [
+      { "textFormula": "({x} + {dx}) + ';' + ({y} + {dy})", "isCorrectFormula": "1" },
+      { "textFormula": "({x} - {dx}) + ';' + ({y} - {dy})", "isCorrectFormula": "0" },
+      { "textFormula": "{x} + ';' + {y}", "isCorrectFormula": "0" },
+      { "textFormula": "{dx} + ';' + {dy}", "isCorrectFormula": "0" }
+    ],
     "explanationTemplate": "📖 Translation par vecteur ({dx}; {dy}) :\n\n✅ A({x}; {y})\n✅ A' = A + vecteur\n✅ A'(x + dx ; y + dy)\n✅ A'({x} + {dx} ; {y} + {dy})\n✅ A'({x} + {dx}; {y} + {dy})",
     "realLifeExplanationTemplate": "🌍 Translation = déplacement :\n\n📍 Position de départ : A({x}; {y})\n➡️ Déplacement :\n• {dx} vers la droite (ou gauche si négatif)\n• {dy} vers le haut (ou bas si négatif)\n\n📍 Position d'arrivée :\n• x' = {x} + {dx}\n• y' = {y} + {dy}\n• A'({x} + {dx}; {y} + {dy})\n\n💡 Applications :\n• GPS : coordonnées après déplacement\n• Jeux vidéo : mouvement d'un personnage\n• Architecture : translation d'un motif répété",
     "hintsTemplates": [

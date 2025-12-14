@@ -34,6 +34,12 @@
     ],
     "questionTemplate": "Écris l'intervalle des réels entre {a} et {b} INCLUS.\nFormat attendu: [a;b]",
     "correctAnswerFormula": "'[' + {a} + ';' + {b} + ']'",
+    "answersTemplate": [
+      { "textFormula": "'[' + {a} + ';' + {b} + ']'", "isCorrectFormula": "1" },
+      { "textFormula": "']' + {a} + ';' + {b} + '['", "isCorrectFormula": "0" },
+      { "textFormula": "'(' + {a} + ';' + {b} + ')'", "isCorrectFormula": "0" },
+      { "textFormula": "'[' + {a} + ',' + {b} + ']'", "isCorrectFormula": "0" }
+    ],
     "explanationTemplate": "📖 Réponse : [{a};{b}]\n\n✅ Crochets [ ] = bornes INCLUSES\n\n{a} est autorisé ✓\nEntre {a} et {b} OK ✓\n{b} est autorisé ✓",
     "realLifeExplanationTemplate": "🌍 Imagine un ticket de spectacle entre {a}€ et {b}€ :\n\n🎟️ L'intervalle [{a};{b}] signifie :\n• Tu peux payer {a}€ (minimum OK)\n• Tu peux payer n'importe quel prix entre les deux\n• Tu peux payer {b}€ (maximum OK)\n\n💡 Notation :\n• [ ou ] = INCLUS (crochet fermé)\n• ( ou ) = EXCLU (parenthèse ouverte)\n\n🎯 Exemples concrets :\n• Âge pour un film : [12;18] = de 12 à 18 ans inclus\n• Température confort : [19;22] = entre 19°C et 22°C",
     "hintsTemplates": [

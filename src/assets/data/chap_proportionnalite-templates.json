@@ -11,6 +11,12 @@
     ],
     "questionTemplate": "{quantite1} croissants coûtent {prix1}€. Combien coûtent {quantite2} croissants ? (en euros)",
     "correctAnswerFormula": "{prix1} * {quantite2} / {quantite1}",
+    "answersTemplate": [
+      { "textFormula": "{prix1} * {quantite2} / {quantite1}", "isCorrectFormula": "1" },
+      { "textFormula": "{prix1} * {quantite1} / {quantite2}", "isCorrectFormula": "0" },
+      { "textFormula": "{prix1} + {quantite2}", "isCorrectFormula": "0" },
+      { "textFormula": "{prix1} * {quantite2}", "isCorrectFormula": "0" }
+    ],
     "explanationTemplate": "📖 Proportionnalité : tableau ou produit en croix\n\n✅ Méthode 1 : Prix unitaire\n• 1 croissant = {prix1} ÷ {quantite1} = {prix1} / {quantite1} €\n• {quantite2} croissants = {quantite2} × ({prix1} / {quantite1}) €\n\n✅ Méthode 2 : Produit en croix\n• {quantite1} → {prix1}€\n• {quantite2} → ? €\n• ? = {prix1} × {quantite2} ÷ {quantite1}",
     "realLifeExplanationTemplate": "🌍 À la boulangerie :\n\n🥐 {quantite1} croissants = {prix1}€\n🥐 {quantite2} croissants = ?\n\n💰 Calcul :\n• Prix d'1 croissant = {prix1}€ ÷ {quantite1} = {prix1} / {quantite1} €\n• Prix de {quantite2} = {quantite2} × {prix1} / {quantite1} €\n\n💡 Applications :\n• Courses : prix au kilo\n• Essence : prix au litre\n• Recettes de cuisine : proportions d'ingrédients",
     "hintsTemplates": [
@@ -31,6 +37,12 @@
     ],
     "questionTemplate": "Un article coûte {prix}€. Il a une réduction de {pourcent}%. Quel est le montant de la réduction (en euros) ?",
     "correctAnswerFormula": "{prix} * {pourcent} / 100",
+    "answersTemplate": [
+      { "textFormula": "{prix} * {pourcent} / 100", "isCorrectFormula": "1" },
+      { "textFormula": "{prix} - {pourcent}", "isCorrectFormula": "0" },
+      { "textFormula": "{prix} * {pourcent}", "isCorrectFormula": "0" },
+      { "textFormula": "{prix} / {pourcent}", "isCorrectFormula": "0" }
+    ],
     "explanationTemplate": "📖 Calculer un pourcentage :\n\n✅ {pourcent}% de {prix}€ = ?\n\n**Formule :**\nMontant = {prix} × {pourcent} ÷ 100\nMontant = {prix} * {pourcent} / 100 €\n\n💡 {pourcent}% = {pourcent}/100",
     "realLifeExplanationTemplate": "🌍 Soldes en magasin :\n\n🛍️ Prix initial : {prix}€\n🎯 Réduction : -{pourcent}%\n\n💰 Montant de la réduction :\n• {pourcent}% de {prix}€ = {prix} × {pourcent}/100\n• Réduction = {prix} * {pourcent} / 100 €\n\n🎁 Prix final = {prix}€ - {prix} * {pourcent} / 100\n\n💡 Applications :\n• Soldes\n• TVA (20%)\n• Pourboires (10-15%)\n• Intérêts bancaires",
     "hintsTemplates": [
@@ -51,6 +63,12 @@
     ],
     "questionTemplate": "Une voiture parcourt {distance} km en {temps} heures. Quelle est sa vitesse moyenne (en km/h) ?",
     "correctAnswerFormula": "{distance} / {temps}",
+    "answersTemplate": [
+      { "textFormula": "{distance} / {temps}", "isCorrectFormula": "1" },
+      { "textFormula": "{distance} * {temps}", "isCorrectFormula": "0" },
+      { "textFormula": "{distance} + {temps}", "isCorrectFormula": "0" },
+      { "textFormula": "{temps} / {distance}", "isCorrectFormula": "0" }
+    ],
     "explanationTemplate": "📖 Vitesse moyenne = distance ÷ temps\n\n✅ Formule : v = d / t\n\n**Calcul :**\nv = {distance} km ÷ {temps} h\nv = {distance} / {temps} km/h",
     "realLifeExplanationTemplate": "🌍 Sur la route :\n\n🚗 Distance parcourue : {distance} km\n⏱️ Temps écoulé : {temps} heures\n\n📊 Vitesse moyenne :\n• v = distance ÷ temps\n• v = {distance} ÷ {temps} = {distance} / {temps} km/h\n\n💡 Applications :\n• GPS : temps d'arrivée estimé\n• Sport : vitesse de course\n• Trains, avions : horaires\n\n🎯 Formules liées :\n• Distance = vitesse × temps (d = v × t)\n• Temps = distance ÷ vitesse (t = d ÷ v)",
     "hintsTemplates": [

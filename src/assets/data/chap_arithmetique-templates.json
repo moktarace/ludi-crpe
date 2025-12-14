@@ -75,6 +75,12 @@
     ],
     "questionTemplate": "Quel est le PGCD (Plus Grand Commun Diviseur) de {a} et {b} ?",
     "correctAnswerFormula": "gcd({a}, {b})",
+    "answersTemplate": [
+      { "textFormula": "gcd({a}, {b})", "isCorrectFormula": "1" },
+      { "textFormula": "{a} * {b}", "isCorrectFormula": "0" },
+      { "textFormula": "{a} + {b}", "isCorrectFormula": "0" },
+      { "textFormula": "2", "isCorrectFormula": "0" }
+    ],
     "explanationTemplate": "📖 PGCD = Plus Grand Commun Diviseur\n\n✅ C'est le plus grand nombre qui divise à la fois {a} ET {b}\n\n**Méthode : Liste les diviseurs**\n• Diviseurs de {a} : ...\n• Diviseurs de {b} : ...\n• Communs : ...\n• Le plus grand : gcd({a}, {b})",
     "realLifeExplanationTemplate": "🌍 PGCD dans la vie :\n\n🎁 Tu as {a} chocolats et {b} bonbons\n• Tu veux faire des sachets IDENTIQUES\n• Chaque sachet a le MÊME nombre de chocolats ET de bonbons\n• Combien de sachets MAX ?\n\n💡 Réponse = PGCD({a}, {b}) = gcd({a}, {b}) sachets\n\n🎯 Applications :\n• Découper des planches en morceaux égaux\n• Organiser des équipes de taille identique\n• Simplifier des fractions (PGCD du numérateur et dénominateur)",
     "hintsTemplates": [

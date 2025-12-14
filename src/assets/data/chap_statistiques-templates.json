@@ -11,6 +11,12 @@
     ],
     "questionTemplate": "Calcule la moyenne de ces 3 notes : {n1}, {n2}, {n3}. Arrondi à 1 décimale.",
     "correctAnswerFormula": "(({n1} + {n2} + {n3}) / 3).toFixed(1)",
+    "answersTemplate": [
+      { "textFormula": "(({n1} + {n2} + {n3}) / 3).toFixed(1)", "isCorrectFormula": "1" },
+      { "textFormula": "{n1} + {n2} + {n3}", "isCorrectFormula": "0" },
+      { "textFormula": "({n1} + {n2} + {n3}) / 2", "isCorrectFormula": "0" },
+      { "textFormula": "{n2}", "isCorrectFormula": "0" }
+    ],
     "explanationTemplate": "📖 Moyenne = somme ÷ nombre de valeurs\n\n✅ Somme = {n1} + {n2} + {n3} = {n1} + {n2} + {n3}\n✅ Nombre de valeurs = 3\n✅ Moyenne = ({n1} + {n2} + {n3}) ÷ 3 ≈ (({n1} + {n2} + {n3}) / 3).toFixed(1)",
     "realLifeExplanationTemplate": "🌍 La moyenne à l'école :\n\n📚 Tes 3 notes :\n• Contrôle 1 : {n1}/20\n• Contrôle 2 : {n2}/20\n• Contrôle 3 : {n3}/20\n\n📊 Ta moyenne :\n• Total = {n1} + {n2} + {n3} = {n1} + {n2} + {n3}\n• Moyenne = ({n1} + {n2} + {n3}) ÷ 3 ≈ (({n1} + {n2} + {n3}) / 3).toFixed(1)/20\n\n💡 La moyenne représente la note \"typique\" si tu avais la même note partout",
     "hintsTemplates": [
@@ -52,6 +58,12 @@
     ],
     "questionTemplate": "Dans une classe de {total} élèves, {freq} portent des lunettes. Quel est le pourcentage d'élèves portant des lunettes ? (arrondi à l'entier)",
     "correctAnswerFormula": "Math.round({freq} * 100 / {total})",
+    "answersTemplate": [
+      { "textFormula": "Math.round({freq} * 100 / {total})", "isCorrectFormula": "1" },
+      { "textFormula": "{freq} * 100", "isCorrectFormula": "0" },
+      { "textFormula": "{total} / {freq}", "isCorrectFormula": "0" },
+      { "textFormula": "{freq} - {total}", "isCorrectFormula": "0" }
+    ],
     "explanationTemplate": "📖 Pourcentage = (partie / total) × 100\n\n✅ Partie = {freq} élèves\n✅ Total = {total} élèves\n✅ % = ({freq} ÷ {total}) × 100\n✅ % = ({freq} / {total}) × 100 ≈ Math.round({freq} * 100 / {total})%",
     "realLifeExplanationTemplate": "🌍 Les statistiques en classe :\n\n👓 {freq} élèves portent des lunettes sur {total}\n\n📊 Pourcentage :\n• Fraction = {freq}/{total}\n• Pourcentage = ({freq}/{total}) × 100\n• ≈ Math.round({freq} * 100 / {total})%\n\n💡 Applications :\n• Taux de réussite à un examen\n• Pourcentage de filles/garçons\n• Proportion d'élèves ayant la moyenne\n• Sondages d'opinion",
     "hintsTemplates": [

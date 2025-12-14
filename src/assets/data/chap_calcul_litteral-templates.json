@@ -10,6 +10,12 @@
     ],
     "questionTemplate": "Calcule {a}x pour x = {x}",
     "correctAnswerFormula": "{a} * {x}",
+    "answersTemplate": [
+      { "textFormula": "{a} * {x}", "isCorrectFormula": "1" },
+      { "textFormula": "{a} + {x}", "isCorrectFormula": "0" },
+      { "textFormula": "{x}", "isCorrectFormula": "0" },
+      { "textFormula": "{a}", "isCorrectFormula": "0" }
+    ],
     "explanationTemplate": "📖 Substitution de variable :\n\n✅ Remplace x par {x} dans l'expression {a}x\n\n**Calcul :**\n{a}x = {a} × {x} = {a} * {x}",
     "realLifeExplanationTemplate": "🌍 Les variables dans la vie :\n\n🍕 Pizza à {a}€ la part\n• Si tu en prends x parts → prix = {a}x €\n• Pour x = {x} parts → prix = {a} × {x} = {a} * {x} €\n\n💡 Applications :\n• Facture téléphone : coût fixe + prix/min × x minutes\n• Taxi : prise en charge + prix/km × x km\n• Abonnement : prix mensuel × x mois",
     "hintsTemplates": [
@@ -31,6 +37,12 @@
     ],
     "questionTemplate": "Calcule {a}x + {b} pour x = {x}",
     "correctAnswerFormula": "{a} * {x} + {b}",
+    "answersTemplate": [
+      { "textFormula": "{a} * {x} + {b}", "isCorrectFormula": "1" },
+      { "textFormula": "{a} + {x} + {b}", "isCorrectFormula": "0" },
+      { "textFormula": "{a} * ({x} + {b})", "isCorrectFormula": "0" },
+      { "textFormula": "{a} * {x}", "isCorrectFormula": "0" }
+    ],
     "explanationTemplate": "📖 Substitution avec addition :\n\n✅ Étape 1 : Remplace x par {x}\n{a}x + {b} = {a} × {x} + {b}\n\n✅ Étape 2 : Calcule {a} × {x}\n= {a} * {x} + {b}\n\n✅ Étape 3 : Additionne\n= {a} * {x} + {b}",
     "realLifeExplanationTemplate": "🌍 Abonnement téléphone :\n\n📱 Formule : {a}€ par Go + {b}€ fixes\n• Prix = {a}x + {b} (x = nombre de Go)\n\n💰 Pour x = {x} Go :\n• Prix = {a} × {x} + {b}\n• Prix = {a} * {x} + {b} €\n\n💡 Applications :\n• Électricité : abonnement + conso × prix/kWh\n• Location voiture : jour × prix + assurance\n• Salle de sport : mois × tarif + frais d'inscription",
     "hintsTemplates": [
@@ -51,6 +63,12 @@
     ],
     "questionTemplate": "Résous l'équation : {a}x = {a} * {b}. Trouve x.",
     "correctAnswerFormula": "{b}",
+    "answersTemplate": [
+      { "textFormula": "{b}", "isCorrectFormula": "1" },
+      { "textFormula": "{a} * {b}", "isCorrectFormula": "0" },
+      { "textFormula": "{a}", "isCorrectFormula": "0" },
+      { "textFormula": "{a} + {b}", "isCorrectFormula": "0" }
+    ],
     "explanationTemplate": "📖 Résolution d'équation :\n\n✅ {a}x = {a} * {b}\n\n**Méthode : Diviser les 2 côtés par {a}**\nx = ({a} * {b}) ÷ {a}\nx = {b}",
     "realLifeExplanationTemplate": "🌍 Problème de partage :\n\n🍰 {a} personnes se partagent {a} * {b} bonbons équitablement\n• Total = {a}x bonbons (x bonbons par personne)\n• {a}x = {a} * {b}\n\n💡 Combien chacun ?\n• x = {a} * {b} ÷ {a}\n• x = {b} bonbons par personne\n\n🎯 Applications :\n• Répartition de budget entre services\n• Calcul de prix unitaire\n• Partage de bénéfices",
     "hintsTemplates": [

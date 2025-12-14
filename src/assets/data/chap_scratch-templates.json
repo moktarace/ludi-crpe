@@ -55,6 +55,12 @@
     ],
     "questionTemplate": "Un sprite Scratch démarre à x = {start} et avance de 10 pas à chaque répétition d'une boucle \"Répéter {tours} fois\". Quelle sera sa position finale x ?",
     "correctAnswerFormula": "{start} + 10 * {tours}",
+    "answersTemplate": [
+      { "textFormula": "{start} + 10 * {tours}", "isCorrectFormula": "1" },
+      { "textFormula": "{start} * {tours}", "isCorrectFormula": "0" },
+      { "textFormula": "10 * {tours}", "isCorrectFormula": "0" },
+      { "textFormula": "{start} + {tours}", "isCorrectFormula": "0" }
+    ],
     "explanationTemplate": "📖 Calcul de la position finale :\n\n✅ Position de départ : x = {start}\n✅ Déplacement par tour : +10 pas\n✅ Nombre de tours : {tours}\n\n**Calcul :**\nDéplacement total = 10 × {tours} = 10 * {tours}\nPosition finale = {start} + 10 * {tours}",
     "realLifeExplanationTemplate": "🌍 Imagine que tu marches :\n\n🚶 Position de départ : {start} mètres\n👟 Tu fais {tours} pas de 10 mètres chacun\n\n📊 Calcul :\n• {tours} pas × 10m = 10 * {tours} mètres parcourus\n• Position finale = {start}m + 10 * {tours}m\n\n💡 C'est comme un compteur kilométrique : départ + distance parcourue = arrivée !",
     "hintsTemplates": [

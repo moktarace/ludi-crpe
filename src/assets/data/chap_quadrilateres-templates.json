@@ -55,6 +55,12 @@
     ],
     "questionTemplate": "Un rectangle a une longueur de {longueur} cm et une largeur de {largeur} cm. Quelle est son aire (en cm²) ?",
     "correctAnswerFormula": "{longueur} * {largeur}",
+    "answersTemplate": [
+      { "textFormula": "{longueur} * {largeur}", "isCorrectFormula": "1" },
+      { "textFormula": "2 * ({longueur} + {largeur})", "isCorrectFormula": "0" },
+      { "textFormula": "{longueur} + {largeur}", "isCorrectFormula": "0" },
+      { "textFormula": "{longueur} * {longueur}", "isCorrectFormula": "0" }
+    ],
     "explanationTemplate": "📖 Aire d'un rectangle :\n\n✅ Aire = Longueur × Largeur\n\n**Calcul :**\nAire = {longueur} × {largeur}\nAire = {longueur} * {largeur} cm²",
     "realLifeExplanationTemplate": "🌍 L'aire d'un rectangle :\n\n📐 Longueur : {longueur} cm\n📐 Largeur : {largeur} cm\n\n🏠 Applications concrètes :\n• Carrelage : combien de carreaux pour couvrir le sol ?\n• Peinture : surface à peindre d'un mur\n• Terrain de foot : {longueur}m × {largeur}m = {longueur} * {largeur} m²\n\n💡 L'aire = combien de petits carrés de 1cm² tiennent dedans ?\n• {longueur} rangées de {largeur} carrés = {longueur} * {largeur} carrés",
     "hintsTemplates": [
