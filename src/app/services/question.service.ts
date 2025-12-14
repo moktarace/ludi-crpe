@@ -223,11 +223,90 @@ export class QuestionService {
       const correctAnswer = question.answers?.find(a => a.isCorrect);
       return correctAnswer?.text.toLowerCase() === userAnswer.toLowerCase();
     } else {
-      // Pour les réponses libres, normaliser la comparaison
-      const correct = String(question.correctAnswer).toLowerCase().trim();
-      const user = userAnswer.toLowerCase().trim();
-      return correct === user;
+      // Pour les réponses libres, normaliser fortement la comparaison
+      const correct = this.normalizeAnswer(String(question.correctAnswer));
+      const user = this.normalizeAnswer(userAnswer);
+      
+      // Comparaison exacte d'abord
+      if (correct === user) return true;
+      
+      // Tolérance pour les réponses numériques avec variations mineures
+      if (this.isNumericAnswer(correct) && this.isNumericAnswer(user)) {
+        return this.compareNumericAnswers(correct, user);
+      }
+      
+      // Tolérance pour les réponses avec fractions
+      if (this.isFractionAnswer(correct) && this.isFractionAnswer(user)) {
+        return this.compareFractionAnswers(correct, user);
+      }
+      
+      return false;
     }
+  }
+
+  /**
+   * Normalise une réponse : minuscules, sans espaces multiples, sans accents
+   */
+  private normalizeAnswer(answer: string): string {
+    return answer
+      .toLowerCase()
+      .trim()
+      .replace(/\s+/g, ' ')  // Espaces multiples → 1 espace
+      .replace(/[,;]/g, '.')  // Virgules et point-virgules → point
+      .replace(/[àáâãäå]/g, 'a')
+      .replace(/[èéêë]/g, 'e')
+      .replace(/[ìíîï]/g, 'i')
+      .replace(/[òóôõö]/g, 'o')
+      .replace(/[ùúûü]/g, 'u')
+      .replace(/[ýÿ]/g, 'y')
+      .replace(/[ç]/g, 'c')
+      .replace(/[ñ]/g, 'n');
+  }
+
+  /**
+   * Vérifie si une réponse est numérique
+   */
+  private isNumericAnswer(answer: string): boolean {
+    const normalized = answer.replace(/\s/g, '');
+    return /^-?\d+([.,]\d+)?$/.test(normalized);
+  }
+
+  /**
+   * Compare deux réponses numériques avec tolérance
+   */
+  private compareNumericAnswers(correct: string, user: string): boolean {
+    const correctNum = parseFloat(correct.replace(',', '.'));
+    const userNum = parseFloat(user.replace(',', '.'));
+    
+    // Tolérance de 0.1% pour les erreurs d'arrondi
+    const tolerance = Math.abs(correctNum * 0.001);
+    return Math.abs(correctNum - userNum) <= Math.max(tolerance, 0.01);
+  }
+
+  /**
+   * Vérifie si une réponse est une fraction
+   */
+  private isFractionAnswer(answer: string): boolean {
+    const normalized = answer.replace(/\s/g, '');
+    return /^\d+\/\d+$/.test(normalized);
+  }
+
+  /**
+   * Compare deux fractions (simplifie et compare)
+   */
+  private compareFractionAnswers(correct: string, user: string): boolean {
+    const correctParts = correct.replace(/\s/g, '').split('/');
+    const userParts = user.replace(/\s/g, '').split('/');
+    
+    if (correctParts.length !== 2 || userParts.length !== 2) return false;
+    
+    const correctNum = parseInt(correctParts[0]);
+    const correctDen = parseInt(correctParts[1]);
+    const userNum = parseInt(userParts[0]);
+    const userDen = parseInt(userParts[1]);
+    
+    // Comparer les valeurs décimales des fractions
+    return Math.abs((correctNum / correctDen) - (userNum / userDen)) < 0.0001;
   }
 
   getAllQuestions(): Question[] {
