@@ -88,7 +88,7 @@ export class QuestionGenerator {
     if (questionType === 'multiple_choice') {
       // Pour QCM, on a besoin du template d'answers
       if (template.answersTemplate) {
-        result.answers = this.generateAnswers(template.answersTemplate, variables);
+        result.answers = this.generateAnswers(template.answersTemplate, variables, template.difficulty);
       } else if (template.correctAnswerFormula) {
         // Si pas de template QCM mais une formule, on génère des mauvaises réponses
         result.answers = this.generateAnswersFromFormula(template.correctAnswerFormula, variables);
@@ -167,8 +167,12 @@ export class QuestionGenerator {
   
   /**
    * Génère les réponses pour un QCM
+   * Le nombre de réponses dépend de la difficulté :
+   * - easy: 2 réponses (1 bonne + 1 mauvaise)
+   * - medium: 3 réponses (1 bonne + 2 mauvaises)
+   * - hard: 4 réponses (1 bonne + 3 mauvaises)
    */
-  private static generateAnswers(templates: AnswerTemplate[], variables: Record<string, number>): any[] {
+  private static generateAnswers(templates: AnswerTemplate[], variables: Record<string, number>, difficulty: 'easy' | 'medium' | 'hard' = 'medium'): any[] {
     const answers = templates.map(template => {
       const text = this.evaluateFormula(template.textFormula, variables).toString();
       const isCorrect = this.evaluateFormula(template.isCorrectFormula, variables) === 1;
@@ -200,10 +204,36 @@ export class QuestionGenerator {
       for (const key in modifiedVariables) {
         modifiedVariables[key] = modifiedVariables[key] + 1;
       }
-      return this.generateAnswers(templates, modifiedVariables);
+      return this.generateAnswers(templates, modifiedVariables, difficulty);
     }
     
-    return uniqueAnswers;
+    // Limiter le nombre de réponses selon la difficulté
+    const maxAnswers = difficulty === 'easy' ? 2 : difficulty === 'medium' ? 3 : 4;
+    
+    // Séparer bonne et mauvaises réponses
+    const correctAnswers = uniqueAnswers.filter(a => a.isCorrect);
+    const wrongAnswers = uniqueAnswers.filter(a => !a.isCorrect);
+    
+    // Prendre 1 bonne réponse + (maxAnswers-1) mauvaises réponses
+    const selectedAnswers = [
+      ...correctAnswers.slice(0, 1),
+      ...wrongAnswers.slice(0, maxAnswers - 1)
+    ];
+    
+    // Mélanger pour que la bonne réponse ne soit pas toujours en premier
+    return this.shuffleArray(selectedAnswers);
+  }
+  
+  /**
+   * Mélange un tableau (utilisé pour les réponses QCM)
+   */
+  private static shuffleArray<T>(array: T[]): T[] {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
   }
   
   /**

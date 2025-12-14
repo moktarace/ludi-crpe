@@ -19,7 +19,10 @@ Ce fichier permet d'activer/désactiver certaines fonctionnalités de l'applicat
 - **Par défaut**: `false`
 - **Description**: Affiche le niveau de difficulté des questions (easy, medium, hard)
 - Lorsque désactivé, le badge de difficulté n'apparaît pas
-- L'adaptation automatique de difficulté est également simplifiée
+- **Important**: La difficulté contrôle le nombre de réponses proposées dans les QCM :
+  - **easy**: 2 réponses (1 bonne + 1 mauvaise) ✅ Plus facile
+  - **medium**: 3 réponses (1 bonne + 2 mauvaises) 🟡 Moyen
+  - **hard**: 4 réponses (1 bonne + 3 mauvaises) 🔴 Plus difficile
 
 ## Comment modifier
 
@@ -49,4 +52,8 @@ export const FeaturesConfig = {
 ### Difficulté masquée (`showDifficulty: false`)
 - Les badges "easy", "medium", "hard" ne sont plus affichés
 - L'algorithme d'adaptation de difficulté selon le score est simplifié (mélange aléatoire uniquement)
-- Le champ `difficulty` reste dans les modèles/templates mais n'est pas utilisé dans l'UI
+- **La difficulté reste active en arrière-plan** pour contrôler le nombre de réponses :
+  - Questions **easy** : affichent 2 réponses seulement
+  - Questions **medium** : affichent 3 réponses
+  - Questions **hard** : affichent 4 réponses
+- Cela crée une progression naturelle de difficulté sans affichage explicite

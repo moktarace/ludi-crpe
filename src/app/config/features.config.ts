@@ -18,6 +18,10 @@ export const FeaturesConfig = {
   /**
    * Affiche le niveau de difficulté des questions
    * Si false, masque l'information "easy", "medium", "hard"
+   * Note: La difficulté affecte le nombre de réponses dans les QCM :
+   *   - easy: 2 réponses (1 bonne + 1 mauvaise)
+   *   - medium: 3 réponses (1 bonne + 2 mauvaises)
+   *   - hard: 4 réponses (1 bonne + 3 mauvaises)
    */
   showDifficulty: false,
 };
