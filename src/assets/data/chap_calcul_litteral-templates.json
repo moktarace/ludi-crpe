@@ -102,5 +102,158 @@
       "Réponse : {a}x + {a} * {b}"
     ],
     "tags": ["développement", "distributivité", "calcul littéral"]
+  },
+  {
+    "id": "lit5",
+    "chapterId": "chap_calcul_litteral",
+    "type": "free_input",
+    "difficulty": "medium",
+    "variables": [
+      { "name": "a", "min": 3, "max": 7 },
+      { "name": "b", "min": 2, "max": 6 },
+      { "name": "x", "min": 2, "max": 5 }
+    ],
+    "questionTemplate": "Simplifie puis calcule pour x = {x} : {a}x - {b}x",
+    "correctAnswerFormula": "({a} - {b}) * {x}",
+    "answersTemplate": [
+      { "textFormula": "({a} - {b}) * {x}", "isCorrectFormula": "1" },
+      { "textFormula": "{a} * {x} + {b} * {x}", "isCorrectFormula": "0" },
+      { "textFormula": "({a} + {b}) * {x}", "isCorrectFormula": "0" },
+      { "textFormula": "{a} - {b}", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Réduire une expression :\n\n✅ {a}x - {b}x = ({a} - {b})x\n✅ Pour x = {x} : ({a} - {b}) × {x}\n✅ = ({a} - {b}) * {x}",
+    "realLifeExplanationTemplate": "🌍 Comparaison de budgets :\n\n💰 Tu gagnes {a}€ par heure (= {a}x)\n💰 Tu dépenses {b}€ par heure (= {b}x)\n\n📊 Économies en x = {x} heures :\n• {a}x - {b}x = ({a}-{b})x\n• Pour {x}h : ({a}-{b})×{x} = ({a} - {b}) * {x}€",
+    "hintsTemplates": [
+      "Factorise par x",
+      "{a}x - {b}x = ({a}-{b})x",
+      "Remplace x par {x}"
+    ],
+    "tags": ["réduction", "calcul littéral", "factorisation"]
+  },
+  {
+    "id": "lit6",
+    "chapterId": "chap_calcul_litteral",
+    "type": "multiple_choice",
+    "difficulty": "easy",
+    "variables": [
+      { "name": "a", "min": 2, "max": 5 }
+    ],
+    "questionTemplate": "Quelle expression est équivalente à {a}x + {a}x ?",
+    "answersTemplate": [
+      { "textFormula": "{a} * 2 + 'x'", "isCorrectFormula": "1" },
+      { "textFormula": "{a} * {a} + 'x'", "isCorrectFormula": "0" },
+      { "textFormula": "{a} + 'x + x'", "isCorrectFormula": "0" },
+      { "textFormula": "{a} + 'x²'", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Additionner des termes semblables :\n\n✅ {a}x + {a}x = 2 × {a}x = {a} * 2 x\n\n💡 On additionne les coefficients devant x",
+    "realLifeExplanationTemplate": "🌍 Combiner des quantités :\n\n🍎 {a} pommes par panier × 1 panier = {a}x\n🍎 {a} pommes par panier × 1 autre panier = {a}x\n🍎 Total : {a}x + {a}x = {a} * 2 x pommes\n\n💡 x + x = 2x (pareil avec coefficients)",
+    "hintsTemplates": [
+      "{a}x + {a}x = ?",
+      "Additionne les coefficients",
+      "2 × {a}x = {a} * 2 x"
+    ],
+    "tags": ["réduction", "addition", "termes semblables"]
+  },
+  {
+    "id": "lit7",
+    "chapterId": "chap_calcul_litteral",
+    "type": "free_input",
+    "difficulty": "hard",
+    "variables": [
+      { "name": "a", "min": 3, "max": 7 },
+      { "name": "b", "min": 5, "max": 12 }
+    ],
+    "questionTemplate": "Résous : {a}x + {b} = {a} * {a} + {b}. Trouve x.",
+    "correctAnswerFormula": "{a}",
+    "answersTemplate": [
+      { "textFormula": "{a}", "isCorrectFormula": "1" },
+      { "textFormula": "{a} * {a}", "isCorrectFormula": "0" },
+      { "textFormula": "{b}", "isCorrectFormula": "0" },
+      { "textFormula": "{a} + {b}", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Résolution d'équation :\n\n✅ {a}x + {b} = {a} * {a} + {b}\n✅ Soustrais {b} des 2 côtés\n✅ {a}x = {a} * {a}\n✅ x = {a} * {a} ÷ {a} = {a}",
+    "realLifeExplanationTemplate": "🌍 Équilibrer une balance :\n\n⚖️ Côté gauche : {a}x + {b}\n⚖️ Côté droit : {a} * {a} + {b}\n\n🎯 Stratégie :\n1. Enlève {b} des 2 côtés\n2. Reste : {a}x = {a} * {a}\n3. Divise par {a} : x = {a}",
+    "hintsTemplates": [
+      "Soustrais {b} des 2 côtés",
+      "{a}x = {a} * {a}",
+      "x = {a} * {a} ÷ {a}"
+    ],
+    "tags": ["équation", "résolution", "calcul littéral"]
+  },
+  {
+    "id": "lit8",
+    "chapterId": "chap_calcul_litteral",
+    "type": "multiple_choice",
+    "difficulty": "medium",
+    "variables": [
+      { "name": "a", "min": 2, "max": 6 },
+      { "name": "b", "min": 3, "max": 8 }
+    ],
+    "questionTemplate": "Factorise : {a}x + {a} * {b}",
+    "answersTemplate": [
+      { "textFormula": "'{a}(x + ' + {b} + ')'", "isCorrectFormula": "1" },
+      { "textFormula": "'x(' + {a} + ' + ' + ({a} * {b}) + ')'", "isCorrectFormula": "0" },
+      { "textFormula": "'{a}x + {b}'", "isCorrectFormula": "0" },
+      { "textFormula": "'(' + {a} + ' + x)(' + {a} + ' + ' + {b} + ')'", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Factoriser = inverse de développer :\n\n✅ Facteur commun : {a}\n✅ {a}x + {a} * {b} = {a}(x + {b})\n\n💡 On \"sort\" le facteur commun",
+    "realLifeExplanationTemplate": "🌍 Mettre en commun :\n\n🎁 Achats :\n• {a} livres à x€ = {a}x\n• {a} stylos à {b}€ = {a} * {b}\n• Total : {a}x + {a} * {b}\n\n📦 Factorisation :\n• {a} achats de (x€ + {b}€)\n• = {a}(x + {b})",
+    "hintsTemplates": [
+      "Facteur commun = {a}",
+      "\"Sort\" {a} de chaque terme",
+      "Réponse : {a}(x + {b})"
+    ],
+    "tags": ["factorisation", "calcul littéral", "inverse"]
+  },
+  {
+    "id": "lit9",
+    "chapterId": "chap_calcul_litteral",
+    "type": "free_input",
+    "difficulty": "hard",
+    "variables": [
+      { "name": "a", "min": 2, "max": 5 },
+      { "name": "b", "min": 3, "max": 7 },
+      { "name": "c", "min": 4, "max": 9 }
+    ],
+    "questionTemplate": "Développe et réduis : {a}(x + {b}) + {c}",
+    "correctAnswerFormula": "'{a}x + ' + ({a} * {b} + {c})",
+    "answersTemplate": [
+      { "textFormula": "'{a}x + ' + ({a} * {b} + {c})", "isCorrectFormula": "1" },
+      { "textFormula": "'{a}x + {b} + {c}'", "isCorrectFormula": "0" },
+      { "textFormula": "'{a}(x + ' + ({b} + {c}) + ')'", "isCorrectFormula": "0" },
+      { "textFormula": "'{a}x + ' + {a} * {b}", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Développer puis réduire :\n\n✅ Étape 1 : {a}(x + {b}) = {a}x + {a} * {b}\n✅ Étape 2 : {a}x + {a} * {b} + {c}\n✅ Étape 3 : {a}x + ({a} * {b} + {c})\n✅ = {a}x + {a} * {b} + {c}",
+    "realLifeExplanationTemplate": "🌍 Calcul de facture :\n\n🛒 {a} articles à (x + {b})€\n💳 + {c}€ de frais de port\n\n💰 Total :\n• {a}(x + {b}) + {c}\n• = {a}x + {a}×{b} + {c}\n• = {a}x + {a} * {b} + {c}€",
+    "hintsTemplates": [
+      "D'abord développe {a}(x + {b})",
+      "Ensuite ajoute {c}",
+      "Réduis les constantes"
+    ],
+    "tags": ["développement", "réduction", "calcul littéral"]
+  },
+  {
+    "id": "lit10",
+    "chapterId": "chap_calcul_litteral",
+    "type": "multiple_choice",
+    "difficulty": "easy",
+    "variables": [
+      { "name": "x", "min": 3, "max": 8 }
+    ],
+    "questionTemplate": "Pour x = {x}, que vaut x² ?",
+    "answersTemplate": [
+      { "textFormula": "{x} * {x}", "isCorrectFormula": "1" },
+      { "textFormula": "{x} * 2", "isCorrectFormula": "0" },
+      { "textFormula": "{x} + {x}", "isCorrectFormula": "0" },
+      { "textFormula": "2 * {x}", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Carré d'un nombre :\n\n✅ x² = x × x\n✅ {x}² = {x} × {x} = {x} * {x}\n\n💡 x² ≠ 2x ! (piège courant)",
+    "realLifeExplanationTemplate": "🌍 Aire d'un carré :\n\n⬜ Carré de côté x = {x}cm\n📏 Aire = côté²\n📐 Aire = {x}² = {x} × {x} = {x} * {x} cm²\n\n⚠️ Attention :\n• x² = x × x ✓\n• x² ≠ 2x ✗\n\n💡 Pour {x} : {x}² = {x} * {x}, mais 2×{x} = {x} * 2",
+    "hintsTemplates": [
+      "x² signifie x × x",
+      "Calcule {x} × {x}",
+      "Ne confonds pas avec 2×{x}"
+    ],
+    "tags": ["carré", "puissance", "calcul littéral"]
   }
 ]

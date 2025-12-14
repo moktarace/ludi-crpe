@@ -73,5 +73,152 @@
       "Même 0,5 est rationnel (= 1/2)"
     ],
     "tags": ["ensembles", "rationnels", "fractions"]
+  },
+  {
+    "id": "ens5",
+    "chapterId": "chap_ensembles_nombres",
+    "type": "free_input",
+    "difficulty": "easy",
+    "variables": [
+      { "name": "a", "min": 5, "max": 15 },
+      { "name": "b", "min": 20, "max": 30 }
+    ],
+    "questionTemplate": "Écris l'intervalle des réels entre {a} et {b} avec {a} EXCLU et {b} INCLUS.\nFormat: ]a;b] ou (a;b]",
+    "correctAnswerFormula": "']' + {a} + ';' + {b} + ']'",
+    "answersTemplate": [
+      { "textFormula": "']' + {a} + ';' + {b} + ']'", "isCorrectFormula": "1" },
+      { "textFormula": "'[' + {a} + ';' + {b} + ']'", "isCorrectFormula": "0" },
+      { "textFormula": "']' + {a} + ';' + {b} + '['", "isCorrectFormula": "0" },
+      { "textFormula": "'(' + {a} + ';' + {b} + ')'", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Réponse : ]{a};{b}]\n\n✅ ] ou ( = borne EXCLUE\n✅ ] ou [ = borne INCLUSE\n\n{a} NON autorisé ✗\nEntre {a} et {b} OK ✓\n{b} autorisé ✓",
+    "realLifeExplanationTemplate": "🌍 Exemple concret :\n\n🎂 Âge pour entrer : Plus de {a} ans jusqu'à {b} ans\n• ]{a};{b}] signifie :\n• {a} ans EXACT → NON (trop jeune)\n• {a},5 ans → OUI\n• {b} ans → OUI (limite OK)\n\n💡 Pense \"porte fermée\" ] et \"porte ouverte\" [",
+    "hintsTemplates": [
+      "] ou ( = EXCLU (porte fermée)",
+      "[ ou ] = INCLUS (porte ouverte)",
+      "]{a};{b}] = {a} exclu, {b} inclus"
+    ],
+    "tags": ["intervalles", "notation", "bornes"]
+  },
+  {
+    "id": "ens6",
+    "chapterId": "chap_ensembles_nombres",
+    "type": "multiple_choice",
+    "difficulty": "hard",
+    "questionTemplate": "Lequel de ces nombres est irrationnel ?",
+    "answersTemplate": [
+      { "textFormula": "'√3'", "isCorrectFormula": "1" },
+      { "textFormula": "'0,333...'", "isCorrectFormula": "0" },
+      { "textFormula": "'7/5'", "isCorrectFormula": "0" },
+      { "textFormula": "'2,5'", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 √3 est IRRATIONNEL\n\n✅ Impossible à écrire en fraction exacte\n✅ Décimales infinies non périodiques : 1,732050807...\n\n❌ 0,333... = 1/3 (rationnel)\n❌ 7/5 = fraction (rationnel)\n❌ 2,5 = 5/2 (rationnel)",
+    "realLifeExplanationTemplate": "🌍 Les irrationnels célèbres :\n\n📐 √2 ≈ 1,414... (diagonale du carré)\n📐 √3 ≈ 1,732... (hauteur triangle équilatéral)\n📐 π ≈ 3,14159... (cercle)\n📐 φ ≈ 1,618... (nombre d'or)\n\n💡 Reconnaître un irrationnel :\n• Racine carrée d'un non-carré parfait → irrationnel\n• Décimales infinies NON répétitives\n• Impossible en fraction\n\n🎯 0,333... = répétitif → rationnel (1/3)",
+    "hintsTemplates": [
+      "Irrationnel = impossible en fraction",
+      "√3 n'est pas un carré parfait",
+      "Les autres s'écrivent en fractions"
+    ],
+    "tags": ["ensembles", "irrationnels", "racines"]
+  },
+  {
+    "id": "ens7",
+    "chapterId": "chap_ensembles_nombres",
+    "type": "free_input",
+    "difficulty": "medium",
+    "variables": [
+      { "name": "a", "min": -5, "max": -1 },
+      { "name": "b", "min": 3, "max": 10 }
+    ],
+    "questionTemplate": "Compare {a} et {b}. Écris < ou > ou =",
+    "correctAnswerFormula": "'<'",
+    "answersTemplate": [
+      { "textFormula": "'<'", "isCorrectFormula": "1" },
+      { "textFormula": "'>'", "isCorrectFormula": "0" },
+      { "textFormula": "'='", "isCorrectFormula": "0" },
+      { "textFormula": "'≤'", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 {a} < {b}\n\n✅ Négatif < Positif TOUJOURS\n\n💡 Sur l'axe des nombres :\n← négatifs ... {a} ... 0 ... {b} ... positifs →\n\n{a} est à GAUCHE de {b} → {a} < {b}",
+    "realLifeExplanationTemplate": "🌍 Comparer des nombres :\n\n🌡️ Températures :\n• {a}°C (en dessous de 0) = froid !\n• {b}°C (au-dessus de 0) = chaud\n• {a}°C < {b}°C\n\n💶 Argent :\n• {a}€ = dette de {a}€\n• {b}€ = tu as {b}€\n• Mieux avoir {b}€ que {a}€ !\n\n💡 TOUT négatif < TOUT positif",
+    "hintsTemplates": [
+      "Négatif < Positif toujours",
+      "{a} est négatif, {b} est positif",
+      "Réponse : <"
+    ],
+    "tags": ["comparaison", "relatifs", "ordre"]
+  },
+  {
+    "id": "ens8",
+    "chapterId": "chap_ensembles_nombres",
+    "type": "multiple_choice",
+    "difficulty": "easy",
+    "variables": [
+      { "name": "n", "min": 1, "max": 50 }
+    ],
+    "questionTemplate": "{n} appartient à ℕ (naturels). Appartient-il aussi à ℤ (entiers) ?",
+    "answersTemplate": [
+      { "textFormula": "'Oui, ℕ ⊂ ℤ'", "isCorrectFormula": "1" },
+      { "textFormula": "'Non, ce sont séparés'", "isCorrectFormula": "0" },
+      { "textFormula": "'Seulement si pair'", "isCorrectFormula": "0" },
+      { "textFormula": "'Ça dépend de {n}'", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Oui ! ℕ ⊂ ℤ (naturels inclus dans entiers)\n\n✅ ℕ = {0, 1, 2, 3, ...}\n✅ ℤ = {..., -2, -1, 0, 1, 2, ...}\n\n💡 TOUT naturel est aussi un entier !\n(mais pas l'inverse : -5 ∈ ℤ mais -5 ∉ ℕ)",
+    "realLifeExplanationTemplate": "🌍 Les ensembles emboîtés :\n\n📦 Poupées russes :\nℕ ⊂ ℤ ⊂ ℚ ⊂ ℝ\n\n🎯 {n} est dans :\n• ℕ (naturels) ✓\n• ℤ (entiers) ✓\n• ℚ (rationnels) ✓ car {n} = {n}/1\n• ℝ (réels) ✓\n\n💡 Plus l'ensemble est grand, plus il contient de nombres",
+    "hintsTemplates": [
+      "ℕ est inclus dans ℤ",
+      "Tout naturel est un entier",
+      "Symbole : ℕ ⊂ ℤ"
+    ],
+    "tags": ["ensembles", "inclusion", "appartenance"]
+  },
+  {
+    "id": "ens9",
+    "chapterId": "chap_ensembles_nombres",
+    "type": "free_input",
+    "difficulty": "hard",
+    "variables": [
+      { "name": "a", "min": 2, "max": 5 },
+      { "name": "b", "min": 10, "max": 20 }
+    ],
+    "questionTemplate": "Combien y a-t-il d'entiers dans l'intervalle [{a};{b}] ?",
+    "correctAnswerFormula": "{b} - {a} + 1",
+    "answersTemplate": [
+      { "textFormula": "{b} - {a} + 1", "isCorrectFormula": "1" },
+      { "textFormula": "{b} - {a}", "isCorrectFormula": "0" },
+      { "textFormula": "{b} + {a}", "isCorrectFormula": "0" },
+      { "textFormula": "{b} - {a} - 1", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Nombre d'entiers : {b} - {a} + 1\n\n✅ De {a} à {b} inclus\n✅ Formule : max - min + 1\n✅ Calcul : {b} - {a} + 1 = {b} - {a} + 1\n\n💡 Le +1 compte la borne de départ !",
+    "realLifeExplanationTemplate": "🌍 Compter les entiers :\n\n📅 De janvier ({a}) à décembre ({b}) :\n• Mois : {b} - {a} + 1 = {b} - {a} + 1 mois\n\n🏠 Étages de {a} à {b} :\n• Nombre d'étages : {b} - {a} + 1\n\n💡 Astuce : compte sur tes doigts\n• De 2 à 5 : 2, 3, 4, 5 → 4 nombres (5-2+1)\n• N'oublie pas le point de départ !",
+    "hintsTemplates": [
+      "Formule : max - min + 1",
+      "Le +1 compte le premier nombre",
+      "Calcule {b} - {a} + 1"
+    ],
+    "tags": ["intervalles", "comptage", "entiers"]
+  },
+  {
+    "id": "ens10",
+    "chapterId": "chap_ensembles_nombres",
+    "type": "multiple_choice",
+    "difficulty": "medium",
+    "variables": [
+      { "name": "dec", "min": 2, "max": 9 }
+    ],
+    "questionTemplate": "0,{dec}{dec}{dec}... (répétition infinie) est un nombre :",
+    "answersTemplate": [
+      { "textFormula": "'Rationnel (décimal périodique)'", "isCorrectFormula": "1" },
+      { "textFormula": "'Irrationnel'", "isCorrectFormula": "0" },
+      { "textFormula": "'Entier'", "isCorrectFormula": "0" },
+      { "textFormula": "'Naturel'", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 0,{dec}{dec}{dec}... est RATIONNEL\n\n✅ Décimal PÉRIODIQUE = rationnel\n✅ On peut l'écrire en fraction\n✅ Exemple : 0,333... = 1/3\n\n💡 Périodique = chiffres qui se répètent",
+    "realLifeExplanationTemplate": "🌍 Décimaux périodiques :\n\n🔢 Exemples :\n• 0,333... = 1/3 (rationnel)\n• 0,666... = 2/3 (rationnel)\n• 0,{dec}{dec}{dec}... = {dec}{dec}{dec}/999 (rationnel)\n\n❌ vs Irrationnels :\n• π = 3,14159... (JAMAIS répétitif)\n• √2 = 1,41421... (JAMAIS répétitif)\n\n💡 Si ça se répète → fraction possible → rationnel !",
+    "hintsTemplates": [
+      "Périodique = rationnel",
+      "Les chiffres se répètent infiniment",
+      "On peut l'écrire en fraction"
+    ],
+    "tags": ["ensembles", "rationnels", "périodique"]
   }
 ]

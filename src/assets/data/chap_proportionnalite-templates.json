@@ -101,5 +101,156 @@
       "200g × 3 = 600g"
     ],
     "tags": ["proportionnalité", "recette", "multiplication"]
+  },
+  {
+    "id": "prop5",
+    "chapterId": "chap_proportionnalite",
+    "type": "free_input",
+    "difficulty": "medium",
+    "variables": [
+      { "name": "km", "min": 300, "max": 600, "step": 50 },
+      { "name": "litres", "min": 20, "max": 40, "step": 5 }
+    ],
+    "questionTemplate": "Une voiture consomme {litres}L pour {km} km. Combien pour 100 km ? (en litres, arrondi à 1 décimale)",
+    "correctAnswerFormula": "({litres} * 100 / {km}).toFixed(1)",
+    "answersTemplate": [
+      { "textFormula": "({litres} * 100 / {km}).toFixed(1)", "isCorrectFormula": "1" },
+      { "textFormula": "{litres} / 100", "isCorrectFormula": "0" },
+      { "textFormula": "{km} / {litres}", "isCorrectFormula": "0" },
+      { "textFormula": "{litres} * {km} / 100", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Consommation aux 100 km :\n\n✅ {km} km → {litres} L\n✅ 100 km → ? L\n\n**Produit en croix :**\n? = {litres} × 100 ÷ {km}\n? ≈ ({litres} * 100 / {km}).toFixed(1) L/100km",
+    "realLifeExplanationTemplate": "🌍 Consommation voiture :\n\n🚗 Ta voiture : {litres}L pour {km}km\n\n💡 Norme : consommation aux 100km\n• Calcul : ({litres}/{km}) × 100\n• Résultat : ({litres} * 100 / {km}).toFixed(1) L/100km\n\n🎯 Comparaison voitures :\n• Petite : 5L/100km\n• Moyenne : 7L/100km\n• SUV : 10L/100km",
+    "hintsTemplates": [
+      "Ramène à 100 km",
+      "Produit en croix : {litres}×100÷{km}",
+      "Résultat en L/100km"
+    ],
+    "tags": ["proportionnalité", "consommation", "voiture"]
+  },
+  {
+    "id": "prop6",
+    "chapterId": "chap_proportionnalite",
+    "type": "multiple_choice",
+    "difficulty": "easy",
+    "variables": [
+      { "name": "euros", "min": 50, "max": 100, "step": 10 }
+    ],
+    "questionTemplate": "Tu as {euros}€ et tu dépenses 20%. Combien te reste-t-il ?",
+    "answersTemplate": [
+      { "textFormula": "{euros} - {euros} * 0.2", "isCorrectFormula": "1" },
+      { "textFormula": "{euros} * 0.2", "isCorrectFormula": "0" },
+      { "textFormula": "{euros} / 5", "isCorrectFormula": "0" },
+      { "textFormula": "{euros} - 20", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Calculer ce qui reste :\n\n✅ Dépensé : 20% de {euros}€ = {euros} × 0,2\n✅ Reste : {euros}€ - ({euros} × 0,2)\n✅ Reste : {euros} × (1 - 0,2) = {euros} × 0,8\n\n💡 Ou directement : 100% - 20% = 80%",
+    "realLifeExplanationTemplate": "🌍 Gestion budget :\n\n💰 Argent de poche : {euros}€\n🛍️ Tu dépenses 20%\n\n📊 2 méthodes :\n1. {euros}€ - 20% de {euros}€\n2. 80% de {euros}€ (car 100% - 20% = 80%)\n\n💡 Reste = {euros} × 0,8 = {euros} - {euros} × 0,2",
+    "hintsTemplates": [
+      "20% dépensé → 80% reste",
+      "Calcule {euros} × 0,8",
+      "Ou {euros} - ({euros} × 0,2)"
+    ],
+    "tags": ["pourcentage", "soustraction", "proportionnalité"]
+  },
+  {
+    "id": "prop7",
+    "chapterId": "chap_proportionnalite",
+    "type": "free_input",
+    "difficulty": "hard",
+    "variables": [
+      { "name": "ancien", "min": 80, "max": 120, "step": 10 },
+      { "name": "nouveau", "min": 90, "max": 150, "step": 10 }
+    ],
+    "questionTemplate": "Le prix passe de {ancien}€ à {nouveau}€. Quel est le pourcentage d'augmentation ? (Arrondi à l'entier)",
+    "correctAnswerFormula": "Math.round(({nouveau} - {ancien}) * 100 / {ancien})",
+    "answersTemplate": [
+      { "textFormula": "Math.round(({nouveau} - {ancien}) * 100 / {ancien})", "isCorrectFormula": "1" },
+      { "textFormula": "Math.round(({nouveau} - {ancien}) * 100 / {nouveau})", "isCorrectFormula": "0" },
+      { "textFormula": "{nouveau} - {ancien}", "isCorrectFormula": "0" },
+      { "textFormula": "Math.round({nouveau} / {ancien} * 100)", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Pourcentage d'évolution :\n\n✅ Augmentation = {nouveau} - {ancien} = {nouveau} - {ancien}€\n✅ % = (augmentation / ancien prix) × 100\n✅ % = ({nouveau} - {ancien}) / {ancien} × 100\n✅ % ≈ Math.round(({nouveau} - {ancien}) * 100 / {ancien})%",
+    "realLifeExplanationTemplate": "🌍 Évolution des prix :\n\n💰 Ancien prix : {ancien}€\n💰 Nouveau prix : {nouveau}€\n📈 Hausse : +{nouveau} - {ancien}€\n\n📊 En pourcentage :\n• Formule : (différence / ancien) × 100\n• Calcul : ({nouveau}-{ancien})/{ancien} × 100\n• Résultat : ~Math.round(({nouveau} - {ancien}) * 100 / {ancien})%\n\n💡 Toujours par rapport à l'ANCIEN prix !",
+    "hintsTemplates": [
+      "Augmentation = nouveau - ancien",
+      "% = (augmentation / ancien) × 100",
+      "Par rapport à {ancien}€"
+    ],
+    "tags": ["pourcentage", "évolution", "proportionnalité"]
+  },
+  {
+    "id": "prop8",
+    "chapterId": "chap_proportionnalite",
+    "type": "multiple_choice",
+    "difficulty": "medium",
+    "variables": [
+      { "name": "ouvriers", "min": 4, "max": 8 },
+      { "name": "jours", "min": 10, "max": 20 }
+    ],
+    "questionTemplate": "{ouvriers} ouvriers finissent un travail en {jours} jours. Combien de temps pour {ouvriers} * 2 ouvriers ?",
+    "answersTemplate": [
+      { "textFormula": "{jours} / 2 + ' jours'", "isCorrectFormula": "1" },
+      { "textFormula": "{jours} * 2 + ' jours'", "isCorrectFormula": "0" },
+      { "textFormula": "{jours} + ' jours'", "isCorrectFormula": "0" },
+      { "textFormula": "{jours} / 4 + ' jours'", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Proportionnalité INVERSE :\n\n✅ Plus d'ouvriers → MOINS de temps\n✅ 2 fois plus d'ouvriers → 2 fois moins de temps\n✅ {jours} jours ÷ 2 = {jours}/2 jours\n\n💡 Produit ouvriers × temps = constant",
+    "realLifeExplanationTemplate": "🌍 Travail collaboratif :\n\n👷 {ouvriers} ouvriers → {jours} jours\n👷👷 {ouvriers}×2 ouvriers → {jours}/2 jours\n\n📊 Proportionnalité inverse :\n• 2× plus de monde = 2× plus vite\n• Durée divisée par 2\n\n💡 Constant : {ouvriers}×{jours} = ({ouvriers}×2)×({jours}/2)",
+    "hintsTemplates": [
+      "Plus d'ouvriers = moins de temps",
+      "Inverse = diviser",
+      "{jours} ÷ 2 jours"
+    ],
+    "tags": ["proportionnalité inverse", "temps", "travail"]
+  },
+  {
+    "id": "prop9",
+    "chapterId": "chap_proportionnalite",
+    "type": "free_input",
+    "difficulty": "easy",
+    "variables": [
+      { "name": "note", "min": 12, "max": 18 },
+      { "name": "coef", "min": 2, "max": 5 }
+    ],
+    "questionTemplate": "Tu as {note}/20 avec un coefficient {coef}. Quelle est ta note coefficientée ?",
+    "correctAnswerFormula": "{note} * {coef}",
+    "answersTemplate": [
+      { "textFormula": "{note} * {coef}", "isCorrectFormula": "1" },
+      { "textFormula": "{note} + {coef}", "isCorrectFormula": "0" },
+      { "textFormula": "{note} / {coef}", "isCorrectFormula": "0" },
+      { "textFormula": "20 * {coef}", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Note coefficientée :\n\n✅ Note × coefficient\n✅ {note} × {coef} = {note} * {coef}\n\n💡 Coefficient = importance de la matière",
+    "realLifeExplanationTemplate": "🌍 Système de coefficients :\n\n📚 Ta note : {note}/20\n⚖️ Coefficient : {coef}\n\n📊 Note coefficientée : {note}×{coef} = {note} * {coef}\n\n💡 Exemple moyenne générale :\n• Maths coef 3 : 15×3 = 45\n• Sport coef 1 : 10×1 = 10\n• Total : 55 points pour 4 coefficients\n• Moyenne : 55/4 = 13,75/20",
+    "hintsTemplates": [
+      "Multiplie note × coefficient",
+      "{note} × {coef}",
+      "Résultat : {note} * {coef}"
+    ],
+    "tags": ["coefficient", "notes", "proportionnalité"]
+  },
+  {
+    "id": "prop10",
+    "chapterId": "chap_proportionnalite",
+    "type": "multiple_choice",
+    "difficulty": "hard",
+    "variables": [
+      { "name": "prix", "min": 100, "max": 200, "step": 20 }
+    ],
+    "questionTemplate": "Un article à {prix}€ baisse de 20%, puis augmente de 20%. Prix final ?",
+    "answersTemplate": [
+      { "textFormula": "{prix} * 0.8 * 1.2 + '€'", "isCorrectFormula": "1" },
+      { "textFormula": "{prix} + '€'", "isCorrectFormula": "0" },
+      { "textFormula": "{prix} * 0.8 + '€'", "isCorrectFormula": "0" },
+      { "textFormula": "{prix} * 1.4 + '€'", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Évolutions successives :\n\n✅ Baisse 20% : {prix}€ × 0,8\n✅ Hausse 20% sur le nouveau : × 1,2\n✅ Final : {prix} × 0,8 × 1,2 = {prix} * 0.8 * 1.2€\n\n💡 0,8 × 1,2 = 0,96 ≠ 1 !\nOn PERD 4% au final !",
+    "realLifeExplanationTemplate": "🌍 Piège des pourcentages :\n\n💰 Départ : {prix}€\n📉 -20% : {prix}×0,8 = {prix} * 0.8€\n📈 +20% : {prix} * 0.8 × 1,2 = {prix} * 0.8 * 1.2€\n\n⚠️ Attention !\n• -20% puis +20% ≠ retour initial\n• Tu perds 4% au final !\n• {prix} * 0.8 * 1.2 = {prix}×0,96\n\n💡 Les bases sont différentes !",
+    "hintsTemplates": [
+      "Baisse 20% = ×0,8",
+      "Hausse 20% = ×1,2",
+      "{prix} × 0,8 × 1,2"
+    ],
+    "tags": ["pourcentages", "évolutions", "piège"]
   }
 ]

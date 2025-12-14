@@ -97,5 +97,149 @@
       "Avec π ≈ 3.14 et r = {rayon}"
     ],
     "tags": ["géométrie espace", "cylindre", "aire", "disque"]
+  },
+  {
+    "id": "geo3d5",
+    "chapterId": "chap_geometrie_espace",
+    "type": "multiple_choice",
+    "difficulty": "easy",
+    "questionTemplate": "Quelle formule donne le volume d'un cylindre ?",
+    "answersTemplate": [
+      { "textFormula": "'π × r² × h'", "isCorrectFormula": "1" },
+      { "textFormula": "'π × r × h'", "isCorrectFormula": "0" },
+      { "textFormula": "'r² × h'", "isCorrectFormula": "0" },
+      { "textFormula": "'2π × r × h'", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Volume cylindre = π × r² × h\n\n✅ r = rayon de la base\n✅ h = hauteur\n✅ Aire base (πr²) × hauteur\n\n💡 Volume = empiler des disques !",
+    "realLifeExplanationTemplate": "🌍 Cylindre = empilage de disques :\n\n🥞 Imagine des crêpes empilées\n• Chaque crêpe = disque d'aire πr²\n• Empile h crêpes → volume = πr² × h\n\n🥫 Boîte de conserve :\n• Base circulaire : πr²\n• Hauteur : h\n• Contenu = πr²h",
+    "hintsTemplates": [
+      "Volume = aire base × hauteur",
+      "Base = πr²",
+      "V = πr²h"
+    ],
+    "tags": ["volume", "cylindre", "formule"]
+  },
+  {
+    "id": "geo3d6",
+    "chapterId": "chap_geometrie_espace",
+    "type": "free_input",
+    "difficulty": "hard",
+    "variables": [
+      { "name": "rayon", "min": 3, "max": 6 },
+      { "name": "hauteur", "min": 8, "max": 15 }
+    ],
+    "questionTemplate": "Volume d'un cylindre : rayon {rayon} cm, hauteur {hauteur} cm. Utilise π ≈ 3.14 (arrondi à l'entier)",
+    "correctAnswerFormula": "Math.round(3.14 * {rayon} * {rayon} * {hauteur})",
+    "answersTemplate": [
+      { "textFormula": "Math.round(3.14 * {rayon} * {rayon} * {hauteur})", "isCorrectFormula": "1" },
+      { "textFormula": "3.14 * {rayon} * {hauteur}", "isCorrectFormula": "0" },
+      { "textFormula": "{rayon} * {rayon} * {hauteur}", "isCorrectFormula": "0" },
+      { "textFormula": "2 * 3.14 * {rayon} * {hauteur}", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 V = π × r² × h\n\n✅ V = 3.14 × {rayon}² × {hauteur}\n✅ V = 3.14 × {rayon} × {rayon} × {hauteur}\n✅ V ≈ Math.round(3.14 * {rayon} * {rayon} * {hauteur}) cm³",
+    "realLifeExplanationTemplate": "🌍 Capacité d'un cylindre :\n\n🥫 Conserve r={rayon}cm, h={hauteur}cm\n💧 Contenance :\n• V = πr²h\n• V = 3.14 × {rayon}² × {hauteur}\n• V ≈ Math.round(3.14 * {rayon} * {rayon} * {hauteur}) cm³\n\n💡 1000 cm³ = 1 litre",
+    "hintsTemplates": [
+      "V = πr²h",
+      "π ≈ 3.14",
+      "Calcule 3.14×{rayon}²×{hauteur}"
+    ],
+    "tags": ["volume", "cylindre", "calcul"]
+  },
+  {
+    "id": "geo3d7",
+    "chapterId": "chap_geometrie_espace",
+    "type": "multiple_choice",
+    "difficulty": "medium",
+    "variables": [
+      { "name": "cote", "min": 4, "max": 8 }
+    ],
+    "questionTemplate": "Un cube de côté {cote} cm. Combien d'arêtes ?",
+    "answersTemplate": [
+      { "textFormula": "'12'", "isCorrectFormula": "1" },
+      { "textFormula": "'6'", "isCorrectFormula": "0" },
+      { "textFormula": "'8'", "isCorrectFormula": "0" },
+      { "textFormula": "'{cote}'", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Cube : 12 arêtes\n\n✅ 4 arêtes en bas\n✅ 4 arêtes en haut\n✅ 4 arêtes verticales\n✅ Total : 12 arêtes\n\n💡 + 6 faces + 8 sommets",
+    "realLifeExplanationTemplate": "🌍 Structure du cube :\n\n🎲 Dé cubique :\n• 12 arêtes (lignes)\n• 6 faces (carrés)\n• 8 sommets (coins)\n\n💡 Formule d'Euler : S + F = A + 2\n• 8 + 6 = 12 + 2 ✓",
+    "hintsTemplates": [
+      "Compte les lignes d'un dé",
+      "4 + 4 + 4 = 12",
+      "12 arêtes"
+    ],
+    "tags": ["cube", "arêtes", "structure"]
+  },
+  {
+    "id": "geo3d8",
+    "chapterId": "chap_geometrie_espace",
+    "type": "free_input",
+    "difficulty": "medium",
+    "variables": [
+      { "name": "L", "min": 6, "max": 10 },
+      { "name": "l", "min": 4, "max": 7 },
+      { "name": "h", "min": 3, "max": 6 }
+    ],
+    "questionTemplate": "Aire totale d'un pavé droit {L}×{l}×{h} cm. Formule : 2(Ll + Lh + lh). Calcule (en cm²)",
+    "correctAnswerFormula": "2 * ({L}*{l} + {L}*{h} + {l}*{h})",
+    "answersTemplate": [
+      { "textFormula": "2 * ({L}*{l} + {L}*{h} + {l}*{h})", "isCorrectFormula": "1" },
+      { "textFormula": "{L} * {l} * {h}", "isCorrectFormula": "0" },
+      { "textFormula": "{L} + {l} + {h}", "isCorrectFormula": "0" },
+      { "textFormula": "2 * ({L} + {l} + {h})", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Aire totale pavé = 2(Ll + Lh + lh)\n\n✅ 6 faces (2 de chaque type)\n✅ 2 faces L×l + 2 faces L×h + 2 faces l×h\n✅ = 2({L}×{l} + {L}×{h} + {l}×{h})\n✅ = 2 * ({L}*{l} + {L}*{h} + {l}*{h}) cm²",
+    "realLifeExplanationTemplate": "🌍 Emballer un carton :\n\n📦 Carton {L}×{l}×{h} cm\n📄 Papier nécessaire = surface totale\n\n💡 6 faces :\n• Dessus/dessous : 2 × {L}×{l}\n• Devant/derrière : 2 × {L}×{h}\n• Côtés : 2 × {l}×{h}\n• Total : 2({L}*{l} + {L}*{h} + {l}*{h})",
+    "hintsTemplates": [
+      "6 faces, 2 de chaque type",
+      "Formule : 2(Ll + Lh + lh)",
+      "Calcule chaque paire"
+    ],
+    "tags": ["aire", "pavé", "surface totale"]
+  },
+  {
+    "id": "geo3d9",
+    "chapterId": "chap_geometrie_espace",
+    "type": "multiple_choice",
+    "difficulty": "hard",
+    "questionTemplate": "Quelle est la formule du volume d'une sphère ?",
+    "answersTemplate": [
+      { "textFormula": "'(4/3)πr³'", "isCorrectFormula": "1" },
+      { "textFormula": "'4πr²'", "isCorrectFormula": "0" },
+      { "textFormula": "'πr³'", "isCorrectFormula": "0" },
+      { "textFormula": "'(2/3)πr³'", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Volume sphère = (4/3)πr³\n\n✅ r = rayon\n✅ Formule complexe mais classique\n\n💡 4πr² = aire de la surface (différent !)",
+    "realLifeExplanationTemplate": "🌍 Volume d'une sphère :\n\n⚽ Ballon de rayon r\n🌐 Volume = (4/3)πr³\n\n⚠️ Ne pas confondre :\n• Volume : (4/3)πr³\n• Aire surface : 4πr²\n\n💡 Mnémotechnique :\n• 4/3 pour le volume\n• 4 pour l'aire",
+    "hintsTemplates": [
+      "Formule avec 4/3",
+      "V = (4/3)πr³",
+      "Pas la même que l'aire !"
+    ],
+    "tags": ["volume", "sphère", "formule"]
+  },
+  {
+    "id": "geo3d10",
+    "chapterId": "chap_geometrie_espace",
+    "type": "free_input",
+    "difficulty": "easy",
+    "variables": [
+      { "name": "cote", "min": 5, "max": 12 }
+    ],
+    "questionTemplate": "Un cube de côté {cote} cm. Quelle est l'aire d'UNE face (en cm²) ?",
+    "correctAnswerFormula": "{cote} * {cote}",
+    "answersTemplate": [
+      { "textFormula": "{cote} * {cote}", "isCorrectFormula": "1" },
+      { "textFormula": "{cote} * 6", "isCorrectFormula": "0" },
+      { "textFormula": "pow({cote}, 3)", "isCorrectFormula": "0" },
+      { "textFormula": "{cote} * 4", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Aire d'une face = côté²\n\n✅ Face du cube = carré\n✅ Aire carré = côté × côté\n✅ Aire = {cote} × {cote} = {cote} * {cote} cm²\n\n💡 Ne pas confondre avec volume ({cote}³)",
+    "realLifeExplanationTemplate": "🌍 Face d'un cube :\n\n🎲 Dé de {cote}cm\n⬜ Chaque face = carré de {cote}cm\n📐 Aire = {cote}² = {cote} * {cote} cm²\n\n💡 6 faces → aire totale = 6 × {cote} * {cote}\n💡 Volume = {cote}³ (différent !)",
+    "hintsTemplates": [
+      "Face = carré",
+      "Aire carré = côté²",
+      "{cote} × {cote}"
+    ],
+    "tags": ["aire", "cube", "face"]
   }
 ]

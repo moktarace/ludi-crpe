@@ -92,5 +92,145 @@
       "Homothétie = seule transformation qui change la taille"
     ],
     "tags": ["transformations", "homothétie", "agrandissement"]
+  },
+  {
+    "id": "trans5",
+    "chapterId": "chap_transformations_plan",
+    "type": "free_input",
+    "difficulty": "medium",
+    "variables": [
+      { "name": "longueur", "min": 4, "max": 10 },
+      { "name": "rapport", "min": 2, "max": 4 }
+    ],
+    "questionTemplate": "Homothétie de rapport {rapport}. Segment de longueur {longueur}cm. Quelle est la longueur de l'image (cm) ?",
+    "correctAnswerFormula": "{longueur} * {rapport}",
+    "answersTemplate": [
+      { "textFormula": "{longueur} * {rapport}", "isCorrectFormula": "1" },
+      { "textFormula": "{longueur} + {rapport}", "isCorrectFormula": "0" },
+      { "textFormula": "{longueur} / {rapport}", "isCorrectFormula": "0" },
+      { "textFormula": "{longueur}", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Homothétie de rapport k :\n\n✅ Longueur image = longueur initiale × k\n✅ Segment {longueur}cm × rapport {rapport}\n✅ Image = {longueur} × {rapport} = {longueur} * {rapport} cm\n\n💡 k > 1 → agrandissement, 0 < k < 1 → réduction",
+    "realLifeExplanationTemplate": "🌍 Homothétie = multiplication des dimensions :\n\n📐 Segment AB = {longueur}cm\n🔍 Homothétie rapport k = {rapport}\n\n📊 Calcul image A'B' :\n• A'B' = AB × k\n• A'B' = {longueur} × {rapport}\n• A'B' = {longueur} * {rapport} cm\n\n💡 Effet selon k :\n• k = {rapport} (> 1) → AGRANDISSEMENT\n• Dimensions multipliées par {rapport}\n\n🎯 Aire :\n• Longueur × k → Aire × k²\n• Aire image = aire initiale × {rapport}²",
+    "hintsTemplates": [
+      "Longueur × rapport",
+      "Multiplie par {rapport}",
+      "{longueur} × {rapport}"
+    ],
+    "tags": ["transformations", "homothétie", "rapport", "longueur"]
+  },
+  {
+    "id": "trans6",
+    "chapterId": "chap_transformations_plan",
+    "type": "multiple_choice",
+    "difficulty": "hard",
+    "questionTemplate": "Composition : Symétrie axe (d) puis Symétrie axe (d) (même axe). Résultat ?",
+    "answersTemplate": [
+      { "textFormula": "'Identité (figure inchangée)'", "isCorrectFormula": "1" },
+      { "textFormula": "'Rotation 180°'", "isCorrectFormula": "0" },
+      { "textFormula": "'Translation'", "isCorrectFormula": "0" },
+      { "textFormula": "'Symétrie axe perpendiculaire'", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Composition symétries :\n\n✅ Symétrie axe (d) 2 fois de suite = IDENTITÉ\n✅ On revient à la position initiale\n\n💡 Symétrie est sa propre INVERSE\n\n🎯 Propriété : S ∘ S = Id",
+    "realLifeExplanationTemplate": "🌍 Double symétrie sur même axe :\n\n🪞 Miroir vertical :\n• Point A à gauche du miroir\n• 1ère symétrie → A' à droite\n• 2ème symétrie (même miroir) → A'' à gauche\n• A'' = A (position initiale) !\n\n📐 Notation mathématique :\n• S(d) = symétrie axe d\n• S(d) ∘ S(d) = Identité\n• La symétrie \"annule\" la symétrie\n\n💡 Autres compositions :\n• 2 symétries axes PARALLÈLES → Translation\n• 2 symétries axes SÉCANTS → Rotation (2×angle)",
+    "hintsTemplates": [
+      "Faire 2× la même symétrie",
+      "On revient au départ",
+      "Symétrie inverse elle-même"
+    ],
+    "tags": ["transformations", "composition", "symétrie", "identité"]
+  },
+  {
+    "id": "trans7",
+    "chapterId": "chap_transformations_plan",
+    "type": "free_input",
+    "difficulty": "easy",
+    "variables": [
+      { "name": "angle", "min": 60, "max": 120, "step": 30 }
+    ],
+    "questionTemplate": "Rotation de centre O et d'angle {angle}°. Un segment passe par O. Quel est l'angle entre le segment et son image ?",
+    "correctAnswerFormula": "{angle}",
+    "answersTemplate": [
+      { "textFormula": "{angle}", "isCorrectFormula": "1" },
+      { "textFormula": "{angle} * 2", "isCorrectFormula": "0" },
+      { "textFormula": "{angle} / 2", "isCorrectFormula": "0" },
+      { "textFormula": "0", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Rotation de centre O :\n\n✅ Angle de rotation = {angle}°\n✅ Tout point tourne de {angle}° autour de O\n✅ Segment passant par O → tourne de {angle}°\n✅ Angle entre segment et image = {angle}°\n\n💡 O = centre invariant",
+    "realLifeExplanationTemplate": "🌍 Rotation et segments :\n\n🎯 Centre O, angle {angle}° :\n• Segment [AB] passe par O\n• Rotation → segment [A'B']\n\n📐 Propriétés :\n• O reste FIXE (invariant)\n• Angle AOA' = {angle}°\n• Longueur conservée : OA' = OA\n\n💡 Visualisation :\n```\n     A'\n     |\n  {angle}°\n     |\nO————A\n```\n\n🎯 Points sur [OA] tournent de {angle}° autour de O",
+    "hintsTemplates": [
+      "Angle de rotation = {angle}°",
+      "Segment tourne de {angle}°",
+      "Réponse : {angle}"
+    ],
+    "tags": ["transformations", "rotation", "angle", "centre"]
+  },
+  {
+    "id": "trans8",
+    "chapterId": "chap_transformations_plan",
+    "type": "multiple_choice",
+    "difficulty": "medium",
+    "questionTemplate": "Quelle figure possède un CENTRE de symétrie ?",
+    "answersTemplate": [
+      { "textFormula": "'Un parallélogramme'", "isCorrectFormula": "1" },
+      { "textFormula": "'Un triangle quelconque'", "isCorrectFormula": "0" },
+      { "textFormula": "'Un trapèze'", "isCorrectFormula": "0" },
+      { "textFormula": "'Un angle'", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Centre de symétrie :\n\n✅ Point O tel que rotation 180° autour de O laisse figure inchangée\n✅ Parallélogramme : diagonales se coupent au centre de symétrie\n\n💡 Symétrie centrale = rotation 180°",
+    "realLifeExplanationTemplate": "🌍 Centre de symétrie :\n\n📐 Parallélogramme ABCD :\n• Diagonales [AC] et [BD] se coupent en O\n• O = centre de symétrie\n• Rotation 180° autour O : A↔C, B↔D\n\n💡 Figures avec centre symétrie :\n• Parallélogramme ✅\n• Rectangle ✅\n• Losange ✅\n• Carré ✅\n• Cercle ✅ (centre)\n\n❌ Pas de centre symétrie :\n• Triangle quelconque\n• Trapèze (non parallélogramme)\n\n🎯 Test : tourne figure 180°, elle coïncide ?",
+    "hintsTemplates": [
+      "Centre symétrie = rotation 180°",
+      "Parallélogramme a centre symétrie",
+      "Centre = intersection diagonales"
+    ],
+    "tags": ["transformations", "symétrie centrale", "centre", "parallélogramme"]
+  },
+  {
+    "id": "trans9",
+    "chapterId": "chap_transformations_plan",
+    "type": "free_input",
+    "difficulty": "hard",
+    "variables": [
+      { "name": "x", "min": 2, "max": 8 },
+      { "name": "y", "min": 3, "max": 7 }
+    ],
+    "questionTemplate": "Translation de vecteur ({x}, {y}). Point A(1, 2) devient A'(x', y'). Calcule x' + y'.",
+    "correctAnswerFormula": "1 + {x} + 2 + {y}",
+    "answersTemplate": [
+      { "textFormula": "1 + {x} + 2 + {y}", "isCorrectFormula": "1" },
+      { "textFormula": "{x} + {y}", "isCorrectFormula": "0" },
+      { "textFormula": "1 + 2", "isCorrectFormula": "0" },
+      { "textFormula": "{x} * {y}", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Translation de vecteur (a, b) :\n\n✅ Point (x, y) → (x+a, y+b)\n✅ A(1, 2) + vecteur ({x}, {y})\n✅ A'(1+{x}, 2+{y})\n✅ x' + y' = (1+{x}) + (2+{y}) = 1 + {x} + 2 + {y}\n\n💡 Translation = déplacement constant",
+    "realLifeExplanationTemplate": "🌍 Translation = glissement :\n\n📍 Départ : A(1, 2)\n➡️ Vecteur déplacement : ({x}, {y})\n• {x} vers la droite (axe x)\n• {y} vers le haut (axe y)\n\n📊 Calcul image A' :\n• x' = 1 + {x}\n• y' = 2 + {y}\n• A'(1+{x}, 2+{y})\n\n🎯 Somme coordonnées :\n• x' + y' = (1+{x}) + (2+{y})\n• = 1 + {x} + 2 + {y}\n\n💡 Translation conserve TOUT :\n• Distances, angles, orientation, aire",
+    "hintsTemplates": [
+      "x' = 1 + {x}, y' = 2 + {y}",
+      "Additionne x' + y'",
+      "(1+{x}) + (2+{y})"
+    ],
+    "tags": ["transformations", "translation", "vecteur", "coordonnées"]
+  },
+  {
+    "id": "trans10",
+    "chapterId": "chap_transformations_plan",
+    "type": "multiple_choice",
+    "difficulty": "easy",
+    "questionTemplate": "Combien d'axes de symétrie possède un carré ?",
+    "answersTemplate": [
+      { "textFormula": "'4'", "isCorrectFormula": "1" },
+      { "textFormula": "'2'", "isCorrectFormula": "0" },
+      { "textFormula": "'8'", "isCorrectFormula": "0" },
+      { "textFormula": "'1'", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Axes de symétrie d'un carré :\n\n✅ 2 diagonales (coins opposés)\n✅ 2 médiatrices (milieux côtés opposés)\n✅ Total = 4 axes\n\n💡 Carré = figure très symétrique !",
+    "realLifeExplanationTemplate": "🌍 Symétries du carré :\n\n📐 Carré ABCD :\n```\nA————B\n|    |\n|  O |\n|    |\nD————C\n```\n\n🎯 4 axes de symétrie :\n1. Diagonale AC\n2. Diagonale BD\n3. Médiatrice AB-CD (horizontale par O)\n4. Médiatrice AD-BC (verticale par O)\n\n💡 Comparaison :\n• Rectangle : 2 axes (médiatrices)\n• Losange : 2 axes (diagonales)\n• Carré : 4 axes (les 2 + les 2) !\n\n🎯 Carré = max symétrie quadrilatère",
+    "hintsTemplates": [
+      "2 diagonales + 2 médiatrices",
+      "Carré très symétrique",
+      "4 axes de symétrie"
+    ],
+    "tags": ["transformations", "symétrie axiale", "carré", "axes"]
   }
 ]

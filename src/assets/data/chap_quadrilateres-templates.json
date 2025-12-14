@@ -90,5 +90,146 @@
       "Ici on dit 'pas les 4' → trapèze"
     ],
     "tags": ["quadrilatère", "trapèze", "parallèles"]
+  },
+  {
+    "id": "quad5",
+    "chapterId": "chap_quadrilateres",
+    "type": "multiple_choice",
+    "difficulty": "easy",
+    "questionTemplate": "Dans un parallélogramme, les côtés opposés sont :",
+    "answersTemplate": [
+      { "textFormula": "'Égaux et parallèles'", "isCorrectFormula": "1" },
+      { "textFormula": "'Perpendiculaires'", "isCorrectFormula": "0" },
+      { "textFormula": "'De longueurs différentes'", "isCorrectFormula": "0" },
+      { "textFormula": "'Tous égaux'", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Propriétés parallélogramme :\n\n✅ Côtés OPPOSÉS : égaux ET parallèles\n✅ 2 paires de côtés parallèles\n\n💡 Opposés = face à face (pas voisins)",
+    "realLifeExplanationTemplate": "🌍 Parallélogramme = quadrilatère avec symétrie :\n\n📐 Propriétés :\n• Côtés opposés : ÉGAUX + PARALLÈLES\n• Angles opposés : ÉGAUX\n• Diagonales : se coupent en leur MILIEU\n\n💡 Visualisation :\n```\n  A —— B\n  |    |\n  D —— C\n```\n• AB = DC (opposés)\n• AD = BC (opposés)\n• AB // DC\n• AD // BC\n\n🎯 Cas particuliers :\n• Rectangle : parallélo + angles droits\n• Losange : parallélo + 4 côtés égaux\n• Carré : parallélo + angles droits + 4 côtés égaux",
+    "hintsTemplates": [
+      "Côtés opposés dans un parallélo",
+      "Égaux ET parallèles",
+      "Propriété fondamentale"
+    ],
+    "tags": ["quadrilatère", "parallélogramme", "propriétés"]
+  },
+  {
+    "id": "quad6",
+    "chapterId": "chap_quadrilateres",
+    "type": "free_input",
+    "difficulty": "medium",
+    "variables": [
+      { "name": "petiteBase", "min": 3, "max": 6 },
+      { "name": "grandeBase", "min": 8, "max": 12 },
+      { "name": "hauteur", "min": 4, "max": 8 }
+    ],
+    "questionTemplate": "Trapèze : petite base = {petiteBase}cm, grande base = {grandeBase}cm, hauteur = {hauteur}cm. Calcule l'aire (cm²).",
+    "correctAnswerFormula": "({petiteBase} + {grandeBase}) * {hauteur} / 2",
+    "answersTemplate": [
+      { "textFormula": "({petiteBase} + {grandeBase}) * {hauteur} / 2", "isCorrectFormula": "1" },
+      { "textFormula": "{grandeBase} * {hauteur}", "isCorrectFormula": "0" },
+      { "textFormula": "({petiteBase} + {grandeBase}) * {hauteur}", "isCorrectFormula": "0" },
+      { "textFormula": "{petiteBase} * {grandeBase} * {hauteur}", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Aire du trapèze :\n\n✅ Formule : A = (petite base + grande base) × hauteur / 2\n✅ A = ({petiteBase} + {grandeBase}) × {hauteur} / 2\n✅ A = ({petiteBase} + {grandeBase}) * {hauteur} / 2 cm²\n\n💡 Moyenne des bases × hauteur",
+    "realLifeExplanationTemplate": "🌍 Aire d'un trapèze :\n\n🏡 Terrain trapézoïdal :\n• Petite base (haut) : {petiteBase}m\n• Grande base (bas) : {grandeBase}m\n• Hauteur : {hauteur}m\n\n📐 Méthode :\n1. Moyenne des bases : ({petiteBase}+{grandeBase})/2\n2. Multiplier par hauteur\n3. A = moyenne × h = (({petiteBase}+{grandeBase})/2) × {hauteur}\n\nOU formule équivalente :\n• A = (b + B) × h / 2\n• A = ({petiteBase} + {grandeBase}) * {hauteur} / 2\n\n💡 Trapèze = rectangle \"déformé\" → moyenne",
+    "hintsTemplates": [
+      "A = (b + B) × h / 2",
+      "Somme des bases × hauteur / 2",
+      "({petiteBase}+{grandeBase}) × {hauteur} / 2"
+    ],
+    "tags": ["quadrilatère", "trapèze", "aire"]
+  },
+  {
+    "id": "quad7",
+    "chapterId": "chap_quadrilateres",
+    "type": "multiple_choice",
+    "difficulty": "hard",
+    "questionTemplate": "Dans un losange, les diagonales sont :",
+    "answersTemplate": [
+      { "textFormula": "'Perpendiculaires et se coupent en leur milieu'", "isCorrectFormula": "1" },
+      { "textFormula": "'Égales et parallèles'", "isCorrectFormula": "0" },
+      { "textFormula": "'Perpendiculaires mais pas de longueur égale'", "isCorrectFormula": "0" },
+      { "textFormula": "'Égales mais pas perpendiculaires'", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Diagonales du losange :\n\n✅ PERPENDICULAIRES (forment 90°)\n✅ Se coupent en leur MILIEU\n❌ PAS forcément égales (sauf si carré)\n\n💡 Losange : 4 côtés égaux + diagonales ⊥",
+    "realLifeExplanationTemplate": "🌍 Propriétés du losange :\n\n💎 Forme de diamant :\n• 4 côtés ÉGAUX\n• Côtés opposés PARALLÈLES\n• Diagonales PERPENDICULAIRES (90°)\n• Diagonales se coupent au MILIEU\n\n📊 Visualisation :\n```\n    A\n   /|\\  \n  / | \\\n D  O  B (O = centre)\n  \\ | /\n   \\|/\n    C\n```\n• AC ⊥ BD (perpendiculaires)\n• AO = OC et BO = OD (milieu)\n\n🎯 Aire losange :\n• A = (d₁ × d₂) / 2\n• d₁, d₂ = diagonales",
+    "hintsTemplates": [
+      "Diagonales losange = perpendiculaires",
+      "Se coupent au milieu",
+      "⊥ + milieu"
+    ],
+    "tags": ["quadrilatère", "losange", "diagonales"]
+  },
+  {
+    "id": "quad8",
+    "chapterId": "chap_quadrilateres",
+    "type": "free_input",
+    "difficulty": "medium",
+    "variables": [
+      { "name": "d1", "min": 6, "max": 12 },
+      { "name": "d2", "min": 8, "max": 16 }
+    ],
+    "questionTemplate": "Losange avec diagonales {d1}cm et {d2}cm. Calcule l'aire (cm²).",
+    "correctAnswerFormula": "{d1} * {d2} / 2",
+    "answersTemplate": [
+      { "textFormula": "{d1} * {d2} / 2", "isCorrectFormula": "1" },
+      { "textFormula": "{d1} * {d2}", "isCorrectFormula": "0" },
+      { "textFormula": "({d1} + {d2}) / 2", "isCorrectFormula": "0" },
+      { "textFormula": "{d1} + {d2}", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Aire du losange :\n\n✅ Formule : A = (d₁ × d₂) / 2\n✅ d₁ = {d1}cm, d₂ = {d2}cm\n✅ A = {d1} × {d2} / 2 = {d1} * {d2} / 2 cm²\n\n💡 Produit des diagonales / 2",
+    "realLifeExplanationTemplate": "🌍 Calcul aire losange :\n\n💎 Bijou en losange :\n• Diagonale 1 : {d1}cm\n• Diagonale 2 : {d2}cm\n\n📐 Méthode :\n• Les diagonales divisent le losange en 4 triangles rectangles égaux\n• Aire totale = (d₁ × d₂) / 2\n• A = {d1} * {d2} / 2 cm²\n\n💡 Pourquoi /2 ?\n• d₁ × d₂ = aire du rectangle qui contient le losange\n• Losange = moitié de ce rectangle\n\n🎯 Différence avec carré :\n• Carré : côté², ou diagonale²/2\n• Losange : (d₁ × d₂)/2 car diagonales ≠",
+    "hintsTemplates": [
+      "A = (d₁ × d₂) / 2",
+      "Produit diagonales divisé par 2",
+      "{d1} × {d2} / 2"
+    ],
+    "tags": ["quadrilatère", "losange", "aire", "diagonales"]
+  },
+  {
+    "id": "quad9",
+    "chapterId": "chap_quadrilateres",
+    "type": "multiple_choice",
+    "difficulty": "easy",
+    "questionTemplate": "Combien d'angles droits possède un rectangle ?",
+    "answersTemplate": [
+      { "textFormula": "'4'", "isCorrectFormula": "1" },
+      { "textFormula": "'2'", "isCorrectFormula": "0" },
+      { "textFormula": "'3'", "isCorrectFormula": "0" },
+      { "textFormula": "'0'", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Rectangle :\n\n✅ 4 angles DROITS (90°)\n✅ C'est la DÉFINITION du rectangle\n\n💡 Rectangle = parallélogramme + angles droits",
+    "realLifeExplanationTemplate": "🌍 Le rectangle partout :\n\n📱 Écran téléphone\n📖 Feuille A4\n🖼️ Tableau\n🚪 Porte\n🪟 Fenêtre\n\n📐 Propriétés rectangle :\n• 4 angles DROITS (90°)\n• Côtés opposés égaux\n• Diagonales égales\n• Somme angles = 360° (4×90°)\n\n💡 Hiérarchie :\n• Rectangle = parallélogramme particulier\n• Carré = rectangle particulier (4 côtés égaux)\n\n🎯 Aire : Longueur × largeur",
+    "hintsTemplates": [
+      "Rectangle = 4 angles droits",
+      "Tous les angles = 90°",
+      "Compte les coins"
+    ],
+    "tags": ["quadrilatère", "rectangle", "angles"]
+  },
+  {
+    "id": "quad10",
+    "chapterId": "chap_quadrilateres",
+    "type": "free_input",
+    "difficulty": "hard",
+    "variables": [
+      { "name": "angle1", "min": 50, "max": 80 }
+    ],
+    "questionTemplate": "Dans un parallélogramme, un angle mesure {angle1}°. Quel est l'angle ADJACENT (voisin) en degrés ?",
+    "correctAnswerFormula": "180 - {angle1}",
+    "answersTemplate": [
+      { "textFormula": "180 - {angle1}", "isCorrectFormula": "1" },
+      { "textFormula": "{angle1}", "isCorrectFormula": "0" },
+      { "textFormula": "90", "isCorrectFormula": "0" },
+      { "textFormula": "360 - {angle1}", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Angles dans un parallélogramme :\n\n✅ Angles ADJACENTS (voisins) : SUPPLÉMENTAIRES\n✅ Somme = 180°\n✅ Angle adjacent = 180° - {angle1}° = 180 - {angle1}°\n\n💡 Adjacent + angle = 180°",
+    "realLifeExplanationTemplate": "🌍 Angles supplémentaires :\n\n📐 Parallélogramme ABCD :\n```\n  A —— B\n  |    |\n  D —— C\n```\n\n• Angle A = {angle1}°\n• Angle B (adjacent) = ?\n\n🔍 Propriété :\n• 2 côtés parallèles coupés par sécante\n• Angles consécutifs supplémentaires\n• A + B = 180°\n• B = 180° - {angle1}° = 180 - {angle1}°\n\n💡 Angles OPPOSÉS sont égaux :\n• A = C = {angle1}°\n• B = D = 180 - {angle1}°\n\n🎯 Total : 4 angles = 360° = 2×180°",
+    "hintsTemplates": [
+      "Angles adjacents supplémentaires",
+      "Somme = 180°",
+      "180 - {angle1}"
+    ],
+    "tags": ["quadrilatère", "parallélogramme", "angles", "supplémentaires"]
   }
 ]

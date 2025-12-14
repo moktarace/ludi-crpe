@@ -93,6 +93,152 @@
       "Pièce 1 × Pièce 2 = 2 × 2 = 4 cas",
       "1 seul cas favorable : Pile-Pile"
     ],
-    "tags": ["probabilité", "pièce", "combinaisons"]
+    "tags": ["probabilité", "pièces", "combinaisons"]
+  },
+  {
+    "id": "prob5",
+    "chapterId": "chap_probabilites",
+    "type": "free_input",
+    "difficulty": "medium",
+    "variables": [
+      { "name": "favorable", "min": 3, "max": 7 },
+      { "name": "total", "min": 10, "max": 20 }
+    ],
+    "questionTemplate": "Un sac contient {total} jetons numérotés. {favorable} sont pairs. Probabilité de tirer un pair ? (Fraction simplifiée, ex: 3/10)",
+    "correctAnswerFormula": "{favorable} + '/' + {total}",
+    "answersTemplate": [
+      { "textFormula": "{favorable} + '/' + {total}", "isCorrectFormula": "1" },
+      { "textFormula": "({total} - {favorable}) + '/' + {total}", "isCorrectFormula": "0" },
+      { "textFormula": "{favorable} + '/' + ({total} - {favorable})", "isCorrectFormula": "0" },
+      { "textFormula": "'1/' + {total}", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Probabilité = favorables / total\n\n✅ Jetons pairs : {favorable}\n✅ Total jetons : {total}\n✅ P(pair) = {favorable}/{total}",
+    "realLifeExplanationTemplate": "🌍 Tirage dans un sac :\n\n🎲 {total} jetons au total\n✓ {favorable} pairs\n✗ {total} - {favorable} impairs\n\n💡 Si tu fais 100 tirages :\n• Tu auras environ {favorable}×100/{total} jetons pairs\n• Soit environ {favorable}/{total} ≈ {favorable}/{total} = chance",
+    "hintsTemplates": [
+      "P = cas favorables / total",
+      "Favorables = {favorable} pairs",
+      "Réponse = {favorable}/{total}"
+    ],
+    "tags": ["probabilité", "fraction", "jetons"]
+  },
+  {
+    "id": "prob6",
+    "chapterId": "chap_probabilites",
+    "type": "multiple_choice",
+    "difficulty": "easy",
+    "questionTemplate": "Si la probabilité de pluie est 0,3, quelle est la probabilité qu'il ne pleuve PAS ?",
+    "answersTemplate": [
+      { "textFormula": "'0,7'", "isCorrectFormula": "1" },
+      { "textFormula": "'0,3'", "isCorrectFormula": "0" },
+      { "textFormula": "'1'", "isCorrectFormula": "0" },
+      { "textFormula": "'0'", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Événements complémentaires :\n\n✅ P(pluie) + P(pas pluie) = 1\n✅ 0,3 + P(pas pluie) = 1\n✅ P(pas pluie) = 1 - 0,3 = 0,7\n\n💡 La somme des probabilités = toujours 1 (100%)",
+    "realLifeExplanationTemplate": "🌍 Météo et probabilités :\n\n🌧️ P(pluie) = 0,3 = 30%\n☀️ P(beau temps) = 1 - 0,3 = 0,7 = 70%\n\n💡 Il y a TOUJOURS 2 possibilités :\n• Soit il pleut\n• Soit il ne pleut pas\n• Total = 100% = 1\n\n🎯 Applications :\n• Jeu : gagner (0,4) ou perdre (0,6)\n• Examen : réussir (0,8) ou échouer (0,2)",
+    "hintsTemplates": [
+      "Somme des probabilités = 1",
+      "P(non A) = 1 - P(A)",
+      "1 - 0,3 = 0,7"
+    ],
+    "tags": ["probabilité", "complémentaire", "événements"]
+  },
+  {
+    "id": "prob7",
+    "chapterId": "chap_probabilites",
+    "type": "free_input",
+    "difficulty": "hard",
+    "variables": [
+      { "name": "blanc", "min": 3, "max": 6 },
+      { "name": "noir", "min": 4, "max": 8 }
+    ],
+    "questionTemplate": "Sac : {blanc} billes blanches, {noir} noires. Tu en tires 2 SANS remise. Quelle est la probabilité que la 2ème soit blanche sachant que la 1ère était blanche ? (Format: a/b)",
+    "correctAnswerFormula": "({blanc} - 1) + '/' + ({blanc} + {noir} - 1)",
+    "answersTemplate": [
+      { "textFormula": "({blanc} - 1) + '/' + ({blanc} + {noir} - 1)", "isCorrectFormula": "1" },
+      { "textFormula": "{blanc} + '/' + ({blanc} + {noir})", "isCorrectFormula": "0" },
+      { "textFormula": "{blanc} + '/' + {noir}", "isCorrectFormula": "0" },
+      { "textFormula": "'1/' + ({blanc} + {noir})", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Probabilité conditionnelle :\n\n✅ Après 1er tirage (blanc) :\n• Blanches restantes : {blanc} - 1\n• Billes totales : {blanc} + {noir} - 1\n\n✅ P(2ème blanche | 1ère blanche) = ({blanc}-1) / ({blanc}+{noir}-1)",
+    "realLifeExplanationTemplate": "🌍 Tirage SANS remise :\n\n🎱 Départ : {blanc} blanches + {noir} noires = {blanc}+{noir} billes\n\n1️⃣ Tu tires 1 blanche → tu la gardes\n2️⃣ Maintenant : {blanc}-1 blanches + {noir} noires = {blanc}+{noir}-1 billes\n\n🎯 P(2ème blanche) = ({blanc}-1)/({blanc}+{noir}-1)\n\n💡 SANS remise change les probabilités !",
+    "hintsTemplates": [
+      "1ère blanche tirée = moins de blanches",
+      "Blanches restantes : {blanc} - 1",
+      "Total restant : {blanc} + {noir} - 1"
+    ],
+    "tags": ["probabilité", "conditionnelle", "sans remise"]
+  },
+  {
+    "id": "prob8",
+    "chapterId": "chap_probabilites",
+    "type": "multiple_choice",
+    "difficulty": "medium",
+    "variables": [
+      { "name": "faces", "min": 4, "max": 6 }
+    ],
+    "questionTemplate": "Un dé à {faces} faces. Quelle est la probabilité d'obtenir un nombre > 2 ?",
+    "answersTemplate": [
+      { "textFormula": "({faces} - 2) + '/' + {faces}", "isCorrectFormula": "1" },
+      { "textFormula": "'2/' + {faces}", "isCorrectFormula": "0" },
+      { "textFormula": "'1/' + {faces}", "isCorrectFormula": "0" },
+      { "textFormula": "({faces} + 2) + '/' + {faces}", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Compter les cas favorables :\n\n✅ Dé à {faces} faces : 1, 2, 3, 4, ..., {faces}\n✅ Nombres > 2 : 3, 4, 5, ..., {faces}\n✅ Ça fait {faces} - 2 nombres\n\n**Résultat :** ({faces} - 2) / {faces}",
+    "realLifeExplanationTemplate": "🌍 Analyse :\n\n🎲 Dé à {faces} faces\n❌ Pas favorable : 1, 2 (2 nombres)\n✅ Favorable : tout le reste ({faces} - 2 nombres)\n\n💡 Méthode :\n• Total - non favorable = favorable\n• {faces} - 2 = {faces} - 2\n• Probabilité = ({faces}-2)/{faces}",
+    "hintsTemplates": [
+      "Liste les nombres > 2",
+      "De 3 à {faces} = {faces} - 2 nombres",
+      "P = ({faces} - 2) / {faces}"
+    ],
+    "tags": ["probabilité", "dé", "inégalité"]
+  },
+  {
+    "id": "prob9",
+    "chapterId": "chap_probabilites",
+    "type": "free_input",
+    "difficulty": "easy",
+    "variables": [
+      { "name": "lances", "min": 30, "max": 60 }
+    ],
+    "questionTemplate": "Tu lances une pièce {lances} fois. Environ combien de fois auras-tu PILE ? (Nombre entier)",
+    "correctAnswerFormula": "Math.round({lances} / 2)",
+    "answersTemplate": [
+      { "textFormula": "Math.round({lances} / 2)", "isCorrectFormula": "1" },
+      { "textFormula": "{lances}", "isCorrectFormula": "0" },
+      { "textFormula": "{lances} / 4", "isCorrectFormula": "0" },
+      { "textFormula": "{lances} * 2", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Fréquence attendue :\n\n✅ P(Pile) = 1/2 = 50%\n✅ Sur {lances} lancers : {lances} × 1/2\n✅ ≈ {lances}/2 fois Pile\n\n💡 C'est une moyenne théorique !",
+    "realLifeExplanationTemplate": "🌍 Loi des grands nombres :\n\n🪙 Pièce équilibrée : P(Pile) = 50%\n\n📊 Sur {lances} lancers :\n• Théoriquement : {lances}/2 Pile\n• En réalité : entre {lances}/2 - 5 et {lances}/2 + 5\n\n💡 Plus tu lances, plus tu t'approches de 50%",
+    "hintsTemplates": [
+      "P(Pile) = 1/2",
+      "Multiplie {lances} par 1/2",
+      "Réponse ≈ {lances}/2"
+    ],
+    "tags": ["probabilité", "fréquence", "pièce"]
+  },
+  {
+    "id": "prob10",
+    "chapterId": "chap_probabilites",
+    "type": "multiple_choice",
+    "difficulty": "hard",
+    "variables": [
+      { "name": "n", "min": 5, "max": 10 }
+    ],
+    "questionTemplate": "Dans un groupe de {n} personnes, quelle est la probabilité qu'au moins 2 aient leur anniversaire le même jour ? (Approximation)",
+    "answersTemplate": [
+      { "textFormula": "'Plus de 5%'", "isCorrectFormula": "1" },
+      { "textFormula": "'0%'", "isCorrectFormula": "0" },
+      { "textFormula": "'100%'", "isCorrectFormula": "0" },
+      { "textFormula": "'Exactement 1/{n}'", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Paradoxe des anniversaires :\n\n✅ Avec seulement 23 personnes → 50% de chance !\n✅ Avec 70 personnes → 99,9% de chance\n\n💡 Contre-intuitif mais mathématique !\n\n🎯 Avec {n} personnes : probabilité > 0",
+    "realLifeExplanationTemplate": "🌍 Paradoxe surprenant :\n\n🎂 Dans une classe de 30 élèves :\n• 70% de chance que 2 partagent leur anniversaire\n\n💡 Pourquoi ?\n• Beaucoup de paires possibles\n• 30 personnes = 435 paires !\n• 435 comparaisons sur 365 jours\n\n🎯 Calcul exact = compliqué, mais probabilité notable",
+    "hintsTemplates": [
+      "Plus de personnes = plus de paires",
+      "Même avec peu, probabilité > 0",
+      "C'est un paradoxe célèbre"
+    ],
+    "tags": ["probabilité", "paradoxe", "anniversaires"]
   }
 ]

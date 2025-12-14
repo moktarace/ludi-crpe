@@ -101,5 +101,157 @@
       "x = {y} ÷ {a}"
     ],
     "tags": ["fonctions", "antécédent", "résolution"]
+  },
+  {
+    "id": "fonc5",
+    "chapterId": "chap_fonctions",
+    "type": "multiple_choice",
+    "difficulty": "easy",
+    "variables": [
+      { "name": "a", "min": -3, "max": -1 },
+      { "name": "x1", "min": 0, "max": 3 },
+      { "name": "x2", "min": 4, "max": 8 }
+    ],
+    "questionTemplate": "Fonction f(x) = {a}x. Si x augmente, f(x) :",
+    "answersTemplate": [
+      { "textFormula": "'Diminue'", "isCorrectFormula": "1" },
+      { "textFormula": "'Augmente'", "isCorrectFormula": "0" },
+      { "textFormula": "'Reste constant'", "isCorrectFormula": "0" },
+      { "textFormula": "'Devient nul'", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Variation d'une fonction linéaire :\n\n✅ f(x) = {a}x avec {a} < 0\n✅ Coefficient NÉGATIF → fonction DÉCROISSANTE\n✅ Quand x augmente, f(x) diminue\n\n💡 a < 0 → décroissante, a > 0 → croissante",
+    "realLifeExplanationTemplate": "🌍 Fonction décroissante :\n\n🏔️ Altitude = {a} × temps (descente montagne)\n• Coefficient négatif : {a}\n• Plus le temps passe (x augmente)\n• Plus l'altitude baisse (f(x) diminue)\n\n📊 Test :\n• x = {x1} → f({x1}) = {a} × {x1} = {a} * {x1}\n• x = {x2} → f({x2}) = {a} × {x2} = {a} * {x2}\n• {x2} > {x1} mais {a} * {x2} < {a} * {x1}\n\n💡 Signe de a = sens de variation",
+    "hintsTemplates": [
+      "Regarde le signe de {a}",
+      "{a} < 0 → fonction décroissante",
+      "Teste avec 2 valeurs"
+    ],
+    "tags": ["fonctions", "variation", "décroissance"]
+  },
+  {
+    "id": "fonc6",
+    "chapterId": "chap_fonctions",
+    "type": "free_input",
+    "difficulty": "medium",
+    "variables": [
+      { "name": "x", "min": -3, "max": 3 }
+    ],
+    "questionTemplate": "Fonction carrée f(x) = x². Calcule f({x}).",
+    "correctAnswerFormula": "{x} * {x}",
+    "answersTemplate": [
+      { "textFormula": "{x} * {x}", "isCorrectFormula": "1" },
+      { "textFormula": "2 * {x}", "isCorrectFormula": "0" },
+      { "textFormula": "{x}", "isCorrectFormula": "0" },
+      { "textFormula": "Math.abs({x})", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Fonction carrée :\n\n✅ f(x) = x²\n✅ f({x}) = ({x})²\n✅ f({x}) = {x} × {x} = {x} * {x}\n\n💡 Carré d'un nombre négatif = positif !",
+    "realLifeExplanationTemplate": "🌍 Fonction carrée dans la vie :\n\n📐 Aire d'un carré de côté x :\n• A(x) = x²\n• Si côté = {x} (on prend |{x}| en géométrie)\n• Aire = {x} × {x} = {x} * {x}\n\n⚡ Caractéristiques x² :\n• TOUJOURS positif ou nul\n• f(-3) = f(3) = 9 (symétrie)\n• Graphique = PARABOLE\n• Minimum en x=0\n\n💡 x² ≠ 2x (confusion fréquente !)\n• 3² = 9 (pas 6 !)",
+    "hintsTemplates": [
+      "x² = x × x",
+      "({x})² = {x} × {x}",
+      "Calcule {x} × {x}"
+    ],
+    "tags": ["fonctions", "fonction carrée", "carré"]
+  },
+  {
+    "id": "fonc7",
+    "chapterId": "chap_fonctions",
+    "type": "multiple_choice",
+    "difficulty": "hard",
+    "variables": [
+      { "name": "a", "min": 2, "max": 5 },
+      { "name": "b", "min": 1, "max": 4 }
+    ],
+    "questionTemplate": "Fonction affine f(x) = {a}x + {b}. Quelle est l'ordonnée à l'origine ?",
+    "answersTemplate": [
+      { "textFormula": "{b}", "isCorrectFormula": "1" },
+      { "textFormula": "{a}", "isCorrectFormula": "0" },
+      { "textFormula": "{a} + {b}", "isCorrectFormula": "0" },
+      { "textFormula": "0", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Ordonnée à l'origine :\n\n✅ Fonction : f(x) = {a}x + {b}\n✅ À l'origine : x = 0\n✅ f(0) = {a} × 0 + {b} = {b}\n\n💡 Ordonnée à l'origine = b (terme constant)",
+    "realLifeExplanationTemplate": "🌍 Graphique d'une fonction affine :\n\n📈 f(x) = {a}x + {b}\n\n🎯 Vocabulaire :\n• Coefficient directeur (pente) : {a}\n• Ordonnée à l'origine : {b}\n\n📊 Signification :\n• Quand x = 0 → f(0) = {b}\n• La droite coupe l'axe Y en ({b})\n• Point (0, {b}) sur le graphique\n\n💡 Exemple pratique :\n🚕 Taxi : {a}€/km + {b}€ prise en charge\n• À 0 km parcouru → tu paies déjà {b}€\n• C'est l'ordonnée à l'origine !",
+    "hintsTemplates": [
+      "Calcule f(0)",
+      "x = 0 → f(0) = {b}",
+      "Ordonnée à l'origine = b"
+    ],
+    "tags": ["fonctions", "fonction affine", "ordonnée"]
+  },
+  {
+    "id": "fonc8",
+    "chapterId": "chap_fonctions",
+    "type": "free_input",
+    "difficulty": "medium",
+    "variables": [
+      { "name": "x1", "min": 0, "max": 2 },
+      { "name": "y1", "min": 3, "max": 6 },
+      { "name": "x2", "min": 3, "max": 5 },
+      { "name": "y2", "min": 9, "max": 15 }
+    ],
+    "questionTemplate": "Droite passe par ({x1}, {y1}) et ({x2}, {y2}). Calcule le coefficient directeur (arrondi à 1 décimale).",
+    "correctAnswerFormula": "(({y2} - {y1}) / ({x2} - {x1})).toFixed(1)",
+    "answersTemplate": [
+      { "textFormula": "(({y2} - {y1}) / ({x2} - {x1})).toFixed(1)", "isCorrectFormula": "1" },
+      { "textFormula": "(({x2} - {x1}) / ({y2} - {y1})).toFixed(1)", "isCorrectFormula": "0" },
+      { "textFormula": "({y2} - {y1}).toFixed(1)", "isCorrectFormula": "0" },
+      { "textFormula": "{x2} - {x1}", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Coefficient directeur (pente) :\n\n✅ Formule : a = (y₂ - y₁) / (x₂ - x₁)\n✅ a = ({y2} - {y1}) / ({x2} - {x1})\n✅ a = (({y2} - {y1}) / ({x2} - {x1})).toFixed(1)\n\n💡 a = variation de y / variation de x",
+    "realLifeExplanationTemplate": "🌍 Pente d'une droite :\n\n🏔️ Deux points sur un chemin :\n• Point A : ({x1}, {y1}) → x={x1}km, altitude {y1}m\n• Point B : ({x2}, {y2}) → x={x2}km, altitude {y2}m\n\n📊 Calcul de la pente :\n• Δy (dénivelé) = {y2} - {y1}\n• Δx (distance) = {x2} - {x1}\n• Pente a = Δy / Δx\n• a = (({y2} - {y1}) / ({x2} - {x1})).toFixed(1)\n\n💡 Coefficient = combien monte y quand x augmente de 1",
+    "hintsTemplates": [
+      "a = (y₂-y₁)/(x₂-x₁)",
+      "Variation y sur variation x",
+      "({y2}-{y1})/({x2}-{x1})"
+    ],
+    "tags": ["fonctions", "coefficient directeur", "pente"]
+  },
+  {
+    "id": "fonc9",
+    "chapterId": "chap_fonctions",
+    "type": "multiple_choice",
+    "difficulty": "easy",
+    "questionTemplate": "Quelle fonction représente une droite horizontale ?",
+    "answersTemplate": [
+      { "textFormula": "'f(x) = 5'", "isCorrectFormula": "1" },
+      { "textFormula": "'f(x) = 5x'", "isCorrectFormula": "0" },
+      { "textFormula": "'f(x) = 5x + 2'", "isCorrectFormula": "0" },
+      { "textFormula": "'f(x) = x²'", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Fonction constante :\n\n✅ f(x) = c (pas de x)\n✅ Graphique : droite HORIZONTALE\n✅ f(x) = 5 → tous les points ont y = 5\n\n💡 Constante = ne dépend pas de x",
+    "realLifeExplanationTemplate": "🌍 Fonction constante dans la vie :\n\n📺 Abonnement streaming : 5€/mois\n• f(x) = 5 (x = temps)\n• Peu importe combien d'heures tu regardes\n• Tu paies toujours 5€\n\n📊 Graphique :\n• Tous les points : (x, 5)\n• (0,5), (1,5), (2,5), (100,5)...\n• Droite HORIZONTALE à hauteur y=5\n\n💡 Caractéristiques :\n• Coefficient directeur = 0\n• Pas de variation\n• f(x) = f(y) pour tout x, y",
+    "hintsTemplates": [
+      "Constante = pas de x",
+      "Droite horizontale",
+      "f(x) = c"
+    ],
+    "tags": ["fonctions", "fonction constante", "graphique"]
+  },
+  {
+    "id": "fonc10",
+    "chapterId": "chap_fonctions",
+    "type": "free_input",
+    "difficulty": "hard",
+    "variables": [
+      { "name": "a", "min": 2, "max": 4 },
+      { "name": "b", "min": -3, "max": -1 },
+      { "name": "x", "min": 3, "max": 6 }
+    ],
+    "questionTemplate": "Fonction affine : passe par l'origine avec pente {a}, puis décalée de {b} vers le bas. Écris f(x) = ... puis calcule f({x}).",
+    "correctAnswerFormula": "{a} * {x} + {b}",
+    "answersTemplate": [
+      { "textFormula": "{a} * {x} + {b}", "isCorrectFormula": "1" },
+      { "textFormula": "{a} * {x} - {b}", "isCorrectFormula": "0" },
+      { "textFormula": "({a} + {b}) * {x}", "isCorrectFormula": "0" },
+      { "textFormula": "{a} * {x}", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Construction fonction affine :\n\n✅ Pente = {a} → coefficient directeur\n✅ Décalée de {b} vers le bas → ordonnée {b}\n✅ f(x) = {a}x + ({b}) = {a}x {b}\n✅ f({x}) = {a} × {x} + ({b}) = {a} * {x} + {b}",
+    "realLifeExplanationTemplate": "🌍 Transformer une fonction linéaire en affine :\n\n📊 Étape 1 : Fonction linéaire\n• f(x) = {a}x (passe par origine)\n• Pente {a}\n\n📊 Étape 2 : Translation verticale\n• Décalage de {b} (vers le bas car négatif)\n• f(x) = {a}x + ({b})\n\n💰 Exemple : Location vélo\n• {a}€ par heure (linéaire)\n• + {b}€ (dette/remise)\n• Prix(h) = {a}h + ({b})\n\n🎯 Calcul pour {x} heures :\n• {a} × {x} + ({b}) = {a} * {x} + {b}",
+    "hintsTemplates": [
+      "f(x) = {a}x + ({b})",
+      "Pente {a}, ordonnée {b}",
+      "Calcule {a} × {x} + ({b})"
+    ],
+    "tags": ["fonctions", "fonction affine", "construction"]
   }
 ]

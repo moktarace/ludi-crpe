@@ -89,5 +89,150 @@
       "Trouve le plus grand commun"
     ],
     "tags": ["arithmétique", "PGCD", "diviseurs"]
+  },
+  {
+    "id": "arith5",
+    "chapterId": "chap_arithmetique",
+    "type": "multiple_choice",
+    "difficulty": "medium",
+    "variables": [
+      { "name": "a", "min": 4, "max": 8 },
+      { "name": "b", "min": 6, "max": 12 }
+    ],
+    "questionTemplate": "Quel est le PPCM (Plus Petit Commun Multiple) de {a} et {b} ?",
+    "answersTemplate": [
+      { "textFormula": "lcm({a}, {b})", "isCorrectFormula": "1" },
+      { "textFormula": "{a} * {b}", "isCorrectFormula": "0" },
+      { "textFormula": "gcd({a}, {b})", "isCorrectFormula": "0" },
+      { "textFormula": "{a} + {b}", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 PPCM = Plus Petit Commun Multiple\n\n✅ C'est le plus PETIT nombre divisible par {a} ET {b}\n\n**Méthode : Liste les multiples**\n• Multiples de {a} : ...\n• Multiples de {b} : ...\n• Communs : ...\n• Le plus petit : lcm({a}, {b})\n\n💡 Formule : PPCM × PGCD = a × b",
+    "realLifeExplanationTemplate": "🌍 PPCM dans la vie :\n\n🚌 Bus A passe toutes les {a} minutes\n🚌 Bus B passe toutes les {b} minutes\n• Ils sont TOUS LES DEUX à l'arrêt maintenant\n• Dans combien de temps ils seront ENCORE tous les deux là ?\n\n💡 Réponse = PPCM({a}, {b}) = lcm({a}, {b}) minutes\n\n🎯 Applications :\n• Synchronisation événements périodiques\n• Planifier réunions répétitives\n• Cycles machines\n\n📐 Relation PGCD-PPCM :\n• PGCD({a},{b}) × PPCM({a},{b}) = {a} × {b}",
+    "hintsTemplates": [
+      "Liste les multiples de {a}",
+      "Liste les multiples de {b}",
+      "Trouve le plus petit commun"
+    ],
+    "tags": ["arithmétique", "PPCM", "multiples"]
+  },
+  {
+    "id": "arith6",
+    "chapterId": "chap_arithmetique",
+    "type": "free_input",
+    "difficulty": "hard",
+    "variables": [
+      { "name": "n", "min": 24, "max": 60, "step": 6 }
+    ],
+    "questionTemplate": "Décompose {n} en produit de facteurs PREMIERS. Combien de facteurs premiers DISTINCTS ? (Ex: 12=2²×3 → 2 facteurs distincts)",
+    "correctAnswerFormula": "countDistinctPrimeFactors({n})",
+    "answersTemplate": [
+      { "textFormula": "countDistinctPrimeFactors({n})", "isCorrectFormula": "1" },
+      { "textFormula": "2", "isCorrectFormula": "0" },
+      { "textFormula": "3", "isCorrectFormula": "0" },
+      { "textFormula": "4", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Décomposition en facteurs premiers :\n\n✅ Divise {n} par nombres premiers (2, 3, 5, 7...)\n✅ Continue jusqu'à obtenir 1\n\n**Méthode arbre :**\n{n} = ...\n\n💡 Compte les nombres premiers DISTINCTS (pas les répétitions)",
+    "realLifeExplanationTemplate": "🌍 Facteurs premiers = briques de base :\n\n🧱 Nombre {n} décomposé :\n• Comme un Lego : on cherche les pièces de base\n• Facteurs premiers = nombres premiers uniquement\n\n📊 Exemple : 24\n• 24 = 2 × 12\n• 12 = 2 × 6\n• 6 = 2 × 3\n• 24 = 2³ × 3\n• Facteurs distincts : 2 et 3 → **2 facteurs**\n\n🎯 Pour {n} :\n• Décompose complètement\n• Compte les nombres premiers différents\n\n💡 Nombres premiers : 2, 3, 5, 7, 11, 13...",
+    "hintsTemplates": [
+      "Divise par 2, 3, 5, 7...",
+      "Compte les facteurs DIFFÉRENTS",
+      "Ex: 2³×3 → 2 facteurs (2 et 3)"
+    ],
+    "tags": ["arithmétique", "facteurs premiers", "décomposition"]
+  },
+  {
+    "id": "arith7",
+    "chapterId": "chap_arithmetique",
+    "type": "multiple_choice",
+    "difficulty": "easy",
+    "variables": [
+      { "name": "n", "min": 102, "max": 198, "step": 2 }
+    ],
+    "questionTemplate": "{n} est divisible par 2 ?",
+    "answersTemplate": [
+      { "textFormula": "'Oui, car il est pair'", "isCorrectFormula": "1" },
+      { "textFormula": "'Non'", "isCorrectFormula": "0" },
+      { "textFormula": "'Impossible à savoir'", "isCorrectFormula": "0" },
+      { "textFormula": "'Oui, car il finit par 0'", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Critère de divisibilité par 2 :\n\n✅ Un nombre est divisible par 2 SI dernier chiffre = 0, 2, 4, 6, 8\n✅ {n} finit par {n} % 10\n✅ Donc {n} est PAIR → divisible par 2\n\n💡 Pair = divisible par 2",
+    "realLifeExplanationTemplate": "🌍 Critères de divisibilité :\n\n🎯 Divisible par 2 :\n• Dernier chiffre pair : 0, 2, 4, 6, 8\n• {n} → dernier chiffre = {n} % 10\n• Pair ✅ → divisible par 2\n\n📊 Autres critères utiles :\n• **Par 3** : somme des chiffres divisible par 3\n• **Par 5** : dernier chiffre 0 ou 5\n• **Par 9** : somme des chiffres divisible par 9\n• **Par 10** : dernier chiffre 0\n\n💡 Astuces pour calcul mental rapide !",
+    "hintsTemplates": [
+      "Regarde le dernier chiffre",
+      "Pair → divisible par 2",
+      "{n} est pair"
+    ],
+    "tags": ["arithmétique", "divisibilité", "critères"]
+  },
+  {
+    "id": "arith8",
+    "chapterId": "chap_arithmetique",
+    "type": "multiple_choice",
+    "difficulty": "medium",
+    "questionTemplate": "Combien y a-t-il de nombres PREMIERS entre 10 et 20 ?",
+    "answersTemplate": [
+      { "textFormula": "'4'", "isCorrectFormula": "1" },
+      { "textFormula": "'3'", "isCorrectFormula": "0" },
+      { "textFormula": "'5'", "isCorrectFormula": "0" },
+      { "textFormula": "'2'", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Nombres premiers entre 10 et 20 :\n\n✅ Premier = divisible UNIQUEMENT par 1 et lui-même\n\n🔍 Test :\n• 11 : premier ✅\n• 12 = 2×6 ❌\n• 13 : premier ✅\n• 14 = 2×7 ❌\n• 15 = 3×5 ❌\n• 16 = 2⁴ ❌\n• 17 : premier ✅\n• 18 = 2×9 ❌\n• 19 : premier ✅\n\n💡 Total : 11, 13, 17, 19 → **4 nombres**",
+    "realLifeExplanationTemplate": "🌍 Nombres premiers = atomes de l'arithmétique :\n\n🔢 Entre 10 et 20 :\n• 11 → pas de diviseurs (sauf 1 et 11) ✅\n• 12 → 2, 3, 4, 6 divisent ❌\n• 13 → pas de diviseurs ✅\n• 14 → 2, 7 divisent ❌\n• 15 → 3, 5 divisent ❌\n• 16 → 2, 4, 8 divisent ❌\n• 17 → pas de diviseurs ✅\n• 18 → 2, 3, 6, 9 divisent ❌\n• 19 → pas de diviseurs ✅\n\n📊 Réponse : 11, 13, 17, 19 = **4 nombres**\n\n💡 Premiers < 30 : 2, 3, 5, 7, 11, 13, 17, 19, 23, 29",
+    "hintsTemplates": [
+      "Teste chaque nombre",
+      "Premier = 2 diviseurs seulement",
+      "11, 13, 17, 19"
+    ],
+    "tags": ["arithmétique", "nombres premiers", "comptage"]
+  },
+  {
+    "id": "arith9",
+    "chapterId": "chap_arithmetique",
+    "type": "free_input",
+    "difficulty": "hard",
+    "variables": [
+      { "name": "num", "min": 6, "max": 18, "step": 2 },
+      { "name": "den", "min": 8, "max": 24, "step": 2 }
+    ],
+    "questionTemplate": "Simplifie la fraction {num}/{den} en fraction IRRÉDUCTIBLE. Numérateur de la fraction simplifiée ?",
+    "correctAnswerFormula": "{num} / gcd({num}, {den})",
+    "answersTemplate": [
+      { "textFormula": "{num} / gcd({num}, {den})", "isCorrectFormula": "1" },
+      { "textFormula": "{num}", "isCorrectFormula": "0" },
+      { "textFormula": "{num} / 2", "isCorrectFormula": "0" },
+      { "textFormula": "1", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Simplifier fraction :\n\n✅ PGCD({num}, {den}) = gcd({num}, {den})\n✅ Divise numérateur ET dénominateur par PGCD\n✅ Numérateur simplifié = {num} / gcd({num}, {den})\n\n💡 Irréductible = ne peut plus simplifier",
+    "realLifeExplanationTemplate": "🌍 Simplification de fraction :\n\n🍕 Fraction {num}/{den} :\n• {num} parts prises sur {den} parts totales\n\n📐 Méthode simplification :\n1. PGCD({num}, {den}) = gcd({num}, {den})\n2. Numérateur ÷ PGCD = {num} / gcd({num}, {den})\n3. Dénominateur ÷ PGCD = {den} / gcd({num}, {den})\n\n💡 Exemple : 6/8\n• PGCD(6, 8) = 2\n• 6÷2 = 3, 8÷2 = 4\n• 6/8 = 3/4 (irréductible)\n\n🎯 Irréductible = PGCD(num, den) = 1",
+    "hintsTemplates": [
+      "Trouve PGCD({num}, {den})",
+      "Divise numérateur par PGCD",
+      "{num} / gcd({num}, {den})"
+    ],
+    "tags": ["arithmétique", "fractions", "PGCD", "simplification"]
+  },
+  {
+    "id": "arith10",
+    "chapterId": "chap_arithmetique",
+    "type": "multiple_choice",
+    "difficulty": "medium",
+    "variables": [
+      { "name": "n", "min": 123, "max": 987 }
+    ],
+    "questionTemplate": "{n} est divisible par 3 si :",
+    "answersTemplate": [
+      { "textFormula": "'La somme de ses chiffres est divisible par 3'", "isCorrectFormula": "1" },
+      { "textFormula": "'Son dernier chiffre est 3'", "isCorrectFormula": "0" },
+      { "textFormula": "'Il est impair'", "isCorrectFormula": "0" },
+      { "textFormula": "'Il contient le chiffre 3'", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Critère divisibilité par 3 :\n\n✅ Un nombre est divisible par 3 SI somme chiffres divisible par 3\n\n🔍 {n} :\n• Chiffres : ...\n• Somme : ...\n• ... divisible par 3 ?\n\n💡 Critère très utile !",
+    "realLifeExplanationTemplate": "🌍 Astuce divisibilité par 3 :\n\n🔢 Nombre {n} :\n• Additionne tous les chiffres\n• Si total divisible par 3 → {n} divisible par 3\n\n💡 Exemple : 123\n• 1 + 2 + 3 = 6\n• 6 divisible par 3 ✅\n• Donc 123 divisible par 3 ✅\n\n📊 Autre exemple : 125\n• 1 + 2 + 5 = 8\n• 8 pas divisible par 3 ❌\n• Donc 125 pas divisible par 3 ❌\n\n🎯 Même principe pour 9 :\n• Divisible par 9 ↔ somme chiffres divisible par 9",
+    "hintsTemplates": [
+      "Additionne les chiffres",
+      "Vérifie si somme divisible par 3",
+      "Critère de la somme"
+    ],
+    "tags": ["arithmétique", "divisibilité", "critère par 3"]
   }
 ]

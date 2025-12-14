@@ -97,5 +97,157 @@
       "Réponse = {max} - {min}"
     ],
     "tags": ["statistiques", "étendue", "dispersion"]
+  },
+  {
+    "id": "stat5",
+    "chapterId": "chap_statistiques",
+    "type": "free_input",
+    "difficulty": "medium",
+    "variables": [
+      { "name": "n1", "min": 8, "max": 12 },
+      { "name": "n2", "min": 10, "max": 14 },
+      { "name": "n3", "min": 12, "max": 16 },
+      { "name": "n4", "min": 14, "max": 18 }
+    ],
+    "questionTemplate": "Série ordonnée : {n1}, {n2}, {n3}, {n4}. Quelle est la médiane ? (Moyenne des 2 valeurs centrales, arrondi à 1 décimale)",
+    "correctAnswerFormula": "(({n2} + {n3}) / 2).toFixed(1)",
+    "answersTemplate": [
+      { "textFormula": "(({n2} + {n3}) / 2).toFixed(1)", "isCorrectFormula": "1" },
+      { "textFormula": "{n2}", "isCorrectFormula": "0" },
+      { "textFormula": "{n3}", "isCorrectFormula": "0" },
+      { "textFormula": "(({n1} + {n4}) / 2).toFixed(1)", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Médiane avec nombre PAIR de valeurs :\n\n✅ 4 valeurs → pas de milieu unique\n✅ On prend les 2 du milieu : {n2} et {n3}\n✅ Médiane = ({n2} + {n3}) / 2 = (({n2} + {n3}) / 2).toFixed(1)",
+    "realLifeExplanationTemplate": "🌍 Médiane = valeur centrale :\n\n📊 Série : {n1}, {n2}, {n3}, {n4}\n\n💡 Nombre pair de valeurs :\n• Position 1: {n1}\n• Position 2: {n2} ←\n• Position 3: {n3} ←\n• Position 4: {n4}\n\n✅ Médiane = moyenne des 2 centrales\n• ({n2}+{n3})/2 = (({n2} + {n3}) / 2).toFixed(1)",
+    "hintsTemplates": [
+      "Nombre pair → 2 valeurs centrales",
+      "Positions 2 et 3",
+      "Moyenne de {n2} et {n3}"
+    ],
+    "tags": ["statistiques", "médiane", "série paire"]
+  },
+  {
+    "id": "stat6",
+    "chapterId": "chap_statistiques",
+    "type": "multiple_choice",
+    "difficulty": "easy",
+    "variables": [
+      { "name": "effectif", "min": 20, "max": 50 }
+    ],
+    "questionTemplate": "Dans un groupe de {effectif} personnes, la moitié porte des lunettes. Quel est l'effectif de ceux qui portent des lunettes ?",
+    "answersTemplate": [
+      { "textFormula": "{effectif} / 2", "isCorrectFormula": "1" },
+      { "textFormula": "{effectif}", "isCorrectFormula": "0" },
+      { "textFormula": "{effectif} * 2", "isCorrectFormula": "0" },
+      { "textFormula": "50", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Effectif = nombre de personnes\n\n✅ Total : {effectif} personnes\n✅ Moitié = {effectif} ÷ 2 = {effectif} / 2\n\n💡 50% = 1/2 = moitié",
+    "realLifeExplanationTemplate": "🌍 Effectif vs Pourcentage :\n\n👥 {effectif} personnes\n👓 50% portent des lunettes\n\n📊 Effectif lunettes :\n• 50% de {effectif}\n• = {effectif} × 0,5\n• = {effectif} / 2 personnes\n\n💡 Effectif = NOMBRE ABSOLU",
+    "hintsTemplates": [
+      "Moitié = ÷ 2",
+      "Calcule {effectif} ÷ 2",
+      "Effectif = nombre de personnes"
+    ],
+    "tags": ["statistiques", "effectif", "pourcentage"]
+  },
+  {
+    "id": "stat7",
+    "chapterId": "chap_statistiques",
+    "type": "free_input",
+    "difficulty": "hard",
+    "variables": [
+      { "name": "note1", "min": 10, "max": 14 },
+      { "name": "coef1", "min": 2, "max": 3 },
+      { "name": "note2", "min": 12, "max": 16 },
+      { "name": "coef2", "min": 1, "max": 2 }
+    ],
+    "questionTemplate": "Moyenne pondérée : note1={note1} (coef {coef1}), note2={note2} (coef {coef2}). Calcule (arrondi à 1 décimale)",
+    "correctAnswerFormula": "(({note1}*{coef1} + {note2}*{coef2}) / ({coef1}+{coef2})).toFixed(1)",
+    "answersTemplate": [
+      { "textFormula": "(({note1}*{coef1} + {note2}*{coef2}) / ({coef1}+{coef2})).toFixed(1)", "isCorrectFormula": "1" },
+      { "textFormula": "({note1} + {note2}) / 2", "isCorrectFormula": "0" },
+      { "textFormula": "{note1} * {coef1} + {note2} * {coef2}", "isCorrectFormula": "0" },
+      { "textFormula": "({note1} + {note2}) / ({coef1} + {coef2})", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Moyenne pondérée :\n\n✅ Somme pondérée = {note1}×{coef1} + {note2}×{coef2}\n✅ Somme coefficients = {coef1} + {coef2}\n✅ Moyenne = somme pondérée / somme coef\n✅ = (({note1}*{coef1} + {note2}*{coef2}) / ({coef1}+{coef2})).toFixed(1)",
+    "realLifeExplanationTemplate": "🌍 Notes avec coefficients :\n\n📚 Note 1 : {note1}/20 coef {coef1}\n📚 Note 2 : {note2}/20 coef {coef2}\n\n📊 Calcul :\n• Points note 1 : {note1}×{coef1}\n• Points note 2 : {note2}×{coef2}\n• Total points / Total coef\n• = ({note1}*{coef1}+{note2}*{coef2})/({coef1}+{coef2})\n\n💡 Coef = poids/importance",
+    "hintsTemplates": [
+      "Multiplie chaque note × coef",
+      "Somme / somme des coefs",
+      "({note1}×{coef1}+{note2}×{coef2})/({coef1}+{coef2})"
+    ],
+    "tags": ["statistiques", "moyenne pondérée", "coefficients"]
+  },
+  {
+    "id": "stat8",
+    "chapterId": "chap_statistiques",
+    "type": "multiple_choice",
+    "difficulty": "medium",
+    "questionTemplate": "Quelle mesure n'est PAS sensible aux valeurs extrêmes ?",
+    "answersTemplate": [
+      { "textFormula": "'La médiane'", "isCorrectFormula": "1" },
+      { "textFormula": "'La moyenne'", "isCorrectFormula": "0" },
+      { "textFormula": "'L\\'étendue'", "isCorrectFormula": "0" },
+      { "textFormula": "'Le maximum'", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Médiane = robuste aux extrêmes\n\n✅ Médiane : valeur centrale (pas affectée)\n❌ Moyenne : tirée par les extrêmes\n❌ Étendue : basée sur MAX et MIN\n\n💡 La médiane est ROBUSTE",
+    "realLifeExplanationTemplate": "🌍 Exemple salaires :\n\n💰 10 employés : 1500, 1500, 1600, 1600, 1700, 1700, 1800, 1800, 1900, 50000€\n\n📊 Comparaison :\n• Moyenne : (1500×2+...+50000)/10 ≈ 6410€ (faussée !)\n• Médiane : (1700+1700)/2 = 1700€ (réaliste)\n\n💡 Le PDG (50000€) fausse la moyenne mais pas la médiane !",
+    "hintsTemplates": [
+      "Médiane = milieu de liste",
+      "Pas affectée par valeurs extrêmes",
+      "Robuste statistiquement"
+    ],
+    "tags": ["statistiques", "médiane", "robustesse"]
+  },
+  {
+    "id": "stat9",
+    "chapterId": "chap_statistiques",
+    "type": "free_input",
+    "difficulty": "easy",
+    "variables": [
+      { "name": "valeur", "min": 5, "max": 20 },
+      { "name": "repetitions", "min": 3, "max": 8 }
+    ],
+    "questionTemplate": "La valeur {valeur} apparaît {repetitions} fois dans une série. Quel est son effectif ?",
+    "correctAnswerFormula": "{repetitions}",
+    "answersTemplate": [
+      { "textFormula": "{repetitions}", "isCorrectFormula": "1" },
+      { "textFormula": "{valeur}", "isCorrectFormula": "0" },
+      { "textFormula": "{valeur} * {repetitions}", "isCorrectFormula": "0" },
+      { "textFormula": "{valeur} + {repetitions}", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Effectif = nombre de répétitions\n\n✅ Valeur : {valeur}\n✅ Apparaît {repetitions} fois\n✅ Effectif = {repetitions}\n\n💡 Effectif ≠ valeur !",
+    "realLifeExplanationTemplate": "🌍 Tableau de données :\n\n📊 Notes obtenues :\n• Note {valeur}/20 : {repetitions} élèves\n• Effectif de la note {valeur} = {repetitions}\n\n💡 Vocabulaire :\n• Valeur/modalité : {valeur}\n• Effectif : {repetitions} (combien de fois)\n• Fréquence : {repetitions}/total",
+    "hintsTemplates": [
+      "Effectif = nombre d'apparitions",
+      "Combien de fois ?",
+      "Réponse : {repetitions}"
+    ],
+    "tags": ["statistiques", "effectif", "fréquence"]
+  },
+  {
+    "id": "stat10",
+    "chapterId": "chap_statistiques",
+    "type": "multiple_choice",
+    "difficulty": "hard",
+    "variables": [
+      { "name": "q1", "min": 20, "max": 40 },
+      { "name": "q3", "min": 60, "max": 80 }
+    ],
+    "questionTemplate": "Quartiles : Q1={q1}, Q3={q3}. Quel est l'écart interquartile ?",
+    "answersTemplate": [
+      { "textFormula": "{q3} - {q1}", "isCorrectFormula": "1" },
+      { "textFormula": "({q1} + {q3}) / 2", "isCorrectFormula": "0" },
+      { "textFormula": "{q3}", "isCorrectFormula": "0" },
+      { "textFormula": "{q3} / {q1}", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Écart interquartile = Q3 - Q1\n\n✅ Q1 (1er quartile) : {q1}\n✅ Q3 (3ème quartile) : {q3}\n✅ Écart IQ = {q3} - {q1}\n\n💡 Mesure la dispersion des 50% centraux",
+    "realLifeExplanationTemplate": "🌍 Les quartiles :\n\n📊 Série ordonnée divisée en 4 :\n• Q1 : seuil des 25% les plus bas ({q1})\n• Q2 : médiane (50%)\n• Q3 : seuil des 75% ({q3})\n\n📏 Écart interquartile :\n• Q3 - Q1 = {q3} - {q1}\n• Contient les 50% centraux\n• Mesure robuste de dispersion\n\n💡 Boîte à moustaches : [min, Q1, Q2, Q3, max]",
+    "hintsTemplates": [
+      "Écart IQ = Q3 - Q1",
+      "Différence entre 3ème et 1er quartile",
+      "{q3} - {q1}"
+    ],
+    "tags": ["statistiques", "quartiles", "dispersion"]
   }
 ]

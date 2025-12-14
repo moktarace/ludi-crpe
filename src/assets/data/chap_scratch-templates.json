@@ -93,5 +93,152 @@
       "Ça dépend si x > 0 ou pas"
     ],
     "tags": ["boucle", "condition", "scratch", "imbrication"]
+  },
+  {
+    "id": "scr5",
+    "chapterId": "chap_scratch",
+    "type": "free_input",
+    "difficulty": "medium",
+    "variables": [
+      { "name": "initial", "min": 10, "max": 20 },
+      { "name": "increment", "min": 2, "max": 5 },
+      { "name": "iterations", "min": 3, "max": 6 }
+    ],
+    "questionTemplate": "Variable score = {initial}. Répéter {iterations} fois : ajouter {increment} à score. Valeur finale de score ?",
+    "correctAnswerFormula": "{initial} + {increment} * {iterations}",
+    "answersTemplate": [
+      { "textFormula": "{initial} + {increment} * {iterations}", "isCorrectFormula": "1" },
+      { "textFormula": "{initial} + {increment}", "isCorrectFormula": "0" },
+      { "textFormula": "{increment} * {iterations}", "isCorrectFormula": "0" },
+      { "textFormula": "{initial} * {iterations}", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Accumulation dans une variable :\n\n✅ Départ : score = {initial}\n✅ Boucle {iterations} fois : score += {increment}\n✅ Total ajouté : {increment} × {iterations}\n✅ Final : {initial} + {increment} * {iterations}",
+    "realLifeExplanationTemplate": "🌍 Variable = mémoire qui évolue :\n\n🎮 Score d'un jeu :\n• Départ : {initial} points\n• À chaque ennemi vaincu : +{increment} pts\n• Tu vaincs {iterations} ennemis\n\n📊 Évolution :\n• Après 1 : {initial} + {increment}\n• Après 2 : {initial} + 2×{increment}\n• ...\n• Après {iterations} : {initial} + {iterations}×{increment}\n• = {initial} + {increment} * {iterations}\n\n💡 Variable accumule les modifications !",
+    "hintsTemplates": [
+      "On ajoute {increment}, {iterations} fois",
+      "Total ajouté = {increment} × {iterations}",
+      "{initial} + total ajouté"
+    ],
+    "tags": ["scratch", "variable", "accumulation", "boucle"]
+  },
+  {
+    "id": "scr6",
+    "chapterId": "chap_scratch",
+    "type": "multiple_choice",
+    "difficulty": "easy",
+    "questionTemplate": "Quel bloc Scratch fait TOURNER un sprite ?",
+    "answersTemplate": [
+      { "textFormula": "'Tourner de X degrés'", "isCorrectFormula": "1" },
+      { "textFormula": "'Aller à x: X y: Y'", "isCorrectFormula": "0" },
+      { "textFormula": "'Ajouter X à x'", "isCorrectFormula": "0" },
+      { "textFormula": "'Glisser en X secondes'", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Blocs de rotation Scratch :\n\n✅ **Tourner de X degrés** → rotation\n✅ Sens horaire (positif) ou antihoraire (négatif)\n\n❌ Les autres blocs = DÉPLACEMENT (pas rotation)\n\n💡 Rotation ≠ Déplacement",
+    "realLifeExplanationTemplate": "🌍 Mouvement vs Rotation :\n\n🚗 Voiture :\n• **Déplacement** : avancer de 10m (position change)\n• **Rotation** : tourner le volant de 45° (orientation change, position fixe)\n\n🎯 Scratch :\n• 'Avancer de X pas' → déplacement\n• 'Tourner de X degrés' → rotation\n• 'Aller à x:X y:Y' → téléportation\n\n💡 Tourner = changer l'orientation (angle)",
+    "hintsTemplates": [
+      "Cherche le mot 'Tourner'",
+      "Rotation = changement d'angle",
+      "'Tourner de X degrés'"
+    ],
+    "tags": ["scratch", "rotation", "mouvement", "blocs"]
+  },
+  {
+    "id": "scr7",
+    "chapterId": "chap_scratch",
+    "type": "free_input",
+    "difficulty": "hard",
+    "variables": [
+      { "name": "a", "min": 5, "max": 15 },
+      { "name": "b", "min": 2, "max": 8 }
+    ],
+    "questionTemplate": "Code : Si a > 10 ALORS resultat = a + b SINON resultat = a - b. Avec a={a}, b={b}, quelle est la valeur de resultat ?",
+    "correctAnswerFormula": "{a} > 10 ? {a} + {b} : {a} - {b}",
+    "answersTemplate": [
+      { "textFormula": "{a} > 10 ? {a} + {b} : {a} - {b}", "isCorrectFormula": "1" },
+      { "textFormula": "{a} + {b}", "isCorrectFormula": "0" },
+      { "textFormula": "{a} - {b}", "isCorrectFormula": "0" },
+      { "textFormula": "{a} * {b}", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Structure conditionnelle Si-Sinon :\n\n✅ Test : {a} > 10 ?\n✅ Si OUI : resultat = {a} + {b}\n✅ Si NON : resultat = {a} - {b}\n\n🔍 Avec a = {a} :\n{a} > 10 ? {a} + {b} : {a} - {b}",
+    "realLifeExplanationTemplate": "🌍 Condition Si-Sinon dans la vie :\n\n🎟️ Tarif cinéma :\n• SI âge > 10 ans → tarif adulte (cher)\n• SINON → tarif enfant (réduit)\n\n📊 Avec a = {a}, b = {b} :\n• Condition : {a} > 10 ?\n• Si VRAI : {a} + {b} = {a} + {b}\n• Si FAUX : {a} - {b} = {a} - {b}\n\n💡 'SINON' = alternative si condition fausse",
+    "hintsTemplates": [
+      "Teste d'abord : {a} > 10 ?",
+      "Si vrai : {a}+{b}, si faux : {a}-{b}",
+      "Évalue la condition"
+    ],
+    "tags": ["scratch", "condition", "si-sinon", "alternative"]
+  },
+  {
+    "id": "scr8",
+    "chapterId": "chap_scratch",
+    "type": "multiple_choice",
+    "difficulty": "medium",
+    "variables": [
+      { "name": "longueur", "min": 3, "max": 8 }
+    ],
+    "questionTemplate": "Liste fruits = ['pomme', 'orange', 'banane']. Combien d'éléments contient cette liste ?",
+    "answersTemplate": [
+      { "textFormula": "'3'", "isCorrectFormula": "1" },
+      { "textFormula": "'4'", "isCorrectFormula": "0" },
+      { "textFormula": "'2'", "isCorrectFormula": "0" },
+      { "textFormula": "'1'", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Liste Scratch :\n\n✅ Liste = collection d'éléments\n✅ Éléments : 'pomme', 'orange', 'banane'\n✅ Nombre d'éléments = 3\n\n💡 Compte les éléments séparés par des virgules",
+    "realLifeExplanationTemplate": "🌍 Liste = tableau de données :\n\n🛒 Liste de courses :\n• Position 1 : 'pomme'\n• Position 2 : 'orange'\n• Position 3 : 'banane'\n\n📊 Longueur de la liste = 3\n\n💡 Scratch :\n• 'Ajouter X à liste' → longueur +1\n• 'Élément 1 de liste' → 'pomme'\n• 'Longueur de liste' → 3\n\n🎯 Liste ≠ variable simple :\n• Variable : 1 valeur\n• Liste : plusieurs valeurs ordonnées",
+    "hintsTemplates": [
+      "Compte les éléments",
+      "3 fruits dans la liste",
+      "pomme, orange, banane = 3"
+    ],
+    "tags": ["scratch", "liste", "tableau", "longueur"]
+  },
+  {
+    "id": "scr9",
+    "chapterId": "chap_scratch",
+    "type": "free_input",
+    "difficulty": "easy",
+    "variables": [
+      { "name": "cotes", "min": 3, "max": 8 }
+    ],
+    "questionTemplate": "Dessiner un polygone régulier à {cotes} côtés. De combien de degrés doit tourner le sprite à CHAQUE sommet ? (360/{cotes}, arrondi)",
+    "correctAnswerFormula": "Math.round(360 / {cotes})",
+    "answersTemplate": [
+      { "textFormula": "Math.round(360 / {cotes})", "isCorrectFormula": "1" },
+      { "textFormula": "Math.round(180 / {cotes})", "isCorrectFormula": "0" },
+      { "textFormula": "{cotes}", "isCorrectFormula": "0" },
+      { "textFormula": "360", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Dessin polygone régulier :\n\n✅ Polygone à {cotes} côtés\n✅ Tour complet = 360°\n✅ Angle externe à chaque sommet = 360° / {cotes}\n✅ = Math.round(360 / {cotes})°",
+    "realLifeExplanationTemplate": "🌍 Géométrie + Programmation :\n\n🔺 Polygone régulier à {cotes} côtés :\n• Répéter {cotes} fois :\n  - Avancer de X pas\n  - Tourner de Y degrés\n\n📐 Calcul de l'angle Y :\n• Tour complet = 360°\n• {cotes} rotations égales\n• Angle = 360° / {cotes} = Math.round(360 / {cotes})°\n\n💡 Exemples :\n• Triangle ({cotes}=3) : 360°/3 = 120°\n• Carré ({cotes}=4) : 360°/4 = 90°\n• Hexagone ({cotes}=6) : 360°/6 = 60°",
+    "hintsTemplates": [
+      "Tour complet = 360°",
+      "Divise par le nombre de côtés",
+      "360 / {cotes}"
+    ],
+    "tags": ["scratch", "géométrie", "polygone", "rotation"]
+  },
+  {
+    "id": "scr10",
+    "chapterId": "chap_scratch",
+    "type": "multiple_choice",
+    "difficulty": "hard",
+    "variables": [
+      { "name": "x", "min": 5, "max": 15 }
+    ],
+    "questionTemplate": "Quel est le rôle du bloc 'Envoyer message1' dans Scratch ?",
+    "answersTemplate": [
+      { "textFormula": "'Déclencher un événement pour d\\'autres sprites'", "isCorrectFormula": "1" },
+      { "textFormula": "'Afficher du texte à l\\'écran'", "isCorrectFormula": "0" },
+      { "textFormula": "'Enregistrer une variable'", "isCorrectFormula": "0" },
+      { "textFormula": "'Arrêter le programme'", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Messages dans Scratch :\n\n✅ 'Envoyer message' = déclencher un événement\n✅ D'autres sprites peuvent 'recevoir' ce message\n✅ Permet la communication entre sprites\n\n💡 Message = signal de communication",
+    "realLifeExplanationTemplate": "🌍 Communication entre sprites :\n\n📡 Système de messagerie :\n\n🐱 Chat :\n• Quand drapeau vert cliqué\n• Envoyer 'début'\n\n🐕 Chien :\n• Quand je reçois 'début'\n• Dire 'Woof !'\n\n📊 Utilité :\n• Synchroniser plusieurs sprites\n• Déclencher animations en cascade\n• Coordonner actions complexes\n\n💡 Exemples :\n• Jeu : 'gagné' → tous sprites célèbrent\n• Animation : 'scène2' → changement décor",
+    "hintsTemplates": [
+      "Message = communication",
+      "Déclenche événements ailleurs",
+      "Synchronise sprites"
+    ],
+    "tags": ["scratch", "message", "événement", "communication"]
   }
 ]

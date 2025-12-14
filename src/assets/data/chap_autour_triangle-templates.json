@@ -95,5 +95,153 @@
       "Réponse = {cote} × 3"
     ],
     "tags": ["périmètre", "équilatéral", "triangle"]
+  },
+  {
+    "id": "tri5",
+    "chapterId": "chap_autour_triangle",
+    "type": "multiple_choice",
+    "difficulty": "medium",
+    "variables": [
+      { "name": "angle", "min": 60, "max": 89 }
+    ],
+    "questionTemplate": "Un triangle a un angle de {angle}°. Peut-il être un triangle rectangle ?",
+    "answersTemplate": [
+      { "textFormula": "'Non, un rectangle a un angle de 90°'", "isCorrectFormula": "1" },
+      { "textFormula": "'Oui, {angle}° est proche de 90°'", "isCorrectFormula": "0" },
+      { "textFormula": "'Oui, si les autres compensent'", "isCorrectFormula": "0" },
+      { "textFormula": "'Ça dépend des autres angles'", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 NON ! Triangle rectangle = UN angle de 90° EXACTEMENT\n\n✅ {angle}° ≠ 90° donc pas rectangle\n\n💡 Rectangle = 1 angle droit (90°) obligatoire",
+    "realLifeExplanationTemplate": "🌍 Triangle rectangle :\n\n📐 Équerre de charpentier : 90° PILE\n• Pas 89° ni 91°\n• Exactement 90°\n\n🏗️ Construction : angle droit = perpendiculaire\n• Murs et sol : 90°\n• Pas à peu près, EXACTEMENT !",
+    "hintsTemplates": [
+      "Rectangle = 1 angle de 90° exact",
+      "{angle}° n'est pas 90°",
+      "Réponse : Non"
+    ],
+    "tags": ["triangle rectangle", "angles", "définition"]
+  },
+  {
+    "id": "tri6",
+    "chapterId": "chap_autour_triangle",
+    "type": "free_input",
+    "difficulty": "hard",
+    "variables": [
+      { "name": "base", "min": 6, "max": 12 },
+      { "name": "hauteur", "min": 4, "max": 10 }
+    ],
+    "questionTemplate": "Un triangle a une base de {base} cm et une hauteur de {hauteur} cm. Quelle est son aire (en cm²) ?",
+    "correctAnswerFormula": "{base} * {hauteur} / 2",
+    "answersTemplate": [
+      { "textFormula": "{base} * {hauteur} / 2", "isCorrectFormula": "1" },
+      { "textFormula": "{base} * {hauteur}", "isCorrectFormula": "0" },
+      { "textFormula": "({base} + {hauteur}) / 2", "isCorrectFormula": "0" },
+      { "textFormula": "{base} * {hauteur} * 2", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Aire triangle = (base × hauteur) ÷ 2\n\n✅ A = ({base} × {hauteur}) ÷ 2\n✅ A = {base} * {hauteur} / 2 cm²\n\n💡 Triangle = moitié d'un rectangle !",
+    "realLifeExplanationTemplate": "🌍 Pourquoi diviser par 2 ?\n\n📐 Imagine un rectangle {base}×{hauteur}\n• Aire rectangle = {base} × {hauteur}\n• Coupe-le en diagonale → 2 triangles\n• Aire 1 triangle = ({base} × {hauteur}) ÷ 2\n\n🎪 Tente triangulaire : calcul de toile nécessaire",
+    "hintsTemplates": [
+      "Aire = (base × hauteur) ÷ 2",
+      "Triangle = moitié rectangle",
+      "Calcule {base} × {hauteur} ÷ 2"
+    ],
+    "tags": ["aire", "triangle", "formule"]
+  },
+  {
+    "id": "tri7",
+    "chapterId": "chap_autour_triangle",
+    "type": "multiple_choice",
+    "difficulty": "easy",
+    "questionTemplate": "Combien de hauteurs possède un triangle ?",
+    "answersTemplate": [
+      { "textFormula": "'3 hauteurs'", "isCorrectFormula": "1" },
+      { "textFormula": "'1 hauteur'", "isCorrectFormula": "0" },
+      { "textFormula": "'2 hauteurs'", "isCorrectFormula": "0" },
+      { "textFormula": "'Ça dépend du triangle'", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Tout triangle a 3 hauteurs\n\n✅ 3 sommets → 3 hauteurs possibles\n✅ Chaque hauteur part d'un sommet\n✅ Et tombe perpendiculaire sur le côté opposé\n\n💡 Les 3 hauteurs se croisent en 1 point : l'orthocentre",
+    "realLifeExplanationTemplate": "🌍 Les 3 hauteurs :\n\n📐 Triangle ABC :\n• Hauteur depuis A vers [BC]\n• Hauteur depuis B vers [AC]\n• Hauteur depuis C vers [AB]\n\n🎯 Point de rencontre = orthocentre\n\n💡 Même un triangle aplati a 3 hauteurs !",
+    "hintsTemplates": [
+      "3 sommets = 3 hauteurs",
+      "Chaque sommet a sa hauteur",
+      "Réponse : 3"
+    ],
+    "tags": ["hauteur", "triangle", "géométrie"]
+  },
+  {
+    "id": "tri8",
+    "chapterId": "chap_autour_triangle",
+    "type": "free_input",
+    "difficulty": "medium",
+    "variables": [
+      { "name": "a", "min": 3, "max": 5 },
+      { "name": "b", "min": 4, "max": 5 },
+      { "name": "c", "min": 5, "max": 7 }
+    ],
+    "questionTemplate": "Un triangle a des côtés de {a} cm, {b} cm et {c} cm. Vérifie l'inégalité triangulaire : {a} + {b} > {c} ? Réponds OUI ou NON",
+    "correctAnswerFormula": "({a} + {b} > {c}) ? 'OUI' : 'NON'",
+    "answersTemplate": [
+      { "textFormula": "({a} + {b} > {c}) ? 'OUI' : 'NON'", "isCorrectFormula": "1" },
+      { "textFormula": "({a} + {b} > {c}) ? 'NON' : 'OUI'", "isCorrectFormula": "0" },
+      { "textFormula": "'PEUT-ETRE'", "isCorrectFormula": "0" },
+      { "textFormula": "'IMPOSSIBLE'", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Inégalité triangulaire :\n\n✅ La somme de 2 côtés > 3ème côté\n✅ {a} + {b} = {a} + {b}\n✅ {c} = {c}\n✅ {a} + {b} > {c} ? → Réponse\n\n💡 Si NON → triangle impossible !",
+    "realLifeExplanationTemplate": "🌍 Pourquoi cette règle ?\n\n🚶 Imagine 3 villes A, B, C :\n• Distance A→B = {a} km\n• Distance B→C = {b} km\n• Distance A→C = {c} km\n\n💡 Passer par B ({a}+{b}) doit être ≥ direct ({c})\n• Sinon : paradoxe !\n\n🎯 C'est comme dire : le détour est toujours ≥ direct",
+    "hintsTemplates": [
+      "Calcule {a} + {b}",
+      "Compare avec {c}",
+      "Si somme > {c} → OUI"
+    ],
+    "tags": ["inégalité triangulaire", "construction", "triangle"]
+  },
+  {
+    "id": "tri9",
+    "chapterId": "chap_autour_triangle",
+    "type": "multiple_choice",
+    "difficulty": "medium",
+    "variables": [
+      { "name": "cote", "min": 5, "max": 12 }
+    ],
+    "questionTemplate": "Un triangle équilatéral de côté {cote} cm. Tous ses angles mesurent :",
+    "answersTemplate": [
+      { "textFormula": "'60°'", "isCorrectFormula": "1" },
+      { "textFormula": "'90°'", "isCorrectFormula": "0" },
+      { "textFormula": "'45°'", "isCorrectFormula": "0" },
+      { "textFormula": "'{cote}°'", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Triangle équilatéral → 3 angles de 60°\n\n✅ 3 côtés égaux = 3 angles égaux\n✅ Somme des angles = 180°\n✅ Chaque angle = 180° ÷ 3 = 60°\n\n💡 Équilatéral = parfaitement symétrique",
+    "realLifeExplanationTemplate": "🌍 Le triangle équilatéral :\n\n⚠️ Panneau danger : équilatéral\n• Tous les angles = 60°\n• Parfaitement régulier\n\n🔺 Structure la plus stable :\n• Pont : triangles équilatéraux\n• Tour Eiffel : triangles partout\n• Alvéoles abeilles (hexagones = 6 triangles équilatéraux)",
+    "hintsTemplates": [
+      "Équilatéral = 3 angles égaux",
+      "180° ÷ 3 = 60°",
+      "Réponse : 60°"
+    ],
+    "tags": ["équilatéral", "angles", "propriétés"]
+  },
+  {
+    "id": "tri10",
+    "chapterId": "chap_autour_triangle",
+    "type": "free_input",
+    "difficulty": "hard",
+    "variables": [
+      { "name": "hyp", "min": 10, "max": 13 },
+      { "name": "cote", "min": 5, "max": 8 }
+    ],
+    "questionTemplate": "Triangle rectangle : hypoténuse = {hyp} cm, un côté = {cote} cm. Calcule l'autre côté (arrondi à 1 décimale).",
+    "correctAnswerFormula": "sqrt({hyp}*{hyp} - {cote}*{cote})",
+    "answersTemplate": [
+      { "textFormula": "sqrt({hyp}*{hyp} - {cote}*{cote})", "isCorrectFormula": "1" },
+      { "textFormula": "sqrt({hyp}*{hyp} + {cote}*{cote})", "isCorrectFormula": "0" },
+      { "textFormula": "{hyp} - {cote}", "isCorrectFormula": "0" },
+      { "textFormula": "{hyp} + {cote}", "isCorrectFormula": "0" }
+    ],
+    "explanationTemplate": "📖 Pythagore inversé :\n\n✅ hyp² = côté1² + côté2²\n✅ {hyp}² = {cote}² + côté2²\n✅ côté2² = {hyp}² - {cote}²\n✅ côté2 = √({hyp}² - {cote}²)\n✅ côté2 = sqrt({hyp}*{hyp} - {cote}*{cote})",
+    "realLifeExplanationTemplate": "🌍 Pythagore à l'envers :\n\n🪜 Échelle de {hyp}m contre un mur\n• Bas de l'échelle : {cote}m du mur\n• Hauteur atteinte = ?\n\n📐 Calcul :\n• h² = {hyp}² - {cote}²\n• h = √(pow({hyp}, 2) - pow({cote}, 2))\n\n💡 Connaître 2 côtés → trouver le 3ème",
+    "hintsTemplates": [
+      "Pythagore : a² + b² = c²",
+      "Isole le côté inconnu",
+      "√({hyp}² - {cote}²)"
+    ],
+    "tags": ["pythagore", "triangle rectangle", "racine"]
   }
 ]
