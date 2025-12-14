@@ -4,6 +4,7 @@ import { Question, QuestionType, UserAnswer } from '../../models/question.model'
 import { QuestionService } from '../../services/question.service';
 import { ProgressService } from '../../services/progress.service';
 import { ChapterService } from '../../services/chapter.service';
+import { FeaturesConfig } from '../../config/features.config';
 
 @Component({
   selector: 'app-quiz',
@@ -25,6 +26,7 @@ export class QuizComponent implements OnInit {
   hintsUsed: number = 0;
   showRealLifeMode: boolean = false;
   QuestionType = QuestionType; // Exposer l'enum au template
+  FeaturesConfig = FeaturesConfig; // Exposer la config au template
 
   constructor(
     private route: ActivatedRoute,

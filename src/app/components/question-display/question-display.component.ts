@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Question } from '../../models/question.model';
+import { FeaturesConfig } from '../../config/features.config';
 
 @Component({
   selector: 'app-question-display',
@@ -7,6 +8,7 @@ import { Question } from '../../models/question.model';
   styleUrls: ['./question-display.component.scss']
 })
 export class QuestionDisplayComponent {
+  FeaturesConfig = FeaturesConfig; // Exposer la config au template
   @Input() question: Question | null = null;
   @Input() currentAnswer: number | string | null = null;
   @Input() showFeedback: boolean = false;

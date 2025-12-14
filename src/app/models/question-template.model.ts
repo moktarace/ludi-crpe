@@ -3,6 +3,8 @@
  * Permet de générer des questions avec des valeurs aléatoires
  */
 
+import { FeaturesConfig } from '../config/features.config';
+
 export interface QuestionTemplate {
   id: string;
   chapterId: string;
@@ -203,8 +205,14 @@ export class QuestionGenerator {
   /**
    * Détermine le type de question basé sur l'index
    * Progression : 2 premières en QCM, puis alternance, puis principalement saisie libre
+   * Si la saisie libre est désactivée (FeaturesConfig), retourne toujours QCM
    */
   private static determineQuestionType(questionIndex: number): 'multiple_choice' | 'free_input' {
+    // Si la fonctionnalité saisie libre est désactivée, toujours retourner QCM
+    if (!FeaturesConfig.enableFreeInputMode) {
+      return 'multiple_choice';
+    }
+    
     // Questions 0-1 (1-2 pour l'utilisateur) : QCM pour s'habituer
     if (questionIndex < 2) {
       return 'multiple_choice';

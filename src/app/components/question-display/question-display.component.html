@@ -1,6 +1,6 @@
 <div class="question-card" *ngIf="question">
   <div class="question-header">
-    <span class="question-type" [ngClass]="question!.type">
+    <span class="question-type" [ngClass]="question!.type" *ngIf="FeaturesConfig.showQuestionType">
       <span *ngIf="question!.type === 'multiple_choice'">📝 QCM</span>
       <span *ngIf="question!.type === 'free_input'">✍️ Réponse libre</span>
       <span *ngIf="question!.type === 'true_false'">✓/✗ Vrai/Faux</span>
