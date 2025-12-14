@@ -40,8 +40,8 @@
         </button>
       </div>
 
-      <!-- Réponse libre -->
-      <div class="free-input" *ngIf="currentQuestion.type === QuestionType.FREE_INPUT">
+      <!-- Réponse libre (désactivé si FeaturesConfig.enableFreeInputMode = false) -->
+      <div class="free-input" *ngIf="currentQuestion.type === QuestionType.FREE_INPUT && FeaturesConfig.enableFreeInputMode">
         <input 
           type="text" 
           class="answer-input"

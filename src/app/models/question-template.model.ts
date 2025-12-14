@@ -64,10 +64,14 @@ export class QuestionGenerator {
     // Remplace les placeholders dans la question
     const question = this.replacePlaceholders(template.questionTemplate, variables);
     
-    // Détermine le type automatiquement basé sur l'index si fourni
+    // Détermine le type automatiquement
+    // Si enableFreeInputMode est false, toujours utiliser QCM
     let questionType = template.type;
     if (questionIndex !== undefined) {
       questionType = this.determineQuestionType(questionIndex);
+    } else if (!FeaturesConfig.enableFreeInputMode && template.type === 'free_input') {
+      // Forcer QCM si la saisie libre est désactivée même sans questionIndex
+      questionType = 'multiple_choice';
     }
     
     // Génère la réponse selon le type

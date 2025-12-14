@@ -29,8 +29,8 @@
     </button>
   </div>
 
-  <!-- Réponse libre -->
-  <div class="free-input" *ngIf="question.type === 'free_input'">
+  <!-- Réponse libre (désactivé si FeaturesConfig.enableFreeInputMode = false) -->
+  <div class="free-input" *ngIf="question.type === 'free_input' && FeaturesConfig.enableFreeInputMode">
     <input 
       type="text" 
       class="answer-input"
