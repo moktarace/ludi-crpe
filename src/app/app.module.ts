@@ -15,6 +15,7 @@ import { ProgressBarComponent } from './components/progress-bar/progress-bar.com
 import { HomeComponent } from './components/home/home.component';
 import { KatexDirective } from './directives/katex.directive';
 import { MathNotationPipe } from './pipes/math-notation.pipe';
+import { MarkdownFormatPipe } from './pipes/markdown-format.pipe';
 import { ExamComponent } from './components/exam/exam.component';
 import { ExamResultsComponent } from './components/exam-results/exam-results.component';
 import { QuestionDisplayComponent } from './components/question-display/question-display.component';
@@ -29,6 +30,7 @@ import { QuestionDisplayComponent } from './components/question-display/question
     HomeComponent,
     KatexDirective,
     MathNotationPipe,
+    MarkdownFormatPipe,
     ExamComponent,
     ExamResultsComponent,
     QuestionDisplayComponent

@@ -4,7 +4,7 @@
   <div class="chapter-header">
     <div class="chapter-icon-large">{{ chapter.icon }}</div>
     <h1>{{ chapter.title }}</h1>
-    <p class="description">{{ chapter.description }}</p>
+    <p class="description" [innerHTML]="chapter.description | markdownFormat"></p>
   </div>
 
   <div class="action-buttons">
@@ -15,7 +15,7 @@
 
   <div class="chapter-info">
     <h3>📖 Ce que tu vas apprendre</h3>
-    <p>{{ chapter.description }}</p>
+    <p [innerHTML]="chapter.description | markdownFormat"></p>
     
     <div class="tips">
       <h4>💡 Conseils</h4>

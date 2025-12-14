@@ -60,7 +60,7 @@
           
           <!-- Explication mathématique standard -->
           <div class="explanation-block" *ngIf="!showRealLifeMode">
-            <p *ngIf="currentQuestion.explanation">{{ currentQuestion.explanation | mathNotation }}</p>
+            <p *ngIf="currentQuestion.explanation" [innerHTML]="currentQuestion.explanation | mathNotation | markdownFormat"></p>
           </div>
           
           <!-- Explication "vie de tous les jours" -->
@@ -69,7 +69,7 @@
               <span class="icon">🌍</span>
               <h4>Dans la vie de tous les jours</h4>
             </div>
-            <p>{{ currentQuestion.realLifeExplanation | mathNotation }}</p>
+            <p [innerHTML]="currentQuestion.realLifeExplanation | mathNotation | markdownFormat"></p>
           </div>
           
           <!-- Bouton pour alterner les modes -->
@@ -92,7 +92,7 @@
         </button>
         <div class="hints-list" *ngIf="getVisibleHints().length > 0">
           <div class="hint" *ngFor="let hint of getVisibleHints(); let i = index">
-            <span class="hint-number">Indice {{ i + 1 }}:</span> {{ hint | mathNotation }}
+            <span class="hint-number">Indice {{ i + 1 }}:</span> <span [innerHTML]="hint | mathNotation | markdownFormat"></span>
           </div>
         </div>
       </div>

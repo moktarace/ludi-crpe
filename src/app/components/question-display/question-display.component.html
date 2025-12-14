@@ -49,7 +49,7 @@
       
       <!-- Explication -->
       <div class="explanation-block" *ngIf="showExplanation && question.explanation">
-        <p>{{ question.explanation | mathNotation }}</p>
+        <p [innerHTML]="question.explanation | mathNotation | markdownFormat"></p>
       </div>
     </div>
   </div>
@@ -65,7 +65,7 @@
     
     <div class="hints" *ngIf="question.hints && currentHintIndex > 0">
       <div class="hint" *ngFor="let hint of question.hints.slice(0, currentHintIndex)">
-        <p>{{ hint | mathNotation }}</p>
+        <p [innerHTML]="hint | mathNotation | markdownFormat"></p>
       </div>
     </div>
   </div>
